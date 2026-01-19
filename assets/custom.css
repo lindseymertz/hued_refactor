@@ -295,7 +295,7 @@ button.ssw-reward-auth-reg-btn.ssw-reward-btn {
 .header.header--redesign {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 12px 20px;
   gap: 24px;
 }
@@ -340,6 +340,7 @@ button.ssw-reward-auth-reg-btn.ssw-reward-btn {
   flex-shrink: 0;
   margin: 0;
   order: 1;
+  margin-left: calc(var(--page-gutter, 164px) - 20px);
 }
 
 /* --- Inline Navigation Container --- */
@@ -672,11 +673,12 @@ button.ssw-reward-auth-reg-btn.ssw-reward-btn {
     order: 0;
   }
 
-  /* Logo in middle on mobile */
+  /* Logo in middle on mobile - reset desktop gutter margin */
   .header--redesign .header-logo {
     order: 1;
     flex: 1;
     text-align: center;
+    margin-left: 0;
   }
 
   /* Tools on right on mobile */
