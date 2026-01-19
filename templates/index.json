@@ -98,12 +98,54 @@
     },
     "index-rich-text": {
       "type": "index-rich-text",
+      "disabled": true,
       "settings": {
         "subheading": "",
         "title": "LIVE IN COLOR",
         "text": "<h4>HUED Bracelets can't change the world, but we believe the people wearing them can.</h4><h4>Color evokes emotion, inspires reactions, and changes modes of thinking. </h4><h4>Our bracelets are created for style and designed to bring color (and emotions) to life!</h4>",
         "button_label": "",
         "button_link": ""
+      }
+    },
+    "category-cards": {
+      "type": "index-category-cards",
+      "blocks": {
+        "cat-1": {
+          "type": "category",
+          "settings": {
+            "title": "Jelly Bracelets",
+            "link": "/collections/jelly-bracelets",
+            "placeholder_color": "#27bdbe"
+          }
+        },
+        "cat-2": {
+          "type": "category",
+          "settings": {
+            "title": "Jelly Rings",
+            "link": "/collections/jelly-rings",
+            "placeholder_color": "#FF6B6B"
+          }
+        },
+        "cat-3": {
+          "type": "category",
+          "settings": {
+            "title": "Twist Bracelets",
+            "link": "/collections/twist-bracelets",
+            "placeholder_color": "#9B59B6"
+          }
+        },
+        "cat-4": {
+          "type": "category",
+          "settings": {
+            "title": "Beaded Bracelets",
+            "link": "/collections/beaded-bracelets",
+            "placeholder_color": "#F39C12"
+          }
+        }
+      },
+      "block_order": ["cat-1", "cat-2", "cat-3", "cat-4"],
+      "settings": {
+        "heading": "Shop by Category"
       }
     },
     "index_rich_text_k9jdCr": {
@@ -123,7 +165,7 @@
         "style": "grid",
         "collection": "valentines-day-jelly-bracelets",
         "product-info": "below",
-        "productsPerRow": 6,
+        "productsPerRow": 4,
         "displayDetails": "customDetails",
         "featuredSubheading": "",
         "featuredTitle": "VALENTINE'S DAY STACKS",
@@ -1190,6 +1232,7 @@
     "index_rich_text_CfQbWG",
     "video-hero",
     "index-image-with-text-overlay",
+    "category-cards",
     "index-rich-text",
     "index_rich_text_k9jdCr",
     "4d1ec479-92b2-4eb5-a999-71be20a65b37",

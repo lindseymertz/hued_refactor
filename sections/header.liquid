@@ -76,27 +76,39 @@
       {% render 'navigation', section: section %}
     </div>
 
+    {% comment %} HUED REDESIGN: Restructured header tools - search, currency, account, cart {% endcomment %}
     <div class="header-tools header-tools--style-{{ section.settings.icon_style }}" data-header-tools>
-      <div class="header-localization">
-        {% render 'localization-form', showCurrencySelector: section.settings.showCurrencySelector, showLanguageSelector: section.settings.showLanguageSelector %}
-      </div>
       <ul>
+        {% comment %} Search Icon {% endcomment %}
+        <li class="header-search-icon">
+          <button type="button" class="header-search-toggle" aria-label="{{ 'layout.header.search' | t | escape }}" data-search-drawer-toggle>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </button>
+        </li>
+
+        {% comment %} Currency/Localization Icon {% endcomment %}
+        {% if section.settings.showCurrencySelector or section.settings.showLanguageSelector %}
+          <li class="header-currency" data-header-currency>
+            <div class="header-localization">
+              {% render 'localization-form', showCurrencySelector: section.settings.showCurrencySelector, showLanguageSelector: section.settings.showLanguageSelector %}
+            </div>
+          </li>
+        {% endif %}
+
+        {% comment %} Account Icon {% endcomment %}
         {% if shop.customer_accounts_enabled %}
           <li class="header-account" data-header-account>
             <a
               href="{{ routes.account_url }}"
               aria-label="{{ 'layout.header.account' | t | escape }}"
             >
-              {% if section.settings.icon_style == '0' %}
-                {{- 'layout.header.account' | t -}}
-              {% else %}
-                <svg><use xlink:href="#icon-account-{{ section.settings.icon_style }}"></use></svg>
-              {% endif %}
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
             </a>
             {% render "header-account-dropdown", customer: customer, section: section %}
           </li>
         {% endif %}
 
+        {% comment %} Cart Icon {% endcomment %}
         <li class="header-cart">
           <a
             href="{{ routes.cart_url }}"
@@ -106,11 +118,7 @@
               class="slide-menu-cart"
             {%- endif -%}
           >
-            {% if section.settings.icon_style == '0' %}
-                {{- 'layout.header.cart' | t -}}
-            {% else %}
-              <svg><use xlink:href="#icon-cart-{{ section.settings.icon_style }}"></use></svg>
-            {% endif %}
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
             <span class="header-cart-count" data-header-cart-count>
               {%- if cart.item_count > 0 %}{{ cart.item_count }}{% endif -%}
             </span>
@@ -121,6 +129,73 @@
 
   </div>
 </div>
+
+{% comment %} HUED REDESIGN: Search Drawer - Pura Vida Style {% endcomment %}
+<div class="search-overlay" data-search-overlay></div>
+<div class="search-drawer" data-search-drawer>
+  <div class="search-drawer__header">
+    <h2 class="search-drawer__title">{{ 'layout.header.search' | t }}</h2>
+    <button type="button" class="search-drawer__close" aria-label="{{ 'search.general.close' | t }}" data-search-drawer-close>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+  <form class="search-drawer__form" action="{{ routes.search_url }}" method="get">
+    <input
+      type="text"
+      name="q"
+      class="search-drawer__input"
+      placeholder="{{ 'layout.header.search_placeholder' | t }}"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    />
+    <button type="submit" class="search-drawer__submit" aria-label="{{ 'layout.header.search_submit' | t }}">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </button>
+  </form>
+</div>
+
+<script>
+  // Search Drawer Toggle Script
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtns = document.querySelectorAll('[data-search-drawer-toggle]');
+    const closeBtn = document.querySelector('[data-search-drawer-close]');
+    const drawer = document.querySelector('[data-search-drawer]');
+    const overlay = document.querySelector('[data-search-overlay]');
+    const searchInput = drawer ? drawer.querySelector('.search-drawer__input') : null;
+
+    function openDrawer() {
+      if (drawer && overlay) {
+        drawer.classList.add('is-open');
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        if (searchInput) searchInput.focus();
+      }
+    }
+
+    function closeDrawer() {
+      if (drawer && overlay) {
+        drawer.classList.remove('is-open');
+        overlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    toggleBtns.forEach(function(btn) {
+      btn.addEventListener('click', openDrawer);
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if (overlay) overlay.addEventListener('click', closeDrawer);
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && drawer && drawer.classList.contains('is-open')) {
+        closeDrawer();
+      }
+    });
+  });
+</script>
 
 {% comment %} HUED REDESIGN: Navigation now rendered inline inside header above {% endcomment %}
 

@@ -19,11 +19,10 @@
         {% form 'localization', id: 'FooterCountryForm', class: 'localization-form' %}
         <div class="js">
             <div class="disclosure">
-            <button type="button" class="disclosure__button alt-focus" aria-expanded="false" aria-controls="CountryList">
-                {{ localization.country.name }} ({{ localization.country.currency.iso_code }} {{ localization.country.currency.symbol }})
-                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret" viewBox="0 0 10 6">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
-                </svg>
+            {% comment %} HUED REDESIGN: Globe icon only for header, full text for footer {% endcomment %}
+            <button type="button" class="disclosure__button disclosure__button--icon-only alt-focus" aria-expanded="false" aria-controls="CountryList" aria-label="{{ localization.country.name }} ({{ localization.country.currency.iso_code }})">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-globe"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                <span class="disclosure__button-text">{{ localization.country.name }} ({{ localization.country.currency.iso_code }} {{ localization.country.currency.symbol }})</span>
             </button>
 
             <ul id="CountryList" role="list" class="disclosure__list localization__list" hidden>

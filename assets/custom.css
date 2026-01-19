@@ -393,71 +393,243 @@ button.ssw-reward-auth-reg-btn.ssw-reward-btn {
 .header--redesign .header-tools {
   display: flex;
   align-items: center;
-  gap: 8px;
   margin-left: auto;
   order: 3;
 }
 
+/* ===========================================
+   HEADER TOOLS - ICON ALIGNMENT FIX
+   =========================================== */
+
+/* Reset the ul/li structure */
 .header--redesign .header-tools ul {
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: flex-end;
+  gap: 16px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .header--redesign .header-tools li {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
 }
 
-/* --- Icon Sizing (cleaner, minimal icons) --- */
+/* All clickable elements in tools */
+.header--redesign .header-tools a,
+.header--redesign .header-tools button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text, #303030);
+  transition: color 0.2s ease;
+  line-height: 1;
+}
+
+.header--redesign .header-tools a:hover,
+.header--redesign .header-tools button:hover {
+  color: var(--color-primary, #27bdbe);
+}
+
+/* Force all SVGs to same size and alignment */
 .header--redesign .header-tools svg {
+  display: block;
   width: 20px;
   height: 20px;
+  flex-shrink: 0;
 }
 
-.header--redesign .header-tools .header-account svg,
-.header--redesign .header-tools .header-cart svg {
-  width: 20px;
-  height: 20px;
+/* Search icon button specific */
+.header--redesign .header-search-toggle {
+  padding: 4px;
 }
 
-/* Cart count badge styling */
-.header--redesign .header-cart-count {
-  font-size: 11px;
-  font-weight: 600;
-  min-width: 16px;
-  height: 16px;
-  line-height: 16px;
-  text-align: center;
-  background-color: var(--color-primary, #27bdbe);
-  color: #fff;
-  border-radius: 50%;
-  position: absolute;
-  top: -6px;
-  right: -8px;
-}
-
+/* Cart icon container - position relative for count badge */
 .header--redesign .header-cart {
   position: relative;
 }
 
 .header--redesign .header-cart > a {
   position: relative;
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 4px;
 }
 
-/* --- Localization/Currency Selector --- */
+/* Cart count badge */
+.header--redesign .header-cart-count {
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  color: #fff;
+  background: var(--color-primary, #27bdbe);
+  border-radius: 50%;
+}
+
+.header--redesign .header-cart-count:empty {
+  display: none;
+}
+
+/* Account link */
+.header--redesign .header-account {
+  position: relative;
+}
+
+.header--redesign .header-account > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+/* ===========================================
+   CURRENCY/LOCALIZATION SELECTOR FIX
+   =========================================== */
+
+/* Position container */
+.header--redesign .header-currency {
+  position: relative;
+}
+
 .header--redesign .header-localization {
-  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
-.header--redesign .localization-selector button {
-  font-size: 13px;
-  padding: 4px 8px;
+.header--redesign .header-localization .localization-form {
+  margin: 0;
+  padding: 0;
+}
+
+.header--redesign .header-localization .disclosure {
+  position: relative;
+}
+
+/* Hide noscript in header */
+.header--redesign .header-localization noscript {
+  display: none;
+}
+
+/* Style the icon-only button */
+.header--redesign .disclosure__button--icon-only {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text, #303030);
+  transition: color 0.2s ease;
+  line-height: 1;
+}
+
+.header--redesign .disclosure__button--icon-only:hover {
+  color: var(--color-primary, #27bdbe);
+}
+
+.header--redesign .disclosure__button--icon-only svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Hide the text span in header - show only icon */
+.header--redesign .disclosure__button-text {
+  display: none;
+}
+
+/* Hide old caret icon if present */
+.header--redesign .disclosure__button .icon-caret {
+  display: none;
+}
+
+/* CRITICAL: Force hide the dropdown list by default */
+.header--redesign .header-localization .disclosure__list,
+.header--redesign #CountryList,
+.header--redesign #LanguageList {
+  display: none !important;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: auto;
+  min-width: 220px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  z-index: 1000;
+  padding: 8px 0;
+  margin-top: 8px;
+  list-style: none;
+}
+
+/* Show dropdown ONLY when aria-expanded is true */
+.header--redesign .disclosure__button[aria-expanded="true"] + .disclosure__list,
+.header--redesign .disclosure__button[aria-expanded="true"] ~ #CountryList,
+.header--redesign .disclosure__button[aria-expanded="true"] ~ #LanguageList {
+  display: block !important;
+}
+
+/* Style dropdown items */
+.header--redesign .header-localization .disclosure__item {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header--redesign .header-localization .disclosure__item a {
+  display: block;
+  padding: 10px 16px;
+  color: var(--color-text, #303030);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.header--redesign .header-localization .disclosure__item a:hover {
+  background-color: #f5f5f5;
+}
+
+.header--redesign .header-localization .disclosure__item a[aria-current="true"] {
+  color: var(--color-primary, #27bdbe);
+  font-weight: 600;
+}
+
+/* Force respect hidden attribute in header */
+.header--redesign [hidden] {
+  display: none !important;
+}
+
+/* Override any theme styles that unhide the list */
+.header--redesign .localization__list[hidden],
+.header--redesign .disclosure__list[hidden] {
+  display: none !important;
 }
 
 /* --- Navigation Toggle (Hamburger) - Desktop Hidden --- */
@@ -508,7 +680,7 @@ button.ssw-reward-auth-reg-btn.ssw-reward-btn {
 
   /* Reduce tools gap on mobile */
   .header--redesign .header-tools ul {
-    gap: 8px;
+    gap: 10px;
   }
 
   /* Slightly smaller icons on mobile */
@@ -518,7 +690,7 @@ button.ssw-reward-auth-reg-btn.ssw-reward-btn {
   }
 
   /* Hide currency selector on mobile to save space */
-  .header--redesign .header-localization {
+  .header--redesign .header-currency {
     display: none;
   }
 }
@@ -585,5 +757,256 @@ button.ssw-reward-auth-reg-btn.ssw-reward-btn {
 }
 
 /* ===========================================
+   SEARCH DRAWER - Pura Vida Style
+   =========================================== */
+
+/* Overlay */
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 9998;
+}
+
+.search-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Drawer */
+.search-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  max-width: 90vw;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 9999;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-drawer.is-open {
+  transform: translateX(0);
+}
+
+/* Drawer Header */
+.search-drawer__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.search-drawer__title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-text, #303030);
+}
+
+.search-drawer__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text, #303030);
+  transition: color 0.2s ease;
+}
+
+.search-drawer__close:hover {
+  color: var(--color-primary, #27bdbe);
+}
+
+/* Search Form */
+.search-drawer__form {
+  display: flex;
+  gap: 8px;
+}
+
+.search-drawer__input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.search-drawer__input:focus {
+  border-color: var(--color-primary, #27bdbe);
+}
+
+.search-drawer__input::placeholder {
+  color: #999;
+}
+
+.search-drawer__submit {
+  background: var(--color-primary, #27bdbe);
+  border: none;
+  border-radius: 4px;
+  padding: 12px 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.search-drawer__submit:hover {
+  background: #1fa3a4;
+}
+
+.search-drawer__submit svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ===========================================
    END HEADER REDESIGN
+   =========================================== */
+
+/* ===========================================
+   HERO/BANNER GLOBAL STYLING
+   Rounded edges + subtle side padding
+   Date: 2026-01-18
+   =========================================== */
+
+/* --- Section-level padding for hero sections --- */
+.section-index-slideshow,
+.image-with-text-overlay__wrapper {
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+/* --- Slideshow hero: rounded corners on wrapper --- */
+.slideshow-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* --- Slideshow individual slides --- */
+.slideshow-wrapper .slideshow-image {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* --- Slideshow images --- */
+.slideshow-wrapper .slideshow-image > img {
+  border-radius: 12px;
+}
+
+/* --- Image with text overlay section --- */
+.image-with-text-overlay__wrapper .image-with-text-overlay__content {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.image-with-text-overlay__wrapper .image-with-text-overlay__image {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Handle background-image mode (non-original height) */
+.image-with-text-overlay__wrapper .image-with-text-overlay__image .img {
+  border-radius: 12px;
+}
+
+/* Handle direct image mode (original height) */
+.image-with-text-overlay__wrapper .image-with-text-overlay__image img {
+  border-radius: 12px;
+}
+
+/* --- Mobile adjustments --- */
+@media (max-width: 768px) {
+  .section-index-slideshow,
+  .image-with-text-overlay__wrapper {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .slideshow-wrapper,
+  .slideshow-wrapper .slideshow-image,
+  .slideshow-wrapper .slideshow-image > img,
+  .image-with-text-overlay__wrapper .image-with-text-overlay__content,
+  .image-with-text-overlay__wrapper .image-with-text-overlay__image,
+  .image-with-text-overlay__wrapper .image-with-text-overlay__image .img,
+  .image-with-text-overlay__wrapper .image-with-text-overlay__image img {
+    border-radius: 8px;
+  }
+}
+
+/* --- Ensure overlay pseudo-elements respect border radius --- */
+.image-with-text-overlay__wrapper .image-with-text-overlay__image::before {
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .image-with-text-overlay__wrapper .image-with-text-overlay__image::before {
+    border-radius: 8px;
+  }
+}
+
+/* ===========================================
+   END HERO/BANNER STYLING
+   =========================================== */
+
+/* Darker category card label background */
+.category-card-label {
+  background: #f0f0f0;
+}
+
+/* ===========================================
+   PRODUCT GRID - RESPONSIVE LAYOUT
+   4 columns desktop, 3 tablet, 2 mobile
+   =========================================== */
+
+/* --- Tablet: 3 columns --- */
+@media (max-width: 900px) {
+  .featured-products-wrapper .grid .grid-item-25,
+  .featured-products-wrapper .grid .grid-item-20,
+  .featured-products-wrapper .grid .grid-item-16 {
+    width: 33.333%;
+  }
+}
+
+/* --- Mobile: 2 columns --- */
+@media (max-width: 600px) {
+  .featured-products-wrapper .grid .grid-item-25,
+  .featured-products-wrapper .grid .grid-item-33,
+  .featured-products-wrapper .grid .grid-item-20,
+  .featured-products-wrapper .grid .grid-item-16 {
+    width: 50%;
+  }
+
+  /* Smaller product text on mobile */
+  .product-item__title,
+  .product-item .product-item-title {
+    font-size: 12px;
+  }
+
+  .product-item__price,
+  .product-item .product-item-price {
+    font-size: 13px;
+  }
+}
+
+/* ===========================================
+   END PRODUCT GRID STYLING
    =========================================== */
