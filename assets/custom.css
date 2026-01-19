@@ -138,8 +138,15 @@ button.product-item-add-to-cart.loading:after {
   }
 }
 
-.product-item-image {aspect-ratio: 10/8;}
-.product-recommendations img { aspect-ratio: 10/8;}
+.product-item-image {
+  aspect-ratio: 1/1;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.product-recommendations img {
+  aspect-ratio: 1/1;
+  border-radius: 12px;
+}
 .ssw-fave-btn-content {
   width: 100%;
   display: flex;
@@ -1009,4 +1016,368 @@ button.ssw-reward-auth-reg-btn.ssw-reward-btn {
 
 /* ===========================================
    END PRODUCT GRID STYLING
+   =========================================== */
+
+/* ===========================================
+   HOMEPAGE SECTION HEADING NORMALIZATION
+   Fix: Match category-cards and index-features headings
+   Date: 2026-01-18
+   =========================================== */
+
+/* Normalize all homepage section headings */
+.index-header h2,
+.index-features .index-header h2,
+h2.featured-products-heading,
+.category-cards-header .category-cards-title {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  color: #303030;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .index-header h2,
+  .index-features .index-header h2,
+  h2.featured-products-heading,
+  .category-cards-header .category-cards-title {
+    font-size: 20px !important;
+  }
+}
+
+/* ===========================================
+   END HOMEPAGE HEADING NORMALIZATION
+   =========================================== */
+
+/* ===========================================
+   PRODUCT CARD REDESIGN - Pura Vida Style
+   Date: 2026-01-18
+   =========================================== */
+
+/* Hide color swatches on product cards */
+.product-item-variant-swatch-wrap {
+  display: none !important;
+}
+
+/* Left-align product details */
+.product-item-details {
+  text-align: left;
+  padding: 12px 0 0 0;
+  position: relative;
+}
+
+/* Product title styling */
+.product--item-title {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 0 4px 0;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.product--item-title a {
+  color: #303030;
+  text-decoration: none;
+}
+
+.product--item-title a:hover {
+  color: #27bdbe;
+}
+
+/* Price styling - bold */
+.product-item-price {
+  font-size: 15px;
+  font-weight: 700;
+  color: #303030;
+}
+
+/* Quick add + button */
+.product-item-quick-add {
+  position: absolute;
+  bottom: 12px;
+  right: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 10;
+}
+
+.product-item-quick-add:hover {
+  transform: scale(1.1);
+}
+
+.product-item-quick-add svg circle {
+  transition: fill 0.2s ease;
+}
+
+.product-item-quick-add:hover svg circle {
+  fill: #1fa3a4;
+}
+
+/* Adjust details wrapper for button positioning */
+.product-item-details {
+  position: relative;
+  padding-right: 40px;
+}
+
+/* ===========================================
+   END PRODUCT CARD REDESIGN
+   =========================================== */
+
+/* ===========================================
+   QUICK ADD MODAL - Pura Vida Style
+   Date: 2026-01-18
+   =========================================== */
+
+/* Overlay */
+.quick-add-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 9998;
+}
+
+.quick-add-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal */
+.quick-add-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  background: #fff;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 90vw;
+  max-height: 90vh;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.quick-add-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Close button */
+.quick-add-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 10;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.quick-add-modal__close:hover {
+  background-color: #f0f0f0;
+}
+
+/* Content layout */
+.quick-add-modal__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 400px;
+}
+
+/* Gallery */
+.quick-add-modal__gallery {
+  position: relative;
+  background: #f9f9f9;
+}
+
+.quick-add-modal__main-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.quick-add-modal__main-image img {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+/* Nav arrows */
+.quick-add-modal__nav {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+}
+
+.quick-add-modal__nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.quick-add-modal__nav-btn:hover {
+  border-color: #303030;
+}
+
+.quick-add-modal__nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Info panel */
+.quick-add-modal__info {
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.quick-add-modal__title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: #303030;
+}
+
+.quick-add-modal__price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #303030;
+  margin: 0 0 24px 0;
+}
+
+/* Size options */
+.quick-add-modal__options {
+  margin-bottom: 24px;
+}
+
+.quick-add-modal__option-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #303030;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.quick-add-modal__size-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quick-add-modal__size-btn {
+  min-width: 50px;
+  padding: 10px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 24px;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #303030;
+}
+
+.quick-add-modal__size-btn:hover {
+  border-color: #27bdbe;
+}
+
+.quick-add-modal__size-btn.is-selected {
+  background: #27bdbe;
+  border-color: #27bdbe;
+  color: #fff;
+}
+
+.quick-add-modal__size-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+/* Add to cart button */
+.quick-add-modal__add-btn {
+  width: 100%;
+  padding: 16px;
+  background: #27bdbe;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: auto;
+}
+
+.quick-add-modal__add-btn:hover:not(:disabled) {
+  background: #1fa3a4;
+}
+
+.quick-add-modal__add-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* View details link */
+.quick-add-modal__view-link {
+  display: block;
+  text-align: center;
+  margin-top: 16px;
+  color: #303030;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.quick-add-modal__view-link:hover {
+  color: #27bdbe;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .quick-add-modal__content {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-add-modal__gallery {
+    max-height: 300px;
+  }
+
+  .quick-add-modal__main-image img {
+    max-height: 250px;
+  }
+
+  .quick-add-modal__info {
+    padding: 24px 20px;
+  }
+}
+
+/* ===========================================
+   END QUICK ADD MODAL
    =========================================== */

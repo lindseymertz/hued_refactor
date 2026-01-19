@@ -157,6 +157,19 @@
       {% endif %}
       </div>
 
+      <button
+        class="product-item-quick-add"
+        data-quick-add-trigger
+        data-product-handle="{{ item.handle }}"
+        data-product-url="{{ item.url }}.json"
+        aria-label="Quick add {{ item.title }}"
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="10" fill="#27bdbe"/>
+          <path d="M10 5V15M5 10H15" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
       {% if colorsAvailability %}
         <ul class="product-item-colors">
           {% for colorItem in colorsAvailability %}
