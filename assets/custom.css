@@ -1092,16 +1092,16 @@ h2.featured-products-heading,
   color: #303030;
 }
 
-/* Quick add + button */
+/* Quick add + button - positioned on image */
 .product-item-quick-add {
   position: absolute;
   bottom: 12px;
-  right: 0;
+  right: 12px;
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
   z-index: 10;
 }
 
@@ -1117,10 +1117,14 @@ h2.featured-products-heading,
   fill: #1fa3a4;
 }
 
-/* Adjust details wrapper for button positioning */
-.product-item-details {
+/* Image wrapper needs relative positioning for button */
+.product-item__image-wrapper {
   position: relative;
-  padding-right: 40px;
+}
+
+/* Remove extra padding from details */
+.product-item-details {
+  padding-right: 0;
 }
 
 /* ===========================================
@@ -1380,4 +1384,462 @@ h2.featured-products-heading,
 
 /* ===========================================
    END QUICK ADD MODAL
+   =========================================== */
+
+/* ===========================================
+   FILTER/SORT DRAWER - Pura Vida Style
+   Date: 2026-01-18
+   =========================================== */
+
+/* Overlay */
+.filter-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 9998;
+}
+
+.filter-drawer-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Drawer */
+.filter-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  max-width: 90vw;
+  height: 100vh;
+  background: #fff;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-drawer.is-open {
+  transform: translateX(0);
+}
+
+/* Header */
+.filter-drawer__header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.filter-drawer__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: #303030;
+  transition: color 0.2s ease;
+}
+
+.filter-drawer__close:hover {
+  color: #27bdbe;
+}
+
+/* Content */
+.filter-drawer__content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 24px;
+}
+
+/* Section */
+.filter-drawer__section {
+  padding: 24px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.filter-drawer__section:last-child {
+  border-bottom: none;
+}
+
+.filter-drawer__section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #303030;
+  margin: 0 0 16px 0;
+  text-transform: none;
+}
+
+/* Options container */
+.filter-drawer__options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Radio buttons (Sort) */
+.filter-drawer__radio {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #303030;
+}
+
+.filter-drawer__radio input {
+  display: none;
+}
+
+.filter-drawer__radio-dot {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #303030;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+  transition: border-color 0.2s ease;
+}
+
+.filter-drawer__radio-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 10px;
+  height: 10px;
+  background: #27bdbe;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.filter-drawer__radio input:checked + .filter-drawer__radio-dot {
+  border-color: #27bdbe;
+}
+
+.filter-drawer__radio input:checked + .filter-drawer__radio-dot::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Checkboxes (Filters) */
+.filter-drawer__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #303030;
+}
+
+.filter-drawer__checkbox input {
+  display: none;
+}
+
+.filter-drawer__checkbox-box {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #303030;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-drawer__checkbox-check {
+  opacity: 0;
+  color: #fff;
+  transition: opacity 0.2s ease;
+}
+
+.filter-drawer__checkbox input:checked + .filter-drawer__checkbox-box {
+  background: #27bdbe;
+  border-color: #27bdbe;
+}
+
+.filter-drawer__checkbox input:checked + .filter-drawer__checkbox-box .filter-drawer__checkbox-check {
+  opacity: 1;
+}
+
+.filter-drawer__checkbox--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Color swatches (if needed later) */
+.filter-drawer__colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filter-drawer__color {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.filter-drawer__color input {
+  display: none;
+}
+
+.filter-drawer__color-swatch {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.filter-drawer__color input:checked + .filter-drawer__color-swatch {
+  border-color: #303030;
+}
+
+.filter-drawer__color-label {
+  font-size: 11px;
+  color: #303030;
+  text-align: center;
+}
+
+/* Footer */
+.filter-drawer__footer {
+  padding: 16px 24px 24px;
+  border-top: 1px solid #e0e0e0;
+  background: #fff;
+}
+
+.filter-drawer__count {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.filter-drawer__actions {
+  display: flex;
+  gap: 12px;
+}
+
+.filter-drawer__btn {
+  flex: 1;
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.filter-drawer__btn--clear {
+  background: #fff;
+  border: 1px solid #303030;
+  color: #303030;
+}
+
+.filter-drawer__btn--clear:hover {
+  background: #f5f5f5;
+}
+
+.filter-drawer__btn--apply {
+  background: #ff69b4;
+  border: none;
+  color: #fff;
+}
+
+.filter-drawer__btn--apply:hover {
+  background: #ff4da6;
+}
+
+/* Hide old filter UI elements */
+.collection-filters .facets__wrapper,
+.collection-filters .sorting,
+.collection-filters .facets__disclosure,
+.collection-filters .collection-filters__sort {
+  display: none !important;
+}
+
+/* New Filter/Sort trigger button */
+.filter-sort-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #fff;
+  border: 1px solid #303030;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-sort-trigger:hover {
+  background: #f5f5f5;
+}
+
+/* Position trigger button */
+.collection-filters {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 0;
+}
+
+/* Hide mobile facets open button - we'll use new trigger */
+.mobile-facets__open {
+  display: none !important;
+}
+
+/* ===========================================
+   END FILTER/SORT DRAWER
+   =========================================== */
+
+/* ===========================================
+   COLLECTION HERO BANNER - Pura Vida Style
+   Date: 2026-01-18
+   =========================================== */
+
+.collection-hero {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: calc(100% - 40px);
+  /* Warm pastel yellow fallback */
+  background: linear-gradient(135deg, #FFE5B4 0%, #FFEAA7 50%, #FFD93D 100%);
+}
+
+.collection-hero--has-image {
+  background: none;
+}
+
+/* Image */
+.collection-hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.collection-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Subtle overlay for text readability */
+.collection-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  pointer-events: none;
+}
+
+/* Content positioned bottom-left, aligned with product grid */
+.collection-hero__content {
+  position: absolute;
+  bottom: 24px;
+  left: 8px;
+  right: 24px;
+  z-index: 2;
+  /* Offset to align with product grid at 28px */
+  margin-left: -12px;
+}
+
+.collection-hero__title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  text-transform: none;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.02em;
+}
+
+.collection-hero__description {
+  font-size: 14px;
+  color: #fff;
+  margin-top: 8px;
+  max-width: 500px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Breadcrumbs inside hero */
+.collection-hero__breadcrumbs {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 8px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.collection-hero__breadcrumbs a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.collection-hero__breadcrumbs a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.collection-hero__breadcrumb-sep {
+  margin: 0 8px;
+  opacity: 0.7;
+}
+
+/* Hide original breadcrumbs on collection pages */
+.collection-template .breadcrumbs,
+.collection-template .breadcrumb-wrapper,
+.template-collection .breadcrumbs,
+.template-collection .breadcrumb-wrapper {
+  display: none !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .collection-hero {
+    height: 160px;
+    margin-left: 12px;
+    margin-right: 12px;
+    width: calc(100% - 24px);
+    border-radius: 8px;
+  }
+
+  .collection-hero__content {
+    bottom: 16px;
+    left: -12px;
+    right: -12px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .collection-hero__title {
+    font-size: 24px;
+  }
+}
+
+/* ===========================================
+   END COLLECTION HERO BANNER
    =========================================== */

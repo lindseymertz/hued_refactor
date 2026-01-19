@@ -86,8 +86,8 @@
 <div class="collection-filters {% if sidebar%} sidebar-filters{% else %} topbar-filters{%endif%}" id="main-collection-filters" data-id="{{ section.id }}">
 
   {%- if section.settings.enable_filtering == true or section.settings.enable_sorting == true -%}
-    <button type="button" class="mobile-facets__open button" data-drawer-open-btn>
-      Filter / Sort
+    <button type="button" class="filter-sort-trigger" data-filter-trigger>
+      FILTER / SORT
     </button>
 
     {%- assign total_active_values = 0 -%}

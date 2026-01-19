@@ -329,3 +329,132 @@ jQuery(document).ready(function($) {
 /* ===========================================
    END QUICK ADD MODAL JS
    =========================================== */
+
+/* ===========================================
+   FILTER/SORT DRAWER - JavaScript
+   Date: 2026-01-18
+   =========================================== */
+
+(function() {
+  const filterDrawer = document.querySelector('[data-filter-drawer]');
+  const filterOverlay = document.querySelector('[data-filter-overlay]');
+  const filterClose = document.querySelector('[data-filter-close]');
+  const filterApply = document.querySelector('[data-filter-apply]');
+  const filterTrigger = document.querySelector('[data-filter-trigger]');
+
+  if (!filterDrawer) return;
+
+  // Collect filter state
+  let filterState = {
+    sort_by: null,
+    filters: []
+  };
+
+  // Open drawer
+  function openFilterDrawer() {
+    filterDrawer.classList.add('is-open');
+    filterOverlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    filterDrawer.setAttribute('aria-hidden', 'false');
+  }
+
+  // Close drawer
+  function closeFilterDrawer() {
+    filterDrawer.classList.remove('is-open');
+    filterOverlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+    filterDrawer.setAttribute('aria-hidden', 'true');
+  }
+
+  // Trigger button
+  if (filterTrigger) {
+    filterTrigger.addEventListener('click', openFilterDrawer);
+  }
+
+  // Also support old button if present
+  const oldTrigger = document.querySelector('[data-drawer-open-btn]');
+  if (oldTrigger) {
+    oldTrigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      openFilterDrawer();
+    });
+  }
+
+  // Close button
+  if (filterClose) {
+    filterClose.addEventListener('click', closeFilterDrawer);
+  }
+
+  // Overlay click
+  if (filterOverlay) {
+    filterOverlay.addEventListener('click', closeFilterDrawer);
+  }
+
+  // Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && filterDrawer.classList.contains('is-open')) {
+      closeFilterDrawer();
+    }
+  });
+
+  // Apply button - build URL and navigate
+  if (filterApply) {
+    filterApply.addEventListener('click', function() {
+      const params = new URLSearchParams();
+
+      // Get sort value
+      const sortInput = filterDrawer.querySelector('input[name="sort_by"]:checked');
+      if (sortInput && sortInput.value) {
+        params.set('sort_by', sortInput.value);
+      }
+
+      // Get filter values
+      const filterInputs = filterDrawer.querySelectorAll('[data-filter-input]:checked');
+      filterInputs.forEach(function(input) {
+        params.append(input.name, input.value);
+      });
+
+      // Build URL
+      const currentPath = window.location.pathname;
+      const queryString = params.toString();
+      const newUrl = queryString ? currentPath + '?' + queryString : currentPath;
+
+      // Navigate
+      window.location.href = newUrl;
+    });
+  }
+
+  // Update product count dynamically (optional enhancement)
+  function updateProductCount() {
+    const countEl = document.querySelector('[data-filter-count]');
+    if (!countEl) return;
+
+    // Count checked filters
+    const checkedFilters = filterDrawer.querySelectorAll('[data-filter-input]:checked').length;
+
+    if (checkedFilters > 0) {
+      countEl.textContent = checkedFilters + ' filter(s) selected';
+    } else {
+      // Reset to original count
+      const originalCount = countEl.dataset.originalCount || countEl.textContent;
+      countEl.textContent = originalCount;
+    }
+  }
+
+  // Store original count
+  const countEl = document.querySelector('[data-filter-count]');
+  if (countEl) {
+    countEl.dataset.originalCount = countEl.textContent;
+  }
+
+  // Listen for filter changes
+  const allFilterInputs = filterDrawer.querySelectorAll('[data-filter-input]');
+  allFilterInputs.forEach(function(input) {
+    input.addEventListener('change', updateProductCount);
+  });
+
+})();
+
+/* ===========================================
+   END FILTER/SORT DRAWER JS
+   =========================================== */
