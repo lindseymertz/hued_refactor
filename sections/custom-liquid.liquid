@@ -1,0 +1,37 @@
+<style>
+	.custom-liquid a {
+		text-decoration: none;
+    border-bottom: 1px solid;
+    padding-bottom: 1px;
+    -webkit-transition: padding-bottom 0.15s ease-in-out;
+    -moz-transition: padding-bottom 0.15s ease-in-out;
+    -o-transition: padding-bottom 0.15s ease-in-out;
+    transition: padding-bottom 0.15s ease-in-out;
+	}
+	.custom-liquid a:hover {
+		padding-bottom: 3px;
+	}
+</style>
+
+<section class="custom-liquid">
+		{{ section.settings.custom_liquid }}
+</section>
+
+{% schema %}
+{
+	"name": "Custom Liquid",
+	"settings": [
+		{
+			"type": "liquid",
+			"id": "custom_liquid",
+			"label": "Custom Liquid",
+			"default": "<div style='text-align:center;'><h2>Custom Liquid</h2><p>Add app snippets or other Liquid code to create advanced customizations.</p></div>"
+		}
+	],
+	"presets": [
+		{
+			"name": "Custom Liquid"
+		}
+	]
+}
+{% endschema %}

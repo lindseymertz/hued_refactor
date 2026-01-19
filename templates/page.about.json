@@ -1,0 +1,188 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {
+        "show_page_heading": true
+      }
+    },
+    "dcc4d796-47c9-4b08-a076-1e479a80fdb7": {
+      "type": "index-rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "ABOUT OUR BRAND",
+        "text": "<p>COMING SOON!</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "index-image-with-text-00": {
+      "type": "index-image-with-text",
+      "disabled": true,
+      "settings": {
+        "subHeading": "",
+        "heading": "COLORFUL",
+        "text": "<p>Sometimes all you need is a little splash of color!</p>",
+        "colorBg": "#f6f6f6",
+        "colorText": "#333333",
+        "textPosition": "middle",
+        "textAlignment": "text-center",
+        "layout": "right",
+        "remove-spacing": true
+      }
+    },
+    "index-image-with-text-01": {
+      "type": "index-image-with-text",
+      "disabled": true,
+      "settings": {
+        "subHeading": "",
+        "heading": "THOUGHFULLY DESIGNED",
+        "text": "<p>Our petite size bracelets are the perfect size for stacking mutiple colors.  </p>",
+        "colorBg": "#f6f6f6",
+        "colorText": "#333333",
+        "textPosition": "middle",
+        "textAlignment": "text-center",
+        "layout": "left",
+        "remove-spacing": true
+      }
+    },
+    "index-image-with-text-02": {
+      "type": "index-image-with-text",
+      "disabled": true,
+      "settings": {
+        "subHeading": "",
+        "heading": "MINDFULLY MANUFACTURED",
+        "text": "<p>Our bracelets are produced with dedication and care in sweatshop free production houses, which surpass standards of good working conditions and fair pay.</p>",
+        "colorBg": "#f6f6f6",
+        "colorText": "#333333",
+        "textPosition": "middle",
+        "textAlignment": "text-center",
+        "layout": "right",
+        "remove-spacing": true
+      }
+    },
+    "index-rich-text": {
+      "type": "index-rich-text",
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "THE FAMILY BEHIND THE BRAND",
+        "text": "<p>Together we strive to live (and work) a pretty colorful life! </p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "video-hero": {
+      "type": "video-hero",
+      "disabled": true,
+      "settings": {
+        "url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "desktopHeight": "450",
+        "mobileHeight": "fullscreen",
+        "subheading": "",
+        "title": "",
+        "text": "",
+        "textAlignment": "center",
+        "textColor": "#000000",
+        "textShadow": false,
+        "heading--text-size": 50,
+        "text--text-size": 24,
+        "button_link": "",
+        "button_label": "",
+        "textColorButton": "#ffffff",
+        "colorButton": "#333333"
+      }
+    },
+    "index-features": {
+      "type": "index-features",
+      "blocks": {
+        "index-features-0": {
+          "type": "feature-item",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "SHOP NOW",
+            "url": "shopify://collections/all",
+            "textAlignment": "bottom left",
+            "colorText": "#333333",
+            "colorOverlay": "#f6f6f6",
+            "overlayOpacity": 10
+          }
+        },
+        "index-features-1": {
+          "type": "feature-item",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "url": "",
+            "textAlignment": "top left",
+            "colorText": "#333333",
+            "colorOverlay": "#f6f6f6",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-2": {
+          "type": "feature-item",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "SHOP NOW",
+            "url": "shopify://collections/all",
+            "textAlignment": "bottom left",
+            "colorText": "#333333",
+            "colorOverlay": "#f6f6f6",
+            "overlayOpacity": 10
+          }
+        }
+      },
+      "block_order": [
+        "index-features-0",
+        "index-features-1",
+        "index-features-2"
+      ],
+      "settings": {
+        "subheading": "",
+        "heading": "",
+        "text": "",
+        "indexItemsPerRow": 3,
+        "remove-spacing": false
+      }
+    },
+    "index-newsletter": {
+      "type": "index-newsletter",
+      "settings": {
+        "subheading": "",
+        "heading": "Stay up to date",
+        "text": "",
+        "customerTag": "",
+        "colorText": "#333333",
+        "colorBackground": "#f1f1f1"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "dcc4d796-47c9-4b08-a076-1e479a80fdb7",
+    "index-image-with-text-00",
+    "index-image-with-text-01",
+    "index-image-with-text-02",
+    "index-rich-text",
+    "video-hero",
+    "index-features",
+    "index-newsletter"
+  ]
+}

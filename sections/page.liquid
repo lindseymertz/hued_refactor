@@ -1,0 +1,26 @@
+<div class="">
+  {% if section.settings.show_page_heading %}
+    <h1 class="page-header">{{ page.title }}</h1>
+  {% endif %}
+
+  {% if page.content != blank %}
+    <div class="page page-wrapper grid{% if section.settings.show_page_heading == false %} page--no-heading{% endif %}">
+      <main class="rich-text grid-item-66 rte">
+        {{ page.content }}
+      </main>
+    </div>
+  {% endif %}
+</div>
+{% schema %}
+{
+  "name": "Page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_page_heading",
+      "label": "Show page heading",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

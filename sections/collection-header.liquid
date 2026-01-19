@@ -1,0 +1,30 @@
+<div class="collection-header" style="margin-top: 12px;">
+    <h2 class="collection-title" style="text-align: center;">
+        {{ collection.title }}
+    </h2>
+
+    {% if section.settings.show_description %}
+        <div class="collection-desc">
+            {{ collection.description }}
+        </div>
+    {% endif %}
+</div>
+{% schema %}
+    {
+        "name": "Collection Header",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "show_description",
+                "label": "Show Description",
+                "default": false
+            }
+        ],
+        "presets": [
+            {
+                "name": "Collection Header",
+                "category": "Content"
+            }
+        ]
+    }
+{% endschema %}

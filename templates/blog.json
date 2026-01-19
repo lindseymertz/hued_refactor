@@ -1,0 +1,205 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "index-image-with-text-overlay-00": {
+      "type": "index-image-with-text-overlay",
+      "settings": {
+        "image_height": "40vw",
+        "bg_image_overlay_color": "#F6F6F6",
+        "bg_image_overlay_opacity": 0,
+        "subheading": "",
+        "text": "",
+        "colorText": "#ffffff",
+        "textPosition": "left",
+        "textAlignment": "center",
+        "heading--text-size": 30,
+        "text--text-size": 16,
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "index-navigation-list": {
+      "type": "index-navigation-list",
+      "settings": {
+        "navigation--navigation-blocks--heading": ""
+      }
+    },
+    "index-image-with-text-00": {
+      "type": "index-image-with-text",
+      "settings": {
+        "subHeading": "",
+        "colorBg": "#F6F6F6",
+        "colorText": "#333333",
+        "textPosition": "bottom",
+        "textAlignment": "text-left",
+        "layout": "right",
+        "remove-spacing": false
+      }
+    },
+    "main": {
+      "type": "template--blog",
+      "settings": {}
+    },
+    "index-image-with-text-overlay-01": {
+      "type": "index-image-with-text-overlay",
+      "settings": {
+        "image_height": "40vw",
+        "bg_image_overlay_color": "#F6F6F6",
+        "bg_image_overlay_opacity": 5,
+        "subheading": "",
+        "colorText": "#ffffff",
+        "textPosition": "right",
+        "textAlignment": "right",
+        "heading--text-size": 30,
+        "text--text-size": 14,
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "index-features": {
+      "type": "index-features",
+      "blocks": {
+        "index-features-0": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-1": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "textAlignment": "bottom left",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 0
+          }
+        },
+        "index-features-2": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-3": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-5": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-4": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-6": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "textAlignment": "top left",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-7": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "textAlignment": "top left",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        }
+      },
+      "block_order": [
+        "index-features-0",
+        "index-features-1",
+        "index-features-2",
+        "index-features-3",
+        "index-features-5",
+        "index-features-4",
+        "index-features-6",
+        "index-features-7"
+      ],
+      "settings": {
+        "subheading": "",
+        "heading": "Features",
+        "text": "",
+        "indexItemsPerRow": 4,
+        "remove-spacing": true
+      }
+    },
+    "index-newsletter": {
+      "type": "index-newsletter",
+      "settings": {
+        "subheading": "",
+        "text": "<p>Join our newsletter.</p>",
+        "customerTag": "",
+        "colorText": "#333333",
+        "colorBackground": "#F1F1F1"
+      }
+    }
+  },
+  "order": [
+    "index-image-with-text-overlay-00",
+    "index-navigation-list",
+    "index-image-with-text-00",
+    "main",
+    "index-image-with-text-overlay-01",
+    "index-features",
+    "index-newsletter"
+  ]
+}

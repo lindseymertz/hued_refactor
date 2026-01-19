@@ -1,0 +1,335 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "colorHeader": "#303030",
+    "colorBody": "#303030",
+    "colorLinks": "#707070",
+    "colorBorder": "#E6E6E6",
+    "colorBackground": "#ffffff",
+    "colorButtons": "#27bdbe",
+    "colorButtonsText": "#ffffff",
+    "soldOutBackground": "#27bdbe",
+    "saleBackground": "#303030",
+    "lowStockBackground": "#303030",
+    "newProductBackground": "#303030",
+    "bestSellingBackground": "#303030",
+    "customBadgeBackground": "#303030",
+    "colorHeaderBackground": "#ffffff",
+    "colorHeaderText": "#303030",
+    "fullBleedColor": "#ffffff",
+    "colorPopupBackground": "#F6F6F6",
+    "colorPopupText": "#303030",
+    "secondaryFont": "montserrat_n6",
+    "headingSize": "20px",
+    "headingCase": "uppercase",
+    "navigationFontSize": 16,
+    "primaryFont": "montserrat_n5",
+    "bodySize": 14,
+    "buttonFontWeight": "bolder",
+    "buttonCase": "uppercase",
+    "buttonLetterSpacing": 2,
+    "sectionTextAlignment": "center",
+    "sectionColorText": "rgba(0,0,0,0)",
+    "sectionOverlayOpacity": 0,
+    "collageLayoutEnabled": true,
+    "collectionsPerRow": 3,
+    "expandCollections": true,
+    "enable_cart_require": false,
+    "cart_terms_text": "<ul>         <li>I have reviewed my order for correct sizing and quantities.</li>         <li>I understand that once my order has been placed, I cannot make any changes to my order.</li>         <li>I understand that processing times are 3-5 business days, and that this may vary due to high order volume.</li>         <li>I accept that purchases made on <a href=\"https://www.huedbracelets.com\">www.huedbracelets.com</a> are final sale and cannot be returned or exchanged.</li>         <li>I accept that returns will be accepted ONLY when an item arrives damaged or defective.</li>     </ul>",
+    "ajax_cart_method": "page",
+    "productColorSwatches": "Color",
+    "productSizeSwatches": "Size",
+    "show_second_image_on_hover": false,
+    "productAnimateBadges": true,
+    "show_vendor": false,
+    "productStockLevel": 0,
+    "headerSearchStyle": "minimal",
+    "predictive_search_pages": false,
+    "predictive_search_articles": true,
+    "predictive_search_collections": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": true,
+    "breadcrumbs": true,
+    "shareFacebook": true,
+    "shareTwitter": true,
+    "sharePinterest": true,
+    "shareFancy": true,
+    "socialFacebook": "https://www.facebook.com/huedbracelets1",
+    "socialInstagram": "http://instagram.com/huedbracelets",
+    "socialMedium": "",
+    "socialPinterest": "http://pinterest.com/huedbracelets",
+    "socialTiktok": "https://tiktok.com/@huedbracelets",
+    "socialYoutube": "https://www.youtube.com/channel/UCZY5dxdVyug_ZCFJcoGmEOA",
+    "favicon": "shopify://shop_images/round_logo.png",
+    "popupEnable": true,
+    "popupTestMode": false,
+    "popupHeading": "WANT MORE?",
+    "popupText": "<p>Get all of the latest color drops, offers and more sent straight to your inbox. </p>",
+    "popupDelay": 4,
+    "popupShowSocial": true,
+    "checkout_logo_image": "shopify://shop_images/round_logo.png",
+    "checkout_logo_position": "right",
+    "checkout_logo_size": "large",
+    "checkout_accent_color": "#27bdbe",
+    "checkout_button_color": "#27bdbe",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "enable_announcement_bar": true,
+          "message_text": "<p>CURRENT ORDER PROCESSING TIME: UP TO 7 BUSINESS DAYS</p>",
+          "fontSize": 17,
+          "letterSpacing": 5,
+          "notification-bar--background-colour": "#27bdbe",
+          "notification-bar--text-colour": "#ffffff"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "full-width": false,
+          "logo": "shopify://shop_images/round_logo.png",
+          "logoWidth": 130,
+          "logo_placement": "center",
+          "icon_style": "2",
+          "headerAccountContact": true,
+          "showCurrencySelector": true,
+          "showLanguageSelector": true,
+          "navigationMainMenu": "main-menu",
+          "navigation_placement": "center",
+          "fullBleed": false,
+          "fullBleedLogo": "shopify://shop_images/round_logo.png"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-menu-2": {
+            "type": "footer-menu",
+            "settings": {
+              "menu-title": "Brand",
+              "menu": "brand-menu"
+            }
+          },
+          "footer-menu-1": {
+            "type": "footer-menu",
+            "settings": {
+              "menu-title": "CUSTOMER CARE",
+              "menu": "footer"
+            }
+          },
+          "footer-social": {
+            "type": "footer-social",
+            "settings": {
+              "socialTitle": "Connect with us"
+            }
+          },
+          "footer-contact": {
+            "type": "footer-contact",
+            "settings": {
+              "contactTitle": "CONTACT US",
+              "richtext": "<p>hello@huedbracelets.com</p>"
+            }
+          }
+        },
+        "block_order": [
+          "footer-menu-2",
+          "footer-menu-1",
+          "footer-social",
+          "footer-contact"
+        ],
+        "settings": {
+          "paymentIcons": false,
+          "centerFooter": true,
+          "stretchFooter": true,
+          "showCurrencySelector": true,
+          "showLanguageSelector": true
+        }
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "15683396631634586217": {
+        "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
+        "disabled": true,
+        "settings": {
+          "button_color": "#27bdbe",
+          "button_icon": "chat_bubble",
+          "button_text": "chat_with_us",
+          "button_horizontal_position": "bottom_right",
+          "button_vertical_position": "lowest",
+          "greeting_message": "👋 Hi, message us with any questions. We're happy to help!"
+        }
+      },
+      "17428600031447253342": {
+        "type": "shopify://apps/attentive/blocks/attn-tag/8df62c72-8fe4-407e-a5b3-72132be30a0d",
+        "disabled": false,
+        "settings": {}
+      },
+      "15796953133730294439": {
+        "type": "shopify://apps/growave-loyalty-wishlist/blocks/block.embed.socialshopwave-helper/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  },
+  "presets": {
+    "Berlin": {
+      "colorHeader": "#303030",
+      "colorBody": "#303030",
+      "colorLinks": "#707070",
+      "colorBorder": "#E6E6E6",
+      "colorBackground": "#ffffff",
+      "colorButtons": "#303030",
+      "colorButtonsText": "#ffffff",
+      "soldOutBackground": "#303030",
+      "saleBackground": "#303030",
+      "lowStockBackground": "#303030",
+      "newProductBackground": "#303030",
+      "bestSellingBackground": "#303030",
+      "customBadgeBackground": "#303030",
+      "colorHeaderBackground": "#ffffff",
+      "colorHeaderText": "#303030",
+      "fullBleedColor": "#ffffff",
+      "colorPopupBackground": "#F6F6F6",
+      "colorPopupText": "#303030",
+      "secondaryFont": "montserrat_n6",
+      "headingSize": "20px",
+      "headingCase": "uppercase",
+      "navigationFontSize": 14,
+      "primaryFont": "montserrat_n5",
+      "bodySize": 12,
+      "buttonFontWeight": "bolder",
+      "buttonCase": "uppercase",
+      "buttonLetterSpacing": 2,
+      "sectionTextAlignment": "center",
+      "sectionOverlayOpacity": 0,
+      "collageLayoutEnabled": true,
+      "collectionsPerRow": 3,
+      "expandCollections": true,
+      "productColorSwatches": "Color",
+      "productSizeSwatches": "Size",
+      "productAnimateBadges": true,
+      "productStockLevel": 10,
+      "headerSearchStyle": "minimal",
+      "predictive_search_pages": true,
+      "predictive_search_articles": true,
+      "predictive_search_collections": true,
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": true,
+      "breadcrumbs": true,
+      "shareFacebook": true,
+      "shareTwitter": true,
+      "sharePinterest": true,
+      "shareFancy": true,
+      "socialMedium": "",
+      "popupEnable": true,
+      "popupTestMode": false,
+      "popupDelay": 4
+    },
+    "Prague": {
+      "colorHeader": "#333333",
+      "colorBody": "#333333",
+      "colorLinks": "#A9A9A9",
+      "colorBorder": "#ebebeb",
+      "colorBackground": "#FFFFFF",
+      "colorButtons": "#333333",
+      "soldOutBackground": "#696969",
+      "saleBackground": "#A9A9A9",
+      "lowStockBackground": "#333333",
+      "newProductBackground": "#333333",
+      "bestSellingBackground": "#333333",
+      "customBadgeBackground": "#333333",
+      "colorHeaderBackground": "#FFFFFF",
+      "colorHeaderText": "#333333",
+      "fullBleedColor": "#333333",
+      "colorPopupBackground": "#333333",
+      "colorPopupText": "#ffffff",
+      "secondaryFont": "century_gothic_n4",
+      "headingSize": "24px",
+      "headingCase": "uppercase",
+      "navigationFontSize": 14,
+      "navigationSpacing": 3,
+      "primaryFont": "avenir_next_rounded_n4",
+      "bodySize": 16,
+      "buttonFontWeight": "normal",
+      "buttonCase": "uppercase",
+      "buttonLetterSpacing": 2,
+      "sectionBtnLabel": "",
+      "sectionTextAlignment": "top left",
+      "sectionOverlayOpacity": 0,
+      "collageLayoutEnabled": true,
+      "collectionsPerRow": 3,
+      "productColorSwatches": "Color",
+      "productSizeSwatches": "Size",
+      "show_second_image_on_hover": true,
+      "productAnimateBadges": true,
+      "productStockLevel": 6,
+      "predictive_search_pages": false,
+      "breadcrumbs": false,
+      "shareFacebook": true,
+      "shareTwitter": true,
+      "sharePinterest": true,
+      "shareFancy": true,
+      "popupEnable": true,
+      "popupTestMode": false,
+      "popupShowSocial": false
+    },
+    "Sofia": {
+      "colorHeader": "#2B2B2B",
+      "colorBody": "#4C4C4C",
+      "colorLinks": "#606060",
+      "colorBorder": "#F3F3F3",
+      "colorBackground": "#ffffff",
+      "colorButtons": "#747474",
+      "colorButtonsText": "#ffffff",
+      "soldOutBackground": "#747474",
+      "saleBackground": "#747474",
+      "lowStockBackground": "#747474",
+      "newProductBackground": "#747474",
+      "bestSellingBackground": "#747474",
+      "customBadgeBackground": "#747474",
+      "colorHeaderBackground": "#ffffff",
+      "colorHeaderText": "#2B2B2B",
+      "fullBleedColor": "#ffffff",
+      "colorPopupBackground": "#747474",
+      "colorPopupText": "#DEDEDE",
+      "secondaryFont": "monotype_goudy_n4",
+      "headingSize": "24px",
+      "headingCase": "unedited",
+      "navigationFontSize": 18,
+      "navigationCase": "unedited",
+      "navigationSpacing": 0,
+      "primaryFont": "goudy_old_style_n4",
+      "bodySize": 16,
+      "buttonFontWeight": "bolder",
+      "buttonCase": "uppercase",
+      "buttonLetterSpacing": 3,
+      "sectionBtnLabel": "Shop Collection",
+      "sectionTextAlignment": "center",
+      "sectionColorText": "rgba(0,0,0,0)",
+      "sectionOverlayOpacity": 0,
+      "collageLayoutEnabled": false,
+      "collectionsPerRow": 2,
+      "expandCollections": true,
+      "productColorSwatches": "",
+      "productSizeSwatches": "Size",
+      "productAnimateBadges": true,
+      "productStockLevel": 10,
+      "breadcrumbs": false,
+      "shareFacebook": true,
+      "shareTwitter": true,
+      "sharePinterest": true,
+      "popupEnable": true,
+      "popupTestMode": false
+    }
+  }
+}

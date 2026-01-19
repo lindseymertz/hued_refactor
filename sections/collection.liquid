@@ -1,0 +1,272 @@
+{% assign collageLayoutEnabled = false %}
+{% if section.settings.collageLayoutEnabled %}
+  {% assign collageLayoutEnabled = true %}
+{% endif %}
+
+{% assign delayAmount = 100 %}
+{% if section.settings.infinite_scroll %}
+    {{ 'ajaxinate.min.js' | asset_url | script_tag }}
+{% endif %}
+
+<div
+  class="collection-main-wrapper"
+  data-section-id="{{ section.id }}"
+  data-section-type="collection"
+  id="CollectionProductGrid"
+  data-section-id="{{ section.id }}"
+>
+
+  {% assign contentWidth = "grid-item-100" %}
+  {% case section.settings.collectionProductsPerRow %}
+    {% when 3 %}
+      {% assign image_default_width = '360x' %}
+      {% assign gridItem = "grid-item-33" %}
+
+      {% if collageLayoutEnabled %}
+        {% assign gridItemAlt = "grid-item-50" %}
+      {% endif %}
+
+      {% assign numProducts = section.settings.collectionProductsPerRow | times: 8 %}
+
+    {% when 4 %}
+      {% assign image_default_width = '260x' %}
+      {% assign gridItem = "grid-item-25" %}
+
+      {% if collageLayoutEnabled %}
+        {% assign gridItemAlt = "grid-item-33" %}
+        {% assign gridItemAltMobile = "grid-item-50" %}
+      {% endif %}
+
+      {% assign numProducts = section.settings.collectionProductsPerRow | times: 12 %}
+
+    {% when 5 %}
+      {% assign image_default_width = '210x' %}
+      {% assign gridItem = "grid-item-20" %}
+
+      {% if collageLayoutEnabled %}
+        {% assign gridItemAlt = "grid-item-25" %}
+      {% endif %}
+
+      {% assign numProducts = section.settings.collectionProductsPerRow | times: 10 %}
+  {% endcase %}
+
+  {% paginate collection.products by numProducts %}
+    {% assign pageCount = collection.all_products_count | divided_by: numProducts %}
+    {% assign productOverflow = collection.all_products_count | modulo: numProducts %}
+    {% if productOverflow != 0 %}{% assign pageCount = pageCount | plus: 1 %}{% endif %}
+
+    <div class="collection-main grid">
+
+      <main class="collection-wrapper">
+
+        <div
+          class="collection grid"
+          data-collection="{{ collection.handle }}"
+          data-product-item-wrapper
+          data-grid-id="{{section.id}}"
+          id="collection"
+        >
+          {% for item in collection.products %}
+                {% if collageLayoutEnabled %}
+
+                    {% case section.settings.collectionProductsPerRow %}
+                        {% when 3 %}
+                            {% capture arrangement %}{% cycle '', '', '', 'alt', 'alt' %}{% endcapture %}
+                        {% when 4 %}
+                            {% capture arrangement %}{% cycle '', '', '', '', 'alt', 'alt', 'alt' %}{% endcapture %}
+                        {% when 5 %}
+                            {% capture arrangement %}{% cycle '', '', '', '', '', 'alt', 'alt', 'alt', 'alt' %}{% endcapture %}
+                    {% endcase %}
+
+                    {% if arrangement == 'alt' %}
+                        {%
+                            render 'product-item--collection',
+                            item: item,
+                            blocks: section.blocks,
+                            grid: gridItemAlt,
+                            additionalInfo: true,
+                            collection: collection,
+                            image_default_width: image_default_width,
+                            productInfoSetting: '',
+                            isSearch: false,
+                            delayAmount: delayAmount
+                        %}
+                     {% else %}
+                         {%
+                             render 'product-item--collection',
+                             item: item,
+                             blocks: section.blocks,
+                             grid: gridItem,
+                             additionalInfo: true,
+                             collection: collection,
+                             image_default_width: image_default_width,
+                             productInfoSetting: '',
+                             isSearch: false,
+                             delayAmount: delayAmount
+                        %}
+                    {% endif %}
+
+                {% else %}
+                    {%
+                        render 'product-item--collection',
+                        item: item,
+                        blocks: section.blocks,
+                        grid: gridItem,
+                        additionalInfo: true,
+                        collection: collection,
+                        image_default_width: image_default_width,
+                        productInfoSetting: '',
+                        isSearch: false,
+                        delayAmount: delayAmount
+                    %}
+                {% endif %}
+
+            {% else %}
+              <div class="collection-empty grid-item-100" data-collection-empty>
+                {{ 'collection.main.empty' | t }}
+              </div>
+            {% endfor %}
+        </div>
+
+        {% render 'pagination', paginate: paginate, width: 'full-width', infinite_scroll: section.settings.infinite_scroll %}
+      </main>
+    </div>
+
+  {% endpaginate %}
+
+</div>
+
+<style>
+  :root {
+    --products-per-row: {{ section.settings.collectionProductsPerRow | default: "5" }};
+  }
+</style>
+<script>
+    const endlessCollection = new Ajaxinate({
+        container: '.collection-main-wrapper',
+        pagination: '.infinite_next',
+    });
+</script>
+{% schema %}
+{
+    "name": {
+        "en": "Collection grid",
+        "de": "Kollektion",
+        "es": "Colección",
+        "fr": "Collection",
+        "pt-PT": "Coleção"
+    },
+    "tag": "section",
+    "class": "section-collection-grid",
+    "settings": [
+        {
+            "type": "range",
+            "id": "collectionProductsPerRow",
+            "label": {
+                "en": "Products per row",
+                "de": "Produkte pro Zeile",
+                "es": "Productos por fila",
+                "fr": "Produits par ligne",
+                "pt-PT": "Produtos por linha"
+            },
+            "min": 3,
+            "max": 5,
+            "step": 1,
+            "default": 4
+        },
+        {
+            "type": "checkbox",
+            "id": "collageLayoutEnabled",
+            "label": {
+                "en": "Enable collage layout on desktop",
+                "de": "Collagenlayout auf Desktop-Geräten aktivieren",
+                "es": "Habilitar el diseño de «collage» en el escritorio",
+                "fr": "Activer la mise en page du collage sur le bureau",
+                "pt-PT": "Ativar a disposição da colagem no ambiente de trabalho"
+            },
+            "info": {
+                "en": "An editorial-inspired layout that alternates the products per row value.",
+                "de": "Ein von Zeitungen inspiriertes Layout, bei dem in jeder Zeile unterschiedlich viele Produkte angezeigt werden.",
+                "es": "Un diseño de inspiración editorial que alterna los productos por valor de fila.",
+                "fr": "Une mise en page d'inspiration éditoriale qui alterne les produits par valeur de ligne.",
+                "pt-PT": "Um esquema de inspiração editorial que alterna os produtos por valor de linha."
+            },
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "infinite_scroll",
+            "label": "Infinite Scroll",
+            "default": true
+        }
+
+    ],
+    "blocks": [
+        {
+            "type": "@app"
+        },
+        {
+            "type": "image",
+            "name": "Image",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "This is used to set the order and placement of the product image within the product cards"
+                }
+            ]
+        },
+        {
+            "type": "vendor",
+            "name": "Vendor",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "productType",
+                    "label": {
+                        "en": "Show product type",
+                        "de": "Produkttyp anzeigen",
+                        "es": "Mostrar tipo de producto",
+                        "fr": "Afficher le type de produit",
+                        "pt-PT": "Mostrar o tipo de produto"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "price",
+            "name": "Price",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "This is used to set the order and placement of the product price within the product cards"
+                }
+            ]
+        },
+        {
+            "type": "title",
+            "name": "Name",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "This is used to set the order and placement of the product name within the product cards"
+                }
+            ]
+        },
+        {
+            "type": "in-your-cart",
+            "name": "Checkout notification",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "This is used to set the order and placement of the 'In your cart' checkout notification within the product cards"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

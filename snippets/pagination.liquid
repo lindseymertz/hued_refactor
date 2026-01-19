@@ -1,0 +1,46 @@
+{% if paginate.previous or paginate.next %}
+
+  <div class="pagination pagination-{{ width }} grid" {% if infinite_scroll %} style="display: none;" {% endif %}>
+
+    <div class="pagination-previous">
+      {% if paginate.previous.is_link %}
+        <a href="{{ paginate.previous.url }}">
+          <svg><use xlink:href="#icon-arrow-prev"></use></svg>
+          <span class="pagination-previous--text">{{ 'layout.pagination.previous' | t }}</span>
+        </a>
+      {% else %}
+        <span>
+          <svg><use xlink:href="#icon-arrow-prev"></use></svg>
+          <span class="pagination-previous--text">{{ 'layout.pagination.previous' | t }}</span>
+        </span>
+      {% endif %}
+    </div>
+
+    <div class="pagination-parts grid-item-50">
+      {% for part in paginate.parts %}
+        {% if part.is_link %}
+          <a href="{{ part.url }}">{{ part.title }}</a>
+        {% else %}
+          <span>{{ part.title }}</span>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="pagination-next {% if infinite_scroll %} infinite_next {% endif %}">
+      {% if paginate.next.is_link %}
+        <a href="{{ paginate.next.url }}">
+          <span class="pagination-next--text">{{ 'layout.pagination.next' | t }}</span>
+          <svg><use xlink:href="#icon-arrow-next"></use></svg>
+        </a>
+      {% else %}
+        <span>
+          <span class="pagination-next--text">{{ 'layout.pagination.next' | t }}</span>
+          <svg><use xlink:href="#icon-arrow-next"></use></svg>
+        </span>
+      {% endif %}
+    </div>
+
+
+  </div>
+
+{% endif %}

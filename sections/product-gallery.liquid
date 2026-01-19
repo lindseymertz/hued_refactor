@@ -1,0 +1,146 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+{% case section.settings.imageSize %}
+  {% when 'small' %}
+    {%- assign product_image_width = '40%' -%}
+  {% when 'medium' %}
+    {%- assign product_image_width = '50%' -%}
+  {% when 'large' %}
+    {%- assign product_image_width = '60%' -%}
+{% endcase %}
+
+<style>
+    #shopify-section-{{ section.id }} {
+        width: {{ product_image_width }}
+    }
+</style>
+
+<div
+  class="page-wrapper"
+  data-product="{{ product.handle }}"
+  data-product-json="{{ product | json | escape }}"
+  data-product-current-variant="{{ current_variant | json | escape }}"
+  data-product-deeplinking="true"
+  data-product-carturl="{{ routes.cart_url }}"
+  data-section-id="{{ section.id }}"
+  data-section-product-gallery
+>
+
+  <div class="product-wrapper grid">
+
+    <div class="product-images
+    product-media
+    {% if section.settings.productImageChangesVariant %} change-variant--enabled{% endif %}"
+    >
+      {% assign featured_media = current_variant.featured_media | default: product.featured_media %}
+      {%
+        render 'product-media',
+        product: product,
+        section_id: section.id,
+        featured_media_id: featured_media.id,
+        enable_video_loop: section.settings.videoLooping,
+        enable_lightbox: true
+      %}
+
+      {% render "product-badges", item: product, collection: collection, wrapper: true %}
+
+      {% render "product-thumbnails", product: product %}
+    </div>
+
+  </div>
+
+</div>
+
+{% schema %}
+{
+    "name": "Product gallery",
+    "class": "product-gallery-section grid-item section-half-width",
+    "settings": [
+        {
+            "type": "header",
+            "content": {
+                "en": "Media",
+                "de": "Medien",
+                "es": "Medios",
+                "fr": "Médias",
+                "pt-PT": "Media"
+            },
+            "info": {
+                "en": "Learn more about [media types](https://help.shopify.com/en/manual/products/product-media)",
+                "de": "Mehr erfahren über [Medientypen](https://help.shopify.com/en/manual/products/product-media)",
+                "es": "Obtenga más información sobre [tipos de medios](https://help.shopify.com/en/manual/products/product-media)",
+                "fr": "En savoir plus sur [types de médias](https://help.shopify.com/en/manual/products/product-media)",
+                "pt-PT": "Saiba mais sobre [tipos de media](https://help.shopify.com/en/manual/products/product-media)"
+            }
+        },
+        {
+            "type": "select",
+            "id": "imageSize",
+            "label": {
+                "en": "Size",
+                "fr": "Taille",
+                "de": "Größe",
+                "es": "Tamaño",
+                "pt-PT": "Tamanho"
+            },
+            "default": "medium",
+            "options": [
+                {
+                    "value": "small",
+                    "label": {
+                        "en": "Small",
+                        "de": "Klein",
+                        "es": "Pequeño",
+                        "fr": "Petite",
+                        "pt-PT": "Pequeno"
+                    }
+                },
+                {
+                    "value": "medium",
+                    "label": {
+                        "en": "Medium",
+                        "de": "Mittel",
+                        "es": "Mediano",
+                        "fr": "Moyenne",
+                        "pt-PT": "Médio"
+                    }
+                },
+                {
+                    "value": "large",
+                    "label": {
+                        "en": "Large",
+                        "de": "Groß",
+                        "es": "Grande",
+                        "fr": "Grande",
+                        "pt-PT": "Grande"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "checkbox",
+            "id": "videoLooping",
+            "label": {
+                "en": "Enable video looping",
+                "de": "Videoschleife erlauben",
+                "es": "Habilitar bucle de vídeo",
+                "fr": "Activer la boucle vidéo",
+                "pt-PT": "Ativar loop de vídeo"
+            },
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "productImageChangesVariant",
+            "label": {
+                "en": "Change variant based on the thumbnail",
+                "de": "Variante basierend auf Thumbnail ver\u00e4ndern",
+                "es": "Cambiar variante en base a la imagen en miniatura",
+                "fr": "Modifier la variante en fonction de la vignette",
+                "pt-PT": "Alterar base da variante na imagem em miniatura"
+            },
+            "default": true
+        }
+    ]
+}
+{% endschema %}
