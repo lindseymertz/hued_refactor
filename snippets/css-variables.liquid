@@ -274,6 +274,10 @@
   --video-wrapper-svg-background: {{ settings.colorBorder | color_mix: #696969, 30 | downcase }};
   --blog-item-background: {{ settings.colorBackground | color_mix: settings.colorBody, 98 }};
 
+  /* Global page content alignment */
+  --page-gutter: 164px;
+  --page-gutter-mobile: 20px;
+
   --image-preloader: url({{ "capitalPreloadImage.svg" | asset_url }});
 
   /* Shop Pay Installments variables */
