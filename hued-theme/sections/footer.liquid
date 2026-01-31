@@ -11,18 +11,7 @@
   <div class="footer-redesign__main">
     <div class="footer-redesign__container">
 
-      {% comment %} Logo - uses direct asset file {% endcomment %}
-      <div class="footer-redesign__logo">
-        <a href="{{ routes.root_url }}" class="footer-logo__link">
-          <img
-            src="{{ 'Hued_Logo_FA.png' | asset_url }}"
-            width="{{ settings.logo_width | default: 120 }}"
-            height="auto"
-            alt="{{ shop.name }}"
-            loading="lazy"
-            class="footer-logo__image">
-        </a>
-      </div>
+      {% comment %} Logo removed - header is now sticky so logo stays visible {% endcomment %}
 
       {% comment %} Content wrapper for columns + divider + signup {% endcomment %}
       <div class="footer-redesign__content">
