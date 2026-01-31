@@ -1,0 +1,5 @@
+cat > ~/Desktop/Development/projects-active/hued/hued-theme/.shopifyignore << 'EOF'
+.claude/
+docs/
+CLAUDE.md
+EOF

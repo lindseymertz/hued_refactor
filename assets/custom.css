@@ -291,6 +291,33 @@ button.ssw-reward-auth-reg-btn.ssw-reward-btn {
    Date: 2026-01-18
    =========================================== */
 
+/* --- Sticky Header --- */
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--header-background-color, #ffffff);
+  transition: box-shadow 0.2s ease;
+}
+
+/* Add shadow when header is sticky (scrolled) */
+.main-header.is-sticky {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Override the theme's mobile fixed positioning - use sticky instead */
+@media (max-width: 720px) {
+  .main-header {
+    position: sticky;
+    top: 0;
+    transform: none !important; /* Prevent hide-on-scroll behavior */
+  }
+
+  .main-header.out-of-view {
+    transform: none !important;
+  }
+}
+
 /* --- Header Layout Override --- */
 .header.header--redesign {
   display: flex;
@@ -402,6 +429,7 @@ button.ssw-reward-auth-reg-btn.ssw-reward-btn {
   display: flex;
   align-items: center;
   margin-left: auto;
+  margin-right: calc(var(--page-gutter, 164px) - 20px);
   order: 3;
 }
 
@@ -414,7 +442,7 @@ button.ssw-reward-auth-reg-btn.ssw-reward-btn {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 16px;
+  gap: 20px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -450,12 +478,15 @@ button.ssw-reward-auth-reg-btn.ssw-reward-btn {
   color: var(--color-primary, #27bdbe);
 }
 
-/* Force all SVGs to same size and alignment */
+/* Force all SVGs to same size and alignment - Lucide 22x22 */
 .header--redesign .header-tools svg {
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   flex-shrink: 0;
+  fill: none !important;
+  stroke: currentColor;
+  stroke-width: 1.5;
 }
 
 /* Search icon button specific */
@@ -493,8 +524,15 @@ button.ssw-reward-auth-reg-btn.ssw-reward-btn {
   border-radius: 50%;
 }
 
-.header--redesign .header-cart-count:empty {
+.header--redesign .header-cart-count:empty,
+.header--redesign .header-cart-count[data-count="0"] {
   display: none;
+}
+
+/* Cart icon wrapper for Lucide icon */
+.header-cart-icon {
+  position: relative;
+  display: flex;
 }
 
 /* Account link */
@@ -694,8 +732,8 @@ button.ssw-reward-auth-reg-btn.ssw-reward-btn {
 
   /* Slightly smaller icons on mobile */
   .header--redesign .header-tools svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
   }
 
   /* Hide currency selector on mobile to save space */
@@ -711,8 +749,8 @@ button.ssw-reward-auth-reg-btn.ssw-reward-btn {
   }
 
   .header--redesign .header-tools svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
   }
 
   .header--redesign .header-cart-count {
@@ -1838,7 +1876,632 @@ h2.featured-products-heading,
 /* ===========================================
    END COLLECTION HERO BANNER
    =========================================== */
-   
 
+/* ===========================================
+   FOOTER REDESIGN - Pura Vida Style
+   Date: 2026-01-30
+   =========================================== */
 
-   
+/* --- Main Footer Wrapper --- */
+.footer-redesign {
+  background-color: #27bdbe;
+  color: #ffffff;
+}
+
+/* --- Container aligned with product grid (1280px, 40px + 12px grid-item padding) --- */
+.footer-redesign__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 52px; /* 40px wrapper + 12px grid-item padding */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Main Content Area --- */
+.footer-redesign__main {
+  padding: 60px 0 40px;
+}
+
+/* --- Logo --- */
+.footer-redesign__logo {
+  margin-bottom: 40px;
+}
+
+.footer-redesign__logo a {
+  font-family: var(--heading-font-family, sans-serif);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer-redesign__logo a:hover {
+  opacity: 0.8;
+}
+
+/* --- Content Layout (Columns + Divider + Signup) --- */
+.footer-redesign__content {
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+/* --- Link Columns Container --- */
+.footer-redesign__columns {
+  display: flex;
+  gap: 60px;
+  flex-shrink: 0;
+}
+
+/* --- Individual Column --- */
+.footer-redesign__column {
+  min-width: 150px;
+}
+
+/* --- Column Headings --- */
+.footer-redesign__heading {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 20px 0;
+  color: #ffffff;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+/* Horizontal line under each column heading */
+.footer-redesign__heading::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Link Lists --- */
+.footer-redesign__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-redesign__links li {
+  margin-bottom: 12px;
+}
+
+.footer-redesign__links li:last-child {
+  margin-bottom: 0;
+}
+
+.footer-redesign__links a {
+  font-size: 14px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer-redesign__links a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* --- Contact Email Link --- */
+.footer-redesign__contact-email {
+  font-size: 14px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer-redesign__contact-email:hover {
+  opacity: 0.8;
+  color: #ffffff;
+}
+
+/* --- Vertical Divider --- */
+.footer-redesign__divider {
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  align-self: stretch;
+  flex-shrink: 0;
+  margin: 0 10px; /* Combined with gap: 60px creates ~35px spacing on each side */
+}
+
+/* --- Newsletter Signup Section --- */
+.footer-redesign__signup {
+  flex: 1;
+  max-width: 400px;
+}
+
+/* --- Email Form --- */
+.footer-redesign__form {
+  margin-bottom: 24px;
+}
+
+.footer-redesign__input-wrapper {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.footer-redesign__input {
+  flex: 1;
+  border: none;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #303030;
+  background: transparent;
+  outline: none;
+}
+
+.footer-redesign__input::placeholder {
+  color: #999999;
+}
+
+.footer-redesign__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 48px;
+  background: #ffffff;
+  border: none;
+  border-left: 1px solid #e5e5e5;
+  color: #27bdbe;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.footer-redesign__submit:hover {
+  background-color: #f5f5f5;
+}
+
+.footer-redesign__submit svg {
+  display: block;
+}
+
+.footer-redesign__success {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.footer-redesign__error {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #ffcccc;
+}
+
+/* --- Social Icons --- */
+.footer-redesign__social-list {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-redesign__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 50%;
+  color: #27bdbe;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.footer-redesign__social-link:hover {
+  transform: scale(1.1);
+}
+
+.footer-redesign__social-link svg {
+  display: block;
+  fill: none;
+  stroke: currentColor;
+}
+
+/* --- Bottom Bar --- */
+.footer-redesign__bottom {
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-redesign__bottom .footer-redesign__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-redesign__copyright {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-redesign__powered {
+  display: block;
+  margin-top: 4px;
+}
+
+.footer-redesign__bottom-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* --- Localization Form Override for Footer --- */
+.footer-redesign .localization-form {
+  color: #ffffff;
+}
+
+.footer-redesign .disclosure__button {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-redesign .disclosure__button:hover {
+  border-color: #ffffff;
+}
+
+/* --- Mobile Responsive (matches product grid breakpoints) --- */
+@media (max-width: 720px) {
+  .footer-redesign__container {
+    padding: 0 36px; /* 24px wrapper + 12px grid-item padding */
+  }
+
+  .footer-redesign__content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer-redesign__columns {
+    width: 100%;
+  }
+
+  .footer-redesign__divider {
+    width: 100%;
+    height: 1px;
+    align-self: auto;
+    margin: 0; /* Reset horizontal margin for vertical layout */
+  }
+
+  .footer-redesign__signup {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-redesign__main {
+    padding: 40px 0 30px;
+  }
+
+  .footer-redesign__logo {
+    margin-bottom: 30px;
+  }
+
+  .footer-redesign__logo a {
+    font-size: 24px;
+  }
+
+  .footer-redesign__columns {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer-redesign__column {
+    min-width: auto;
+  }
+
+  .footer-redesign__bottom .footer-redesign__container {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+/* ===========================================
+   END FOOTER REDESIGN
+   =========================================== */
+
+/* ===========================================
+   HIDE DUPLICATE NEWSLETTER SECTION
+   The footer now has its own newsletter signup
+   =========================================== */
+
+.section-index-newsletter {
+  display: none !important;
+}
+
+/* ===========================================
+   TABBED COLLECTION CAROUSEL
+   "Styles You'll Love" section with tabs
+   =========================================== */
+
+.tabbed-collection {
+  padding: 60px 0;
+}
+
+.tabbed-collection__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 52px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Header Row: Title + View All --- */
+.tabbed-collection__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.tabbed-collection__title {
+  font-family: var(--heading-font-family, sans-serif);
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--body-color, #303030);
+}
+
+.tabbed-collection__view-all {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #27bdbe;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.tabbed-collection__view-all:hover {
+  opacity: 0.8;
+}
+
+.tabbed-collection__view-all svg {
+  transition: transform 0.2s ease;
+}
+
+.tabbed-collection__view-all:hover svg {
+  transform: translateX(3px);
+}
+
+/* --- Collection Tabs --- */
+.tabbed-collection__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.tabbed-collection__tab {
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 2px solid #303030;
+  border-radius: 25px;
+  background: transparent;
+  color: #303030;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.tabbed-collection__tab:hover {
+  background: #f5f5f5;
+}
+
+.tabbed-collection__tab.is-active {
+  background: #27bdbe;
+  border-color: #27bdbe;
+  color: #ffffff;
+}
+
+.tabbed-collection__tab.is-active:hover {
+  background: #22a8a9;
+  border-color: #22a8a9;
+}
+
+/* --- Content Panels --- */
+.tabbed-collection__content {
+  position: relative;
+}
+
+.tabbed-collection__panel {
+  display: none;
+}
+
+.tabbed-collection__panel.is-active {
+  display: block;
+}
+
+/* --- Carousel Container --- */
+.tabbed-collection__carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.tabbed-collection__carousel .swiper-wrapper {
+  display: flex;
+}
+
+.tabbed-collection__carousel .swiper-slide {
+  height: auto;
+}
+
+.tabbed-collection__carousel .product-item {
+  width: 100%;
+}
+
+/* --- Navigation Arrows --- */
+.tabbed-collection__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-100%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.tabbed-collection__arrow:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-100%) scale(1.05);
+}
+
+.tabbed-collection__arrow.swiper-button-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.tabbed-collection__arrow.swiper-button-disabled:hover {
+  transform: translateY(-100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tabbed-collection__arrow--prev {
+  left: -24px;
+}
+
+.tabbed-collection__arrow--prev svg {
+  transform: rotate(180deg);
+}
+
+.tabbed-collection__arrow--next {
+  right: -24px;
+}
+
+.tabbed-collection__arrow svg {
+  width: 20px;
+  height: 20px;
+  color: #303030;
+}
+
+/* Reset Swiper default arrow styles */
+.tabbed-collection__arrow::after {
+  display: none;
+}
+
+/* --- Empty State --- */
+.tabbed-collection__empty {
+  padding: 60px 20px;
+  text-align: center;
+  background: #f9f9f9;
+  border-radius: 8px;
+  color: #666;
+}
+
+/* --- Placeholder/Onboarding --- */
+.tabbed-collection__carousel .svg-placeholder {
+  background: #f5f5f5;
+  padding-bottom: 100%;
+  position: relative;
+}
+
+.tabbed-collection__carousel .svg-placeholder svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  fill: #ddd;
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 1024px) {
+  .tabbed-collection__arrow--prev {
+    left: 8px;
+  }
+
+  .tabbed-collection__arrow--next {
+    right: 8px;
+  }
+
+  .tabbed-collection__arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tabbed-collection__arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 720px) {
+  .tabbed-collection {
+    padding: 40px 0;
+  }
+
+  .tabbed-collection__container {
+    padding: 0 24px;
+  }
+
+  .tabbed-collection__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .tabbed-collection__title {
+    font-size: 24px;
+  }
+
+  .tabbed-collection__tabs {
+    gap: 8px;
+    margin-bottom: 24px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .tabbed-collection__tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tabbed-collection__tab {
+    padding: 8px 18px;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .tabbed-collection__arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .tabbed-collection__title {
+    font-size: 20px;
+  }
+}
+
+/* ===========================================
+   END TABBED COLLECTION CAROUSEL
+   =========================================== */

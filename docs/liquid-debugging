@@ -1,0 +1,355 @@
+# Shopify Theme Debugging Guide
+
+## The 5-Second Diagnosis
+
+| Symptom | Most Likely Cause | Fix |
+|---------|-------------------|-----|
+| CSS not appearing | Browser cache | Hard refresh: Cmd+Shift+R |
+| CSS still not appearing | Wrong file or specificity | Check which file, increase specificity |
+| Liquid outputs nothing | Nil object or wrong scope | Add `| json` to debug |
+| Section not in menu | Missing presets | Add presets array to schema |
+| Settings not saving | JSON syntax error | Validate at jsonlint.com |
+| Weird characters in output | Encoding or missing escape | Add `| escape` filter |
+
+---
+
+## CSS Not Applying
+
+### Step 1: Cache
+```
+Cmd+Shift+R (Mac) or Ctrl+Shift+R (Windows)
+```
+If still not working, test in incognito window.
+
+### Step 2: Verify File
+Check you're editing the right file:
+- Custom styles → `assets/custom.css`
+- NOT `section-*.min.css` (these are bundled)
+- NOT backup files (`*-hulkapps-backup.liquid`)
+
+### Step 3: Check Syntax
+A single missing semicolon breaks all CSS after it:
+```css
+.element {
+  color: red    /* ← missing semicolon */
+  background: blue;  /* ← this won't apply */
+}
+```
+
+### Step 4: Check Specificity
+Open DevTools → Inspect element → Styles panel
+
+Look for:
+- Your rule with strikethrough = overridden
+- The winning rule's selector
+
+Increase specificity:
+```css
+/* Original (losing) */
+.button { color: red; }
+
+/* Add parent class (winning) */
+.product-item .button { color: red; }
+```
+
+### Step 5: Check Load Order
+In `theme.liquid`, verify `custom.css` loads LAST (after theme CSS):
+```liquid
+{{ 'theme.min.css' | asset_url | stylesheet_tag }}
+{{ 'custom.css' | asset_url | stylesheet_tag }}  ← must be after
+```
+
+---
+
+## Liquid Outputting Nothing
+
+### Debug with JSON Filter
+```liquid
+{% comment %} See what's actually in the variable {% endcomment %}
+<pre>{{ my_variable | json }}</pre>
+
+{% comment %} Output: null = variable is nil {% endcomment %}
+{% comment %} Output: {} = empty object {% endcomment %}
+{% comment %} Output: actual data = variable exists {% endcomment %}
+```
+
+### Common Causes
+
+**1. Wrong scope (sections don't inherit template variables)**
+```liquid
+{% comment %} In template: {% endcomment %}
+{% assign my_var = "hello" %}
+{% section 'my-section' %}
+
+{% comment %} In section — DOES NOT WORK: {% endcomment %}
+{{ my_var }}  → outputs nothing
+
+{% comment %} Fix: Use section.settings or global objects {% endcomment %}
+{{ section.settings.my_setting }}
+{{ shop.name }}
+{{ collection.title }}
+```
+
+**2. Typo in setting ID**
+```liquid
+{% comment %} Schema: {% endcomment %}
+"id": "heading_text"
+
+{% comment %} Liquid (wrong): {% endcomment %}
+{{ section.settings.headingText }}  → nothing
+
+{% comment %} Liquid (correct): {% endcomment %}
+{{ section.settings.heading_text }}  → works
+```
+
+**3. Accessing property on nil**
+```liquid
+{% comment %} If product doesn't exist: {% endcomment %}
+{{ product.title }}  → nothing (no error, just blank)
+
+{% comment %} Safe access: {% endcomment %}
+{% if product %}
+  {{ product.title }}
+{% endif %}
+```
+
+**4. Object returns object, not string**
+```liquid
+{% comment %} Wrong: {% endcomment %}
+{{ product }}  → outputs #<ProductDrop:0x00007f...>
+
+{% comment %} Right: {% endcomment %}
+{{ product.title }}
+{{ product | json }}  {% comment %} for debugging {% endcomment %}
+```
+
+---
+
+## Liquid Errors
+
+### Finding Errors
+1. View page source (Cmd+U)
+2. Search for "Liquid error" or "Liquid syntax error"
+3. Error includes file name and line number
+
+### Common Errors
+
+**"undefined method for nil:NilClass"**
+```liquid
+{% comment %} Cause: Chaining on nil object {% endcomment %}
+{{ product.metafields.custom.field.value }}
+
+{% comment %} Fix: Check each level {% endcomment %}
+{% if product.metafields.custom.field %}
+  {{ product.metafields.custom.field.value }}
+{% endif %}
+```
+
+**"comparison of String with Integer failed"**
+```liquid
+{% comment %} Cause: Comparing wrong types {% endcomment %}
+{% if section.settings.count > "5" %}
+
+{% comment %} Fix: Don't quote numbers {% endcomment %}
+{% if section.settings.count > 5 %}
+```
+
+**"Syntax error in tag 'if'"**
+```liquid
+{% comment %} Cause: Wrong operator {% endcomment %}
+{% if value = "test" %}  {% comment %} single = is assignment {% endcomment %}
+
+{% comment %} Fix: Use == for comparison {% endcomment %}
+{% if value == "test" %}
+```
+
+---
+
+## Section Issues
+
+### Section Not in "Add Section" Menu
+
+**Missing presets:**
+```json
+{% schema %}
+{
+  "name": "My Section",
+  "settings": [],
+  "presets": [           ← THIS IS REQUIRED
+    {
+      "name": "My Section"
+    }
+  ]
+}
+{% endschema %}
+```
+
+### Settings Don't Save / Section Breaks
+
+**JSON syntax error in schema:**
+
+Common mistakes:
+```json
+{
+  "settings": [
+    { "id": "one", "type": "text" },
+    { "id": "two", "type": "text" },   ← trailing comma on last item
+  ]
+}
+```
+
+```json
+{
+  "settings": [
+    { "id": "one" "type": "text" }   ← missing comma between properties
+  ]
+}
+```
+
+**Validate at:** https://jsonlint.com
+
+Paste ONLY the content between `{% schema %}` and `{% endschema %}`.
+
+### Block Content Not Rendering
+
+```liquid
+{% comment %} Debug blocks {% endcomment %}
+<pre>Blocks: {{ section.blocks.size }}</pre>
+<pre>{{ section.blocks | json }}</pre>
+
+{% for block in section.blocks %}
+  <pre>Block type: {{ block.type }}</pre>
+  <pre>Block settings: {{ block.settings | json }}</pre>
+{% endfor %}
+```
+
+---
+
+## JavaScript Debugging
+
+### Console Logging Liquid Data
+```liquid
+<script>
+  console.log('Product:', {{ product | json }});
+  console.log('Section:', {{ section.settings | json }});
+</script>
+```
+
+### Finding JS Errors
+1. Open DevTools (Cmd+Option+I)
+2. Check Console tab for red errors
+3. Check Network tab for failed requests (red rows)
+
+### Theme.js Not Loading
+This theme uses lazy loading. Check for:
+```html
+<script type="lazyload2" data-src="{{ 'theme.js' | asset_url }}"></script>
+```
+
+The `optimizer.liquid` snippet handles loading these.
+
+---
+
+## Development Tools
+
+### Shopify CLI Commands
+```bash
+# Check for Liquid/theme errors
+shopify theme check
+
+# Start dev server (live reload)
+shopify theme dev --store=huedbracelets
+
+# Pull latest from Shopify
+shopify theme pull --theme=155690074364
+
+# Push changes
+shopify theme push --theme=155690074364
+```
+
+### Browser DevTools
+
+**Elements panel:**
+- Inspect HTML structure
+- See applied CSS rules
+- Edit CSS live to test
+
+**Console panel:**
+- JavaScript errors
+- `console.log()` output
+- Run JS commands
+
+**Network panel:**
+- Check if files load (look for red = failed)
+- Check response times
+- "Disable cache" checkbox for dev
+
+**Application panel:**
+- Clear site data (full cache reset)
+- View localStorage/cookies
+
+### Chrome Extensions
+- **Shopify Theme Inspector** — Visualizes Liquid render times
+- **JSON Formatter** — Pretty-prints JSON responses
+
+---
+
+## Quick Reference: Debug Output Templates
+
+### Output Everything About a Product
+```liquid
+{% if request.design_mode %}
+<details style="background:#f5f5f5;padding:10px;margin:10px 0;">
+  <summary>Debug: Product Data</summary>
+  <pre>{{ product | json }}</pre>
+</details>
+{% endif %}
+```
+
+### Output Section Settings
+```liquid
+{% if request.design_mode %}
+<details style="background:#f5f5f5;padding:10px;margin:10px 0;">
+  <summary>Debug: Section Settings</summary>
+  <pre>{{ section.settings | json }}</pre>
+  <pre>Blocks: {{ section.blocks | json }}</pre>
+</details>
+{% endif %}
+```
+
+### Check Variable Type
+```liquid
+{% comment %} Is it nil? {% endcomment %}
+{% if my_var == nil %}NIL{% endif %}
+
+{% comment %} Is it blank (nil or empty string)? {% endcomment %}
+{% if my_var == blank %}BLANK{% endif %}
+
+{% comment %} Is it empty array? {% endcomment %}
+{% if my_var.size == 0 %}EMPTY ARRAY{% endif %}
+```
+
+---
+
+## Emergency Fixes
+
+### Everything Broke After a Change
+```bash
+# Pull the live version back
+shopify theme pull --theme=155690074364
+
+# Or check git history
+git diff HEAD~1
+git checkout HEAD~1 -- path/to/file.liquid
+```
+
+### Need to Test Without Cache
+1. Open incognito window
+2. Or: DevTools → Network → ☑️ Disable cache (while DevTools open)
+3. Or: DevTools → Application → Clear site data
+
+### Undo Recent Shopify Admin Changes
+Shopify keeps version history:
+1. Go to Online Store → Themes
+2. Click "..." on your theme → Edit code
+3. Click "..." on the file → View older versions

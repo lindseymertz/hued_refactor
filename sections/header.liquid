@@ -79,10 +79,10 @@
     {% comment %} HUED REDESIGN: Restructured header tools - search, currency, account, cart {% endcomment %}
     <div class="header-tools header-tools--style-{{ section.settings.icon_style }}" data-header-tools>
       <ul>
-        {% comment %} Search Icon {% endcomment %}
+        {% comment %} Search Icon - Lucide {% endcomment %}
         <li class="header-search-icon">
           <button type="button" class="header-search-toggle" aria-label="{{ 'layout.header.search' | t | escape }}" data-search-drawer-toggle>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.34-4.34"/></svg>
           </button>
         </li>
 
@@ -95,20 +95,20 @@
           </li>
         {% endif %}
 
-        {% comment %} Account Icon {% endcomment %}
+        {% comment %} Account Icon - Lucide {% endcomment %}
         {% if shop.customer_accounts_enabled %}
           <li class="header-account" data-header-account>
             <a
               href="{{ routes.account_url }}"
               aria-label="{{ 'layout.header.account' | t | escape }}"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             </a>
             {% render "header-account-dropdown", customer: customer, section: section %}
           </li>
         {% endif %}
 
-        {% comment %} Cart Icon {% endcomment %}
+        {% comment %} Cart Icon - Lucide {% endcomment %}
         <li class="header-cart">
           <a
             href="{{ routes.cart_url }}"
@@ -118,10 +118,12 @@
               class="slide-menu-cart"
             {%- endif -%}
           >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-            <span class="header-cart-count" data-header-cart-count>
-              {%- if cart.item_count > 0 %}{{ cart.item_count }}{% endif -%}
-            </span>
+            <div class="header-cart-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.048 18.566A2 2 0 0 0 4 21h16a2 2 0 0 0 1.952-2.434l-2-9A2 2 0 0 0 18 8H6a2 2 0 0 0-1.952 1.566z"/><path d="M8 11V6a4 4 0 0 1 8 0v5"/></svg>
+              <span class="header-cart-count" data-header-cart-count data-count="{{ cart.item_count }}">
+                {%- if cart.item_count > 0 %}{{ cart.item_count }}{% endif -%}
+              </span>
+            </div>
           </a>
         </li>
       </ul>
@@ -194,6 +196,39 @@
         closeDrawer();
       }
     });
+  });
+
+  // Sticky Header Shadow Script
+  document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('.main-header');
+    if (!header) return;
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateHeader() {
+      const scrollY = window.scrollY;
+
+      // Add shadow when scrolled past 10px
+      if (scrollY > 10) {
+        header.classList.add('is-sticky');
+      } else {
+        header.classList.remove('is-sticky');
+      }
+
+      lastScrollY = scrollY;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Check initial state
+    updateHeader();
   });
 </script>
 
