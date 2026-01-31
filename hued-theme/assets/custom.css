@@ -923,18 +923,6 @@ body {
   position: relative;
 }
 
-/* Dropdown arrow styling */
-.main-navigation-wrapper--inline .navigation-dropdown-toggle svg {
-  width: 10px;
-  height: 10px;
-  margin-left: 4px;
-  transition: transform 0.2s ease;
-}
-
-.main-navigation-wrapper--inline .has-dropdown:hover .navigation-dropdown-toggle svg {
-  transform: rotate(180deg);
-}
-
 /* Mega menu positioning */
 .main-navigation-wrapper--inline .navigation-super-wrapper {
   position: absolute;
@@ -3032,7 +3020,7 @@ h2.featured-products-heading {
 
    Reference: https://puravidabracelets.com
    Features:
-   - Warm cream background (#FAF7F2)
+   - Clean white background (#ffffff)
    - Full viewport width with contained content
    - Multi-column link layout
    - Featured promotional images
@@ -3046,7 +3034,7 @@ h2.featured-products-heading {
   left: 0;
   right: 0;
   width: 100vw;
-  background-color: #FAF7F2; /* Warm cream/off-white */
+  background-color: #ffffff; /* Clean white - matches nav bar */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border-radius: 0;
   z-index: 999;
@@ -3106,14 +3094,9 @@ h2.featured-products-heading {
   color: #27bdbe;
 }
 
-/* Rotate dropdown arrow when open */
-.main-navigation-wrapper--inline .has-super-nav:hover .navigation-dropdown-toggle svg {
-  transform: rotate(180deg);
-  transition: transform 0.3s ease;
-}
-
-.main-navigation-wrapper--inline .navigation-dropdown-toggle svg {
-  transition: transform 0.3s ease;
+/* Hide dropdown caret/arrow icons - clean text links */
+.main-navigation-wrapper--inline .navigation-dropdown-toggle {
+  display: none;
 }
 
 /* --- Inner Container: Aligned with header (1280px, 52px padding) --- */
@@ -3224,10 +3207,10 @@ h2.featured-products-heading {
   vertical-align: middle;
 }
 
-/* --- Featured Images Section (Multiple Cards with Labels) --- */
+/* --- Featured Images Section (Supports up to 4 Cards with Labels) --- */
 .main-navigation-wrapper--inline .navigation-super-featured {
   display: flex;
-  gap: 20px;
+  gap: 16px; /* Tighter gap for 4 images */
   flex-shrink: 0;
   margin-left: auto; /* Push to right side */
 }
@@ -3239,7 +3222,7 @@ h2.featured-products-heading {
 /* --- Individual Featured Card --- */
 .main-navigation-wrapper--inline .navigation-super-featured-card {
   display: block;
-  width: 200px;
+  width: 180px; /* Smaller cards to fit up to 4 */
   border-radius: 12px;
   overflow: hidden;
   text-decoration: none;
@@ -3262,7 +3245,7 @@ h2.featured-products-heading {
 .main-navigation-wrapper--inline .navigation-super-featured-image img {
   display: block;
   width: 100%;
-  height: 220px;
+  height: 200px; /* Slightly shorter for 4-image layout */
   object-fit: cover;
   transition: transform 0.3s ease;
 }
@@ -3274,10 +3257,10 @@ h2.featured-products-heading {
 /* --- Featured Label Bar --- */
 .main-navigation-wrapper--inline .navigation-super-featured-label {
   background: #ffffff;
-  padding: 14px 16px;
+  padding: 12px 14px;
   text-align: center;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #303030;
@@ -3295,20 +3278,20 @@ h2.featured-products-heading {
   }
 
   .main-navigation-wrapper--inline .navigation-super-featured {
-    gap: 16px;
+    gap: 12px;
   }
 
   .main-navigation-wrapper--inline .navigation-super-featured-card {
-    width: 160px;
+    width: 140px; /* Smaller on tablet for 4 images */
   }
 
   .main-navigation-wrapper--inline .navigation-super-featured-image img {
-    height: 180px;
+    height: 160px;
   }
 
   .main-navigation-wrapper--inline .navigation-super-featured-label {
-    padding: 10px 12px;
-    font-size: 11px;
+    padding: 8px 10px;
+    font-size: 10px;
   }
 }
 
@@ -3329,7 +3312,7 @@ h2.featured-products-heading {
   top: 100%;
   left: 0;
   min-width: 220px;
-  background-color: #FAF7F2; /* Match mega menu */
+  background-color: #ffffff; /* Match mega menu */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border-radius: 8px;
   z-index: 100;
@@ -3392,25 +3375,9 @@ h2.featured-products-heading {
   pointer-events: auto;
 }
 
-/* Arrow icon for nested items */
-.main-navigation-wrapper--inline .navigation-dropdown-item .navigation-dropdown-toggle {
-  margin-left: 8px;
-}
-
-.main-navigation-wrapper--inline .navigation-dropdown-item .navigation-dropdown-toggle svg {
-  width: 10px;
-  height: 10px;
-  transition: transform 0.2s ease;
-}
-
 /* Highlight parent nav item when dropdown is open */
 .main-navigation-wrapper--inline .has-dropdown:hover > a {
   color: #27bdbe;
-}
-
-/* Rotate arrow on hover for regular dropdowns */
-.main-navigation-wrapper--inline .has-dropdown:hover > a .navigation-dropdown-toggle svg {
-  transform: rotate(180deg);
 }
 
 /* Hide dropdowns on mobile */

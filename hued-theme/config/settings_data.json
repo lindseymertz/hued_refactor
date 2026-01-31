@@ -99,7 +99,12 @@
             "type": "menu",
             "settings": {
               "navigationItem": "New & Trending",
-              "navigationMegaImageLink": ""
+              "navigationMegaImage": "shopify://shop_images/FullSizeRender_5954181b-1327-4c98-80c1-0db03d2f4916.heic",
+              "navigationMegaImageTitle": "SHOP NOW",
+              "navigationMegaImageLink": "",
+              "navigationMegaImage2": "shopify://shop_images/FullSizeRender_7d42c264-ee42-4d2a-af30-f532e1514232.heic",
+              "navigationMegaImageTitle2": "SHOP NOW",
+              "navigationMegaImageLink2": ""
             }
           },
           "menu_p7HmBA": {
@@ -107,7 +112,10 @@
             "settings": {
               "navigationItem": "Shop By",
               "navigationMegaImage": "shopify://shop_images/FullSizeRender_3bbcc9e8-3104-4396-9f65-903890e8de0a.heic",
-              "navigationMegaImageLink": ""
+              "navigationMegaImageTitle": "SHOP NOW",
+              "navigationMegaImageLink": "",
+              "navigationMegaImageTitle2": "SHOP NOW",
+              "navigationMegaImageLink2": ""
             }
           }
         },

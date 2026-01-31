@@ -346,6 +346,7 @@
         "feature_card_xr6WXA": {
           "type": "feature_card",
           "settings": {
+            "image": "shopify://shop_images/FullSizeRender_96d7ccd5-1987-4ef1-a3b9-87a1368d3398.heic",
             "card_color": "#f58d4b",
             "title": "Feel Good, Look Good",
             "description": "Our products are designed to make you feel confident and stylish every day.",
@@ -355,6 +356,7 @@
         "feature_card_aPwaLU": {
           "type": "feature_card",
           "settings": {
+            "image": "shopify://shop_images/FullSizeRender_ee91bc35-b5cd-4969-90b1-6a2289acab1a.heic",
             "card_color": "#4dbdac",
             "title": "Sustainable & Ethical",
             "description": "We care about the planet and work with ethical suppliers worldwide.",
@@ -364,6 +366,7 @@
         "feature_card_gwdqeY": {
           "type": "feature_card",
           "settings": {
+            "image": "shopify://shop_images/FullSizeRender_0e51da8b-667d-4bf4-8e34-52aa4c0632b6.heic",
             "card_color": "#e991b0",
             "title": "Free Shipping",
             "description": "Enjoy free shipping on all orders over $50. Fast delivery guaranteed.",
