@@ -96,6 +96,7 @@
         "type": "header",
         "settings": {
           "full-width": false,
+          "use_text_logo": true,
           "logo": "shopify://shop_images/round_logo.png",
           "logoWidth": 130,
           "logo_placement": "center",
@@ -103,7 +104,7 @@
           "headerAccountContact": true,
           "showCurrencySelector": true,
           "showLanguageSelector": true,
-          "navigationMainMenu": "main-menu",
+          "navigationMainMenu": "main-refactor",
           "navigation_placement": "center",
           "fullBleed": false,
           "fullBleedLogo": "shopify://shop_images/round_logo.png"

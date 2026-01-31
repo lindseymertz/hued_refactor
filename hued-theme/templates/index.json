@@ -119,26 +119,10 @@
             "collection": "valentines-day-jelly-bracelets",
             "tab_label": ""
           }
-        },
-        "collection_tab_DprDwQ": {
-          "type": "collection_tab",
-          "settings": {
-            "collection": "easter",
-            "tab_label": ""
-          }
-        },
-        "collection_tab_HVegKN": {
-          "type": "collection_tab",
-          "settings": {
-            "collection": "the-hued-shabang",
-            "tab_label": ""
-          }
         }
       },
       "block_order": [
-        "collection_tab_JCnhjG",
-        "collection_tab_DprDwQ",
-        "collection_tab_HVegKN"
+        "collection_tab_JCnhjG"
       ],
       "name": "Collection Carousel",
       "settings": {
@@ -146,122 +130,24 @@
         "show_view_all": true
       }
     },
-    "promo_split_create_your_own": {
-      "type": "promo-split",
-      "settings": {
-        "image": "shopify://shop_images/FullSizeRender_68f36230-7bd8-4ee1-b591-2bc99464bc7a.heic",
-        "image_position": "right",
-        "title": "Create Your Own",
-        "description": "<p>Design a custom bracelet stack that's uniquely you. Mix colors, styles, and meanings to create something special.</p>",
-        "button_text": "SHOP NOW",
-        "button_link": "shopify://collections/all",
-        "button_style": "dark",
-        "background_color": "#fef6e4",
-        "text_color": "#303030"
-      }
-    },
-    "index_tabbed_collection_FgyUzJ": {
+    "index_tabbed_collection_3HcfpX": {
       "type": "index-tabbed-collection",
       "blocks": {
-        "collection_tab_pGP7RG": {
+        "collection_tab_zwAc6E": {
           "type": "collection_tab",
           "settings": {
-            "collection": "football-bracelets",
-            "tab_label": ""
-          }
-        },
-        "collection_tab_HfA4rg": {
-          "type": "collection_tab",
-          "settings": {
-            "collection": "christmas",
-            "tab_label": ""
-          }
-        },
-        "collection_tab_6fmwT8": {
-          "type": "collection_tab",
-          "settings": {
-            "collection": "hanukkah-jelly-bracelets",
+            "collection": "easter",
             "tab_label": ""
           }
         }
       },
       "block_order": [
-        "collection_tab_pGP7RG",
-        "collection_tab_HfA4rg",
-        "collection_tab_6fmwT8"
+        "collection_tab_zwAc6E"
       ],
       "name": "Collection Carousel",
       "settings": {
         "heading": "Styles You'll Love",
         "show_view_all": true
-      }
-    },
-    "promo_split_good_vibes": {
-      "type": "promo-split",
-      "settings": {
-        "image": "shopify://shop_images/IMG-8816.heic",
-        "image_position": "left",
-        "title": "Good Vibes, Delivered Monthly",
-        "description": "<p>Join the HUED Bracelet Club and get exclusive designs delivered to your door every month. Subscribe and save!</p>",
-        "button_text": "LEARN MORE",
-        "button_link": "shopify://collections/all",
-        "button_style": "dark",
-        "background_color": "#e8ede4",
-        "text_color": "#303030"
-      }
-    },
-    "index_shop_the_look_ELRqFX": {
-      "type": "index-shop-the-look",
-      "blocks": {
-        "product_WxNPtE": {
-          "type": "product",
-          "settings": {
-            "product": "a-bag-of-coal-christmas-jelly-bracelets",
-            "top": 0,
-            "left": 0
-          }
-        },
-        "product_4wBRAz": {
-          "type": "product",
-          "settings": {
-            "product": "alien-invasion-jelly-bracelets",
-            "top": 0,
-            "left": 0
-          }
-        },
-        "product_gTjYiE": {
-          "type": "product",
-          "settings": {
-            "product": "americana-jelly-bracelets",
-            "top": 46,
-            "left": 30
-          }
-        },
-        "product_iWJa4z": {
-          "type": "product",
-          "settings": {
-            "product": "americana-silicone-stacking-rings",
-            "top": 63,
-            "left": 51
-          }
-        }
-      },
-      "block_order": [
-        "product_WxNPtE",
-        "product_4wBRAz",
-        "product_gTjYiE",
-        "product_iWJa4z"
-      ],
-      "disabled": true,
-      "name": "Shop the look",
-      "settings": {
-        "stl__subheading": "",
-        "stl__heading": "Shop the look",
-        "stl__description": "<p>Add a description of your shop the look section to encourage your customers to purchase.</p>",
-        "description_alignment": "left",
-        "image__position": "image--left",
-        "link": "shopify://collections/all",
-        "button__text": "Shop now"
       }
     },
     "shop_the_look_grid_main": {
@@ -335,6 +221,167 @@
         "button_hover_bg_color": "#f5f5f5",
         "button_text_color": "#1a1a1a"
       }
+    },
+    "promo_split_create_your_own": {
+      "type": "promo-split",
+      "settings": {
+        "image": "shopify://shop_images/FullSizeRender_68f36230-7bd8-4ee1-b591-2bc99464bc7a.heic",
+        "image_position": "right",
+        "title": "Create Your Own",
+        "description": "<p>Design a custom bracelet stack that's uniquely you. Mix colors, styles, and meanings to create something special.</p>",
+        "button_text": "SHOP NOW",
+        "button_link": "shopify://collections/all",
+        "button_style": "dark",
+        "background_color": "#fef6e4",
+        "text_color": "#303030"
+      }
+    },
+    "promo_split_good_vibes": {
+      "type": "promo-split",
+      "settings": {
+        "image": "shopify://shop_images/IMG-8816.heic",
+        "image_position": "left",
+        "title": "Good Vibes, Delivered Monthly",
+        "description": "<p>Join the HUED Bracelet Club and get exclusive designs delivered to your door every month. Subscribe and save!</p>",
+        "button_text": "LEARN MORE",
+        "button_link": "shopify://collections/all",
+        "button_style": "dark",
+        "background_color": "#e8ede4",
+        "text_color": "#303030"
+      }
+    },
+    "index_tabbed_collection_FgyUzJ": {
+      "type": "index-tabbed-collection",
+      "blocks": {
+        "collection_tab_pGP7RG": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "football-bracelets",
+            "tab_label": ""
+          }
+        },
+        "collection_tab_HfA4rg": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "christmas",
+            "tab_label": ""
+          }
+        },
+        "collection_tab_6fmwT8": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "hanukkah-jelly-bracelets",
+            "tab_label": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_tab_pGP7RG",
+        "collection_tab_HfA4rg",
+        "collection_tab_6fmwT8"
+      ],
+      "name": "Collection Carousel",
+      "settings": {
+        "heading": "Best Sellers",
+        "show_view_all": true
+      }
+    },
+    "index_shop_the_look_ELRqFX": {
+      "type": "index-shop-the-look",
+      "blocks": {
+        "product_WxNPtE": {
+          "type": "product",
+          "settings": {
+            "product": "a-bag-of-coal-christmas-jelly-bracelets",
+            "top": 0,
+            "left": 0
+          }
+        },
+        "product_4wBRAz": {
+          "type": "product",
+          "settings": {
+            "product": "alien-invasion-jelly-bracelets",
+            "top": 0,
+            "left": 0
+          }
+        },
+        "product_gTjYiE": {
+          "type": "product",
+          "settings": {
+            "product": "americana-jelly-bracelets",
+            "top": 46,
+            "left": 30
+          }
+        },
+        "product_iWJa4z": {
+          "type": "product",
+          "settings": {
+            "product": "americana-silicone-stacking-rings",
+            "top": 63,
+            "left": 51
+          }
+        }
+      },
+      "block_order": [
+        "product_WxNPtE",
+        "product_4wBRAz",
+        "product_gTjYiE",
+        "product_iWJa4z"
+      ],
+      "disabled": true,
+      "name": "Shop the look",
+      "settings": {
+        "stl__subheading": "",
+        "stl__heading": "Shop the look",
+        "stl__description": "<p>Add a description of your shop the look section to encourage your customers to purchase.</p>",
+        "description_alignment": "left",
+        "image__position": "image--left",
+        "link": "shopify://collections/all",
+        "button__text": "Shop now"
+      }
+    },
+    "feature_cards_zL9PeU": {
+      "type": "feature-cards",
+      "blocks": {
+        "feature_card_xr6WXA": {
+          "type": "feature_card",
+          "settings": {
+            "card_color": "#f58d4b",
+            "title": "Feel Good, Look Good",
+            "description": "Our products are designed to make you feel confident and stylish every day.",
+            "text_color": "light"
+          }
+        },
+        "feature_card_aPwaLU": {
+          "type": "feature_card",
+          "settings": {
+            "card_color": "#4dbdac",
+            "title": "Sustainable & Ethical",
+            "description": "We care about the planet and work with ethical suppliers worldwide.",
+            "text_color": "light"
+          }
+        },
+        "feature_card_gwdqeY": {
+          "type": "feature_card",
+          "settings": {
+            "card_color": "#e991b0",
+            "title": "Free Shipping",
+            "description": "Enjoy free shipping on all orders over $50. Fast delivery guaranteed.",
+            "text_color": "light"
+          }
+        }
+      },
+      "block_order": [
+        "feature_card_xr6WXA",
+        "feature_card_aPwaLU",
+        "feature_card_gwdqeY"
+      ],
+      "name": "Feature Cards",
+      "settings": {
+        "title": "Why shop with us?",
+        "show_title": true,
+        "background_color": "#fff0f0"
+      }
     }
   },
   "order": [
@@ -342,10 +389,12 @@
     "index-image-with-text-overlay",
     "category-cards",
     "index_tabbed_collection_LqUqL3",
+    "index_tabbed_collection_3HcfpX",
+    "shop_the_look_grid_main",
     "promo_split_create_your_own",
-    "index_tabbed_collection_FgyUzJ",
     "promo_split_good_vibes",
+    "index_tabbed_collection_FgyUzJ",
     "index_shop_the_look_ELRqFX",
-    "shop_the_look_grid_main"
+    "feature_cards_zL9PeU"
   ]
 }

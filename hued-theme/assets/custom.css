@@ -3027,6 +3027,389 @@ h2.featured-products-heading {
    =========================================== */
 
 /* ===========================================
+   MEGA MENU REDESIGN - Pura Vida Style
+   Date: 2026-01-30
+
+   Reference: https://puravidabracelets.com
+   Features:
+   - Warm cream background (#FAF7F2)
+   - Full viewport width with contained content
+   - Multi-column link layout
+   - Featured promotional images
+   - Smooth fade/slide animation
+   =========================================== */
+
+/* --- Mega Menu Container --- */
+.main-navigation-wrapper--inline .navigation-super-wrapper {
+  position: fixed;
+  top: var(--total-header-height, 132px); /* Position below header + announcement bar */
+  left: 0;
+  right: 0;
+  width: 100vw;
+  background-color: #FAF7F2; /* Warm cream/off-white */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 0;
+  z-index: 999;
+  padding: 0;
+
+  /* Hidden state */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* --- Parent nav item - add hover bridge for smooth transition --- */
+.main-navigation-wrapper--inline .has-super-nav {
+  position: static; /* Allow mega menu to position relative to viewport */
+}
+
+/* Invisible bridge to prevent gap between nav item and mega menu */
+.main-navigation-wrapper--inline .has-super-nav::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 20px; /* Bridge the gap */
+  background: transparent;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.main-navigation-wrapper--inline .has-super-nav:hover::after {
+  pointer-events: auto;
+}
+
+/* --- Show mega menu on hover --- */
+.main-navigation-wrapper--inline .has-super-nav:hover .navigation-super-wrapper,
+.main-navigation-wrapper--inline .navigation-super-wrapper:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Keep mega menu open when hovering over it */
+.main-navigation-wrapper--inline .has-super-nav:hover .navigation-super-wrapper {
+  transition-delay: 0s;
+}
+
+/* Slight delay on close to prevent flickering */
+.main-navigation-wrapper--inline .navigation-super-wrapper {
+  transition-delay: 0.1s;
+}
+
+/* --- Highlight parent nav item when mega menu is open --- */
+.main-navigation-wrapper--inline .has-super-nav:hover > a {
+  color: #27bdbe;
+}
+
+/* Rotate dropdown arrow when open */
+.main-navigation-wrapper--inline .has-super-nav:hover .navigation-dropdown-toggle svg {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+.main-navigation-wrapper--inline .navigation-dropdown-toggle svg {
+  transition: transform 0.3s ease;
+}
+
+/* --- Inner Container: Aligned with header (1280px, 52px padding) --- */
+.main-navigation-wrapper--inline .navigation-super {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 52px;
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* Override theme's grid layout */
+.main-navigation-wrapper--inline .navigation-super.grid {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+/* --- Link Columns Section --- */
+.main-navigation-wrapper--inline .navigation-super-departments {
+  flex: 1;
+  display: flex;
+  gap: 50px;
+  max-width: none;
+  width: auto;
+  float: none;
+}
+
+/* Override grid-item widths */
+.main-navigation-wrapper--inline .navigation-super-departments.grid-item-75,
+.main-navigation-wrapper--inline .navigation-super-departments.grid-item-100 {
+  width: auto;
+  flex: 1;
+}
+
+/* --- Individual Link Columns --- */
+.main-navigation-wrapper--inline .navigation-super-collection {
+  min-width: 150px;
+}
+
+/* --- Column Headers --- */
+.main-navigation-wrapper--inline .navigation-super-collection h4 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #303030;
+  margin: 0 0 16px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(48, 48, 48, 0.15);
+}
+
+.main-navigation-wrapper--inline .navigation-super-collection h4 a {
+  color: #303030;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.main-navigation-wrapper--inline .navigation-super-collection h4 a:hover {
+  color: #27bdbe;
+}
+
+/* --- Link Lists --- */
+.main-navigation-wrapper--inline .navigation-super-collection ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-navigation-wrapper--inline .navigation-super-collection ul li {
+  margin-bottom: 10px;
+}
+
+.main-navigation-wrapper--inline .navigation-super-collection ul li:last-child {
+  margin-bottom: 0;
+}
+
+.main-navigation-wrapper--inline .navigation-super-collection ul li a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #303030;
+  text-decoration: none;
+  line-height: 1.6;
+  transition: color 0.2s ease;
+  display: inline-block;
+}
+
+.main-navigation-wrapper--inline .navigation-super-collection ul li a:hover {
+  color: #27bdbe;
+}
+
+/* --- "New" Badge for Links --- */
+.main-navigation-wrapper--inline .navigation-super-collection ul li.is-sale a::after {
+  content: 'New';
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  background-color: #27bdbe;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+/* --- Featured Image Section --- */
+.main-navigation-wrapper--inline .navigation-super-collections {
+  flex-shrink: 0;
+  width: 280px;
+  max-width: none;
+  float: none;
+}
+
+/* Override grid-item width */
+.main-navigation-wrapper--inline .navigation-super-collections.grid-item-25 {
+  width: 280px;
+}
+
+/* --- Featured Image Container --- */
+.main-navigation-wrapper--inline .navigation-super-default {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-navigation-wrapper--inline .navigation-super-default:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Featured image styling */
+.main-navigation-wrapper--inline .navigation-super-default a {
+  display: block;
+  text-decoration: none;
+}
+
+.main-navigation-wrapper--inline .navigation-super-default img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* --- Image Label Overlay (optional - for future enhancement) --- */
+.main-navigation-wrapper--inline .navigation-super-default::after {
+  /* Uncomment to add a label bar at bottom */
+  /* content: 'Shop Now';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: #303030; */
+}
+
+/* --- Tablet Responsive (max 900px) --- */
+@media (max-width: 900px) {
+  .main-navigation-wrapper--inline .navigation-super {
+    padding: 40px 36px;
+    gap: 40px;
+  }
+
+  .main-navigation-wrapper--inline .navigation-super-departments {
+    gap: 30px;
+  }
+
+  .main-navigation-wrapper--inline .navigation-super-collections,
+  .main-navigation-wrapper--inline .navigation-super-collections.grid-item-25 {
+    width: 220px;
+  }
+}
+
+/* --- Hide mega menu on mobile (hamburger nav takes over) --- */
+@media (max-width: 768px) {
+  .main-navigation-wrapper--inline .navigation-super-wrapper {
+    display: none !important;
+  }
+}
+
+/* ===========================================
+   REGULAR DROPDOWN MENUS - Match Mega Menu Style
+   =========================================== */
+
+/* --- Dropdown Container --- */
+.main-navigation-wrapper--inline .navigation-dropdown-simple {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background-color: #FAF7F2; /* Match mega menu */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  z-index: 100;
+  padding: 16px 0;
+  margin-top: 8px;
+
+  /* Hidden state */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+/* Show on hover */
+.main-navigation-wrapper--inline .has-dropdown:hover > .navigation-dropdown-simple {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* --- Dropdown Items --- */
+.main-navigation-wrapper--inline .navigation-dropdown-item {
+  margin: 0;
+  position: relative;
+}
+
+.main-navigation-wrapper--inline .navigation-dropdown-item > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #303030;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.main-navigation-wrapper--inline .navigation-dropdown-item > a:hover {
+  background-color: rgba(39, 189, 190, 0.08);
+  color: #27bdbe;
+}
+
+/* --- Nested Dropdown (Secondary) --- */
+.main-navigation-wrapper--inline .navigation-dropdown-simple.secondary {
+  position: absolute;
+  top: -16px; /* Align with parent padding */
+  left: 100%;
+  margin-left: 8px;
+  margin-top: 0;
+}
+
+/* Show nested dropdown on hover */
+.main-navigation-wrapper--inline .navigation-dropdown-item.has-dropdown:hover > .navigation-dropdown-simple.secondary {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Arrow icon for nested items */
+.main-navigation-wrapper--inline .navigation-dropdown-item .navigation-dropdown-toggle {
+  margin-left: 8px;
+}
+
+.main-navigation-wrapper--inline .navigation-dropdown-item .navigation-dropdown-toggle svg {
+  width: 10px;
+  height: 10px;
+  transition: transform 0.2s ease;
+}
+
+/* Highlight parent nav item when dropdown is open */
+.main-navigation-wrapper--inline .has-dropdown:hover > a {
+  color: #27bdbe;
+}
+
+/* Rotate arrow on hover for regular dropdowns */
+.main-navigation-wrapper--inline .has-dropdown:hover > a .navigation-dropdown-toggle svg {
+  transform: rotate(180deg);
+}
+
+/* Hide dropdowns on mobile */
+@media (max-width: 768px) {
+  .main-navigation-wrapper--inline .navigation-dropdown-simple {
+    display: none !important;
+  }
+}
+
+/* ===========================================
+   END MEGA MENU REDESIGN
+   =========================================== */
+
+/* ===========================================
    HOMEPAGE SECTION SPACING FIX
    Remove default 80px/40px margins from .shopify-section
    to eliminate white gaps between sections
@@ -3051,6 +3434,7 @@ h2.featured-products-heading {
 .index-wrapper .shopify-section.section-tabbed-collection,
 .index-wrapper .shopify-section.section-promo-split,
 .index-wrapper .shopify-section.section-shop-the-look-grid,
+.index-wrapper .shopify-section.section-feature-cards,
 .index-wrapper .shopify-section.section-index-products,
 .index-wrapper .shopify-section.section-index-features,
 .index-wrapper .shopify-section.section-index-text,
