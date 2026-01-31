@@ -1,0 +1,30 @@
+<section class="index-apps{% if section.settings.include_margins %} page-wrapper{% endif %}" data-section-id="{{ section.id }}" data-section-child="section-apps">
+	{%- for block in section.blocks -%}
+		{% render block %}
+	{%- endfor -%}
+</section>
+  
+{% schema %}
+{
+	"name": "Apps",
+    "class": "section-apps",
+	"settings": [
+		{
+			"type": "checkbox",
+			"id": "include_margins",
+			"default": true,
+			"label": "Make section margins the same as theme"
+		}
+	],
+	"blocks": [
+		{
+			"type": "@app"
+		}
+	],
+	"presets": [
+		{
+			"name": "Apps"
+		}
+	]
+}
+{% endschema %}

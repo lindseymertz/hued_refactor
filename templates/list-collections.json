@@ -1,0 +1,136 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "index-image-with-text-overlay-00": {
+      "type": "index-image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "image_height": "40vw",
+        "bg_image_overlay_color": "#000000",
+        "bg_image_overlay_opacity": 0,
+        "subheading": "",
+        "title": "Share your story",
+        "text": "",
+        "colorText": "#ffffff",
+        "textPosition": "left",
+        "textAlignment": "center",
+        "heading--text-size": 26,
+        "text--text-size": 16,
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "index-features": {
+      "type": "index-features",
+      "blocks": {
+        "index-features-0": {
+          "type": "feature-item",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "url": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-1": {
+          "type": "feature-item",
+          "disabled": true,
+          "settings": {
+            "title": "Bestsellers",
+            "text": "<p>Shop our premium collection.</p>",
+            "buttonText": "Shop now",
+            "url": "shopify://collections/all",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f6f6f6",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-2": {
+          "type": "feature-item",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "url": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        }
+      },
+      "block_order": [
+        "index-features-0",
+        "index-features-1",
+        "index-features-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "heading": "",
+        "text": "",
+        "indexItemsPerRow": 3,
+        "remove-spacing": true
+      }
+    },
+    "main": {
+      "type": "list-collections",
+      "disabled": true,
+      "settings": {
+        "collections_per_page": 10
+      }
+    },
+    "index-image-with-text-overlay-01": {
+      "type": "index-image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "image_height": "40vw",
+        "bg_image_overlay_color": "#000000",
+        "bg_image_overlay_opacity": 0,
+        "subheading": "",
+        "title": "Share your story",
+        "text": "<p>Add a large image with text overlay to give focus to your chosen product, collection, or blog post</p>",
+        "colorText": "#ffffff",
+        "textPosition": "right",
+        "textAlignment": "right",
+        "heading--text-size": 30,
+        "text--text-size": 14,
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "index-newsletter": {
+      "type": "index-newsletter",
+      "settings": {
+        "subheading": "",
+        "heading": "Stay up to date",
+        "text": "",
+        "customerTag": "",
+        "colorText": "#333333",
+        "colorBackground": "#e6e6e6"
+      }
+    }
+  },
+  "order": [
+    "index-image-with-text-overlay-00",
+    "index-features",
+    "main",
+    "index-image-with-text-overlay-01",
+    "index-newsletter"
+  ]
+}

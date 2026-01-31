@@ -1,0 +1,89 @@
+{% assign hasBreadcrumbs = true %}
+{% case template.name %}
+  {% when 'cart' %}
+    {% assign hasBreadcrumbs = false %}
+  {% when 'account' %}
+    {% assign hasBreadcrumbs = false %}
+  {% when 'login' %}
+    {% assign hasBreadcrumbs = false %}
+  {% when 'register' %}
+    {% assign hasBreadcrumbs = false %}
+  {% when 'index' %}
+    {% assign hasBreadcrumbs = false %}
+  {% when 'list-collections' %}
+    {% assign hasBreadcrumbs = false %}
+  {% when 'page' %}
+    {% assign hasBreadcrumbs = false %}
+  {% when 'search' %}
+    {% assign hasBreadcrumbs = false %}
+{% endcase %}
+
+{% if hasBreadcrumbs %}
+
+  <nav class="breadcrumbs" role="navigation" aria-label="breadcrumbs">
+    <div class="breadcrumbs-inner">
+
+      {% if template contains 'article' %}
+        {% if blog.url %}
+          {{ blog.title | link_to: blog.url }}
+        {% endif %}
+        <span aria-hidden="true">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+        <span>{{ article.title }}</span>
+
+      {% elsif template contains 'blog' %}
+        {% if current_tags %}
+          {{ blog.title | link_to: blog.url }}
+          <span aria-hidden="true">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+          <span>
+            {%- for tag in current_tags -%}
+              {{ tag | replace: "_", ": " }} {% unless forloop.last %}+{% endunless %}
+            {%- endfor -%}
+          </span>
+        {% else %}
+          <span>{{ blog.title }}</span>
+        {% endif %}
+
+      {% elsif template contains 'customers' %}
+        {% if template contains 'addresses' %}
+          {{ "layout.breadcrumbs.account" | t | link_to: routes.account_url }}
+          <span aria-hidden="true">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+          <span>{{ "layout.breadcrumbs.addresses" | t }}</span>
+        {% elsif template contains 'order' %}
+          {{ "layout.breadcrumbs.account" | t | link_to: routes.account_url }}
+          <span aria-hidden="true">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+          <span>{{ "layout.breadcrumbs.order" | t }}</span>
+        {% else %}
+          {{ "layout.breadcrumbs.account" | t }}
+        {% endif %}
+
+      {% elsif template contains 'product' or 'collection' %}
+        {{ 'layout.breadcrumbs.collections' | t | link_to: routes.collections_url }}
+
+        {% if template contains 'product' %}
+            {% if collection.url %}
+              <span aria-hidden="true">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+              {{ collection.title | link_to: collection.url }}
+            {% endif %}
+            <span aria-hidden="true">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+            <span>{{ product.title | truncate: 20 }}</span>
+
+        {% elsif template contains 'collection' and collection.handle %}
+            {% if current_tags %}
+              <span aria-hidden="true">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+              {{ collection.title | link_to: collection.url }}
+              <span aria-hidden="true">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+              <span>
+                {%- for tag in current_tags -%}
+                  {{ tag | replace: "badge__", "" | replace: "_", ": " }} {% unless forloop.last %}+{% endunless %}
+                {%- endfor -%}
+              </span>
+            {% else %}
+              <span aria-hidden="true">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+              <span>{{ collection.title }}</span>
+            {% endif %}
+        {% endif %}
+
+      {% endif %}
+    </div>
+  </nav>
+{% endif %}

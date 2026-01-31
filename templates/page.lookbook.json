@@ -1,0 +1,373 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "settings": {
+        "show_page_heading": true
+      }
+    },
+    "index-features-00": {
+      "type": "index-features",
+      "blocks": {
+        "index-features-0": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "url": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-2": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "url": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-1": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "url": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-3": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "url": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-4": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "url": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-5": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "url": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        }
+      },
+      "block_order": [
+        "index-features-0",
+        "index-features-2",
+        "index-features-1",
+        "index-features-3",
+        "index-features-4",
+        "index-features-5"
+      ],
+      "settings": {
+        "subheading": "",
+        "heading": "",
+        "text": "",
+        "indexItemsPerRow": 3,
+        "remove-spacing": false
+      }
+    },
+    "index-rich-text-00": {
+      "type": "index-rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "index-shop-the-look-00": {
+      "type": "index-shop-the-look",
+      "blocks": {
+        "index-shop-the-look-0": {
+          "type": "product",
+          "settings": {
+            "top": 44,
+            "left": 53
+          }
+        },
+        "index-shop-the-look-1": {
+          "type": "product",
+          "settings": {
+            "top": 75,
+            "left": 41
+          }
+        }
+      },
+      "block_order": [
+        "index-shop-the-look-0",
+        "index-shop-the-look-1"
+      ],
+      "settings": {
+        "stl__subheading": "",
+        "stl__heading": "Shop the look",
+        "description_alignment": "left",
+        "image__position": "image--left",
+        "link": "shopify://collections/all",
+        "button__text": "Shop now"
+      }
+    },
+    "video-hero": {
+      "type": "video-hero",
+      "settings": {
+        "desktopHeight": "450",
+        "mobileHeight": "250",
+        "subheading": "",
+        "title": "",
+        "text": "",
+        "textAlignment": "center",
+        "textColor": "#000000",
+        "textShadow": false,
+        "heading--text-size": 50,
+        "text--text-size": 24,
+        "button_link": "",
+        "button_label": "",
+        "textColorButton": "#ffffff",
+        "colorButton": "#333333"
+      }
+    },
+    "index-rich-text-01": {
+      "type": "index-rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "index-features-01": {
+      "type": "index-features",
+      "blocks": {
+        "index-features-0": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "url": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-1": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "url": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-3": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "url": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-2": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "url": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-4": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "url": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-5": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "url": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        }
+      },
+      "block_order": [
+        "index-features-0",
+        "index-features-1",
+        "index-features-3",
+        "index-features-2",
+        "index-features-4",
+        "index-features-5"
+      ],
+      "settings": {
+        "subheading": "",
+        "heading": "",
+        "text": "",
+        "indexItemsPerRow": 3,
+        "remove-spacing": false
+      }
+    },
+    "index-shop-the-look-01": {
+      "type": "index-shop-the-look",
+      "blocks": {
+        "index-shop-the-look-0": {
+          "type": "product",
+          "settings": {
+            "top": 54,
+            "left": 30
+          }
+        }
+      },
+      "block_order": [
+        "index-shop-the-look-0"
+      ],
+      "settings": {
+        "stl__subheading": "",
+        "stl__heading": "Shop the look",
+        "stl__description": "",
+        "description_alignment": "right",
+        "image": "shopify://shop_images/Frame_13.png",
+        "image__position": "image--right",
+        "link": "shopify://collections/the-raya-collection",
+        "button__text": "Shop now"
+      }
+    },
+    "index-features-02": {
+      "type": "index-features",
+      "blocks": {
+        "index-features-1": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "url": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-0": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "url": "",
+            "textAlignment": "center",
+            "colorText": "#333333",
+            "colorOverlay": "#f5f5f5",
+            "overlayOpacity": 80
+          }
+        }
+      },
+      "block_order": [
+        "index-features-1",
+        "index-features-0"
+      ],
+      "settings": {
+        "subheading": "",
+        "heading": "",
+        "text": "",
+        "indexItemsPerRow": 2,
+        "remove-spacing": false
+      }
+    },
+    "index-newsletter": {
+      "type": "index-newsletter",
+      "settings": {
+        "subheading": "",
+        "heading": "Stay up to date",
+        "text": "",
+        "customerTag": "",
+        "colorText": "#333333",
+        "colorBackground": "#F6F6F6"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "index-features-00",
+    "index-rich-text-00",
+    "index-shop-the-look-00",
+    "video-hero",
+    "index-rich-text-01",
+    "index-features-01",
+    "index-shop-the-look-01",
+    "index-features-02",
+    "index-newsletter"
+  ]
+}

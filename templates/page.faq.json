@@ -1,0 +1,375 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "index-image-with-text-overlay-00": {
+      "type": "index-image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "image_height": "40vw",
+        "bg_image_overlay_color": "#f6f6f6",
+        "bg_image_overlay_opacity": 10,
+        "subheading": "",
+        "title": "",
+        "text": "",
+        "colorText": "#ffffff",
+        "textPosition": "center",
+        "textAlignment": "center",
+        "heading--text-size": 30,
+        "text--text-size": 16,
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {
+        "show_page_heading": true
+      }
+    },
+    "index-rich-text": {
+      "type": "index-rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "WE'RE HERE TO HELP",
+        "text": "<p>Before contacting the team, check out some of our top queries below. </p><p>If you want to chat to a member of our team, please contact us via the form below.</p>",
+        "button_label": "CONTACT US",
+        "button_link": "shopify://pages/contact-us"
+      }
+    },
+    "91372061-f822-4334-8da5-18b5eee1fc04": {
+      "type": "accordion",
+      "blocks": {
+        "4c63bd8f-3f60-48bb-857b-4e455b38fff1": {
+          "type": "tab_content",
+          "settings": {
+            "question": "What size bracelet should I order?",
+            "text": "<p>Hued Bracelets are meant to be worn loose around the wrist. Don't forget to give yourself plenty of room to stack multiples of the same color or create your own unique color combinations.</p><p>We offer three different sizes:</p><p>6.5\" Circumference </p><p>7.5\" Circumference</p><p>8.5\" Circumference</p><p>To measure, wrap a piece of string around your wrist and cut to desired size. Place the cut string against a ruler. For a snug fit, use the closest measurement, or choose the next size up for a looser fit.</p>"
+          }
+        },
+        "981feb28-b33d-4b26-bd28-f56b0e331875": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Color Variants",
+            "text": "<p>Actual product color may vary from the images shown. Every monitor or mobile display has a different capability to display colors, and every individual may see these colors differently. In addition, lighting conditions at the time the photo was taken can also affect an image's color.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "4c63bd8f-3f60-48bb-857b-4e455b38fff1",
+        "981feb28-b33d-4b26-bd28-f56b0e331875"
+      ],
+      "settings": {
+        "background-color": "#ffffff",
+        "text-color": "#000000",
+        "title": "COLOR AND SIZE GUIDE",
+        "faq_icon": "caret"
+      }
+    },
+    "36a39acd-30dd-4e1c-b8d8-ff7ef4f4f73c": {
+      "type": "accordion",
+      "blocks": {
+        "2a338d7f-72d6-4590-a2a3-1e4a068a9b57": {
+          "type": "tab_content",
+          "settings": {
+            "question": "How should I care for my bracelets?",
+            "text": "<p>HUED Bracelets are 100% waterproof! Try to avoid soap that contains essential oils, antibacterial agents, and moisturizers, as they may cause build up. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "2a338d7f-72d6-4590-a2a3-1e4a068a9b57"
+      ],
+      "settings": {
+        "background-color": "#ffffff",
+        "text-color": "#000000",
+        "title": "CARE INSTRUCTIONS",
+        "faq_icon": "caret"
+      }
+    },
+    "d94a60a7-0266-4d0b-b26f-0e093965c168": {
+      "type": "accordion",
+      "blocks": {
+        "478c0e28-1ec4-4c6e-9a4d-8310a7a72cb3": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Did you receive my order?",
+            "text": "<p>Once your order has been successfully placed, you will receive an order confirmation email. We suggest checking your junk and spam folders. </p><p>If you haven't received an email from us and are unsure if your order went through, please email us at hello@huedbracelets.com</p>"
+          }
+        },
+        "610637ea-7bab-4371-9a20-31b4638c3c37": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Can I change my order?",
+            "text": "<p>We pride ourselves on fast processing times. Your order begins processing as soon as we receive your order. Unfortunately, we are unable to modify orders.</p>"
+          }
+        },
+        "e81fa9f0-6d99-4236-83e0-5b0a2c840fbe": {
+          "type": "tab_content",
+          "settings": {
+            "question": "How do I cancel my order?",
+            "text": "<p>Since we work on processing your order as soon as we receive it, your order cannot be canceled.</p>"
+          }
+        },
+        "38d6cd80-b36f-4dd6-9938-353479268435": {
+          "type": "tab_content",
+          "settings": {
+            "question": "How do I track my order?",
+            "text": "<p>Once your order has been shipped, you will receive an automated email with your tracking information. </p>"
+          }
+        },
+        "f24374e0-4ae4-487c-a0dc-b7772095c6e2": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Wrong / Missing Item(s)",
+            "text": "<p>If the order you received included incorrect items or was missing items, please email us with your name, order number and item details. </p><p>Please mention the exact missing or incorrect item(s) in your order, and include an image of the order you received. We promise to make it right!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "478c0e28-1ec4-4c6e-9a4d-8310a7a72cb3",
+        "610637ea-7bab-4371-9a20-31b4638c3c37",
+        "e81fa9f0-6d99-4236-83e0-5b0a2c840fbe",
+        "38d6cd80-b36f-4dd6-9938-353479268435",
+        "f24374e0-4ae4-487c-a0dc-b7772095c6e2"
+      ],
+      "settings": {
+        "background-color": "#ffffff",
+        "text-color": "#000000",
+        "title": "ORDERS",
+        "faq_icon": "caret"
+      }
+    },
+    "56a5b7de-c4e0-4c37-8240-82fe4924a43c": {
+      "type": "accordion",
+      "blocks": {
+        "5a1609ec-61d5-4921-a2ce-df9525542aa3": {
+          "type": "tab_content",
+          "settings": {
+            "question": "When will my order ship?",
+            "text": "<p>As we are a small team, please allow up to 3 business days to process your order.  </p>"
+          }
+        },
+        "ba6c4b30-207e-4703-a241-da7c191f7db6": {
+          "type": "tab_content",
+          "settings": {
+            "question": "What should I do if I entered the wrong shipping address?",
+            "text": "<p>It is the customer's responsibility to make sure they enter their shipping address correctly. </p><p>We do our best to speed up processing and shipping times, hence there is a very small time gap to change the address of your order.</p><p>If you need to change your shipping address, contact us as soon as you place your order. </p><p>We will do our best to make the change, however, we cannot guarantee that we will be able to do so. </p>"
+          }
+        },
+        "cd5bdc10-c682-4923-8e39-5f41d39e55ba": {
+          "type": "tab_content",
+          "settings": {
+            "question": "What are your shipping costs?",
+            "text": "<p>Shipping costs are calculated by the weight of the package, plus the distance from our facility to the address provided at checkout. Shipping costs will be displayed when an address has been entered at checkout. </p>"
+          }
+        },
+        "1111449f-25dc-48a6-a58c-63cc19c9645d": {
+          "type": "tab_content",
+          "settings": {
+            "question": "How long does shipping take?",
+            "text": "<p>USPS First Class Mail - 2-5 Business Days</p><p>USPS International - Varies by destination</p>"
+          }
+        },
+        "dc2beca8-8429-40b9-8e9a-d278bb6390a2": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Do you ship internationally?",
+            "text": "<p>We sure do! We unfortunately cannot ship to Russia, China, Hong Kong, Myanmar (Burma), or Guatemala at this time.</p>"
+          }
+        },
+        "00491bd1-7592-4a1a-9545-c699162832b4": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Will I have to pay VAT, Duty or other fees?",
+            "text": "<p>Duty (or customs tariffs) is set by the destination country's customs authorities. Fees are determined based on a combination of the country of origin or manufacturing of the goods being purchased.</p><p>Check your local customs authority website for the latest updates on Value Added Tax (VAT) rates, customs tariffs and other fees. </p><p>Hued Bracelets LLC holds no responsibility for any such charges, duties or value added taxes that may be imposed by any relevant tax authority and any such duties or value added taxes may be charged to and payable by customers in addition to the price stated for the goods on this site.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "5a1609ec-61d5-4921-a2ce-df9525542aa3",
+        "ba6c4b30-207e-4703-a241-da7c191f7db6",
+        "cd5bdc10-c682-4923-8e39-5f41d39e55ba",
+        "1111449f-25dc-48a6-a58c-63cc19c9645d",
+        "dc2beca8-8429-40b9-8e9a-d278bb6390a2",
+        "00491bd1-7592-4a1a-9545-c699162832b4"
+      ],
+      "settings": {
+        "background-color": "#ffffff",
+        "text-color": "#000000",
+        "title": "SHIPPING & DELIVERY>",
+        "faq_icon": "caret"
+      }
+    },
+    "f267afef-ee6c-4cdc-822c-bdd3a9536ae1": {
+      "type": "accordion",
+      "blocks": {
+        "a44428a0-2ecf-4044-8121-2352003205c1": {
+          "type": "tab_content",
+          "settings": {
+            "question": "How do I make a return?",
+            "text": "<p>All purchases made on our website are final sale and cannot be returned or exchanged.</p>"
+          }
+        },
+        "5536c403-fbbd-468d-bb58-69209bfb69a5": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Can I exchange my bracelet(s) for a different size?",
+            "text": "<p>We do not issue exchanges for different sizes. Please make sure to measure your wrist prior to placing an order to ensure a perfect fit. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "a44428a0-2ecf-4044-8121-2352003205c1",
+        "5536c403-fbbd-468d-bb58-69209bfb69a5"
+      ],
+      "settings": {
+        "background-color": "#ffffff",
+        "text-color": "#000000",
+        "title": "RETURNS & EXCHANGES",
+        "faq_icon": "caret"
+      }
+    },
+    "7630cceb-8f2e-4586-bd05-b6c4a515c927": {
+      "type": "accordion",
+      "blocks": {
+        "8402d7aa-2926-4de5-a527-3789c65c2fce": {
+          "type": "tab_content",
+          "settings": {
+            "question": "What is a Pre-Order?",
+            "text": "<p>Placing an order with a pre-order item will reserve you the product and it will start to ship once we replenish our inventory for them.</p><p>We will indicate on the product page of the item if it is for pre-order and it will include a date as to when the product is expected to start shipping.</p><p>If you order a pre-order item(s) along with in stock items, the items will be shipped together when the pre-order items have arrived at our facility. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "8402d7aa-2926-4de5-a527-3789c65c2fce"
+      ],
+      "settings": {
+        "background-color": "#ffffff",
+        "text-color": "#000000",
+        "title": "Pre-Orders",
+        "faq_icon": "caret"
+      }
+    },
+    "cb9a8529-1dd8-458d-91a7-c3497bcb586c": {
+      "type": "accordion",
+      "blocks": {
+        "7f73a444-0e24-40ee-81c1-1df1dd36c777": {
+          "type": "tab_content",
+          "settings": {
+            "question": "What are Shop Pay Installments?",
+            "text": "<p>Shop Pay offers you the option to pay in full at checkout, or to split your purchase into regular payments with Shop Pay Installments. Installment options can be used on orders over $50 USD, including discounts, shipping, and taxes.</p><p>For purchases split into 4 bi-weekly payments, there are no additional charges or interest rates applied. Purchases split into monthly payments may be subject to interest.</p><p>You can pay your balance off early without penalty.</p><p>There are no late fees. However, partial or late payments may affect your ability to use Shop Pay Installments in the future.</p><p>Your credit scores aren't impacted if your purchase is split into 4 bi-weekly payments using Shop Pay Installments. If your purchase is split into monthly payments, then your payments may be reported to a credit bureau.</p><p>To use Shop Pay Installments, your shipping address needs to be in the United States. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "7f73a444-0e24-40ee-81c1-1df1dd36c777"
+      ],
+      "settings": {
+        "background-color": "#ffffff",
+        "text-color": "#000000",
+        "title": "SHOP PAY",
+        "faq_icon": "caret"
+      }
+    },
+    "5097ab71-3c67-4a00-9e8e-ce6336da9fa6": {
+      "type": "accordion",
+      "blocks": {
+        "6388e98d-f491-467d-9157-b0e202982d92": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Do you offer wholesale?",
+            "text": "<p>Not yet! We plan to in the future....stay tuned!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "6388e98d-f491-467d-9157-b0e202982d92"
+      ],
+      "settings": {
+        "background-color": "#ffffff",
+        "text-color": "#000000",
+        "title": "WHOLESALE",
+        "faq_icon": "caret"
+      }
+    },
+    "index-image-with-text-overlay-01": {
+      "type": "index-image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "image_height": "40vw",
+        "bg_image_overlay_color": "#f6f6f6",
+        "bg_image_overlay_opacity": 10,
+        "subheading": "",
+        "title": "",
+        "text": "",
+        "colorText": "#ffffff",
+        "textPosition": "left",
+        "textAlignment": "center",
+        "heading--text-size": 30,
+        "text--text-size": 16,
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "index-blog": {
+      "type": "index-blog",
+      "blocks": {
+        "index-blog-0": {
+          "type": "blog",
+          "settings": {
+            "blog": ""
+          }
+        }
+      },
+      "block_order": [
+        "index-blog-0"
+      ],
+      "disabled": true,
+      "settings": {
+        "indexBlogSubheading": "",
+        "indexBlogHeading": "From the blog",
+        "indexBlogText": "",
+        "post_limit": 3,
+        "showDate": true,
+        "showAuthor": false,
+        "imageSize": "square"
+      }
+    },
+    "index-newsletter": {
+      "type": "index-newsletter",
+      "settings": {
+        "subheading": "",
+        "heading": "Stay up to date",
+        "text": "",
+        "customerTag": "",
+        "colorText": "#27bdbe",
+        "colorBackground": "#f6f6f6"
+      }
+    }
+  },
+  "order": [
+    "index-image-with-text-overlay-00",
+    "main",
+    "index-rich-text",
+    "91372061-f822-4334-8da5-18b5eee1fc04",
+    "36a39acd-30dd-4e1c-b8d8-ff7ef4f4f73c",
+    "d94a60a7-0266-4d0b-b26f-0e093965c168",
+    "56a5b7de-c4e0-4c37-8240-82fe4924a43c",
+    "f267afef-ee6c-4cdc-822c-bdd3a9536ae1",
+    "7630cceb-8f2e-4586-bd05-b6c4a515c927",
+    "cb9a8529-1dd8-458d-91a7-c3497bcb586c",
+    "5097ab71-3c67-4a00-9e8e-ce6336da9fa6",
+    "index-image-with-text-overlay-01",
+    "index-blog",
+    "index-newsletter"
+  ]
+}

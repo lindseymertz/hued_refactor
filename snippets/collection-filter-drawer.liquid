@@ -1,0 +1,84 @@
+<div class="filter-drawer-overlay" data-filter-overlay></div>
+<aside class="filter-drawer" data-filter-drawer aria-hidden="true">
+  <div class="filter-drawer__header">
+    <button class="filter-drawer__close" data-filter-close aria-label="Close filters">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="filter-drawer__content">
+    <!-- Sort Section -->
+    <div class="filter-drawer__section" data-filter-section="sort">
+      <h3 class="filter-drawer__section-title">Sort</h3>
+      <div class="filter-drawer__options">
+        {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+        <label class="filter-drawer__radio">
+          <input type="radio" name="sort_by" value="manual" {% if sort_by == 'manual' %}checked{% endif %}>
+          <span class="filter-drawer__radio-dot"></span>
+          <span>Featured</span>
+        </label>
+        <label class="filter-drawer__radio">
+          <input type="radio" name="sort_by" value="best-selling" {% if sort_by == 'best-selling' %}checked{% endif %}>
+          <span class="filter-drawer__radio-dot"></span>
+          <span>Best Selling</span>
+        </label>
+        <label class="filter-drawer__radio">
+          <input type="radio" name="sort_by" value="price-ascending" {% if sort_by == 'price-ascending' %}checked{% endif %}>
+          <span class="filter-drawer__radio-dot"></span>
+          <span>Price, Low To High</span>
+        </label>
+        <label class="filter-drawer__radio">
+          <input type="radio" name="sort_by" value="price-descending" {% if sort_by == 'price-descending' %}checked{% endif %}>
+          <span class="filter-drawer__radio-dot"></span>
+          <span>Price, High To Low</span>
+        </label>
+        <label class="filter-drawer__radio">
+          <input type="radio" name="sort_by" value="created-descending" {% if sort_by == 'created-descending' %}checked{% endif %}>
+          <span class="filter-drawer__radio-dot"></span>
+          <span>Newest</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Dynamic Filter Sections -->
+    {%- for filter in collection.filters -%}
+      {%- if filter.type == 'list' or filter.type == 'boolean' -%}
+        <div class="filter-drawer__section" data-filter-section="{{ filter.label | handleize }}">
+          <h3 class="filter-drawer__section-title">{{ filter.label }}</h3>
+          <div class="filter-drawer__options filter-drawer__options--checkboxes">
+            {%- for value in filter.values -%}
+              {%- unless value.count == 0 and value.active == false -%}
+                <label class="filter-drawer__checkbox {% if value.count == 0 %}filter-drawer__checkbox--disabled{% endif %}">
+                  <input
+                    type="checkbox"
+                    name="{{ value.param_name }}"
+                    value="{{ value.value }}"
+                    {% if value.active %}checked{% endif %}
+                    {% if value.count == 0 and value.active == false %}disabled{% endif %}
+                    data-filter-input
+                  >
+                  <span class="filter-drawer__checkbox-box">
+                    <svg class="filter-drawer__checkbox-check" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                      <path d="M1 5L4.5 8.5L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span>{{ value.label }} ({{ value.count }})</span>
+                </label>
+              {%- endunless -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <div class="filter-drawer__footer">
+    <span class="filter-drawer__count" data-filter-count>{{ collection.products_count }} products found</span>
+    <div class="filter-drawer__actions">
+      <a href="{{ collection.url }}" class="filter-drawer__btn filter-drawer__btn--clear">CLEAR ALL</a>
+      <button type="button" class="filter-drawer__btn filter-drawer__btn--apply" data-filter-apply>APPLY</button>
+    </div>
+  </div>
+</aside>

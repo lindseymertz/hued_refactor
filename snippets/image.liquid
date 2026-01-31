@@ -1,0 +1,95 @@
+{%- assign image_url = image_object | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+{% if image_secondary_object != false and image_secondary_object != null %}
+  {%- assign has_secondary_image = true -%}
+  {%- assign image_secondary_url = image_secondary_object | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+{% endif %}
+
+{% if secondary_image_enabled == true and has_secondary_image == true %}
+  {%- assign show_secondary_image = true -%}
+{% endif %}
+
+{% if is_product_media %}
+  {% assign image_width_float = image_object.width | times: 1.0 %}
+  {% assign image_aspect_ratio = image_object.height | divided_by: image_width_float %}
+{% endif %}
+
+{% assign focal_point = image_object.presentation.focal_point %}
+
+{% if styles or focal_point %}
+  {% capture style_attr %}
+    style="{% if styles %}{{ styles }} {% endif %}{% if focal_point %}object-fit:cover;object-position:{{ focal_point }}!important;{% endif %}"
+  {% endcapture %}
+{% endif %}
+
+<div
+  class="height-inherit{% if show_secondary_image %} has-secondary-image{% endif %}{% unless image_link %}{% if is_product_media %} has-img-placeholder{% endif %}{% endunless %}"
+  {% unless image_link %}{% if is_product_media %}
+    style="padding-top: {{ image_aspect_ratio | times: 100 }}%;"
+  {% endif %}{% endunless %}
+>
+  {% if image_link %}
+    <a
+      class="{{ image_link_class }}{% if is_product_media %} has-img-placeholder{% endif %}"
+      href="{{ image_link }}"
+      {% if image_tabindex %}
+        tabindex="{{ image_tabindex }}"
+      {% endif %}
+      {% if is_product_media %}
+        style="padding-top: {{ image_aspect_ratio | times: 100 }}%;"
+      {% endif %}
+    >
+  {% endif %}
+
+  {%- if image_additional_content != blank -%}
+    {{- image_additional_content -}}
+  {%- endif -%}
+
+  <img
+    src="{{ "capitalPreloadImage.svg" | asset_url }}"
+    class="{{ image_class }} lazyload is-lazy supports-js"
+    data-src="{{ image_url }}"
+    data-widths="[{{ image_widths }}]"
+    data-sizes="auto"
+    alt="{{ image_object.alt | escape }}"
+    {{ style_attr }}
+    {{ image_attributes }}
+  >
+
+  {% if show_secondary_image %}
+    <img
+      {% unless is_product_media %}
+        src="{{ "capitalPreloadImage.svg" | asset_url }}"
+      {% endunless %}
+      class="{{ image_class }} lazyload is-lazy supports-js {{ image_class }}--secondary"
+      data-src="{{ image_secondary_url }}"
+      data-widths="[{{ image_widths }}]"
+      data-sizes="auto"
+      alt="{{ image_secondary_object.alt | escape }}"
+      {{ image_attributes }}
+    >
+  {% endif %}
+
+  {% if image_link %}
+    </a>
+  {% endif %}
+</div>
+
+{% if image_noscript_width %}
+  <noscript>
+    <img
+      src="{{ image_object | img_url: image_noscript_width }}"
+      srcset="{{ image_object | img_url: image_noscript_width }} 1x, {{ image_object | img_url: image_noscript_width, scale: 2 }} 2x, {{ image_object | img_url: image_noscript_width, scale: 3 }} 3x"
+      alt=" {{ image_object.alt | escape }}"
+      {{ style_attr }}
+    >
+  </noscript>
+{% endif %}
+
+{% assign image_noscript_width = false %}
+{% assign image_link = false %}
+{% assign image_link_class = '' %}
+{% assign image_tabindex = 1 %}
+{% assign image_default = false %}
+{% assign image_additional_content = '' %}
+{% assign image_dimension = false %}

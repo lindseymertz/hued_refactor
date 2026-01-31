@@ -1,0 +1,101 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "cart",
+      "blocks": {
+        "cart_total": {
+          "type": "cart_totals",
+          "settings": {}
+        },
+        "cart_tax_and_shipping": {
+          "type": "cart_tax_and_shipping",
+          "settings": {}
+        },
+        "cart_buttons": {
+          "type": "cart_buttons",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "cart_total",
+        "cart_tax_and_shipping",
+        "cart_buttons"
+      ],
+      "settings": {}
+    },
+    "index-collection-list": {
+      "type": "index-collection-list",
+      "blocks": {
+        "index-collection-list-0": {
+          "type": "collection-item",
+          "disabled": true,
+          "settings": {
+            "collection": "",
+            "heading": ""
+          }
+        },
+        "index-collection-list-1": {
+          "type": "collection-item",
+          "disabled": true,
+          "settings": {
+            "collection": "",
+            "heading": ""
+          }
+        },
+        "index-collection-list-2": {
+          "type": "collection-item",
+          "disabled": true,
+          "settings": {
+            "collection": "",
+            "heading": ""
+          }
+        }
+      },
+      "block_order": [
+        "index-collection-list-0",
+        "index-collection-list-1",
+        "index-collection-list-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "heading": "Shop our top collections",
+        "text": "",
+        "indexItemsPerRow": 3
+      }
+    },
+    "recent-products": {
+      "type": "product-recent--cart-page",
+      "settings": {
+        "show_recently_viewed": false,
+        "recently_viewed_heading": "Recently viewed"
+      }
+    },
+    "index-newsletter": {
+      "type": "index-newsletter",
+      "settings": {
+        "subheading": "",
+        "heading": "STAY UP TO DATE",
+        "text": "",
+        "customerTag": "",
+        "colorText": "#333333",
+        "colorBackground": "#e6e6e6"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "index-collection-list",
+    "recent-products",
+    "index-newsletter"
+  ]
+}

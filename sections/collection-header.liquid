@@ -1,0 +1,53 @@
+{%- liquid
+  assign has_image = false
+  if collection.image
+    assign has_image = true
+  endif
+-%}
+
+<div class="collection-hero {% if has_image %}collection-hero--has-image{% endif %}">
+  {% if has_image %}
+    <div class="collection-hero__image">
+      {{ collection.image | image_url: width: 1920 | image_tag:
+        loading: 'eager',
+        widths: '375, 750, 1100, 1500, 1920',
+        sizes: '100vw',
+        class: 'collection-hero__img'
+      }}
+    </div>
+  {% endif %}
+  <div class="collection-hero__overlay"></div>
+  <div class="collection-hero__content">
+    <h1 class="collection-hero__title">{{ collection.title }}</h1>
+    <nav class="collection-hero__breadcrumbs" aria-label="Breadcrumb">
+      <a href="/collections">All collections</a>
+      <span class="collection-hero__breadcrumb-sep">/</span>
+      <span>{{ collection.title }}</span>
+    </nav>
+    {% if section.settings.show_description and collection.description != blank %}
+      <div class="collection-hero__description">
+        {{ collection.description }}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Header",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show Description",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Header",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

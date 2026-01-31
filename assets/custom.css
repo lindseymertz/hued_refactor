@@ -1,0 +1,2939 @@
+/*
+
+Please add any custom CSS code in here, it will be easier to transfer if updating themes.
+
+We highly recommend labelling changes, or App installs, so these can also be updated or removed as needed.
+
+*/
+/*
+
+Please add any custom CSS code in here, it will be easier to transfer if updating themes.
+
+We highly recommend labelling changes, or App installs, so these can also be updated or removed as needed.
+
+*/
+.product-select-variant {
+  display: none !important;
+}
+
+.product-item-variant-swatch-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(255 255 255 / 90%);
+  padding: 10px;
+  transform: translateY(100%);
+  transition: all .25s ease-in-out;
+}
+
+.product-item-variant-swatch-wrap .product-swatches {
+  margin-bottom: 10px;
+}
+
+.product-item-variant-swatch-wrap .form-field__swatch-options {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.product-item-variant-swatch-wrap .form-swatch-item {
+  width: auto;
+}
+
+.product-item-variant-swatch-wrap .form-swatch-item input {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.product-item-variant-swatch-wrap .form-swatch-item label {
+  display: block;
+  color: #27bdbe;
+  border: 1px solid #27bdbe;
+  padding: 3px 10px;
+  border-radius: 8px;
+}
+
+.product-item-variant-swatch-wrap .form-swatch-item label:hover,
+.product-item-variant-swatch-wrap .form-swatch-item input:checked + label {
+  background-color: #27bdbe;
+  border-color: #27bdbe;
+  color: #fff;
+}
+
+.product-item-add-to-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 2px solid #27bdbe;
+  color: #27bdbe;
+  width: 100%;
+  padding: 7px;
+  background-color: transparent;
+  transition: all .25s ease-in-out;
+}
+
+button.product-item-add-to-cart:after {
+  content: '';
+  display: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 1px solid;
+  border-top-color: transparent;
+  animation: spinner .75s linear infinite;
+}
+
+button.product-item-add-to-cart.loading:after {
+  display: block;
+}
+
+.product-item-add-to-cart:hover {
+  background-color: #27bdbe;
+  color: #fff;
+}
+
+.product-item-add-to-cart.disabled {
+  background-color: #808080;
+  border-color: #808080;
+  color: #fff;
+}
+
+.product-item__image-wrapper {
+  overflow: hidden;
+}
+
+.product-item:hover .product-item-variant-swatch-wrap {
+  transform: translateY(0%);
+}
+
+@media (max-width: 600px) {
+  .product-item-variant-swatch-wrap {
+    position: relative;
+    transform: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  .product-item-variant-swatch-wrap .form-swatch-item label {
+    padding: 3px 5px;
+    border-radius: 8px;
+    line-height: 1.4;
+  }
+
+  .product-item-add-to-cart {
+    font-size: 14px;
+    line-height: 1.3;
+    padding: 7px 10px;
+    border-width: 1px;
+  }
+  
+  html.js [data-aos^=fade][data-aos^=fade] {
+    opacity: 1 !important;
+    transform: translateZ(0) !important;
+  }
+}
+
+.product-item-image {
+  aspect-ratio: 1/1;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.product-recommendations img {
+  aspect-ratio: 1/1;
+  border-radius: 12px;
+}
+.ssw-fave-btn-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-order-note {
+  padding: 0 8px;
+}
+.index-collectionlist .index-features-item figure {
+  width: 60%;
+  margin: auto;
+}
+button.ssw-reward-auth-reg-btn.ssw-reward-btn {
+  background-color: #27bdbe;
+}
+.ssw-reward-tab-opened.ssw-reward-tab-rounded {
+  background-color: #27bdbe;
+}
+.ssw-reward-tab-ico {
+  background-color: #27bdbe !important;
+}
+.page-color .page-header {
+  margin: 0 auto;
+}
+.page-color .index-wrapper .shopify-section {
+  margin: 0;
+}
+
+.page-color .index-wrapper .shopify-section.custom-html {
+  margin: 0;
+}
+
+.page-color .index-custom-html .custom-html--container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.product-details .accordion-content[open] .minus-icon {
+  display: block;
+}
+
+.product-details .accordion-content .minus-icon {
+  display: none;
+}
+.product-details .accordion-content .plus-icon {
+  display: block;
+}
+.product-details .accordion-content[open] .plus-icon {
+  display: none;
+}
+.product-details .accordion-content {
+  border-bottom: 1px solid #000;
+}
+.product-details .accordion-content summary {
+  margin-bottom: 0;
+}
+.product-details .accordion-content p {
+  margin: 4px 0;
+}
+.accordion-content summary {
+  margin-bottom: 1em;
+  font-weight: 600;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-content svg {
+  fill: none;
+}
+
+.accordion-content p {
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+}
+
+.feather-x {
+  transform: rotate(45deg);
+}
+
+.cart_terms_require {
+  padding: 5px 10px;
+  border: 1px solid;
+  text-align: left;
+  margin: 15px 10px;
+  max-height: 80px; 
+  overflow: scroll;
+}
+.cart_terms_require_text {
+  font-size: 12px;
+}
+
+.cart_terms_require_heading{
+  padding: 0px 10px;
+}
+
+.cart_terms_title{
+    text-align: left;
+}
+
+.footer-tapbar {
+  position: fixed;
+  top: 150px;
+  width: 100%;
+  bottom: inherit;
+}
+
+.footer-tapbar:not(.search-open):not(.isOpen).out-of-view {
+  transform: translateY(-150px);
+}
+
+.footer-tapbar.out-of-view.isOpen {
+  top: 0;
+}
+
+.footer-search-form .footer-search-results-wrapper {
+  position: absolute;
+  top: 65px;
+  right: 0;
+  left: 0;
+  min-height: 400px;
+}
+.footer-search-clear .feather-x,
+.footer-search-results-wrapper .feather-x {
+  transform: rotate(0deg);
+}
+/* Removed mobile padding-top - not needed with position: sticky header */
+
+/* Hide color picker */
+.product-form .form-field.swatch-color{
+  /* display: none; */
+}
+
+/* ===========================================
+   HEADER REDESIGN - Pura Vida Style Layout
+   Date: 2026-01-18
+   Updated: 2026-01-30 - Fixed header using position: fixed (bulletproof)
+   =========================================== */
+
+/* --- CSS Custom Properties for dynamic heights --- */
+:root {
+  --announcement-bar-height: 42px; /* Default, JS updates dynamically */
+  --header-height: 90px; /* Default, JS updates dynamically */
+  --total-header-height: 132px; /* Default, JS updates dynamically */
+}
+
+/* --- Announcement Bar Fixed --- */
+.notification-bar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 1001 !important;
+  transition: box-shadow 0.2s ease;
+}
+
+/* --- Main Header Fixed --- */
+.main-header {
+  position: fixed !important;
+  top: var(--announcement-bar-height, 42px) !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 1000 !important;
+  background-color: var(--header-background-color, #ffffff) !important;
+  transition: box-shadow 0.2s ease;
+}
+
+/* Override fullbleed absolute positioning */
+.main-header.is-fullbleed {
+  position: fixed !important;
+  top: var(--announcement-bar-height, 42px) !important;
+}
+
+/* Prevent theme's hide-on-scroll behavior */
+.main-header.out-of-view {
+  transform: none !important;
+}
+
+/* --- Body Padding to Offset Fixed Header --- */
+body {
+  padding-top: var(--total-header-height, 132px) !important;
+}
+
+/* --- Scroll Shadow Effect --- */
+.main-header.is-sticky {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.notification-bar.is-sticky {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Mobile Overrides --- */
+@media (max-width: 720px) {
+  .notification-bar {
+    position: fixed !important;
+    top: 0 !important;
+  }
+
+  .main-header {
+    position: fixed !important;
+    top: var(--announcement-bar-height, 42px) !important;
+    transform: none !important;
+  }
+
+  .main-header.out-of-view {
+    transform: none !important;
+  }
+}
+
+/* --- Header Layout Override --- */
+/* Container matches page content: max-width 1280px, padding 52px (40px + 12px grid offset) */
+.header.header--redesign {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px 52px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Override centered logo layout when redesign is active */
+.header.header--redesign.header--logo-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Hide the separate search sections in redesigned header */
+.header--redesign .header--logo-center-search,
+.header--redesign .header--logo-left-search {
+  display: none;
+}
+
+/* --- Left Group: Logo + Navigation --- */
+.header--redesign .header-left-group {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* --- Logo Text Styling --- */
+.header-logo-text {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.header-logo-text a {
+  font-family: var(--heading-font-family, sans-serif);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text, #303030);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.header-logo-text a:hover {
+  color: var(--color-primary, #27bdbe);
+}
+
+/* --- Header Logo Container --- */
+.header--redesign .header-logo {
+  flex-shrink: 0;
+  margin: 0;
+  margin-right: 20px; /* Tightened gap between logo and nav (was 40px) */
+  order: 1;
+}
+
+/* --- Inline Navigation Container --- */
+.header--redesign .header-navigation-inline {
+  order: 2;
+  display: flex;
+  align-items: center;
+  margin-right: auto; /* Push tools to the right */
+}
+
+/* --- Navigation Inline Layout --- */
+.main-navigation-wrapper.main-navigation-wrapper--inline {
+  position: static;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+/* Remove center positioning override for inline nav */
+.main-navigation-wrapper.main-navigation-wrapper--inline.main-navigation-wrapper--center {
+  text-align: left;
+}
+
+.main-navigation-wrapper--inline .main-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.main-navigation-wrapper--inline .navigation-list {
+  display: flex;
+  align-items: center;
+  gap: 4px; /* Small gap between items */
+  margin: 0;
+  padding: 0;
+  justify-content: flex-start;
+}
+
+.main-navigation-wrapper--inline .navigation-list-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Override theme's asymmetric margins */
+.main-navigation-wrapper--inline .navigation-list-item > a,
+.main-navigation-wrapper--inline .navigation-list-item:not(:first-child) > a,
+.main-navigation-wrapper--inline .navigation-list-item:not(:last-child) > a {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 8px 10px; /* Symmetric padding: 20px between link texts */
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--color-text, #303030);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.main-navigation-wrapper--inline .navigation-list-item > a:hover {
+  color: var(--color-primary, #27bdbe);
+}
+
+/* Hide scroll arrows in inline mode */
+.main-navigation-wrapper--inline .scroll-left,
+.main-navigation-wrapper--inline .scroll-right {
+  display: none;
+}
+
+/* --- Header Tools Right Alignment --- */
+.header--redesign .header-tools {
+  display: flex;
+  align-items: center;
+  order: 3;
+}
+
+/* ===========================================
+   HEADER TOOLS - ICON ALIGNMENT FIX
+   =========================================== */
+
+/* Reset the ul/li structure */
+.header--redesign .header-tools ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px; /* Tighter gap between icon containers */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header--redesign .header-tools li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+/* All clickable elements in tools - uniform sizing for consistent spacing */
+.header--redesign .header-tools a,
+.header--redesign .header-tools button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Fixed width for uniform spacing */
+  height: 40px; /* Fixed height for uniform spacing */
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text, #303030);
+  transition: color 0.2s ease;
+  line-height: 1;
+}
+
+.header--redesign .header-tools a:hover,
+.header--redesign .header-tools button:hover {
+  color: var(--color-primary, #27bdbe);
+}
+
+/* Force all SVGs to same size and alignment - matches native SVG 22x22 */
+.header--redesign .header-tools svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  fill: none !important;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+/* Cart icon container - position relative for count badge */
+.header--redesign .header-cart {
+  position: relative;
+}
+
+.header--redesign .header-cart > a {
+  position: relative;
+}
+
+/* Cart count badge */
+.header--redesign .header-cart-count {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  color: #fff;
+  background: var(--color-primary, #27bdbe);
+  border-radius: 50%;
+}
+
+.header--redesign .header-cart-count:empty,
+.header--redesign .header-cart-count[data-count="0"] {
+  display: none;
+}
+
+/* Cart icon wrapper for Lucide icon */
+.header-cart-icon {
+  position: relative;
+  display: flex;
+}
+
+/* Account link */
+.header--redesign .header-account {
+  position: relative;
+}
+
+/* ===========================================
+   CURRENCY/LOCALIZATION SELECTOR FIX
+   =========================================== */
+
+/* Position container - match other icon li elements */
+.header--redesign .header-currency {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* First wrapper: div.header-localization */
+.header--redesign .header-localization {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 40px; /* Match icon container height */
+}
+
+/* Second wrapper: <localization-form> custom element */
+.header--redesign .header-localization localization-form {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Third wrapper: form.localization-form */
+.header--redesign .header-localization .localization-form {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Fourth wrapper: div.js */
+.header--redesign .header-localization .js {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Fifth wrapper: div.disclosure */
+.header--redesign .header-localization .disclosure {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Hide noscript in header */
+.header--redesign .header-localization noscript {
+  display: none;
+}
+
+/* Style the icon-only button - match other icon containers (40x40) */
+.header--redesign .disclosure__button--icon-only {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Match other icon containers */
+  height: 40px; /* Match other icon containers */
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text, #303030);
+  transition: color 0.2s ease;
+  line-height: 1;
+}
+
+.header--redesign .disclosure__button--icon-only:hover {
+  color: var(--color-primary, #27bdbe);
+}
+
+/* Globe icon - match other icons (22x22) */
+.header--redesign .disclosure__button--icon-only svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+/* Hide the text span in header - show only icon */
+.header--redesign .disclosure__button-text {
+  display: none;
+}
+
+/* Hide old caret icon if present */
+.header--redesign .disclosure__button .icon-caret {
+  display: none;
+}
+
+/* CRITICAL: Force hide the dropdown list by default */
+.header--redesign .header-localization .disclosure__list,
+.header--redesign #CountryList,
+.header--redesign #LanguageList {
+  display: none !important;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: auto;
+  min-width: 220px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  z-index: 1000;
+  padding: 8px 0;
+  margin-top: 8px;
+  list-style: none;
+}
+
+/* Show dropdown ONLY when aria-expanded is true */
+.header--redesign .disclosure__button[aria-expanded="true"] + .disclosure__list,
+.header--redesign .disclosure__button[aria-expanded="true"] ~ #CountryList,
+.header--redesign .disclosure__button[aria-expanded="true"] ~ #LanguageList {
+  display: block !important;
+}
+
+/* Style dropdown items */
+.header--redesign .header-localization .disclosure__item {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header--redesign .header-localization .disclosure__item a {
+  display: block;
+  padding: 10px 16px;
+  color: var(--color-text, #303030);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.header--redesign .header-localization .disclosure__item a:hover {
+  background-color: #f5f5f5;
+}
+
+.header--redesign .header-localization .disclosure__item a[aria-current="true"] {
+  color: var(--color-primary, #27bdbe);
+  font-weight: 600;
+}
+
+/* Force respect hidden attribute in header */
+.header--redesign [hidden] {
+  display: none !important;
+}
+
+/* Override any theme styles that unhide the list */
+.header--redesign .localization__list[hidden],
+.header--redesign .disclosure__list[hidden] {
+  display: none !important;
+}
+
+/* --- Navigation Toggle (Hamburger) - Desktop Hidden --- */
+@media (min-width: 769px) {
+  .header--redesign .navigation-toggle {
+    display: none;
+  }
+}
+
+/* --- Tablet Adjustments (matches footer at 720px) --- */
+@media (max-width: 720px) {
+  .header.header--redesign {
+    padding: 12px 36px; /* 24px wrapper + 12px grid offset, matches footer */
+  }
+}
+
+/* --- Mobile Adjustments --- */
+@media (max-width: 768px) {
+  .header.header--redesign {
+    flex-wrap: wrap;
+    padding: 12px 24px; /* Matches mobile content padding */
+    gap: 10px;
+  }
+
+  /* Logo text smaller on mobile */
+  .header-logo-text a {
+    font-size: 22px;
+    letter-spacing: 0.1em;
+  }
+
+  /* Hide inline navigation on mobile - hamburger takes over */
+  .header--redesign .header-navigation-inline,
+  .main-navigation-wrapper.main-navigation-wrapper--inline {
+    display: none;
+  }
+
+  /* Navigation toggle visible on mobile */
+  .header--redesign .navigation-toggle {
+    display: flex;
+    order: 0;
+  }
+
+  /* Logo in middle on mobile */
+  .header--redesign .header-logo {
+    order: 1;
+    flex: 1;
+    text-align: center;
+    margin-right: 0; /* Reset desktop margin */
+  }
+
+  /* Tools on right on mobile */
+  .header--redesign .header-tools {
+    order: 2;
+  }
+
+  /* Reduce tools gap on mobile */
+  .header--redesign .header-tools ul {
+    gap: 2px;
+  }
+
+  /* Smaller icon containers on mobile */
+  .header--redesign .header-tools a,
+  .header--redesign .header-tools button,
+  .header--redesign .disclosure__button--icon-only {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Slightly smaller icons on mobile */
+  .header--redesign .header-tools svg,
+  .header--redesign .disclosure__button--icon-only svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Adjust cart badge position for smaller container */
+  .header--redesign .header-cart-count {
+    top: 0;
+    right: 0;
+  }
+
+  /* Hide currency selector on mobile to save space */
+  .header--redesign .header-currency {
+    display: none;
+  }
+}
+
+/* --- Small Mobile (under 600px) --- */
+@media (max-width: 600px) {
+  .header-logo-text a {
+    font-size: 20px;
+  }
+
+  /* Even smaller icon containers */
+  .header--redesign .header-tools a,
+  .header--redesign .header-tools button,
+  .header--redesign .disclosure__button--icon-only {
+    width: 32px;
+    height: 32px;
+  }
+
+  .header--redesign .header-tools svg,
+  .header--redesign .disclosure__button--icon-only svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .header--redesign .header-cart-count {
+    font-size: 9px;
+    min-width: 14px;
+    height: 14px;
+    line-height: 14px;
+    top: -2px;
+    right: -2px;
+  }
+}
+
+/* --- Dropdown Menu Styling (preserve functionality) --- */
+.main-navigation-wrapper--inline .navigation-dropdown-simple {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  z-index: 100;
+}
+
+.main-navigation-wrapper--inline .has-dropdown {
+  position: relative;
+}
+
+/* Dropdown arrow styling */
+.main-navigation-wrapper--inline .navigation-dropdown-toggle svg {
+  width: 10px;
+  height: 10px;
+  margin-left: 4px;
+  transition: transform 0.2s ease;
+}
+
+.main-navigation-wrapper--inline .has-dropdown:hover .navigation-dropdown-toggle svg {
+  transform: rotate(180deg);
+}
+
+/* Mega menu positioning */
+.main-navigation-wrapper--inline .navigation-super-wrapper {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  z-index: 100;
+  min-width: 600px;
+}
+
+/* ===========================================
+   SEARCH DRAWER - Pura Vida Style
+   =========================================== */
+
+/* Overlay */
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 9998;
+}
+
+.search-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Drawer */
+.search-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  max-width: 90vw;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 9999;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-drawer.is-open {
+  transform: translateX(0);
+}
+
+/* Drawer Header */
+.search-drawer__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.search-drawer__title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-text, #303030);
+}
+
+.search-drawer__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text, #303030);
+  transition: color 0.2s ease;
+}
+
+.search-drawer__close:hover {
+  color: var(--color-primary, #27bdbe);
+}
+
+/* Search Form */
+.search-drawer__form {
+  display: flex;
+  gap: 8px;
+}
+
+.search-drawer__input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.search-drawer__input:focus {
+  border-color: var(--color-primary, #27bdbe);
+}
+
+.search-drawer__input::placeholder {
+  color: #999;
+}
+
+.search-drawer__submit {
+  background: var(--color-primary, #27bdbe);
+  border: none;
+  border-radius: 4px;
+  padding: 12px 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.search-drawer__submit:hover {
+  background: #1fa3a4;
+}
+
+.search-drawer__submit svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ===========================================
+   END HEADER REDESIGN
+   =========================================== */
+
+/* ===========================================
+   HERO/BANNER GLOBAL STYLING
+   Rounded edges + subtle side padding
+   Date: 2026-01-18
+   =========================================== */
+
+/* --- Section-level padding for hero sections --- */
+.section-index-slideshow,
+.image-with-text-overlay__wrapper {
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+/* --- Slideshow hero: rounded corners on wrapper --- */
+.slideshow-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* --- Slideshow individual slides --- */
+.slideshow-wrapper .slideshow-image {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* --- Slideshow images --- */
+.slideshow-wrapper .slideshow-image > img {
+  border-radius: 12px;
+}
+
+/* --- Image with text overlay section --- */
+.image-with-text-overlay__wrapper .image-with-text-overlay__content {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.image-with-text-overlay__wrapper .image-with-text-overlay__image {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Handle background-image mode (non-original height) */
+.image-with-text-overlay__wrapper .image-with-text-overlay__image .img {
+  border-radius: 12px;
+}
+
+/* Handle direct image mode (original height) */
+.image-with-text-overlay__wrapper .image-with-text-overlay__image img {
+  border-radius: 12px;
+}
+
+/* --- Mobile adjustments --- */
+@media (max-width: 768px) {
+  .section-index-slideshow,
+  .image-with-text-overlay__wrapper {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .slideshow-wrapper,
+  .slideshow-wrapper .slideshow-image,
+  .slideshow-wrapper .slideshow-image > img,
+  .image-with-text-overlay__wrapper .image-with-text-overlay__content,
+  .image-with-text-overlay__wrapper .image-with-text-overlay__image,
+  .image-with-text-overlay__wrapper .image-with-text-overlay__image .img,
+  .image-with-text-overlay__wrapper .image-with-text-overlay__image img {
+    border-radius: 8px;
+  }
+}
+
+/* --- Ensure overlay pseudo-elements respect border radius --- */
+.image-with-text-overlay__wrapper .image-with-text-overlay__image::before {
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .image-with-text-overlay__wrapper .image-with-text-overlay__image::before {
+    border-radius: 8px;
+  }
+}
+
+/* ===========================================
+   END HERO/BANNER STYLING
+   =========================================== */
+
+/* Darker category card label background */
+.category-card-label {
+  background: #f0f0f0;
+}
+
+/* ===========================================
+   PRODUCT GRID - RESPONSIVE LAYOUT
+   4 columns desktop, 3 tablet, 2 mobile
+   =========================================== */
+
+/* --- Tablet: 3 columns --- */
+@media (max-width: 900px) {
+  .featured-products-wrapper .grid .grid-item-25,
+  .featured-products-wrapper .grid .grid-item-20,
+  .featured-products-wrapper .grid .grid-item-16 {
+    width: 33.333%;
+  }
+}
+
+/* --- Mobile: 2 columns --- */
+@media (max-width: 600px) {
+  .featured-products-wrapper .grid .grid-item-25,
+  .featured-products-wrapper .grid .grid-item-33,
+  .featured-products-wrapper .grid .grid-item-20,
+  .featured-products-wrapper .grid .grid-item-16 {
+    width: 50%;
+  }
+
+  /* Smaller product text on mobile */
+  .product-item__title,
+  .product-item .product-item-title {
+    font-size: 12px;
+  }
+
+  .product-item__price,
+  .product-item .product-item-price {
+    font-size: 13px;
+  }
+}
+
+/* ===========================================
+   END PRODUCT GRID STYLING
+   =========================================== */
+
+/* ===========================================
+   HOMEPAGE SECTION HEADING NORMALIZATION
+   Fix: Match category-cards and index-features headings
+   Date: 2026-01-18
+   =========================================== */
+
+/* Normalize all homepage section headings */
+.index-header h2,
+.index-features .index-header h2,
+h2.featured-products-heading,
+.category-cards-header .category-cards-title {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  color: #303030;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .index-header h2,
+  .index-features .index-header h2,
+  h2.featured-products-heading,
+  .category-cards-header .category-cards-title {
+    font-size: 20px !important;
+  }
+}
+
+/* ===========================================
+   END HOMEPAGE HEADING NORMALIZATION
+   =========================================== */
+
+/* ===========================================
+   PRODUCT CARD REDESIGN - Pura Vida Style
+   Date: 2026-01-18
+   =========================================== */
+
+/* Hide color swatches on product cards */
+.product-item-variant-swatch-wrap {
+  display: none !important;
+}
+
+/* Left-align product details */
+.product-item-details {
+  text-align: left;
+  padding: 12px 0 0 0;
+  position: relative;
+}
+
+/* Product title styling */
+.product--item-title {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 0 4px 0;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.product--item-title a {
+  color: #303030;
+  text-decoration: none;
+}
+
+.product--item-title a:hover {
+  color: #27bdbe;
+}
+
+/* Price styling - bold */
+.product-item-price {
+  font-size: 15px;
+  font-weight: 700;
+  color: #303030;
+}
+
+/* Quick add + button - positioned on image */
+.product-item-quick-add {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  z-index: 10;
+}
+
+.product-item-quick-add:hover {
+  transform: scale(1.1);
+}
+
+.product-item-quick-add svg circle {
+  transition: fill 0.2s ease;
+}
+
+.product-item-quick-add:hover svg circle {
+  fill: #1fa3a4;
+}
+
+/* Image wrapper needs relative positioning for button */
+.product-item__image-wrapper {
+  position: relative;
+}
+
+/* Remove extra padding from details */
+.product-item-details {
+  padding-right: 0;
+}
+
+/* ===========================================
+   END PRODUCT CARD REDESIGN
+   =========================================== */
+
+/* ===========================================
+   QUICK ADD MODAL - Pura Vida Style
+   Date: 2026-01-18
+   =========================================== */
+
+/* Overlay */
+.quick-add-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 9998;
+}
+
+.quick-add-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal */
+.quick-add-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  background: #fff;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 90vw;
+  max-height: 90vh;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.quick-add-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Close button */
+.quick-add-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 10;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.quick-add-modal__close:hover {
+  background-color: #f0f0f0;
+}
+
+/* Content layout */
+.quick-add-modal__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 400px;
+}
+
+/* Gallery */
+.quick-add-modal__gallery {
+  position: relative;
+  background: #f9f9f9;
+}
+
+.quick-add-modal__main-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.quick-add-modal__main-image img {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+/* Nav arrows */
+.quick-add-modal__nav {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+}
+
+.quick-add-modal__nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.quick-add-modal__nav-btn:hover {
+  border-color: #303030;
+}
+
+.quick-add-modal__nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Info panel */
+.quick-add-modal__info {
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.quick-add-modal__title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: #303030;
+}
+
+.quick-add-modal__price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #303030;
+  margin: 0 0 24px 0;
+}
+
+/* Size options */
+.quick-add-modal__options {
+  margin-bottom: 24px;
+}
+
+.quick-add-modal__option-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #303030;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.quick-add-modal__size-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quick-add-modal__size-btn {
+  min-width: 50px;
+  padding: 10px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 24px;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #303030;
+}
+
+.quick-add-modal__size-btn:hover {
+  border-color: #27bdbe;
+}
+
+.quick-add-modal__size-btn.is-selected {
+  background: #27bdbe;
+  border-color: #27bdbe;
+  color: #fff;
+}
+
+.quick-add-modal__size-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+/* Add to cart button */
+.quick-add-modal__add-btn {
+  width: 100%;
+  padding: 16px;
+  background: #27bdbe;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: auto;
+}
+
+.quick-add-modal__add-btn:hover:not(:disabled) {
+  background: #1fa3a4;
+}
+
+.quick-add-modal__add-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* View details link */
+.quick-add-modal__view-link {
+  display: block;
+  text-align: center;
+  margin-top: 16px;
+  color: #303030;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.quick-add-modal__view-link:hover {
+  color: #27bdbe;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .quick-add-modal__content {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-add-modal__gallery {
+    max-height: 300px;
+  }
+
+  .quick-add-modal__main-image img {
+    max-height: 250px;
+  }
+
+  .quick-add-modal__info {
+    padding: 24px 20px;
+  }
+}
+
+/* ===========================================
+   END QUICK ADD MODAL
+   =========================================== */
+
+/* ===========================================
+   FILTER/SORT DRAWER - Pura Vida Style
+   Date: 2026-01-18
+   =========================================== */
+
+/* Overlay */
+.filter-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 9998;
+}
+
+.filter-drawer-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Drawer */
+.filter-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  max-width: 90vw;
+  height: 100vh;
+  background: #fff;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-drawer.is-open {
+  transform: translateX(0);
+}
+
+/* Header */
+.filter-drawer__header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.filter-drawer__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: #303030;
+  transition: color 0.2s ease;
+}
+
+.filter-drawer__close:hover {
+  color: #27bdbe;
+}
+
+/* Content */
+.filter-drawer__content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 24px;
+}
+
+/* Section */
+.filter-drawer__section {
+  padding: 24px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.filter-drawer__section:last-child {
+  border-bottom: none;
+}
+
+.filter-drawer__section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #303030;
+  margin: 0 0 16px 0;
+  text-transform: none;
+}
+
+/* Options container */
+.filter-drawer__options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Radio buttons (Sort) */
+.filter-drawer__radio {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #303030;
+}
+
+.filter-drawer__radio input {
+  display: none;
+}
+
+.filter-drawer__radio-dot {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #303030;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+  transition: border-color 0.2s ease;
+}
+
+.filter-drawer__radio-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 10px;
+  height: 10px;
+  background: #27bdbe;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.filter-drawer__radio input:checked + .filter-drawer__radio-dot {
+  border-color: #27bdbe;
+}
+
+.filter-drawer__radio input:checked + .filter-drawer__radio-dot::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Checkboxes (Filters) */
+.filter-drawer__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #303030;
+}
+
+.filter-drawer__checkbox input {
+  display: none;
+}
+
+.filter-drawer__checkbox-box {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #303030;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-drawer__checkbox-check {
+  opacity: 0;
+  color: #fff;
+  transition: opacity 0.2s ease;
+}
+
+.filter-drawer__checkbox input:checked + .filter-drawer__checkbox-box {
+  background: #27bdbe;
+  border-color: #27bdbe;
+}
+
+.filter-drawer__checkbox input:checked + .filter-drawer__checkbox-box .filter-drawer__checkbox-check {
+  opacity: 1;
+}
+
+.filter-drawer__checkbox--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Color swatches (if needed later) */
+.filter-drawer__colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filter-drawer__color {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.filter-drawer__color input {
+  display: none;
+}
+
+.filter-drawer__color-swatch {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.filter-drawer__color input:checked + .filter-drawer__color-swatch {
+  border-color: #303030;
+}
+
+.filter-drawer__color-label {
+  font-size: 11px;
+  color: #303030;
+  text-align: center;
+}
+
+/* Footer */
+.filter-drawer__footer {
+  padding: 16px 24px 24px;
+  border-top: 1px solid #e0e0e0;
+  background: #fff;
+}
+
+.filter-drawer__count {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.filter-drawer__actions {
+  display: flex;
+  gap: 12px;
+}
+
+.filter-drawer__btn {
+  flex: 1;
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.filter-drawer__btn--clear {
+  background: #fff;
+  border: 1px solid #303030;
+  color: #303030;
+}
+
+.filter-drawer__btn--clear:hover {
+  background: #f5f5f5;
+}
+
+.filter-drawer__btn--apply {
+  background: #ff69b4;
+  border: none;
+  color: #fff;
+}
+
+.filter-drawer__btn--apply:hover {
+  background: #ff4da6;
+}
+
+/* Hide old filter UI elements */
+.collection-filters .facets__wrapper,
+.collection-filters .sorting,
+.collection-filters .facets__disclosure,
+.collection-filters .collection-filters__sort {
+  display: none !important;
+}
+
+/* New Filter/Sort trigger button */
+.filter-sort-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #fff;
+  border: 1px solid #303030;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-sort-trigger:hover {
+  background: #f5f5f5;
+}
+
+/* Position trigger button */
+.collection-filters {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 0;
+}
+
+/* Hide mobile facets open button - we'll use new trigger */
+.mobile-facets__open {
+  display: none !important;
+}
+
+/* ===========================================
+   END FILTER/SORT DRAWER
+   =========================================== */
+
+/* ===========================================
+   COLLECTION HERO BANNER - Pura Vida Style
+   Full-width hero, content aligned with products
+   Date: 2026-01-19
+   =========================================== */
+
+.collection-hero {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  /* Warm pastel yellow fallback */
+  background: linear-gradient(135deg, #FFE5B4 0%, #FFEAA7 50%, #FFD93D 100%);
+}
+
+.collection-hero--has-image {
+  background: none;
+}
+
+/* Image */
+.collection-hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.collection-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Subtle overlay for text readability */
+.collection-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  pointer-events: none;
+}
+
+/* Content - aligned with product grid (1600px, 40px padding) */
+.collection-hero__content {
+  position: absolute;
+  bottom: 32px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.collection-hero__title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  text-transform: none;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.02em;
+}
+
+.collection-hero__description {
+  font-size: 14px;
+  color: #fff;
+  margin-top: 8px;
+  max-width: 500px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Breadcrumbs inside hero */
+.collection-hero__breadcrumbs {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 8px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.collection-hero__breadcrumbs a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.collection-hero__breadcrumbs a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.collection-hero__breadcrumb-sep {
+  margin: 0 8px;
+  opacity: 0.7;
+}
+
+/* Hide original breadcrumbs on collection pages */
+.collection-template .breadcrumbs,
+.collection-template .breadcrumb-wrapper,
+.template-collection .breadcrumbs,
+.template-collection .breadcrumb-wrapper {
+  display: none !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .collection-hero {
+    height: 220px;
+  }
+
+  .collection-hero__content {
+    bottom: 20px;
+    padding: 0 16px;
+  }
+
+  .collection-hero__title {
+    font-size: 24px;
+  }
+}
+
+/* ===========================================
+   END COLLECTION HERO BANNER
+   =========================================== */
+
+/* ===========================================
+   FOOTER REDESIGN - Pura Vida Style
+   Date: 2026-01-30
+   =========================================== */
+
+/* --- Main Footer Wrapper --- */
+/* CRITICAL: Use 100vw to match header's viewport-based centering.
+   The header uses position:fixed with left:0/right:0, which spans the VIEWPORT width.
+   The footer is in normal flow, so it spans BODY width (viewport - scrollbar).
+   This caused misalignment. Using 100vw makes both reference the same width. */
+.footer-redesign {
+  background-color: #27bdbe;
+  color: #ffffff;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* --- Container aligned with product grid (1280px, 40px + 12px grid-item padding) --- */
+.footer-redesign__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 52px; /* 40px wrapper + 12px grid-item padding */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Main Content Area --- */
+.footer-redesign__main {
+  padding: 60px 0 40px;
+}
+
+/* --- Logo --- */
+.footer-redesign__logo {
+  margin-bottom: 40px;
+}
+
+.footer-redesign__logo a {
+  font-family: var(--heading-font-family, sans-serif);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer-redesign__logo a:hover {
+  opacity: 0.8;
+}
+
+/* --- Content Layout (Columns + Divider + Signup) --- */
+.footer-redesign__content {
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+/* --- Link Columns Container --- */
+.footer-redesign__columns {
+  display: flex;
+  gap: 60px;
+  flex-shrink: 0;
+}
+
+/* --- Individual Column --- */
+.footer-redesign__column {
+  min-width: 150px;
+}
+
+/* --- Column Headings --- */
+.footer-redesign__heading {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 20px 0;
+  color: #ffffff;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+/* Horizontal line under each column heading */
+.footer-redesign__heading::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Link Lists --- */
+.footer-redesign__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-redesign__links li {
+  margin-bottom: 12px;
+}
+
+.footer-redesign__links li:last-child {
+  margin-bottom: 0;
+}
+
+.footer-redesign__links a {
+  font-size: 14px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer-redesign__links a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* --- Contact Email Link --- */
+.footer-redesign__contact-email {
+  font-size: 14px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer-redesign__contact-email:hover {
+  opacity: 0.8;
+  color: #ffffff;
+}
+
+/* --- Vertical Divider --- */
+.footer-redesign__divider {
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  align-self: stretch;
+  flex-shrink: 0;
+  margin: 0 10px; /* Combined with gap: 60px creates ~35px spacing on each side */
+}
+
+/* --- Newsletter Signup Section --- */
+.footer-redesign__signup {
+  flex: 1;
+  min-width: 280px; /* Minimum width for usability */
+  /* Note: max-width removed to allow right edge alignment with header cart icon */
+}
+
+/* --- Email Form --- */
+.footer-redesign__form {
+  margin-bottom: 24px;
+}
+
+.footer-redesign__input-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Ensure input stretches to fill signup section */
+  background: #ffffff;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.footer-redesign__input {
+  flex: 1;
+  border: none;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #303030;
+  background: transparent;
+  outline: none;
+}
+
+.footer-redesign__input::placeholder {
+  color: #999999;
+}
+
+.footer-redesign__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 48px;
+  background: #ffffff;
+  border: none;
+  border-left: 1px solid #e5e5e5;
+  color: #27bdbe;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.footer-redesign__submit:hover {
+  background-color: #f5f5f5;
+}
+
+.footer-redesign__submit svg {
+  display: block;
+}
+
+.footer-redesign__success {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.footer-redesign__error {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #ffcccc;
+}
+
+/* --- Social Icons --- */
+.footer-redesign__social-list {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-redesign__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 50%;
+  color: #27bdbe;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.footer-redesign__social-link:hover {
+  transform: scale(1.1);
+}
+
+.footer-redesign__social-link svg {
+  display: block;
+  fill: none;
+  stroke: currentColor;
+}
+
+/* --- Bottom Bar --- */
+.footer-redesign__bottom {
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-redesign__bottom .footer-redesign__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-redesign__copyright {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-redesign__powered {
+  display: block;
+  margin-top: 4px;
+}
+
+.footer-redesign__bottom-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* --- Localization Form Override for Footer --- */
+.footer-redesign .localization-form {
+  color: #ffffff;
+}
+
+.footer-redesign .disclosure__button {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-redesign .disclosure__button:hover {
+  border-color: #ffffff;
+}
+
+/* --- Mobile Responsive (matches header breakpoints) --- */
+@media (max-width: 768px) {
+  .footer-redesign__container {
+    padding: 0 24px; /* Matches header mobile padding */
+  }
+
+  .footer-redesign__content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer-redesign__columns {
+    width: 100%;
+  }
+
+  .footer-redesign__divider {
+    width: 100%;
+    height: 1px;
+    align-self: auto;
+    margin: 0; /* Reset horizontal margin for vertical layout */
+  }
+
+  .footer-redesign__signup {
+    min-width: auto; /* Reset min-width for mobile */
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-redesign__main {
+    padding: 40px 0 30px;
+  }
+
+  .footer-redesign__logo {
+    margin-bottom: 30px;
+  }
+
+  .footer-redesign__logo a {
+    font-size: 24px;
+  }
+
+  .footer-redesign__columns {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer-redesign__column {
+    min-width: auto;
+  }
+
+  .footer-redesign__bottom .footer-redesign__container {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+/* ===========================================
+   END FOOTER REDESIGN
+   =========================================== */
+
+/* ===========================================
+   HIDE DUPLICATE NEWSLETTER SECTION
+   The footer now has its own newsletter signup
+   =========================================== */
+
+.section-index-newsletter {
+  display: none !important;
+}
+
+/* ===========================================
+   TABBED COLLECTION CAROUSEL
+   "Styles You'll Love" section with tabs
+   =========================================== */
+
+.tabbed-collection {
+  padding: 40px 0;
+}
+
+.tabbed-collection__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 52px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Header Row: Title + View All --- */
+.tabbed-collection__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tabbed-collection__title {
+  font-family: var(--heading-font-family, sans-serif);
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--body-color, #303030);
+}
+
+.tabbed-collection__view-all {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #27bdbe;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.tabbed-collection__view-all:hover {
+  opacity: 0.8;
+}
+
+.tabbed-collection__view-all svg {
+  transition: transform 0.2s ease;
+}
+
+.tabbed-collection__view-all:hover svg {
+  transform: translateX(3px);
+}
+
+/* --- Tabs Row: Tabs + Navigation Arrows --- */
+.tabbed-collection__tabs-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  gap: 24px;
+}
+
+.tabbed-collection__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tabbed-collection__nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.tabbed-collection__tab {
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 2px solid #303030;
+  border-radius: 25px;
+  background: transparent;
+  color: #303030;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.tabbed-collection__tab:hover {
+  background: #f5f5f5;
+}
+
+.tabbed-collection__tab.is-active {
+  background: #27bdbe;
+  border-color: #27bdbe;
+  color: #ffffff;
+}
+
+.tabbed-collection__tab.is-active:hover {
+  background: #22a8a9;
+  border-color: #22a8a9;
+}
+
+/* --- Content Panels --- */
+.tabbed-collection__content {
+  position: relative;
+}
+
+.tabbed-collection__panel {
+  display: none;
+}
+
+.tabbed-collection__panel.is-active {
+  display: block;
+}
+
+/* --- Carousel Container --- */
+.tabbed-collection__carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.tabbed-collection__carousel .swiper-wrapper {
+  display: flex;
+}
+
+.tabbed-collection__carousel .swiper-slide {
+  height: auto;
+}
+
+.tabbed-collection__carousel .product-item {
+  width: 100%;
+}
+
+/* --- Navigation Arrows (in header) --- */
+.tabbed-collection__arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.tabbed-collection__arrow:hover {
+  background: #f5f5f5;
+  border-color: #ccc;
+}
+
+.tabbed-collection__arrow.is-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.tabbed-collection__arrow.is-disabled:hover {
+  background: #ffffff;
+  border-color: #e0e0e0;
+}
+
+.tabbed-collection__arrow svg {
+  width: 14px;
+  height: 14px;
+  color: #303030;
+}
+
+/* --- Empty State --- */
+.tabbed-collection__empty {
+  padding: 60px 20px;
+  text-align: center;
+  background: #f9f9f9;
+  border-radius: 8px;
+  color: #666;
+}
+
+/* --- Placeholder/Onboarding --- */
+.tabbed-collection__carousel .svg-placeholder {
+  background: #f5f5f5;
+  padding-bottom: 100%;
+  position: relative;
+}
+
+.tabbed-collection__carousel .svg-placeholder svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  fill: #ddd;
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 720px) {
+  .tabbed-collection {
+    padding: 40px 0;
+  }
+
+  .tabbed-collection__container {
+    padding: 0 24px;
+  }
+
+  .tabbed-collection__title {
+    font-size: 24px;
+  }
+
+  .tabbed-collection__tabs-row {
+    margin-bottom: 24px;
+  }
+
+  .tabbed-collection__tabs {
+    gap: 8px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .tabbed-collection__tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tabbed-collection__tab {
+    padding: 8px 18px;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .tabbed-collection__nav {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .tabbed-collection__title {
+    font-size: 20px;
+  }
+
+  .tabbed-collection__view-all {
+    font-size: 13px;
+  }
+}
+
+/* ===========================================
+   END TABBED COLLECTION CAROUSEL
+   =========================================== */
+
+/* ===========================================
+   GLOBAL SECTION TITLE ALIGNMENT
+   Date: 2026-01-30
+
+   All homepage section titles should be left-aligned
+   to match "Stacks You'll Love" style.
+   This provides consistency across all sections.
+   =========================================== */
+
+/* Category Cards - override centered alignment */
+.category-cards-header {
+  text-align: left;
+}
+
+.category-cards-title {
+  text-align: left !important;
+}
+
+/* Shop the Look Grid - ensure left alignment */
+.stl-grid__header {
+  text-align: left;
+}
+
+/*
+   Global fallback for any future sections using common patterns.
+   These selectors target typical section header patterns.
+*/
+.index-header,
+.section-header,
+[class*="__header"]:has(h2) {
+  text-align: left;
+}
+
+.index-header h2,
+.section-header h2 {
+  text-align: left;
+}
+
+/* ===========================================
+   END GLOBAL SECTION TITLE ALIGNMENT
+   =========================================== */
+
+/* ===========================================
+   GLOBAL SECTION VERTICAL SPACING
+   Date: 2026-01-30
+
+   Standard vertical padding for homepage sections: 40px
+   Mobile (≤720px): 30-40px
+
+   Current sections using this standard:
+   - .category-cards-section: 40px (section-category-cards.css)
+   - .tabbed-collection: 40px (custom.css)
+   - .shop-the-look-grid: 40px (shop-the-look-grid.liquid)
+   =========================================== */
+
+/* Ensure consistent section spacing for common patterns */
+.shopify-section > section {
+  /* Sections should define their own padding of ~40px 0 */
+}
+
+/* Mobile: tighten spacing slightly */
+@media (max-width: 600px) {
+  .category-cards-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+/* ===========================================
+   END GLOBAL SECTION VERTICAL SPACING
+   =========================================== */
+
+/* ===========================================
+   PROMO SPLIT SECTION - Pura Vida Style
+   Flexible 50/50 image + text promotional block
+   Date: 2026-01-30
+   Updated: Content now aligns with header/footer (1280px wrapper)
+   =========================================== */
+
+/* --- Section: Full-width background --- */
+.promo-split {
+  width: 100%;
+  margin: 0;
+  padding: 40px 0;
+  /* Background color applied via inline style from section settings */
+}
+
+/* --- Wrapper: Aligns with header/footer (1280px, 52px padding) --- */
+.promo-split__wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 52px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Container: 50/50 Flexbox Layout --- */
+.promo-split__container {
+  display: flex;
+  flex-direction: row;
+  min-height: 450px;
+}
+
+/* Image on right: reverse the order */
+.promo-split__container--image-right {
+  flex-direction: row-reverse;
+}
+
+/* --- Image Side --- */
+.promo-split__image-wrapper {
+  flex: 1;
+  min-height: 400px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.promo-split__image-wrapper img,
+.promo-split__image-wrapper .promo-split__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.promo-split__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e5e5e5;
+}
+
+.promo-split__placeholder svg {
+  width: 50%;
+  height: auto;
+  fill: #ccc;
+}
+
+/* --- Text Side --- */
+.promo-split__content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+}
+
+.promo-split__content-inner {
+  max-width: 400px;
+  text-align: center;
+}
+
+/* --- Typography --- */
+.promo-split__title {
+  font-family: var(--header-font, var(--secondary-font, sans-serif));
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 20px 0;
+  letter-spacing: 0.02em;
+}
+
+.promo-split__description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 30px 0;
+}
+
+.promo-split__description p {
+  margin: 0;
+}
+
+/* --- Button Styles --- */
+.promo-split__button {
+  display: inline-block;
+  padding: 14px 32px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+/* Dark button: dark background, light text */
+.promo-split__button--dark {
+  background-color: #303030;
+  color: #ffffff;
+  border: 2px solid #303030;
+}
+
+.promo-split__button--dark:hover {
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+/* Light button: light background, dark text */
+.promo-split__button--light {
+  background-color: #ffffff;
+  color: #303030;
+  border: 2px solid #303030;
+}
+
+.promo-split__button--light:hover {
+  background-color: #f5f5f5;
+}
+
+/* --- Tablet Responsive (max 900px) --- */
+@media (max-width: 900px) {
+  .promo-split__content {
+    padding: 50px 30px;
+  }
+
+  .promo-split__title {
+    font-size: 30px;
+  }
+}
+
+/* --- Mobile Responsive (max 768px) --- */
+@media (max-width: 768px) {
+  .promo-split__wrapper {
+    padding: 0 24px; /* Matches header/footer mobile padding */
+  }
+
+  .promo-split__container,
+  .promo-split__container--image-right {
+    flex-direction: column;
+  }
+
+  .promo-split__image-wrapper {
+    min-height: 280px;
+    flex: none;
+    border-radius: 8px;
+  }
+
+  .promo-split__content {
+    padding: 40px 20px;
+    flex: none;
+  }
+
+  .promo-split__content-inner {
+    max-width: 100%;
+  }
+
+  .promo-split__title {
+    font-size: 26px;
+  }
+
+  .promo-split__description {
+    font-size: 15px;
+  }
+
+  .promo-split__button {
+    padding: 12px 28px;
+    font-size: 12px;
+  }
+}
+
+/* --- Small Mobile (max 480px) --- */
+@media (max-width: 480px) {
+  .promo-split__image-wrapper {
+    min-height: 220px;
+  }
+
+  .promo-split__content {
+    padding: 32px 16px;
+  }
+
+  .promo-split__title {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .promo-split__description {
+    margin-bottom: 24px;
+  }
+}
+
+/* ===========================================
+   END PROMO SPLIT SECTION
+   =========================================== */
+
+/* ===========================================
+   HOMEPAGE SECTION SPACING FIX
+   Remove default 80px/40px margins from .shopify-section
+   to eliminate white gaps between sections
+   Date: 2026-01-30
+
+   Problem: Theme applies default margins to .shopify-section:
+   - Desktop: margin-top: 80px; margin-bottom: 80px
+   - Mobile: margin-top: 40px; margin-bottom: 40px
+
+   Solution: Zero out margins for all homepage sections.
+   Sections define their own internal padding (40px vertical).
+   =========================================== */
+
+/* --- Remove all margins from homepage sections --- */
+.index-wrapper .shopify-section {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* --- Specific section classes (explicit for safety) --- */
+.index-wrapper .shopify-section.index-category-cards,
+.index-wrapper .shopify-section.section-tabbed-collection,
+.index-wrapper .shopify-section.section-promo-split,
+.index-wrapper .shopify-section.section-shop-the-look-grid,
+.index-wrapper .shopify-section.section-index-products,
+.index-wrapper .shopify-section.section-index-features,
+.index-wrapper .shopify-section.section-index-text,
+.index-wrapper .shopify-section.section-index-collectionlist,
+.index-wrapper .shopify-section.section-index-blog {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* --- Ensure colored section backgrounds meet edge-to-edge --- */
+/* Each section should define its own internal padding for content spacing */
+
+/* ===========================================
+   END HOMEPAGE SECTION SPACING FIX
+   =========================================== */

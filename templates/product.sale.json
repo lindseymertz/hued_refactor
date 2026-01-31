@@ -1,0 +1,295 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "product-gallery": {
+      "type": "product-gallery",
+      "settings": {
+        "imageSize": "medium",
+        "videoLooping": false,
+        "productImageChangesVariant": true
+      }
+    },
+    "main": {
+      "type": "product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "vendor": {
+          "type": "vendor",
+          "settings": {
+            "productType": false
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "tax_and_shipping": {
+          "type": "tax_and_shipping",
+          "settings": {
+            "tax_included": true,
+            "shipping_policy": true
+          }
+        },
+        "swatches": {
+          "type": "swatches",
+          "settings": {}
+        },
+        "quantity": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "productsSmartPayment": true
+          }
+        },
+        "store_availability": {
+          "type": "store_availability",
+          "settings": {}
+        },
+        "cross-sells": {
+          "type": "cross-sells",
+          "disabled": true,
+          "settings": {
+            "title": "COMPLETE THE LOOK",
+            "cross_sell_product_1": "",
+            "cross_sell_product_2": "",
+            "cross_sell_product_3": "",
+            "cross_sell_bg": "#ffffff"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "social": {
+          "type": "social",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "vendor",
+        "price",
+        "tax_and_shipping",
+        "swatches",
+        "quantity",
+        "buy_buttons",
+        "store_availability",
+        "cross-sells",
+        "description",
+        "social"
+      ],
+      "settings": {}
+    },
+    "apps-product-reviews": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "index-collection-list": {
+      "type": "index-collection-list",
+      "blocks": {
+        "index-collection-list-0": {
+          "type": "collection-item",
+          "settings": {
+            "collection": "",
+            "heading": ""
+          }
+        },
+        "index-collection-list-1": {
+          "type": "collection-item",
+          "settings": {
+            "collection": "",
+            "heading": ""
+          }
+        }
+      },
+      "block_order": [
+        "index-collection-list-0",
+        "index-collection-list-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "heading": "",
+        "text": "",
+        "indexItemsPerRow": 2
+      }
+    },
+    "accordion": {
+      "type": "accordion",
+      "blocks": {
+        "accordion-0": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Place your question or heading here",
+            "text": "<p>Here you can place an explanation or answer to the question.</p>"
+          }
+        },
+        "accordion-1": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Place your question or heading here",
+            "text": "<p>Here you can place an explanation or answer to the question.</p>"
+          }
+        },
+        "accordion-2": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Place your question or heading here",
+            "text": "<p>Here you can place an explanation or answer to the question.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "accordion-0",
+        "accordion-1",
+        "accordion-2"
+      ],
+      "settings": {
+        "background-color": "#f6f6f6",
+        "text-color": "#000000",
+        "title": "Frequently asked questions",
+        "faq_icon": "plus_minus"
+      }
+    },
+    "product-info-columns": {
+      "type": "product-info-columns",
+      "blocks": {
+        "product-info-columns-0": {
+          "type": "image",
+          "settings": {
+            "title": "Title",
+            "text": "Share store details, promotions, or brand content with your customers.",
+            "link": "shopify://collections/all",
+            "link_text": "Learn more"
+          }
+        },
+        "product-info-columns-1": {
+          "type": "image",
+          "settings": {
+            "title": "Title",
+            "text": "Share store details, promotions, or brand content with your customers.",
+            "link": "shopify://collections/all",
+            "link_text": "Learn more"
+          }
+        },
+        "product-info-columns-2": {
+          "type": "image",
+          "settings": {
+            "title": "Title",
+            "text": "Share store details, promotions, or brand content with your customers.",
+            "link": "shopify://collections/all",
+            "link_text": "Learn more"
+          }
+        }
+      },
+      "block_order": [
+        "product-info-columns-0",
+        "product-info-columns-1",
+        "product-info-columns-2"
+      ],
+      "settings": {}
+    },
+    "index-image-with-text": {
+      "type": "index-image-with-text",
+      "settings": {
+        "subHeading": "Subheading",
+        "heading": "Share your story",
+        "text": "",
+        "colorBg": "#f6f6f6",
+        "colorText": "#333333",
+        "textPosition": "middle",
+        "textAlignment": "text-center",
+        "layout": "right",
+        "remove-spacing": true
+      }
+    },
+    "index-shop-the-look": {
+      "type": "index-shop-the-look",
+      "blocks": {
+        "index-shop-the-look-0": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "top": 20,
+            "left": 54
+          }
+        },
+        "index-shop-the-look-1": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "top": 50,
+            "left": 50
+          }
+        }
+      },
+      "block_order": [
+        "index-shop-the-look-0",
+        "index-shop-the-look-1"
+      ],
+      "settings": {
+        "stl__subheading": "",
+        "stl__heading": "Shop the look",
+        "stl__description": "<p>Add a description of your shop the look section to encourage your customers to purchase.</p>",
+        "description_alignment": "left",
+        "image__position": "image--left",
+        "link": "shopify://collections/all",
+        "button__text": "Shop now"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "product_recommendations_heading": "You may also like"
+      }
+    },
+    "product-recent": {
+      "type": "product-recent",
+      "disabled": true,
+      "settings": {
+        "recently_viewed_heading": "Recently viewed"
+      }
+    },
+    "index-newsletter": {
+      "type": "index-newsletter",
+      "settings": {
+        "subheading": "",
+        "heading": "Join our newsletter",
+        "text": "",
+        "customerTag": "",
+        "colorText": "#303030",
+        "colorBackground": "#f3f3f3"
+      }
+    }
+  },
+  "order": [
+    "product-gallery",
+    "main",
+    "apps-product-reviews",
+    "index-collection-list",
+    "accordion",
+    "product-info-columns",
+    "index-image-with-text",
+    "index-shop-the-look",
+    "product-recommendations",
+    "product-recent",
+    "index-newsletter"
+  ]
+}

@@ -1,0 +1,138 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "wrapper": "div.collection-wrapper",
+  "sections": {
+    "video-hero": {
+      "type": "video-hero",
+      "disabled": true,
+      "settings": {
+        "url": "",
+        "desktopHeight": "450",
+        "mobileHeight": "250",
+        "subheading": "",
+        "title": "",
+        "text": "",
+        "textAlignment": "center",
+        "textColor": "#000000",
+        "textShadow": false,
+        "heading--text-size": 50,
+        "text--text-size": 24,
+        "button_link": "",
+        "button_label": "",
+        "textColorButton": "#ffffff",
+        "colorButton": "#333333"
+      }
+    },
+    "index-rich-text": {
+      "type": "index-rich-text",
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "text": "",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "index-navigation-list": {
+      "type": "index-navigation-list",
+      "disabled": true,
+      "settings": {
+        "navigation--navigation-blocks--subheading": "",
+        "navigation--navigation-blocks--heading": "",
+        "navigation--navigation-blocks--menu": "",
+        "navigation--navigation-blocks--text-size": "small",
+        "navigation--navigation-blocks--font": "heading-font",
+        "navigation--navigation-blocks--text-color": "#303030",
+        "navigation--navigation-blocks--background-color": "#f3f3f3"
+      }
+    },
+    "collection_header_G8NFWQ": {
+      "type": "collection-header",
+      "settings": {
+        "show_description": false
+      }
+    },
+    "product-filtering": {
+      "type": "main-collection-filtering",
+      "blocks": {
+        "main-collection-filtering": {
+          "type": "title",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "main-collection-filtering"
+      ],
+      "settings": {
+        "desktop_position": "topbar",
+        "enable_filtering": true,
+        "enable_sorting": true
+      }
+    },
+    "main": {
+      "type": "collection",
+      "blocks": {
+        "image": {
+          "type": "image",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "in-your-cart": {
+          "type": "in-your-cart",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "image",
+        "title",
+        "price",
+        "in-your-cart"
+      ],
+      "custom_css": [
+        ".product-type-vendor a {display: none;}"
+      ],
+      "settings": {
+        "collectionProductsPerRow": 4,
+        "collageLayoutEnabled": false,
+        "infinite_scroll": false
+      }
+    },
+    "index-newsletter": {
+      "type": "index-newsletter",
+      "settings": {
+        "subheading": "",
+        "heading": "Stay up to date",
+        "text": "",
+        "customerTag": "",
+        "colorText": "#333333",
+        "colorBackground": "#f6f6f6"
+      }
+    }
+  },
+  "order": [
+    "video-hero",
+    "index-rich-text",
+    "index-navigation-list",
+    "collection_header_G8NFWQ",
+    "product-filtering",
+    "main",
+    "index-newsletter"
+  ]
+}

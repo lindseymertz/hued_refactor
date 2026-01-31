@@ -1,0 +1,250 @@
+{{ 'section-product-info-columns.min.css' | asset_url | stylesheet_tag }}
+
+{% case section.blocks.size %}
+	{% when 1 %}
+		{%- assign column_size = 'info-cols--item grid-item-50' -%}
+	{% when 2 %}
+		{%- assign column_size = 'info-cols--item grid-item-50' -%}
+	{% else %}
+		{%- assign column_size = 'info-cols--item grid-item-33' -%}
+{% endcase %}
+
+{% assign image_widths = '335, 460, 680, 920, 1020, 1100, 1360, 1840, 2040, 2200, 2760, 3300' %}
+{% assign image_noscript_width = '1100x' %}
+{% assign delayAmount = 0 %}
+
+
+<section class="homepage-sections-wrapper">
+	<div class="info-cols--container">
+
+        <div class="info-cols--row">
+			{% for block in section.blocks %}
+	
+                {% assign delayAmount = delayAmount | plus: 200 %}
+
+                <div class="{{ column_size }} 
+                {% render 'animations', type: 'fadeCycle', delay: delayAmount %}"
+								{{ block.shopify_attributes }}
+								>
+        
+
+                {% if block.settings.link == blank %}
+                    {% assign image_link = false %}
+                {% else %}
+                    {% assign image_link = block.settings.link %}
+                {% endif %}
+
+                {% if block.settings.image != blank %}
+                    <figure class="info-cols--image">
+                        {%-
+                        render 'image',
+                        image_object: block.settings.image,
+                        image_widths: image_widths,
+                        image_noscript_width: image_noscript_width,
+                        image_class: 'object-stretch',
+                        image_link: image_link,
+                        image_link_class: 'info-cols--image-is-link'
+                        -%}
+                    </figure>
+                {% else %}
+                    <figure class="info-cols--image svg-placeholder">
+                        {{ 'image' | placeholder_svg_tag: 'icon--placeholder' }}
+                    </figure>
+                {% endif %}
+
+
+                {% if block.settings.title != '' %}
+                    <h3 class="info-cols--title">{{ block.settings.title }}</h3>
+                {% endif %}
+
+                {% if block.settings.text != '' %}
+                    <div class="info-cols--text">{{ block.settings.text }}</div>
+                {% endif %}
+
+                {% if block.settings.link_text != '' and block.settings.link != blank %}
+										<div class="rte info-cols--link_text">	
+											<a href="{{ block.settings.link }}">{{ block.settings.link_text }}</a>
+										</div>
+								{% endif %}
+
+                </div>
+
+            {% endfor %}
+        </div>
+
+		{% if section.blocks.size == 0 %}
+			<div class="placeholder-noblocks">
+				{{ 'general.onboarding.no_content' | t }}
+			</div>
+		{% endif %}
+
+
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": {
+		"en": "Info columns",
+		"de": "Info columns",
+		"es": "Info columns",
+		"fr": "Info columns",
+		"pt-PT": "Info columns"
+	},
+	"class": "product-section--info-columns",
+	"max_blocks": 3,
+	"settings": [
+
+	],
+	"blocks": [
+		{
+			"type": "image",
+			"name": {
+				"en": "Image",
+				"de": "Bild",
+				"es": "Imagen",
+				"fr": "Image",
+				"pt-PT": "Imagem"
+			},
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": {
+						"en": "Image",
+						"de": "Bild",
+						"es": "Imagen",
+						"fr": "Image",
+						"pt-PT": "Imagem"
+					},
+					"info": {
+						"en": "680px minimum recommended width",
+						"de": "680 px empfohlene Mindestbreite",
+						"es": "680px ancho mínimo recomendado",
+						"fr": "Largeur minimale recommandée de 680 pixels",
+						"pt-PT": "Largura mínima recomendada de 680 px"
+					}
+				},
+				{
+					"type": "text",
+					"id": "title",
+					"label": {
+						"en": "Title",
+						"de": "Titel",
+						"es": "Título",
+						"fr": "Titre",
+						"pt-PT": "Título"
+					},
+					"default": {
+						"en": "Title",
+						"de": "Title",
+						"es": "Título",
+						"fr": "Title",
+						"pt-PT": "Title"
+					},
+					"info": {
+						"en": "Optional",
+						"de": "Optional",
+						"es": "Opcional",
+						"fr": "Facultatif",
+						"pt-PT": "Opcional"
+					}
+				},
+				{
+					"type": "textarea",
+					"id": "text",
+					"label": {
+						"en": "Text",
+						"de": "Text",
+						"es": "Texto",
+						"fr": "Text",
+						"pt-PT": "Text"
+					},
+					"default": {
+						"en": "Share store details, promotions, or brand content with your customers.",
+						"de": "Teilen Sie Geschäftsdetails, Werbeaktionen oder Markeninhalte mit Ihren Kunden.",
+						"es": "Comparta detalles de la tienda, promociones o contenido de marca con sus clientes.",
+						"fr": "Partagez les détails du magasin, les promotions ou le contenu de la marque avec vos clients.",
+						"pt-PT": "Compartilhe detalhes da loja, promoções ou conteúdo da marca com seus clientes."
+					},
+					"info": {
+						"en": "Optional",
+						"de": "Optional",
+						"es": "Opcional",
+						"fr": "Facultatif",
+						"pt-PT": "Opcional"
+					}
+				},
+				{
+					"type": "url",
+					"id": "link",
+					"label": {
+						"en": "Link",
+						"de": "Link",
+						"es": "Enlace",
+						"fr": "Lien",
+						"pt-PT": "Ligação"
+					},
+					"info": {
+						"en": "Optional",
+						"de": "Optional",
+						"es": "Opcional",
+						"fr": "Facultatif",
+						"pt-PT": "Opcional"
+					}
+				},
+				{
+					"type": "text",
+					"id": "link_text",
+					"label": {
+						"en": "Link text",
+						"de": "Link text",
+						"es": "Link texto",
+						"fr": "Link texte",
+						"pt-PT": "Link texto"
+					},
+					"default": {
+						"en": "Optional link",
+						"de": "Optional link",
+						"es": "Optional link",
+						"fr": "Optional link",
+						"pt-PT": "Optional link"
+					}
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": {
+				"en": "Info columns",
+				"de": "Info columns",
+				"es": "Info columns",
+				"fr": "Info columns",
+				"pt-PT": "Info columns"
+			},
+			"category": {
+				"en": "Image",
+				"de": "Bild",
+				"es": "Imagen",
+				"fr": "Image",
+				"pt-PT": "Imagem"
+			},
+			"blocks": [
+				{
+					"type": "image"
+				},
+				{
+					"type": "image"
+				},
+				{
+					"type": "image"
+				}
+			]
+		}
+	],
+	"templates": [
+		"product"
+	]
+}
+{% endschema %}

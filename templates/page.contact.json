@@ -1,0 +1,129 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "index-image-with-text-overlay": {
+      "type": "index-image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "image_height": "40vw",
+        "bg_image_overlay_color": "#f6f6f6",
+        "bg_image_overlay_opacity": 10,
+        "subheading": "",
+        "title": "Share your story",
+        "text": "",
+        "colorText": "#ffffff",
+        "textPosition": "center",
+        "textAlignment": "center",
+        "heading--text-size": 30,
+        "text--text-size": 16,
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "index-rich-text": {
+      "type": "index-rich-text",
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "Welcome to our store",
+        "text": "<p>Use this text block to show store announcements, advertise products and collections, or simply welcome visitors to your store.</p>",
+        "button_label": "Learn more",
+        "button_link": "shopify://collections/all"
+      }
+    },
+    "accordion": {
+      "type": "accordion",
+      "blocks": {
+        "accordion-0": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Place your question or heading here",
+            "text": "<p>Here you can place an explanation or answer to the question.</p>"
+          }
+        },
+        "accordion-1": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Place your question or heading here",
+            "text": "<p>Here you can place an explanation or answer to the question.</p>"
+          }
+        },
+        "accordion-2": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Place your question or heading here",
+            "text": "<p>Here you can place an explanation or answer to the question.</p>"
+          }
+        },
+        "accordion-3": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Place your question or heading here",
+            "text": "<p>Here you can place an explanation or answer to the question.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "accordion-0",
+        "accordion-1",
+        "accordion-2",
+        "accordion-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "background-color": "#f6f6f6",
+        "text-color": "#000000",
+        "title": "Frequently asked questions",
+        "faq_icon": "caret"
+      }
+    },
+    "main": {
+      "type": "page-contact",
+      "settings": {
+        "show_page_heading": true
+      }
+    },
+    "index-image-with-text": {
+      "type": "index-image-with-text",
+      "disabled": true,
+      "settings": {
+        "subHeading": "",
+        "heading": "Share your story",
+        "text": "<p>Write something nice. Maybe a value proposition— tell us what you stand for.</p>",
+        "colorBg": "#f6f6f6",
+        "colorText": "#333333",
+        "textPosition": "middle",
+        "textAlignment": "text-center",
+        "layout": "right",
+        "remove-spacing": false
+      }
+    },
+    "index-newsletter": {
+      "type": "index-newsletter",
+      "settings": {
+        "subheading": "",
+        "heading": "Subscribe to our newsletter",
+        "text": "",
+        "customerTag": "",
+        "colorText": "#333333",
+        "colorBackground": "#f3f3f3"
+      }
+    }
+  },
+  "order": [
+    "index-image-with-text-overlay",
+    "index-rich-text",
+    "accordion",
+    "main",
+    "index-image-with-text",
+    "index-newsletter"
+  ]
+}
