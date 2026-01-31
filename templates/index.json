@@ -96,17 +96,6 @@
         "button_link": "shopify://collections/all"
       }
     },
-    "index-rich-text": {
-      "type": "index-rich-text",
-      "disabled": true,
-      "settings": {
-        "subheading": "",
-        "title": "LIVE IN COLOR",
-        "text": "<h4>HUED Bracelets can't change the world, but we believe the people wearing them can.</h4><h4>Color evokes emotion, inspires reactions, and changes modes of thinking. </h4><h4>Our bracelets are created for style and designed to bring color (and emotions) to life!</h4>",
-        "button_label": "",
-        "button_link": ""
-      }
-    },
     "category-cards": {
       "type": "index-category-cards",
       "blocks": {
@@ -123,7 +112,7 @@
           "settings": {
             "title": "Jelly Rings",
             "link": "/collections/jelly-rings",
-            "placeholder_color": "#FF6B6B"
+            "placeholder_color": "#ff6b6b"
           }
         },
         "cat-3": {
@@ -131,7 +120,7 @@
           "settings": {
             "title": "Twist Bracelets",
             "link": "/collections/twist-bracelets",
-            "placeholder_color": "#9B59B6"
+            "placeholder_color": "#9b59b6"
           }
         },
         "cat-4": {
@@ -139,13 +128,29 @@
           "settings": {
             "title": "Beaded Bracelets",
             "link": "/collections/beaded-bracelets",
-            "placeholder_color": "#F39C12"
+            "placeholder_color": "#f39c12"
           }
         }
       },
-      "block_order": ["cat-1", "cat-2", "cat-3", "cat-4"],
+      "block_order": [
+        "cat-1",
+        "cat-2",
+        "cat-3",
+        "cat-4"
+      ],
       "settings": {
         "heading": "Shop by Category"
+      }
+    },
+    "index-rich-text": {
+      "type": "index-rich-text",
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "LIVE IN COLOR",
+        "text": "<h4>HUED Bracelets can't change the world, but we believe the people wearing them can.</h4><h4>Color evokes emotion, inspires reactions, and changes modes of thinking. </h4><h4>Our bracelets are created for style and designed to bring color (and emotions) to life!</h4>",
+        "button_label": "",
+        "button_link": ""
       }
     },
     "index_rich_text_k9jdCr": {
@@ -1225,6 +1230,42 @@
       "settings": {
         "custom_liquid": "<div style='text-align:center;'><h2>Custom Liquid</h2><p>Add app snippets or other Liquid code to create advanced customizations.</p></div>"
       }
+    },
+    "index_tabbed_collection_LqUqL3": {
+      "type": "index-tabbed-collection",
+      "blocks": {
+        "collection_tab_JCnhjG": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "valentines-day-jelly-bracelets",
+            "tab_label": ""
+          }
+        },
+        "collection_tab_DprDwQ": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "easter",
+            "tab_label": ""
+          }
+        },
+        "collection_tab_HVegKN": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "the-hued-shabang",
+            "tab_label": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_tab_JCnhjG",
+        "collection_tab_DprDwQ",
+        "collection_tab_HVegKN"
+      ],
+      "name": "Collection Carousel",
+      "settings": {
+        "heading": "Stacks you'll love",
+        "show_view_all": true
+      }
     }
   },
   "order": [
@@ -1247,6 +1288,7 @@
     "index-shop-the-look",
     "index-blog",
     "index-newsletter",
-    "173dd436-1114-47f2-a137-dae7aae6e08e"
+    "173dd436-1114-47f2-a137-dae7aae6e08e",
+    "index_tabbed_collection_LqUqL3"
   ]
 }

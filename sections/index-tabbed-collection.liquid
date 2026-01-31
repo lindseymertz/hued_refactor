@@ -32,23 +32,39 @@
       {% endif %}
     </div>
 
-    {% comment %} Collection Tabs {% endcomment %}
+    {% comment %} Collection Tabs + Navigation Arrows {% endcomment %}
     {% if section.blocks.size > 0 %}
-      <div class="tabbed-collection__tabs" role="tablist">
-        {% for block in section.blocks %}
-          {% assign collection = collections[block.settings.collection] %}
-          {% assign tab_label = block.settings.tab_label | default: collection.title | default: 'Collection' %}
-          <button
-            class="tabbed-collection__tab{% if forloop.first %} is-active{% endif %}"
-            data-tab-button="{{ forloop.index0 }}"
-            data-collection-url="{{ collection.url | default: '/collections/all' }}"
-            role="tab"
-            aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
-            {{ block.shopify_attributes }}
-          >
-            {{ tab_label | escape }}
+      <div class="tabbed-collection__tabs-row">
+        <div class="tabbed-collection__tabs" role="tablist">
+          {% for block in section.blocks %}
+            {% assign collection = collections[block.settings.collection] %}
+            {% assign tab_label = block.settings.tab_label | default: collection.title | default: 'Collection' %}
+            <button
+              class="tabbed-collection__tab{% if forloop.first %} is-active{% endif %}"
+              data-tab-button="{{ forloop.index0 }}"
+              data-collection-url="{{ collection.url | default: '/collections/all' }}"
+              role="tab"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+              {{ block.shopify_attributes }}
+            >
+              {{ tab_label | escape }}
+            </button>
+          {% endfor %}
+        </div>
+
+        {% comment %} Navigation Arrows {% endcomment %}
+        <div class="tabbed-collection__nav">
+          <button class="tabbed-collection__arrow tabbed-collection__arrow--prev" data-tabbed-prev aria-label="Previous products">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m15 18-6-6 6-6"/>
+            </svg>
           </button>
-        {% endfor %}
+          <button class="tabbed-collection__arrow tabbed-collection__arrow--next" data-tabbed-next aria-label="Next products">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
       </div>
     {% endif %}
 
@@ -78,14 +94,6 @@
                   %}
                 {% endfor %}
               </div>
-
-              {% comment %} Navigation Arrows {% endcomment %}
-              <button class="tabbed-collection__arrow tabbed-collection__arrow--prev swiper-button-prev" aria-label="Previous products">
-                {% render 'icon-arrow' %}
-              </button>
-              <button class="tabbed-collection__arrow tabbed-collection__arrow--next swiper-button-next" aria-label="Next products">
-                {% render 'icon-arrow' %}
-              </button>
             </div>
           {% else %}
             {% comment %} Onboarding/placeholder state {% endcomment %}
@@ -108,12 +116,6 @@
                   </article>
                 {% endfor %}
               </div>
-              <button class="tabbed-collection__arrow tabbed-collection__arrow--prev swiper-button-prev" aria-label="Previous products">
-                {% render 'icon-arrow' %}
-              </button>
-              <button class="tabbed-collection__arrow tabbed-collection__arrow--next swiper-button-next" aria-label="Next products">
-                {% render 'icon-arrow' %}
-              </button>
             </div>
           {% endif %}
         </div>
@@ -132,90 +134,173 @@
 
 <script>
   (function() {
-    var section = document.querySelector('[data-section-id="{{ section.id }}"]');
-    if (!section) return;
+    var sectionId = '{{ section.id }}';
+    var activeSwiper = null;
 
-    var tabs = section.querySelectorAll('[data-tab-button]');
-    var panels = section.querySelectorAll('[data-tab-panel]');
-    var viewAllLink = section.querySelector('[data-tabbed-view-all]');
-    var swipers = [];
+    function initTabbedCollection() {
+      var section = document.querySelector('[data-section-id="' + sectionId + '"]');
+      if (!section) return;
 
-    // Initialize Swiper for visible panel
-    function initSwiper(container) {
-      if (!container || container.swiper) return;
+      // Check if already initialized
+      if (section.dataset.initialized) return;
+      section.dataset.initialized = 'true';
 
-      return new Swiper(container, {
-        slidesPerView: 2,
-        slidesPerGroup: 1,
-        spaceBetween: 16,
-        navigation: {
-          nextEl: container.querySelector('.swiper-button-next'),
-          prevEl: container.querySelector('.swiper-button-prev')
-        },
-        breakpoints: {
-          500: {
-            slidesPerView: 2,
-            spaceBetween: 16
-          },
-          720: {
-            slidesPerView: 3,
-            spaceBetween: 20
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 24
-          }
+      var tabs = section.querySelectorAll('[data-tab-button]');
+      var panels = section.querySelectorAll('[data-tab-panel]');
+      var viewAllLink = section.querySelector('[data-tabbed-view-all]');
+      var prevBtn = section.querySelector('[data-tabbed-prev]');
+      var nextBtn = section.querySelector('[data-tabbed-next]');
+
+      // Update arrow disabled states
+      function updateArrowStates() {
+        if (!activeSwiper || !prevBtn || !nextBtn) return;
+
+        if (activeSwiper.isBeginning) {
+          prevBtn.classList.add('is-disabled');
+          prevBtn.setAttribute('disabled', '');
+        } else {
+          prevBtn.classList.remove('is-disabled');
+          prevBtn.removeAttribute('disabled');
         }
-      });
-    }
 
-    // Initialize swiper for active panel
-    var activePanel = section.querySelector('.tabbed-collection__panel.is-active');
-    if (activePanel) {
-      var swiperContainer = activePanel.querySelector('[data-tabbed-swiper]');
-      initSwiper(swiperContainer);
-    }
+        if (activeSwiper.isEnd) {
+          nextBtn.classList.add('is-disabled');
+          nextBtn.setAttribute('disabled', '');
+        } else {
+          nextBtn.classList.remove('is-disabled');
+          nextBtn.removeAttribute('disabled');
+        }
+      }
 
-    // Tab click handler
-    tabs.forEach(function(tab) {
-      tab.addEventListener('click', function() {
-        var targetIndex = this.getAttribute('data-tab-button');
-        var collectionUrl = this.getAttribute('data-collection-url');
+      // Initialize Swiper for a container
+      function initSwiper(container) {
+        if (!container || container.swiper) {
+          if (container && container.swiper) {
+            activeSwiper = container.swiper;
+            updateArrowStates();
+          }
+          return container ? container.swiper : null;
+        }
+        if (typeof Swiper === 'undefined') return null;
 
-        // Update active tab
-        tabs.forEach(function(t) {
-          t.classList.remove('is-active');
-          t.setAttribute('aria-selected', 'false');
-        });
-        this.classList.add('is-active');
-        this.setAttribute('aria-selected', 'true');
-
-        // Update panels
-        panels.forEach(function(panel) {
-          var panelIndex = panel.getAttribute('data-tab-panel');
-          if (panelIndex === targetIndex) {
-            panel.classList.add('is-active');
-            panel.removeAttribute('hidden');
-
-            // Initialize swiper if not already done
-            var swiperContainer = panel.querySelector('[data-tabbed-swiper]');
-            if (swiperContainer && !swiperContainer.swiper) {
-              initSwiper(swiperContainer);
-            } else if (swiperContainer && swiperContainer.swiper) {
-              swiperContainer.swiper.update();
+        var swiper = new Swiper(container, {
+          slidesPerView: 2,
+          slidesPerGroup: 1,
+          spaceBetween: 16,
+          watchOverflow: true,
+          breakpoints: {
+            500: {
+              slidesPerView: 2,
+              spaceBetween: 16
+            },
+            720: {
+              slidesPerView: 3,
+              spaceBetween: 20
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 24
             }
-          } else {
-            panel.classList.remove('is-active');
-            panel.setAttribute('hidden', '');
+          },
+          on: {
+            slideChange: updateArrowStates,
+            resize: updateArrowStates
           }
         });
 
-        // Update View All link
-        if (viewAllLink && collectionUrl) {
-          viewAllLink.setAttribute('href', collectionUrl);
-        }
+        activeSwiper = swiper;
+        updateArrowStates();
+        return swiper;
+      }
+
+      // Header arrow click handlers
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+          if (activeSwiper) activeSwiper.slidePrev();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+          if (activeSwiper) activeSwiper.slideNext();
+        });
+      }
+
+      // Initialize swiper for active panel
+      var activePanel = section.querySelector('.tabbed-collection__panel.is-active');
+      if (activePanel) {
+        var swiperContainer = activePanel.querySelector('[data-tabbed-swiper]');
+        initSwiper(swiperContainer);
+      }
+
+      // Tab click handler
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          var targetIndex = this.getAttribute('data-tab-button');
+          var collectionUrl = this.getAttribute('data-collection-url');
+
+          // Update active tab
+          tabs.forEach(function(t) {
+            t.classList.remove('is-active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          this.classList.add('is-active');
+          this.setAttribute('aria-selected', 'true');
+
+          // Update panels
+          panels.forEach(function(panel) {
+            var panelIndex = panel.getAttribute('data-tab-panel');
+            if (panelIndex === targetIndex) {
+              panel.classList.add('is-active');
+              panel.removeAttribute('hidden');
+
+              // Initialize swiper if not already done
+              var swiperContainer = panel.querySelector('[data-tabbed-swiper]');
+              initSwiper(swiperContainer);
+            } else {
+              panel.classList.remove('is-active');
+              panel.setAttribute('hidden', '');
+            }
+          });
+
+          // Update View All link
+          if (viewAllLink && collectionUrl) {
+            viewAllLink.setAttribute('href', collectionUrl);
+          }
+        });
       });
-    });
+    }
+
+    // Wait for Swiper to be available (theme.js loads lazily)
+    function waitForSwiper() {
+      if (typeof Swiper !== 'undefined') {
+        initTabbedCollection();
+      } else {
+        // Poll for Swiper availability
+        var attempts = 0;
+        var maxAttempts = 50; // 5 seconds max
+        var interval = setInterval(function() {
+          attempts++;
+          if (typeof Swiper !== 'undefined') {
+            clearInterval(interval);
+            initTabbedCollection();
+          } else if (attempts >= maxAttempts) {
+            clearInterval(interval);
+            console.warn('Swiper not loaded for tabbed collection');
+          }
+        }, 100);
+      }
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', waitForSwiper);
+    } else {
+      waitForSwiper();
+    }
+
+    // Also initialize on window load as fallback
+    window.addEventListener('load', waitForSwiper);
   })();
 </script>
 
