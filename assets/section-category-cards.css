@@ -1,16 +1,18 @@
 /* ===========================================
    SHOP BY CATEGORY CARDS
    Date: 2026-01-18
+   Updated: 2026-01-30 - Aligned with header/footer (1280px, 52px padding)
    =========================================== */
 
 .category-cards-section {
-  padding: 40px 20px;
+  padding: 40px 0;
   background: #fff;
 }
 
 .category-cards-container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
+  padding: 0 52px; /* Matches header/footer alignment */
 }
 
 .category-cards-header {
@@ -102,10 +104,17 @@
   }
 }
 
+/* --- Tablet: match header/footer padding --- */
+@media (max-width: 768px) {
+  .category-cards-container {
+    padding: 0 24px; /* Matches header/footer mobile alignment */
+  }
+}
+
 /* --- Mobile: 2 visible, scroll --- */
 @media (max-width: 600px) {
   .category-cards-section {
-    padding: 32px 16px;
+    padding: 32px 0;
   }
 
   .category-cards-title {

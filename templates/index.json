@@ -45,38 +45,6 @@
         "text--scrolling--link": "shopify://collections/sale"
       }
     },
-    "index_rich_text_CfQbWG": {
-      "type": "index-rich-text",
-      "disabled": true,
-      "settings": {
-        "subheading": "",
-        "title": "30% OFF EVERYTHING WITH CODE: BLACKFRIDAY30",
-        "text": "<p>SALE ENDS ON NOVEMBER 28, 2025 AT 11:59 PST</p>",
-        "button_label": "",
-        "button_link": ""
-      }
-    },
-    "video-hero": {
-      "type": "video-hero",
-      "disabled": true,
-      "settings": {
-        "url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "desktopHeight": "750",
-        "mobileHeight": "550",
-        "subheading": "",
-        "title": "Share your story",
-        "text": "Here's your chance to make a great first impression",
-        "textAlignment": "bottom-center",
-        "textColor": "#ffffff",
-        "textShadow": false,
-        "heading--text-size": 36,
-        "text--text-size": 14,
-        "button_link": "shopify://collections/all",
-        "button_label": "Learn more",
-        "textColorButton": "#303030",
-        "colorButton": "#ffffff"
-      }
-    },
     "index-image-with-text-overlay": {
       "type": "index-image-with-text-overlay",
       "settings": {
@@ -142,1095 +110,6 @@
         "heading": "Shop by Category"
       }
     },
-    "index-rich-text": {
-      "type": "index-rich-text",
-      "disabled": true,
-      "settings": {
-        "subheading": "",
-        "title": "LIVE IN COLOR",
-        "text": "<h4>HUED Bracelets can't change the world, but we believe the people wearing them can.</h4><h4>Color evokes emotion, inspires reactions, and changes modes of thinking. </h4><h4>Our bracelets are created for style and designed to bring color (and emotions) to life!</h4>",
-        "button_label": "",
-        "button_link": ""
-      }
-    },
-    "index_rich_text_k9jdCr": {
-      "type": "index-rich-text",
-      "disabled": true,
-      "settings": {
-        "subheading": "",
-        "title": "LIVE IN COLOR",
-        "text": "<h4>HUED Bracelets can't change the world, but we believe the people wearing them can.</h4><h4>Color evokes emotion, inspires reactions, and changes modes of thinking. </h4><h4>Our bracelets are created for style and designed to bring color (and emotions) to life!</h4>",
-        "button_label": "",
-        "button_link": ""
-      }
-    },
-    "4d1ec479-92b2-4eb5-a999-71be20a65b37": {
-      "type": "index-featured-collection",
-      "settings": {
-        "style": "grid",
-        "collection": "valentines-day-jelly-bracelets",
-        "product-info": "below",
-        "productsPerRow": 4,
-        "displayDetails": "customDetails",
-        "featuredSubheading": "",
-        "featuredTitle": "VALENTINE'S DAY STACKS",
-        "featuredCustomDescription": "",
-        "showViewAll": true,
-        "displayDetailsInGrid": false,
-        "numberOfRows": 6
-      }
-    },
-    "index_rich_text_CzdtMy": {
-      "type": "index-rich-text",
-      "disabled": true,
-      "settings": {
-        "subheading": "",
-        "title": "CHRISTMAS COLLECTION",
-        "text": "",
-        "button_label": "",
-        "button_link": ""
-      }
-    },
-    "index-features": {
-      "type": "index-features",
-      "blocks": {
-        "feature_item_YkdGFi": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_5fae685e-ef01-4add-89e4-4f678fa8c061.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Cider Season Bracelets",
-            "url": "shopify://products/cider-season-jelly-bracelets",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_4Dprj6": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_94632f5a-f3e8-4edb-95eb-0c15fd7021c2.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Cider Season Rings",
-            "url": "shopify://products/cider-season-silicone-stacking-rings",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_wk8HjJ": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_eaf972b9-c7a3-4377-8afa-dfd0e5207c27.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Harvest Hues Bracelets",
-            "url": "shopify://products/harvest-hues-jelly-bracelets",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_FeEJAh": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_28a869b0-7402-4577-ab2e-688eaea706cb.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Harvest Hues Rings",
-            "url": "shopify://products/harvest-hues-silicone-stacking-rings",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_Ucehjn": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_a4a2b6f1-e195-4363-b026-776a37f5924f.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Sweater Weather Bracelets",
-            "url": "shopify://products/sweater-weather-jelly-bracelets",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_rCf4JQ": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_f5b16d7d-37c4-43da-8a0d-c2ddf7da4f6e.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Sweater Weather Rings",
-            "url": "shopify://products/sweater-weather-silicone-stacking-rings",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_qLCTkd": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_b1eb6142-136d-4127-a075-ee50b13df1fa.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Pastel Pumpkins Bracelets",
-            "url": "shopify://products/pastel-pumpkins-jelly-bracelets",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_nhUhGw": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_92eda58c-a80c-4d8b-82a8-975f4259fc23.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Pastel Pumpkins Rings",
-            "url": "shopify://products/pastel-pumpkins-silicone-stacking-rings",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_RePCbM": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_931e86f3-e98a-41b2-84bc-2422032f90cf.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Cozy Season Bracelets",
-            "url": "shopify://products/cozy-season-jelly-bracelets",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_cBNiVc": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_a5e1d8f7-1bba-4b52-90cb-3cbf4c324487.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Cozy Season Rings",
-            "url": "shopify://products/cozy-season-silicone-stacking-rings",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_ecnaVA": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_5a1e779b-9772-419e-bdca-17dcc6a9bf1a.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Craving Autumn Bracelets",
-            "url": "shopify://products/craving-autumn-jelly-bracelets",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_xpa6gJ": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_1c7bfff2-a272-4d64-b323-c3ac2ee0a9fa.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Craving Autumn Rings",
-            "url": "shopify://products/craving-autumn-silicone-stacking-rings",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_3b4ewt": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_d121b878-9535-40ff-981a-cecd64cd927d.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Autumn AF Bracelets",
-            "url": "shopify://products/autumn-af-jelly-bracelets",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_3TgPyc": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_8e8bbb30-41f3-4e8f-8dcd-f9b64efde453.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Autumn AF Rings",
-            "url": "shopify://products/autumn-af-silicone-stacking-rings",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_LgL6Ej": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_9571ceb0-b59c-4902-b843-8eb2040d0d6f.jpg",
-            "title": "",
-            "text": "",
-            "buttonText": "Pumpkin Spice Latte Bracelets",
-            "url": "shopify://products/pumpkin-spice-latte-jelly-bracelets",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_EteKFR": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_de67e065-f238-4170-a4e5-98c284560734.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Pumpkin Spice Latte Rings",
-            "url": "shopify://products/pumpkin-spice-latte-silicone-stacking-rings",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_WJegHi": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_4fed9c5b-a23b-40ca-bd64-9add2c47e805.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Autumn Sunset Bracelets",
-            "url": "shopify://products/autumn-sunset-jelly-bracelets",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_hTBUmR": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_ff01fab1-e715-4047-b3d0-6453ac53784d.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Autumn Sunset Rings",
-            "url": "shopify://products/autumn-sunset-silicone-stacking-rings",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_z4W7Tw": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_bce6ef6f-ffca-4ca7-abd6-4d6aeaec1964.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Fall Flannel Bracelets",
-            "url": "shopify://products/fall-flannel-jelly-bracelets",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_qFd9GL": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_d257ab1c-5849-4ab5-8587-5cffecd98d36.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Fall Flannel Rings",
-            "url": "shopify://products/fall-flannel-silicone-stacking-rings",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_qVLdHh": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_c1e1304f-e09b-458b-81a8-167402aedea7.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Crunchy Leaves Bracelets",
-            "url": "shopify://products/crunchy-leaves-jelly-bracelets",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_DKVz3e": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_afc4ca29-7653-4a73-8eea-182854859df6.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Crunchy Leaves Rings",
-            "url": "shopify://products/crunchy-leaves-silicone-stacking-rings",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_zBGFbE": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_fe6db50a-ce68-43df-968f-d264211e1407.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Pumpkin Patch Bracelets",
-            "url": "shopify://products/pumpkin-patch-jelly-bracelets",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_f3RBWn": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_28512b5f-d4ea-4dbf-b8c4-47136c490d5a.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Pumpkin Patch Rings",
-            "url": "shopify://products/pumpkin-patch-silicone-stacking-rings",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "feature_item_fz4NmL": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_30d4e1ee-5f90-4f64-bef6-f25977202ad3.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Pumpkin Patch Twist Bracelets",
-            "url": "shopify://products/pumpkin-patch-twist-jelly-bracelets",
-            "textAlignment": "bottom left",
-            "colorText": "#f6f6f6",
-            "colorOverlay": "",
-            "overlayOpacity": 100
-          }
-        },
-        "index-features-4": {
-          "type": "feature-item",
-          "disabled": true,
-          "settings": {
-            "title": "",
-            "text": "",
-            "buttonText": "",
-            "url": "shopify://collections/all",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "index-features-5": {
-          "type": "feature-item",
-          "disabled": true,
-          "settings": {
-            "title": "Featured item",
-            "text": "<p>Share store details, promotions, or brand content with your customers.</p>",
-            "buttonText": "Learn more",
-            "url": "shopify://collections/all",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 70
-          }
-        }
-      },
-      "block_order": [
-        "feature_item_YkdGFi",
-        "feature_item_4Dprj6",
-        "feature_item_wk8HjJ",
-        "feature_item_FeEJAh",
-        "feature_item_Ucehjn",
-        "feature_item_rCf4JQ",
-        "feature_item_qLCTkd",
-        "feature_item_nhUhGw",
-        "feature_item_RePCbM",
-        "feature_item_cBNiVc",
-        "feature_item_ecnaVA",
-        "feature_item_xpa6gJ",
-        "feature_item_3b4ewt",
-        "feature_item_3TgPyc",
-        "feature_item_LgL6Ej",
-        "feature_item_EteKFR",
-        "feature_item_WJegHi",
-        "feature_item_hTBUmR",
-        "feature_item_z4W7Tw",
-        "feature_item_qFd9GL",
-        "feature_item_qVLdHh",
-        "feature_item_DKVz3e",
-        "feature_item_zBGFbE",
-        "feature_item_f3RBWn",
-        "feature_item_fz4NmL",
-        "index-features-4",
-        "index-features-5"
-      ],
-      "disabled": true,
-      "settings": {
-        "subheading": "",
-        "heading": "FALL STACKS",
-        "text": "",
-        "indexItemsPerRow": 4,
-        "remove-spacing": false
-      }
-    },
-    "index_features_XXLfXV": {
-      "type": "index-features",
-      "blocks": {
-        "feature_item_awtPk6": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/784F8B81-A28C-4C38-90B1-D6E7B98CE6BD.jpg",
-            "title": "",
-            "text": "",
-            "buttonText": "BE MiNE BRACELETS",
-            "url": "shopify://products/be-mine-jelly-bracelets",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_WdCDMB": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_11f27bce-5bda-49f5-99a7-115fba561b1b.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "BE MiNE RINGS",
-            "url": "shopify://products/be-mine-silicone-stacking-rings",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_eVz9MX": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_99fdf3b3-8811-478b-a3a1-903a8a0e867a.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "CHOCOLATE COVERED STRAWBERRIES BRACELETS",
-            "url": "shopify://products/chocolate-covered-strawberries-jelly-bracelets",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_cKfDYa": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_b4f3102b-bb9f-49d7-b508-2758335a93ff.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "CHOCOLATE COVERED STRAWBERRIES RINGS",
-            "url": "shopify://products/chocolate-covered-strawberries-silicone-stacking-rings",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_WRWUge": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_7976bcab-97c2-4453-80ef-308827a9248b.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "HEARTS OF CONVERSATION BRACELETS",
-            "url": "shopify://products/hearts-of-conversation-jelly-bracelets",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_x8aTdr": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_7dafbd0e-9426-4275-be23-0b6064cd3b3b.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "HEARTS OF CONVERSATION RINGS",
-            "url": "shopify://products/hearts-of-conversation-silicone-stacking-rings",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_QnPGTB": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/AF33D63B-31C4-425B-910B-BE16D19F9277.jpg",
-            "title": "",
-            "text": "",
-            "buttonText": "FIRST KISS BRACELETS",
-            "url": "shopify://products/first-kiss",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_VmAyDd": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_5a01e4c0-d9ab-4c3d-8593-3c6c81814e82.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "FIRST KISS RINGS",
-            "url": "shopify://products/first-kiss-silicone-stacking-rings",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_VkKNNh": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/kissyface.jpg",
-            "title": "",
-            "text": "",
-            "buttonText": "KISSY FACE BRACELETS",
-            "url": "shopify://products/kissy-face-jelly-bracelets",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_ctbVVY": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_662541f1-7c70-4d01-8679-e1e65d58139c.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "KISSY FACE RINGS",
-            "url": "shopify://products/kissy-face-silicone-stacking-rings",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_WVi3pz": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_73b634b5-a79f-49b7-b2a3-0adacaeca792.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "LOVE BUG BRACELETS",
-            "url": "shopify://products/love-bug-jelly-bracelets",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_JaLxNt": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_82fc0f03-0d69-47ec-8339-8d6deda14c96.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "LOVE BUG RINGS",
-            "url": "shopify://products/love-bug-silicone-stacking-rings",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_eLWqpg": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_8766fdc5-3733-4730-ba20-120e45998a7c.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "HEY SUNSHINE BRACELETS",
-            "url": "shopify://products/hey-sunshine-jelly-bracelets",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_VQFCm9": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_95149a25-ca14-4b7d-8cb3-8d1dcdf95420.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "HEY SUNSHINE RINGS",
-            "url": "shopify://products/hey-sunshine-silicone-stacking-rings",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_FY8kL6": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_781ae0a8-a2a3-4b31-8a4e-61ac3330c991.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "XOXO Bracelets",
-            "url": "shopify://products/xoxo-jelly-bracelets",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_T9T4QR": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_1a37ac31-95a8-4a3e-a856-76d594b203ed.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "XOXO Rings",
-            "url": "shopify://products/xoxo-silicone-stacking-rings",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_8k69LY": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/67CC8D2B-A37C-42FB-8486-193BF3C39EFE.jpg",
-            "title": "",
-            "text": "",
-            "buttonText": "Cupid's Arrow Bracelets",
-            "url": "shopify://products/cupid-s-areow",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_QRLBjr": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_7779a95f-6c4f-4d0a-9735-713e22974fa0.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Cupid's Arrow Rings",
-            "url": "shopify://products/cupid-s-arrow-silicone-stacking-rings",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_QqB6Yd": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_978c9ba8-f6e5-4f9b-bf94-79a334a2393e.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "The Breakup Blues Bracelets",
-            "url": "shopify://products/the-breakup-blues-jelly-bracelets",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_xnmE4P": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_254abead-a713-4e39-bb9d-636ac12fa40c.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "The Breakup Blues Rings",
-            "url": "shopify://products/the-breakup-blues-silicone-stacking-rings",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_zj3jne": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_50fbf08c-5cd9-4ec1-a7ed-ea09ef941fc2.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Roses and Romance Bracelets",
-            "url": "shopify://products/roses-and-romance-jelly-bracelets",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_gdNCaq": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_337c1b01-cc84-4db7-9cc9-7c3ba355f8a1.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Roses and Romance Rings",
-            "url": "shopify://products/roses-and-romance-silicone-stacking-rings",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_nPcLEX": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_f7da9d06-6148-4595-bbc4-5805c6c81d44.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Timeless Love Bracelets",
-            "url": "shopify://products/timeless-love-jelly-bracelets",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_3aFwt3": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_01fc2ec0-85db-4048-85ae-80c991725a07.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Timeless Love Rings",
-            "url": "shopify://products/timeless-love-silicone-stacking-rings",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_AnXhG3": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_054d7cc5-bae1-47fa-90c9-355a58bde776.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Anchored In Love Bracelets",
-            "url": "shopify://products/anchored-in-love-jelly-bracelets",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_YzM4MU": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_46a8fe9a-b7a8-413f-a43e-7f2e4d42ba83.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Anchored In Love Rings",
-            "url": "shopify://products/anchored-in-love-silicone-stacking-rings",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_F7dXJ8": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_38237e74-af7b-4996-ab83-7c4f82600102.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Single and Ready To Mingle Bracelets",
-            "url": "shopify://products/single-and-ready-to-mingle-jelly-bracelets",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_JK3N3g": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_28743cbc-8b53-44f2-88c7-3ec887ebfffc.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Single and Ready To Mingle Rings",
-            "url": "shopify://products/single-and-ready-to-mingle-silicone-stacking-rings",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_wpngRQ": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_3a018821-2734-408e-8e84-421876a3aca8.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Single and Done with The Mingle Bracelets",
-            "url": "shopify://products/single-and-done-with-the-mingle-jelly-bracelets",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_VaD8X6": {
-          "type": "feature-item",
-          "settings": {
-            "image": "shopify://shop_images/FullSizeRender_c601310a-6b20-4d0c-81df-9fa28224319a.heic",
-            "title": "",
-            "text": "",
-            "buttonText": "Single and Done with The Mingle Rings",
-            "url": "shopify://products/single-and-done-with-the-mingle-silicone-stacking-rings",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 80
-          }
-        },
-        "feature_item_BV4KBU": {
-          "type": "feature-item",
-          "disabled": true,
-          "settings": {
-            "title": "Featured item",
-            "text": "<p>Share store details, promotions, or brand content with your customers.</p>",
-            "buttonText": "Learn more",
-            "url": "shopify://collections/all",
-            "textAlignment": "center",
-            "colorText": "",
-            "colorOverlay": "",
-            "overlayOpacity": 70
-          }
-        }
-      },
-      "block_order": [
-        "feature_item_awtPk6",
-        "feature_item_WdCDMB",
-        "feature_item_eVz9MX",
-        "feature_item_cKfDYa",
-        "feature_item_WRWUge",
-        "feature_item_x8aTdr",
-        "feature_item_QnPGTB",
-        "feature_item_VmAyDd",
-        "feature_item_VkKNNh",
-        "feature_item_ctbVVY",
-        "feature_item_WVi3pz",
-        "feature_item_JaLxNt",
-        "feature_item_eLWqpg",
-        "feature_item_VQFCm9",
-        "feature_item_FY8kL6",
-        "feature_item_T9T4QR",
-        "feature_item_8k69LY",
-        "feature_item_QRLBjr",
-        "feature_item_QqB6Yd",
-        "feature_item_xnmE4P",
-        "feature_item_zj3jne",
-        "feature_item_gdNCaq",
-        "feature_item_nPcLEX",
-        "feature_item_3aFwt3",
-        "feature_item_AnXhG3",
-        "feature_item_YzM4MU",
-        "feature_item_F7dXJ8",
-        "feature_item_JK3N3g",
-        "feature_item_wpngRQ",
-        "feature_item_VaD8X6",
-        "feature_item_BV4KBU"
-      ],
-      "disabled": true,
-      "settings": {
-        "subheading": "",
-        "heading": "VALENTINE'S DAY",
-        "text": "",
-        "indexItemsPerRow": 4,
-        "remove-spacing": false
-      }
-    },
-    "index-collection-list": {
-      "type": "index-collection-list",
-      "settings": {
-        "subheading": "",
-        "heading": "",
-        "text": "",
-        "indexItemsPerRow": 3
-      }
-    },
-    "index_collection_list_nYxN3m": {
-      "type": "index-collection-list",
-      "settings": {
-        "subheading": "",
-        "heading": "",
-        "text": "",
-        "indexItemsPerRow": 3
-      }
-    },
-    "index_collection_list_k3dJ8z": {
-      "type": "index-collection-list",
-      "settings": {
-        "subheading": "",
-        "heading": "",
-        "text": "",
-        "indexItemsPerRow": 3
-      }
-    },
-    "index_collection_list_zX3pgb": {
-      "type": "index-collection-list",
-      "blocks": {
-        "collection_item_h7PLrW": {
-          "type": "collection-item",
-          "disabled": true,
-          "settings": {
-            "collection": "christmas",
-            "heading": "CHRISTMAS"
-          }
-        }
-      },
-      "block_order": [
-        "collection_item_h7PLrW"
-      ],
-      "settings": {
-        "subheading": "",
-        "heading": "",
-        "text": "",
-        "indexItemsPerRow": 3
-      }
-    },
-    "index-navigation-list": {
-      "type": "index-navigation-list",
-      "disabled": true,
-      "settings": {
-        "navigation--navigation-blocks--subheading": "",
-        "navigation--navigation-blocks--heading": "Highlight bestsellers",
-        "navigation--navigation-blocks--menu": "",
-        "navigation--navigation-blocks--text-size": "medium",
-        "navigation--navigation-blocks--font": "heading-font",
-        "navigation--navigation-blocks--text-color": "#333333",
-        "navigation--navigation-blocks--background-color": "#f5f5f5"
-      }
-    },
-    "index-shop-the-look": {
-      "type": "index-shop-the-look",
-      "blocks": {
-        "index-shop-the-look-1": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "top": 45,
-            "left": 71
-          }
-        },
-        "index-shop-the-look-2": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "top": 73,
-            "left": 20
-          }
-        }
-      },
-      "block_order": [
-        "index-shop-the-look-1",
-        "index-shop-the-look-2"
-      ],
-      "disabled": true,
-      "settings": {
-        "stl__subheading": "SUBHEADING",
-        "stl__heading": "Shop the look",
-        "stl__description": "<p>Add a description of your shop the look section to encourage your customers to purchase.</p>",
-        "description_alignment": "left",
-        "image__position": "image--left",
-        "link": "shopify://collections/all",
-        "button__text": "Shop now"
-      }
-    },
-    "index-blog": {
-      "type": "index-blog",
-      "blocks": {
-        "index-blog-0": {
-          "type": "blog",
-          "disabled": true,
-          "settings": {
-            "blog": ""
-          }
-        }
-      },
-      "block_order": [
-        "index-blog-0"
-      ],
-      "disabled": true,
-      "settings": {
-        "indexBlogSubheading": "",
-        "indexBlogHeading": "",
-        "indexBlogText": "",
-        "post_limit": 3,
-        "showDate": false,
-        "showAuthor": true,
-        "imageSize": "natural"
-      }
-    },
-    "index-newsletter": {
-      "type": "index-newsletter",
-      "settings": {
-        "subheading": "NEWSLETTER SIGNUP",
-        "heading": "WANT MORE?",
-        "text": "<p>Get all of the latest color drops, offers and more sent straight to your inbox.</p>",
-        "customerTag": "",
-        "colorText": "#ffffff",
-        "colorBackground": "#27bdbe"
-      }
-    },
-    "173dd436-1114-47f2-a137-dae7aae6e08e": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "settings": {
-        "custom_liquid": "<div style='text-align:center;'><h2>Custom Liquid</h2><p>Add app snippets or other Liquid code to create advanced customizations.</p></div>"
-      }
-    },
     "index_tabbed_collection_LqUqL3": {
       "type": "index-tabbed-collection",
       "blocks": {
@@ -1266,29 +145,156 @@
         "heading": "Stacks you'll love",
         "show_view_all": true
       }
+    },
+    "index_shop_the_look_ELRqFX": {
+      "type": "index-shop-the-look",
+      "disabled": true,
+      "blocks": {
+        "product_WxNPtE": {
+          "type": "product",
+          "settings": {
+            "product": "a-bag-of-coal-christmas-jelly-bracelets",
+            "top": 0,
+            "left": 0
+          }
+        },
+        "product_4wBRAz": {
+          "type": "product",
+          "settings": {
+            "product": "alien-invasion-jelly-bracelets",
+            "top": 0,
+            "left": 0
+          }
+        },
+        "product_gTjYiE": {
+          "type": "product",
+          "settings": {
+            "product": "americana-jelly-bracelets",
+            "top": 46,
+            "left": 30
+          }
+        },
+        "product_iWJa4z": {
+          "type": "product",
+          "settings": {
+            "product": "americana-silicone-stacking-rings",
+            "top": 63,
+            "left": 51
+          }
+        }
+      },
+      "block_order": [
+        "product_WxNPtE",
+        "product_4wBRAz",
+        "product_gTjYiE",
+        "product_iWJa4z"
+      ],
+      "name": "Shop the look",
+      "settings": {
+        "stl__subheading": "",
+        "stl__heading": "Shop the look",
+        "stl__description": "<p>Add a description of your shop the look section to encourage your customers to purchase.</p>",
+        "description_alignment": "left",
+        "image__position": "image--left",
+        "link": "shopify://collections/all",
+        "button__text": "Shop now"
+      }
+    },
+    "shop_the_look_grid_main": {
+      "type": "shop-the-look-grid",
+      "blocks": {
+        "look_1": {
+          "type": "look",
+          "settings": {
+            "button_text": "SHOP THE LOOK"
+          }
+        },
+        "look_2": {
+          "type": "look",
+          "settings": {
+            "button_text": "SHOP THE LOOK"
+          }
+        },
+        "look_3": {
+          "type": "look",
+          "settings": {
+            "button_text": "SHOP THE LOOK"
+          }
+        },
+        "look_4": {
+          "type": "look",
+          "settings": {
+            "button_text": "SHOP THE LOOK"
+          }
+        },
+        "look_5": {
+          "type": "look",
+          "settings": {
+            "button_text": "SHOP THE LOOK"
+          }
+        },
+        "look_6": {
+          "type": "look",
+          "settings": {
+            "button_text": "SHOP THE LOOK"
+          }
+        }
+      },
+      "block_order": [
+        "look_1",
+        "look_2",
+        "look_3",
+        "look_4",
+        "look_5",
+        "look_6"
+      ],
+      "settings": {
+        "show_title": true,
+        "title": "Shop the Look",
+        "columns_desktop": "3",
+        "grid_gap": 16,
+        "image_ratio": "1 / 1",
+        "button_offset": 16,
+        "button_bg_color": "#ffffff",
+        "button_hover_bg_color": "#f5f5f5",
+        "button_text_color": "#1a1a1a"
+      }
+    },
+    "promo_split_create_your_own": {
+      "type": "promo-split",
+      "settings": {
+        "image_position": "right",
+        "title": "Create Your Own",
+        "description": "<p>Design a custom bracelet stack that's uniquely you. Mix colors, styles, and meanings to create something special.</p>",
+        "button_text": "SHOP NOW",
+        "button_link": "shopify://collections/all",
+        "button_style": "dark",
+        "background_color": "#f8e8dc",
+        "text_color": "#303030"
+      }
+    },
+    "promo_split_good_vibes": {
+      "type": "promo-split",
+      "settings": {
+        "image_position": "left",
+        "title": "Good Vibes, Delivered Monthly",
+        "description": "<p>Join the HUED Bracelet Club and get exclusive designs delivered to your door every month. Subscribe and save!</p>",
+        "button_text": "LEARN MORE",
+        "button_link": "shopify://collections/all",
+        "button_style": "dark",
+        "background_color": "#ffffff",
+        "text_color": "#303030"
+      }
     }
   },
   "order": [
     "index-sliding-text",
-    "index_rich_text_CfQbWG",
-    "video-hero",
     "index-image-with-text-overlay",
     "category-cards",
-    "index-rich-text",
-    "index_rich_text_k9jdCr",
-    "4d1ec479-92b2-4eb5-a999-71be20a65b37",
-    "index_rich_text_CzdtMy",
-    "index-features",
-    "index_features_XXLfXV",
-    "index-collection-list",
-    "index_collection_list_nYxN3m",
-    "index_collection_list_k3dJ8z",
-    "index_collection_list_zX3pgb",
-    "index-navigation-list",
-    "index-shop-the-look",
-    "index-blog",
-    "index-newsletter",
-    "173dd436-1114-47f2-a137-dae7aae6e08e",
-    "index_tabbed_collection_LqUqL3"
+    "index_tabbed_collection_LqUqL3",
+    "promo_split_create_your_own",
+    "promo_split_good_vibes",
+    "index_shop_the_look_ELRqFX",
+    "shop_the_look_grid_main"
   ]
 }

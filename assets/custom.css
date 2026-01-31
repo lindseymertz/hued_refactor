@@ -2360,7 +2360,7 @@ h2.featured-products-heading,
    =========================================== */
 
 .tabbed-collection {
-  padding: 60px 0;
+  padding: 40px 0;
 }
 
 .tabbed-collection__container {
@@ -2608,4 +2608,332 @@ h2.featured-products-heading,
 
 /* ===========================================
    END TABBED COLLECTION CAROUSEL
+   =========================================== */
+
+/* ===========================================
+   GLOBAL SECTION TITLE ALIGNMENT
+   Date: 2026-01-30
+
+   All homepage section titles should be left-aligned
+   to match "Stacks You'll Love" style.
+   This provides consistency across all sections.
+   =========================================== */
+
+/* Category Cards - override centered alignment */
+.category-cards-header {
+  text-align: left;
+}
+
+.category-cards-title {
+  text-align: left !important;
+}
+
+/* Shop the Look Grid - ensure left alignment */
+.stl-grid__header {
+  text-align: left;
+}
+
+/*
+   Global fallback for any future sections using common patterns.
+   These selectors target typical section header patterns.
+*/
+.index-header,
+.section-header,
+[class*="__header"]:has(h2) {
+  text-align: left;
+}
+
+.index-header h2,
+.section-header h2 {
+  text-align: left;
+}
+
+/* ===========================================
+   END GLOBAL SECTION TITLE ALIGNMENT
+   =========================================== */
+
+/* ===========================================
+   GLOBAL SECTION VERTICAL SPACING
+   Date: 2026-01-30
+
+   Standard vertical padding for homepage sections: 40px
+   Mobile (≤720px): 30-40px
+
+   Current sections using this standard:
+   - .category-cards-section: 40px (section-category-cards.css)
+   - .tabbed-collection: 40px (custom.css)
+   - .shop-the-look-grid: 40px (shop-the-look-grid.liquid)
+   =========================================== */
+
+/* Ensure consistent section spacing for common patterns */
+.shopify-section > section {
+  /* Sections should define their own padding of ~40px 0 */
+}
+
+/* Mobile: tighten spacing slightly */
+@media (max-width: 600px) {
+  .category-cards-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+/* ===========================================
+   END GLOBAL SECTION VERTICAL SPACING
+   =========================================== */
+
+/* ===========================================
+   PROMO SPLIT SECTION - Pura Vida Style
+   Flexible 50/50 image + text promotional block
+   Date: 2026-01-30
+   Updated: Content now aligns with header/footer (1280px wrapper)
+   =========================================== */
+
+/* --- Section: Full-width background --- */
+.promo-split {
+  width: 100%;
+  margin: 0;
+  padding: 40px 0;
+  /* Background color applied via inline style from section settings */
+}
+
+/* --- Wrapper: Aligns with header/footer (1280px, 52px padding) --- */
+.promo-split__wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 52px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Container: 50/50 Flexbox Layout --- */
+.promo-split__container {
+  display: flex;
+  flex-direction: row;
+  min-height: 450px;
+}
+
+/* Image on right: reverse the order */
+.promo-split__container--image-right {
+  flex-direction: row-reverse;
+}
+
+/* --- Image Side --- */
+.promo-split__image-wrapper {
+  flex: 1;
+  min-height: 400px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.promo-split__image-wrapper img,
+.promo-split__image-wrapper .promo-split__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.promo-split__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e5e5e5;
+}
+
+.promo-split__placeholder svg {
+  width: 50%;
+  height: auto;
+  fill: #ccc;
+}
+
+/* --- Text Side --- */
+.promo-split__content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+}
+
+.promo-split__content-inner {
+  max-width: 400px;
+  text-align: center;
+}
+
+/* --- Typography --- */
+.promo-split__title {
+  font-family: var(--header-font, var(--secondary-font, sans-serif));
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 20px 0;
+  letter-spacing: 0.02em;
+}
+
+.promo-split__description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 30px 0;
+}
+
+.promo-split__description p {
+  margin: 0;
+}
+
+/* --- Button Styles --- */
+.promo-split__button {
+  display: inline-block;
+  padding: 14px 32px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+/* Dark button: dark background, light text */
+.promo-split__button--dark {
+  background-color: #303030;
+  color: #ffffff;
+  border: 2px solid #303030;
+}
+
+.promo-split__button--dark:hover {
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+/* Light button: light background, dark text */
+.promo-split__button--light {
+  background-color: #ffffff;
+  color: #303030;
+  border: 2px solid #303030;
+}
+
+.promo-split__button--light:hover {
+  background-color: #f5f5f5;
+}
+
+/* --- Tablet Responsive (max 900px) --- */
+@media (max-width: 900px) {
+  .promo-split__content {
+    padding: 50px 30px;
+  }
+
+  .promo-split__title {
+    font-size: 30px;
+  }
+}
+
+/* --- Mobile Responsive (max 768px) --- */
+@media (max-width: 768px) {
+  .promo-split__wrapper {
+    padding: 0 24px; /* Matches header/footer mobile padding */
+  }
+
+  .promo-split__container,
+  .promo-split__container--image-right {
+    flex-direction: column;
+  }
+
+  .promo-split__image-wrapper {
+    min-height: 280px;
+    flex: none;
+    border-radius: 8px;
+  }
+
+  .promo-split__content {
+    padding: 40px 20px;
+    flex: none;
+  }
+
+  .promo-split__content-inner {
+    max-width: 100%;
+  }
+
+  .promo-split__title {
+    font-size: 26px;
+  }
+
+  .promo-split__description {
+    font-size: 15px;
+  }
+
+  .promo-split__button {
+    padding: 12px 28px;
+    font-size: 12px;
+  }
+}
+
+/* --- Small Mobile (max 480px) --- */
+@media (max-width: 480px) {
+  .promo-split__image-wrapper {
+    min-height: 220px;
+  }
+
+  .promo-split__content {
+    padding: 32px 16px;
+  }
+
+  .promo-split__title {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .promo-split__description {
+    margin-bottom: 24px;
+  }
+}
+
+/* ===========================================
+   END PROMO SPLIT SECTION
+   =========================================== */
+
+/* ===========================================
+   HOMEPAGE SECTION SPACING FIX
+   Remove default 80px/40px margins from .shopify-section
+   to eliminate white gaps between sections
+   Date: 2026-01-30
+
+   Problem: Theme applies default margins to .shopify-section:
+   - Desktop: margin-top: 80px; margin-bottom: 80px
+   - Mobile: margin-top: 40px; margin-bottom: 40px
+
+   Solution: Zero out margins for all homepage sections.
+   Sections define their own internal padding (40px vertical).
+   =========================================== */
+
+/* --- Remove all margins from homepage sections --- */
+.index-wrapper .shopify-section {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* --- Specific section classes (explicit for safety) --- */
+.index-wrapper .shopify-section.index-category-cards,
+.index-wrapper .shopify-section.section-tabbed-collection,
+.index-wrapper .shopify-section.section-promo-split,
+.index-wrapper .shopify-section.section-shop-the-look-grid,
+.index-wrapper .shopify-section.section-index-products,
+.index-wrapper .shopify-section.section-index-features,
+.index-wrapper .shopify-section.section-index-text,
+.index-wrapper .shopify-section.section-index-collectionlist,
+.index-wrapper .shopify-section.section-index-blog {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* --- Ensure colored section backgrounds meet edge-to-edge --- */
+/* Each section should define its own internal padding for content spacing */
+
+/* ===========================================
+   END HOMEPAGE SECTION SPACING FIX
    =========================================== */

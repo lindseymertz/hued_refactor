@@ -1,0 +1,175 @@
+{% comment %} HUED REDESIGN: Flexible Image + Text Promo Section (Pura Vida style) {% endcomment %}
+
+{%- liquid
+  assign image_position = section.settings.image_position
+  assign bg_color = section.settings.background_color
+  assign text_color = section.settings.text_color
+  assign button_style = section.settings.button_style
+-%}
+
+<section class="promo-split" id="promo-split-{{ section.id }}">
+  {% comment %} Wrapper constrains content to match header/footer alignment (1280px, 52px padding) {% endcomment %}
+  <div class="promo-split__wrapper">
+    <div class="promo-split__container{% if image_position == 'right' %} promo-split__container--image-right{% endif %}">
+
+      {% comment %} Image Side {% endcomment %}
+      <div class="promo-split__image-wrapper">
+        {% if section.settings.image != blank %}
+          {%
+            render 'image',
+            image_object: section.settings.image,
+            image_widths: '375, 540, 720, 900, 1080, 1296, 1512, 1728, 1944',
+            image_noscript_width: '900x',
+            image_link: false,
+            image_additional_content: false,
+            image_class: 'promo-split__image',
+            image_attributes: false
+          %}
+        {% else %}
+          <div class="promo-split__placeholder">
+            {{ 'lifestyle-1' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+
+      {% comment %} Text Side {% endcomment %}
+      <div class="promo-split__content">
+        <div class="promo-split__content-inner">
+          {% if section.settings.title != blank %}
+            <h2 class="promo-split__title">{{ section.settings.title }}</h2>
+          {% endif %}
+
+          {% if section.settings.description != blank %}
+            <div class="promo-split__description rte">
+              {{ section.settings.description }}
+            </div>
+          {% endif %}
+
+          {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+            <a href="{{ section.settings.button_link }}" class="promo-split__button promo-split__button--{{ button_style }}">
+              {{ section.settings.button_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  #promo-split-{{ section.id }} {
+    --promo-bg-color: {{ bg_color }};
+    --promo-text-color: {{ text_color }};
+    background-color: var(--promo-bg-color);
+  }
+
+  #promo-split-{{ section.id }} .promo-split__title,
+  #promo-split-{{ section.id }} .promo-split__description {
+    color: var(--promo-text-color);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Promo Split",
+  "class": "section-promo-split",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Recommended: 1200 x 800px or larger. Image will cover its container."
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Text content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Create Your Own"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Add your promotional message here. Tell customers what makes this special.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "default": "dark",
+      "options": [
+        {
+          "value": "dark",
+          "label": "Dark (dark background, light text)"
+        },
+        {
+          "value": "light",
+          "label": "Light (light background, dark text)"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color (text side)",
+      "default": "#f8e8dc"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#303030"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promo Split",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}
