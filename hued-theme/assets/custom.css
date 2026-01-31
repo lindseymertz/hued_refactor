@@ -923,17 +923,7 @@ body {
   position: relative;
 }
 
-/* Mega menu positioning */
-.main-navigation-wrapper--inline .navigation-super-wrapper {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #fff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  z-index: 100;
-  min-width: 600px;
-}
+/* Mega menu positioning - MOVED to MEGA MENU REDESIGN section below (line ~3030) */
 
 /* ===========================================
    SEARCH DRAWER - Pura Vida Style
@@ -3027,18 +3017,24 @@ h2.featured-products-heading {
    - Smooth fade/slide animation
    =========================================== */
 
-/* --- Mega Menu Container --- */
+/* --- Mega Menu Container (Full-width background layer) --- */
+/* This wrapper spans the full viewport for the white background */
+/* The inner .navigation-super contains and aligns the content */
 .main-navigation-wrapper--inline .navigation-super-wrapper {
   position: fixed;
   top: var(--total-header-height, 132px); /* Position below header + announcement bar */
   left: 0;
   right: 0;
-  width: 100vw;
+  /* Use left:0 + right:0 for full width instead of 100vw (avoids scrollbar issues) */
+  width: auto;
   background-color: #ffffff; /* Clean white - matches nav bar */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border-radius: 0;
   z-index: 999;
   padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent any horizontal scroll */
 
   /* Hidden state */
   opacity: 0;
@@ -3100,6 +3096,8 @@ h2.featured-products-heading {
 }
 
 /* --- Inner Container: Aligned with header (1280px, 52px padding) --- */
+/* This container aligns mega menu content with the header content area */
+/* Header uses: max-width: 1280px, padding: 16px 52px, margin: 0 auto */
 .main-navigation-wrapper--inline .navigation-super {
   max-width: 1280px;
   margin: 0 auto;
@@ -3107,12 +3105,21 @@ h2.featured-products-heading {
   display: flex;
   justify-content: space-between;
   gap: 60px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-/* Override theme's grid layout */
+/* Override theme's grid layout - full reset */
 .main-navigation-wrapper--inline .navigation-super.grid {
   display: flex;
   flex-wrap: nowrap;
+  /* Reset any theme grid properties */
+  float: none;
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 52px;
+  padding-right: 52px;
 }
 
 /* --- Link Columns Section --- */
