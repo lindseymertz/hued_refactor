@@ -104,7 +104,11 @@
               "navigationMegaImageLink": "",
               "navigationMegaImage2": "shopify://shop_images/FullSizeRender_7d42c264-ee42-4d2a-af30-f532e1514232.heic",
               "navigationMegaImageTitle2": "SHOP NOW",
-              "navigationMegaImageLink2": ""
+              "navigationMegaImageLink2": "",
+              "navigationMegaImageTitle3": "SHOP NOW",
+              "navigationMegaImageLink3": "",
+              "navigationMegaImageTitle4": "SHOP NOW",
+              "navigationMegaImageLink4": ""
             }
           },
           "menu_p7HmBA": {
@@ -115,13 +119,47 @@
               "navigationMegaImageTitle": "SHOP NOW",
               "navigationMegaImageLink": "",
               "navigationMegaImageTitle2": "SHOP NOW",
-              "navigationMegaImageLink2": ""
+              "navigationMegaImageLink2": "",
+              "navigationMegaImageTitle3": "SHOP NOW",
+              "navigationMegaImageLink3": "",
+              "navigationMegaImageTitle4": "SHOP NOW",
+              "navigationMegaImageLink4": ""
+            }
+          },
+          "menu_TAwger": {
+            "type": "menu",
+            "settings": {
+              "navigationItem": "Bracelets",
+              "navigationMegaImageTitle": "SHOP NOW",
+              "navigationMegaImageLink": "",
+              "navigationMegaImageTitle2": "SHOP NOW",
+              "navigationMegaImageLink2": "",
+              "navigationMegaImageTitle3": "SHOP NOW",
+              "navigationMegaImageLink3": "",
+              "navigationMegaImageTitle4": "SHOP NOW",
+              "navigationMegaImageLink4": ""
+            }
+          },
+          "menu_98cLPn": {
+            "type": "menu",
+            "settings": {
+              "navigationItem": "Rings",
+              "navigationMegaImageTitle": "SHOP NOW",
+              "navigationMegaImageLink": "",
+              "navigationMegaImageTitle2": "SHOP NOW",
+              "navigationMegaImageLink2": "",
+              "navigationMegaImageTitle3": "SHOP NOW",
+              "navigationMegaImageLink3": "",
+              "navigationMegaImageTitle4": "SHOP NOW",
+              "navigationMegaImageLink4": ""
             }
           }
         },
         "block_order": [
           "menu_eiPPCM",
-          "menu_p7HmBA"
+          "menu_p7HmBA",
+          "menu_TAwger",
+          "menu_98cLPn"
         ],
         "settings": {
           "full-width": false,
