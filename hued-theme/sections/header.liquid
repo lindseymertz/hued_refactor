@@ -118,7 +118,13 @@
   </div>
 </div>
 
-{% comment %} HUED REDESIGN: Search Drawer - Pura Vida Style {% endcomment %}
+{% comment %} HUED REDESIGN: Search Drawer - Pura Vida Style with Predictive Search {% endcomment %}
+{%- capture drawer_search_types -%}
+  {%- if settings.predictive_search_products -%}product,{%- endif -%}
+  {%- if settings.predictive_search_pages -%}page,{%- endif -%}
+  {%- if settings.predictive_search_articles -%}article,{%- endif -%}
+  {%- if settings.predictive_search_collections -%}collection{%- endif -%}
+{%- endcapture -%}
 <div class="search-overlay" data-search-overlay></div>
 <div class="search-drawer" data-search-drawer>
   <div class="search-drawer__header">
@@ -131,16 +137,28 @@
     <input
       type="text"
       name="q"
+      id="search-drawer-input"
       class="search-drawer__input"
       placeholder="{{ 'layout.header.search_placeholder' | t }}"
       autocomplete="off"
       autocorrect="off"
       spellcheck="false"
+      {% if settings.predictive_search_enabled %}
+      data-predictive-search-input
+      data-search-types="{{ drawer_search_types | strip | strip_newlines }}"
+      data-show-prices="{{ settings.predictive_search_show_price }}"
+      data-show-vendor="{{ settings.predictive_search_show_vendor }}"
+      {% endif %}
     />
     <button type="submit" class="search-drawer__submit" aria-label="{{ 'layout.header.search_submit' | t }}">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     </button>
   </form>
+  {% if settings.predictive_search_enabled %}
+  <div class="search-drawer__results" data-predictive-search-results>
+    <div class="search-drawer__results-content"></div>
+  </div>
+  {% endif %}
 </div>
 
 <script>
@@ -182,6 +200,118 @@
         closeDrawer();
       }
     });
+
+    // Predictive Search for Drawer
+    const predictiveInput = document.querySelector('[data-predictive-search-input]');
+    const resultsContainer = document.querySelector('[data-predictive-search-results]');
+
+    if (predictiveInput && resultsContainer) {
+      const searchTypes = predictiveInput.dataset.searchTypes || 'product';
+      const showPrices = predictiveInput.dataset.showPrices === 'true';
+      const showVendor = predictiveInput.dataset.showVendor === 'true';
+      const resultsContent = resultsContainer.querySelector('.search-drawer__results-content');
+      let debounceTimer;
+      let currentQuery = '';
+
+      predictiveInput.addEventListener('input', function(e) {
+        const query = e.target.value.trim();
+
+        clearTimeout(debounceTimer);
+
+        if (query.length < 2) {
+          resultsContainer.classList.remove('has-results');
+          if (resultsContent) resultsContent.innerHTML = '';
+          return;
+        }
+
+        debounceTimer = setTimeout(function() {
+          if (query === currentQuery) return;
+          currentQuery = query;
+
+          const url = '/search/suggest.json?q=' + encodeURIComponent(query) + '&resources[type]=' + searchTypes + '&resources[limit]=6';
+
+          fetch(url)
+            .then(function(response) { return response.json(); })
+            .then(function(data) {
+              if (!data.resources || !data.resources.results) {
+                resultsContainer.classList.remove('has-results');
+                if (resultsContent) resultsContent.innerHTML = '';
+                return;
+              }
+
+              const results = data.resources.results;
+              let html = '';
+
+              // Products
+              if (results.products && results.products.length > 0) {
+                html += '<div class="search-drawer__group"><h3 class="search-drawer__group-title">{{ "search.results.products" | t | default: "Products" }}</h3>';
+                results.products.forEach(function(product) {
+                  const image = product.image ? product.image.replace(/\.(jpg|jpeg|png|gif|webp)/i, '_100x100.$1') : '';
+                  const price = showPrices && product.price ? Shopify.formatMoney(product.price, Theme.moneyFormat || '${{amount}}') : '';
+                  html += '<a href="' + product.url + '" class="search-drawer__item">';
+                  if (image) {
+                    html += '<div class="search-drawer__item-image"><img src="' + image + '" alt="' + product.title + '" loading="lazy" /></div>';
+                  }
+                  html += '<div class="search-drawer__item-info">';
+                  if (showVendor && product.vendor) {
+                    html += '<span class="search-drawer__item-vendor">' + product.vendor + '</span>';
+                  }
+                  html += '<span class="search-drawer__item-title">' + product.title + '</span>';
+                  if (price) {
+                    html += '<span class="search-drawer__item-price">' + price + '</span>';
+                  }
+                  html += '</div></a>';
+                });
+                html += '</div>';
+              }
+
+              // Collections
+              if (results.collections && results.collections.length > 0) {
+                html += '<div class="search-drawer__group"><h3 class="search-drawer__group-title">{{ "search.results.collections" | t | default: "Collections" }}</h3>';
+                results.collections.forEach(function(collection) {
+                  html += '<a href="' + collection.url + '" class="search-drawer__item search-drawer__item--collection">';
+                  html += '<span class="search-drawer__item-title">' + collection.title + '</span>';
+                  html += '</a>';
+                });
+                html += '</div>';
+              }
+
+              // Pages
+              if (results.pages && results.pages.length > 0) {
+                html += '<div class="search-drawer__group"><h3 class="search-drawer__group-title">{{ "search.results.pages" | t | default: "Pages" }}</h3>';
+                results.pages.forEach(function(page) {
+                  html += '<a href="' + page.url + '" class="search-drawer__item search-drawer__item--page">';
+                  html += '<span class="search-drawer__item-title">' + page.title + '</span>';
+                  html += '</a>';
+                });
+                html += '</div>';
+              }
+
+              // View All link
+              if (html) {
+                html += '<a href="/search?q=' + encodeURIComponent(currentQuery) + '&type=' + searchTypes + '" class="search-drawer__view-all">{{ "search.results.view_all" | t | default: "View all results" }}</a>';
+              }
+
+              if (resultsContent) {
+                resultsContent.innerHTML = html;
+                resultsContainer.classList.toggle('has-results', html.length > 0);
+              }
+            })
+            .catch(function(error) {
+              console.error('Predictive search error:', error);
+            });
+        }, 300);
+      });
+
+      // Clear results when drawer closes
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+          currentQuery = '';
+          if (resultsContent) resultsContent.innerHTML = '';
+          resultsContainer.classList.remove('has-results');
+        });
+      }
+    }
   });
 
   // Sticky Header Script - Handles both announcement bar and navigation

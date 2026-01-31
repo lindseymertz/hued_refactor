@@ -52,6 +52,8 @@
     "show_vendor": false,
     "productStockLevel": 0,
     "headerSearchStyle": "minimal",
+    "predictive_search_enabled": true,
+    "predictive_search_products": true,
     "predictive_search_pages": false,
     "predictive_search_articles": true,
     "predictive_search_collections": true,
