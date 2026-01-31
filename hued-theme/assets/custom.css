@@ -418,11 +418,37 @@ body {
 }
 
 /* --- Header Logo Container --- */
+/* Ensure logo aligns with footer logo and page content */
 .header--redesign .header-logo {
   flex-shrink: 0;
-  margin: 0;
-  margin-right: 20px; /* Tightened gap between logo and nav (was 40px) */
+  margin: 0; /* No margins - flush with container edge */
+  padding: 0;
   order: 1;
+  background: transparent !important;
+}
+
+/* Reset any h1 margins inside logo - MUST be flush left */
+.header--redesign .header-logo h1 {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+/* --- Header Logo Link & Image --- */
+.header--redesign .header-logo__link {
+  display: block;
+  margin: 0;
+  padding: 0;
+  line-height: 0; /* Remove any line-height spacing */
+}
+
+.header--redesign .header-logo__image {
+  display: block;
+  margin: 0;
+  padding: 0;
+  max-width: 120px;
+  height: auto;
+  background: transparent !important;
 }
 
 /* --- Inline Navigation Container --- */
@@ -1180,26 +1206,33 @@ body {
    HOMEPAGE SECTION HEADING NORMALIZATION
    Fix: Match category-cards and index-features headings
    Date: 2026-01-18
+   Updated: 2026-01-30 - Removed category-cards-title (now in Universal Section Title Styling)
    =========================================== */
 
-/* Normalize all homepage section headings */
+/* Normalize other homepage section headings (not covered by Universal Section Title Styling) */
 .index-header h2,
 .index-features .index-header h2,
-h2.featured-products-heading,
-.category-cards-header .category-cards-title {
-  font-size: 24px !important;
-  font-weight: 600 !important;
+h2.featured-products-heading {
+  font-size: 28px !important;
+  font-weight: 700 !important;
   color: #303030;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   margin: 0;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .index-header h2,
   .index-features .index-header h2,
-  h2.featured-products-heading,
-  .category-cards-header .category-cards-title {
+  h2.featured-products-heading {
+    font-size: 24px !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .index-header h2,
+  .index-features .index-header h2,
+  h2.featured-products-heading {
     font-size: 20px !important;
   }
 }
@@ -2031,11 +2064,17 @@ h2.featured-products-heading,
 }
 
 /* --- Logo --- */
+/* Ensure logo aligns with header logo and column headings below */
 .footer-redesign__logo {
-  margin-bottom: 40px;
+  margin: 0 0 40px 0; /* Only bottom margin for spacing */
+  padding: 0;
 }
 
-.footer-redesign__logo a {
+.footer-redesign__logo a,
+.footer-redesign__logo .footer-logo__link {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
   font-family: var(--heading-font-family, sans-serif);
   font-size: 28px;
   font-weight: 700;
@@ -2044,10 +2083,18 @@ h2.featured-products-heading,
   color: #ffffff;
   text-decoration: none;
   transition: opacity 0.2s ease;
+  line-height: 0; /* Remove line-height spacing for image */
 }
 
 .footer-redesign__logo a:hover {
   opacity: 0.8;
+}
+
+/* Footer logo image - flush left with no offsets */
+.footer-redesign__logo .footer-logo__image {
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
 /* --- Content Layout (Columns + Divider + Signup) --- */
@@ -2895,6 +2942,88 @@ h2.featured-products-heading,
 
 /* ===========================================
    END PROMO SPLIT SECTION
+   =========================================== */
+
+/* ===========================================
+   UNIVERSAL SECTION TITLE STYLING
+   Date: 2026-01-30
+
+   Reference: .tabbed-collection__title (Stacks You'll Love)
+   All homepage section titles standardized to match.
+   =========================================== */
+
+/* --- Universal section title properties --- */
+.tabbed-collection__title,
+.category-cards-title,
+.stl-grid__title,
+.promo-split__title {
+  font-family: var(--heading-font-family, sans-serif) !important;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: uppercase !important;
+  color: #303030 !important;
+  margin: 0 !important;
+  line-height: 1.2 !important;
+}
+
+/* --- Promo split title spacing (needs margin-bottom for content) --- */
+.promo-split__title {
+  margin-bottom: 20px !important;
+}
+
+/* --- Mobile responsive for all section titles --- */
+@media (max-width: 720px) {
+  .tabbed-collection__title,
+  .category-cards-title,
+  .stl-grid__title,
+  .promo-split__title {
+    font-size: 24px !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .tabbed-collection__title,
+  .category-cards-title,
+  .stl-grid__title,
+  .promo-split__title {
+    font-size: 20px !important;
+  }
+}
+
+/* ===========================================
+   END UNIVERSAL SECTION TITLE STYLING
+   =========================================== */
+
+/* ===========================================
+   SHOP THE LOOK - ROUNDED IMAGE CORNERS
+   Date: 2026-01-30
+   =========================================== */
+
+.stl-grid__item {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.stl-grid__image-wrapper {
+  border-radius: 12px !important;
+}
+
+/* Ensure button respects rounded corners */
+.stl-grid__button {
+  border-radius: 3px;
+}
+
+/* Mobile: slightly smaller radius */
+@media (max-width: 600px) {
+  .stl-grid__item,
+  .stl-grid__image-wrapper {
+    border-radius: 8px !important;
+  }
+}
+
+/* ===========================================
+   END SHOP THE LOOK ROUNDED CORNERS
    =========================================== */
 
 /* ===========================================
