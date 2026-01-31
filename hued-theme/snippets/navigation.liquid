@@ -74,37 +74,51 @@
                   {% endfor %}
                 </div>
 
-                <div class="navigation-super-collections {% if currentBlock.settings.navigationMegaImage %}grid-item-25{% else %}hidden{% endif %}" data-navigation-super-collections>
+                {% comment %} HUED REDESIGN: Featured images section with title labels {% endcomment %}
+                {% assign hasAnyImage = false %}
+                {% if currentBlock.settings.navigationMegaImage or currentBlock.settings.navigationMegaImage2 %}
+                  {% assign hasAnyImage = true %}
+                {% endif %}
+
+                <div class="navigation-super-featured {% unless hasAnyImage %}hidden{% endunless %}" data-navigation-super-collections>
                   {% if currentBlock.settings.navigationMegaImage %}
-                    {% assign image = currentBlock.settings.navigationMegaImage %}
-                    <div class="navigation-super-default visible" data-navigation-super-default>
-                      {% if currentBlock.settings.navigationMegaImageLink != blank %}
-                        {% assign navigationImageLink = currentBlock.settings.navigationMegaImageLink %}
-                      {% endif %}
+                    <a href="{{ currentBlock.settings.navigationMegaImageLink | default: '#' }}" class="navigation-super-featured-card">
+                      <div class="navigation-super-featured-image">
+                        <img
+                          src="{{ currentBlock.settings.navigationMegaImage | image_url: width: 500 }}"
+                          srcset="{{ currentBlock.settings.navigationMegaImage | image_url: width: 300 }} 300w,
+                                  {{ currentBlock.settings.navigationMegaImage | image_url: width: 400 }} 400w,
+                                  {{ currentBlock.settings.navigationMegaImage | image_url: width: 500 }} 500w"
+                          sizes="200px"
+                          alt="{{ currentBlock.settings.navigationMegaImageTitle | default: 'Featured' }}"
+                          loading="lazy"
+                          width="400"
+                          height="500">
+                      </div>
+                      <div class="navigation-super-featured-label">
+                        {{ currentBlock.settings.navigationMegaImageTitle | default: 'SHOP NOW' }}
+                      </div>
+                    </a>
+                  {% endif %}
 
-                      {% if navigationImageLink %}
-                        <a href="{{ navigationImageLink }}" aria-label="{{image.alt}}">
-                      {% else %}
-                        {%- capture image_attributes -%}
-                          tabindex="0" aria-label="{{image.alt}}"
-                        {%- endcapture -%}
-                      {% endif %}
-
-                      {%
-                        render 'image',
-                        image_object: image,
-                        image_widths: '664, 740, 800, 1328, 1480, 1600, 1992, 2220, 2400',
-                        image_noscript_width: '800x',
-                        image_attributes: image_attributes,
-                        image_link: false,
-                        image_additional_content: false,
-                        image_class: false
-                      %}
-
-                      {% if navigationImageLink %}
-                        </a>
-                      {% endif %}
-                    </div>
+                  {% if currentBlock.settings.navigationMegaImage2 %}
+                    <a href="{{ currentBlock.settings.navigationMegaImageLink2 | default: '#' }}" class="navigation-super-featured-card">
+                      <div class="navigation-super-featured-image">
+                        <img
+                          src="{{ currentBlock.settings.navigationMegaImage2 | image_url: width: 500 }}"
+                          srcset="{{ currentBlock.settings.navigationMegaImage2 | image_url: width: 300 }} 300w,
+                                  {{ currentBlock.settings.navigationMegaImage2 | image_url: width: 400 }} 400w,
+                                  {{ currentBlock.settings.navigationMegaImage2 | image_url: width: 500 }} 500w"
+                          sizes="200px"
+                          alt="{{ currentBlock.settings.navigationMegaImageTitle2 | default: 'Featured' }}"
+                          loading="lazy"
+                          width="400"
+                          height="500">
+                      </div>
+                      <div class="navigation-super-featured-label">
+                        {{ currentBlock.settings.navigationMegaImageTitle2 | default: 'SHOP NOW' }}
+                      </div>
+                    </a>
                   {% endif %}
                 </div>
               </div>

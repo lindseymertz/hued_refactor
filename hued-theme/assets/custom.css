@@ -3136,7 +3136,7 @@ h2.featured-products-heading {
 .main-navigation-wrapper--inline .navigation-super-departments {
   flex: 1;
   display: flex;
-  gap: 50px;
+  gap: 60px; /* Generous spacing between columns */
   max-width: none;
   width: auto;
   float: none;
@@ -3151,7 +3151,8 @@ h2.featured-products-heading {
 
 /* --- Individual Link Columns --- */
 .main-navigation-wrapper--inline .navigation-super-collection {
-  min-width: 150px;
+  min-width: 160px;
+  flex-shrink: 0;
 }
 
 /* --- Column Headers --- */
@@ -3164,6 +3165,7 @@ h2.featured-products-heading {
   margin: 0 0 16px 0;
   padding-bottom: 12px;
   border-bottom: 1px solid rgba(48, 48, 48, 0.15);
+  white-space: nowrap; /* Prevent header wrapping */
 }
 
 .main-navigation-wrapper--inline .navigation-super-collection h4 a {
@@ -3199,6 +3201,7 @@ h2.featured-products-heading {
   line-height: 1.6;
   transition: color 0.2s ease;
   display: inline-block;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 .main-navigation-wrapper--inline .navigation-super-collection ul li a:hover {
@@ -3221,63 +3224,63 @@ h2.featured-products-heading {
   vertical-align: middle;
 }
 
-/* --- Featured Image Section --- */
-.main-navigation-wrapper--inline .navigation-super-collections {
+/* --- Featured Images Section (Multiple Cards with Labels) --- */
+.main-navigation-wrapper--inline .navigation-super-featured {
+  display: flex;
+  gap: 20px;
   flex-shrink: 0;
-  width: 280px;
-  max-width: none;
-  float: none;
+  margin-left: auto; /* Push to right side */
 }
 
-/* Override grid-item width */
-.main-navigation-wrapper--inline .navigation-super-collections.grid-item-25 {
-  width: 280px;
+.main-navigation-wrapper--inline .navigation-super-featured.hidden {
+  display: none;
 }
 
-/* --- Featured Image Container --- */
-.main-navigation-wrapper--inline .navigation-super-default {
-  position: relative;
+/* --- Individual Featured Card --- */
+.main-navigation-wrapper--inline .navigation-super-featured-card {
+  display: block;
+  width: 200px;
   border-radius: 12px;
   overflow: hidden;
+  text-decoration: none;
+  background: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.main-navigation-wrapper--inline .navigation-super-default:hover {
+.main-navigation-wrapper--inline .navigation-super-featured-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* Featured image styling */
-.main-navigation-wrapper--inline .navigation-super-default a {
-  display: block;
-  text-decoration: none;
+/* --- Featured Image Container --- */
+.main-navigation-wrapper--inline .navigation-super-featured-image {
+  width: 100%;
+  overflow: hidden;
 }
 
-.main-navigation-wrapper--inline .navigation-super-default img {
+.main-navigation-wrapper--inline .navigation-super-featured-image img {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
+  height: 220px;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-/* --- Image Label Overlay (optional - for future enhancement) --- */
-.main-navigation-wrapper--inline .navigation-super-default::after {
-  /* Uncomment to add a label bar at bottom */
-  /* content: 'Shop Now';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 12px;
-  background: rgba(255, 255, 255, 0.95);
-  font-size: 12px;
+.main-navigation-wrapper--inline .navigation-super-featured-card:hover .navigation-super-featured-image img {
+  transform: scale(1.05);
+}
+
+/* --- Featured Label Bar --- */
+.main-navigation-wrapper--inline .navigation-super-featured-label {
+  background: #ffffff;
+  padding: 14px 16px;
+  text-align: center;
   font-weight: 600;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  text-align: center;
-  color: #303030; */
+  color: #303030;
 }
 
 /* --- Tablet Responsive (max 900px) --- */
@@ -3291,9 +3294,21 @@ h2.featured-products-heading {
     gap: 30px;
   }
 
-  .main-navigation-wrapper--inline .navigation-super-collections,
-  .main-navigation-wrapper--inline .navigation-super-collections.grid-item-25 {
-    width: 220px;
+  .main-navigation-wrapper--inline .navigation-super-featured {
+    gap: 16px;
+  }
+
+  .main-navigation-wrapper--inline .navigation-super-featured-card {
+    width: 160px;
+  }
+
+  .main-navigation-wrapper--inline .navigation-super-featured-image img {
+    height: 180px;
+  }
+
+  .main-navigation-wrapper--inline .navigation-super-featured-label {
+    padding: 10px 12px;
+    font-size: 11px;
   }
 }
 

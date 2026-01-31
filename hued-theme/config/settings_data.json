@@ -94,6 +94,27 @@
       },
       "header": {
         "type": "header",
+        "blocks": {
+          "menu_eiPPCM": {
+            "type": "menu",
+            "settings": {
+              "navigationItem": "New & Trending",
+              "navigationMegaImageLink": ""
+            }
+          },
+          "menu_p7HmBA": {
+            "type": "menu",
+            "settings": {
+              "navigationItem": "Shop By",
+              "navigationMegaImage": "shopify://shop_images/FullSizeRender_3bbcc9e8-3104-4396-9f65-903890e8de0a.heic",
+              "navigationMegaImageLink": ""
+            }
+          }
+        },
+        "block_order": [
+          "menu_eiPPCM",
+          "menu_p7HmBA"
+        ],
         "settings": {
           "full-width": false,
           "use_text_logo": true,
