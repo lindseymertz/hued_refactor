@@ -275,11 +275,7 @@ button.ssw-reward-auth-reg-btn.ssw-reward-btn {
 .footer-search-results-wrapper .feather-x {
   transform: rotate(0deg);
 }
-@media screen and (max-width: 768px) {
-  #main-body {
-    padding-top: 40px;
-  }
-}
+/* Removed mobile padding-top - not needed with position: sticky header */
 
 /* Hide color picker */
 .product-form .form-field.swatch-color{
@@ -289,15 +285,39 @@ button.ssw-reward-auth-reg-btn.ssw-reward-btn {
 /* ===========================================
    HEADER REDESIGN - Pura Vida Style Layout
    Date: 2026-01-18
+   Updated: 2026-01-30 - Fixed sticky header for announcement bar + nav
    =========================================== */
 
-/* --- Sticky Header --- */
+/* --- CSS Custom Properties for dynamic heights --- */
+:root {
+  --announcement-bar-height: 42px; /* Default height, JS will update dynamically */
+  --header-height: 0px;
+  --total-header-height: 0px;
+}
+
+/* --- Announcement Bar Sticky --- */
+.notification-bar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 101 !important;
+  transition: box-shadow 0.2s ease;
+  background-color: inherit; /* Ensure background is set for sticky */
+}
+
+/* --- Main Header Sticky --- */
+/* Position below announcement bar */
 .main-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  position: sticky !important;
+  top: var(--announcement-bar-height, 42px) !important;
+  z-index: 100 !important;
   background-color: var(--header-background-color, #ffffff);
   transition: box-shadow 0.2s ease;
+}
+
+/* Ensure inner .header doesn't break sticky with its position: relative */
+.main-header .header-wrapper,
+.main-header .header {
+  position: static !important;
 }
 
 /* Add shadow when header is sticky (scrolled) */
@@ -305,11 +325,27 @@ button.ssw-reward-auth-reg-btn.ssw-reward-btn {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Also add shadow to announcement bar when scrolled */
+.notification-bar.is-sticky {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Override fullbleed absolute positioning - sticky takes priority */
+.main-header.is-fullbleed {
+  position: sticky !important;
+  top: var(--announcement-bar-height, 42px) !important;
+}
+
 /* Override the theme's mobile fixed positioning - use sticky instead */
 @media (max-width: 720px) {
+  .notification-bar {
+    position: sticky !important;
+    top: 0 !important;
+  }
+
   .main-header {
-    position: sticky;
-    top: 0;
+    position: sticky !important;
+    top: var(--announcement-bar-height, 42px) !important;
     transform: none !important; /* Prevent hide-on-scroll behavior */
   }
 
@@ -2246,7 +2282,7 @@ h2.featured-products-heading,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .tabbed-collection__title {
@@ -2280,12 +2316,26 @@ h2.featured-products-heading,
   transform: translateX(3px);
 }
 
-/* --- Collection Tabs --- */
+/* --- Tabs Row: Tabs + Navigation Arrows --- */
+.tabbed-collection__tabs-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  gap: 24px;
+}
+
 .tabbed-collection__tabs {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 32px;
+}
+
+.tabbed-collection__nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .tabbed-collection__tab {
@@ -2347,61 +2397,40 @@ h2.featured-products-heading,
   width: 100%;
 }
 
-/* --- Navigation Arrows --- */
+/* --- Navigation Arrows (in header) --- */
 .tabbed-collection__arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-100%);
-  z-index: 10;
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: #ffffff;
-  border: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e0e0e0;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
+  padding: 0;
 }
 
 .tabbed-collection__arrow:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transform: translateY(-100%) scale(1.05);
+  background: #f5f5f5;
+  border-color: #ccc;
 }
 
-.tabbed-collection__arrow.swiper-button-disabled {
+.tabbed-collection__arrow.is-disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
 
-.tabbed-collection__arrow.swiper-button-disabled:hover {
-  transform: translateY(-100%);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.tabbed-collection__arrow--prev {
-  left: -24px;
-}
-
-.tabbed-collection__arrow--prev svg {
-  transform: rotate(180deg);
-}
-
-.tabbed-collection__arrow--next {
-  right: -24px;
+.tabbed-collection__arrow.is-disabled:hover {
+  background: #ffffff;
+  border-color: #e0e0e0;
 }
 
 .tabbed-collection__arrow svg {
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   color: #303030;
-}
-
-/* Reset Swiper default arrow styles */
-.tabbed-collection__arrow::after {
-  display: none;
 }
 
 /* --- Empty State --- */
@@ -2431,26 +2460,6 @@ h2.featured-products-heading,
 }
 
 /* --- Mobile Responsive --- */
-@media (max-width: 1024px) {
-  .tabbed-collection__arrow--prev {
-    left: 8px;
-  }
-
-  .tabbed-collection__arrow--next {
-    right: 8px;
-  }
-
-  .tabbed-collection__arrow {
-    width: 40px;
-    height: 40px;
-  }
-
-  .tabbed-collection__arrow svg {
-    width: 16px;
-    height: 16px;
-  }
-}
-
 @media (max-width: 720px) {
   .tabbed-collection {
     padding: 40px 0;
@@ -2460,19 +2469,16 @@ h2.featured-products-heading,
     padding: 0 24px;
   }
 
-  .tabbed-collection__header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-
   .tabbed-collection__title {
     font-size: 24px;
   }
 
+  .tabbed-collection__tabs-row {
+    margin-bottom: 24px;
+  }
+
   .tabbed-collection__tabs {
     gap: 8px;
-    margin-bottom: 24px;
     overflow-x: auto;
     flex-wrap: nowrap;
     padding-bottom: 8px;
@@ -2491,7 +2497,7 @@ h2.featured-products-heading,
     flex-shrink: 0;
   }
 
-  .tabbed-collection__arrow {
+  .tabbed-collection__nav {
     display: none;
   }
 }
@@ -2499,6 +2505,10 @@ h2.featured-products-heading,
 @media (max-width: 500px) {
   .tabbed-collection__title {
     font-size: 20px;
+  }
+
+  .tabbed-collection__view-all {
+    font-size: 13px;
   }
 }
 

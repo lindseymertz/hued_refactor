@@ -198,37 +198,61 @@
     });
   });
 
-  // Sticky Header Shadow Script
+  // Sticky Header Script - Handles both announcement bar and navigation
   document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('.main-header');
+    const announcementBar = document.querySelector('.notification-bar');
+    const root = document.documentElement;
+
     if (!header) return;
 
-    let lastScrollY = window.scrollY;
     let ticking = false;
 
-    function updateHeader() {
+    // Calculate and set header heights as CSS custom properties
+    function updateHeaderHeights() {
+      const announcementHeight = announcementBar ? announcementBar.offsetHeight : 0;
+      const headerHeight = header.offsetHeight;
+      const totalHeight = announcementHeight + headerHeight;
+
+      root.style.setProperty('--announcement-bar-height', announcementHeight + 'px');
+      root.style.setProperty('--header-height', headerHeight + 'px');
+      root.style.setProperty('--total-header-height', totalHeight + 'px');
+    }
+
+    function updateStickyState() {
       const scrollY = window.scrollY;
 
       // Add shadow when scrolled past 10px
       if (scrollY > 10) {
         header.classList.add('is-sticky');
+        if (announcementBar) {
+          announcementBar.classList.add('is-sticky');
+        }
       } else {
         header.classList.remove('is-sticky');
+        if (announcementBar) {
+          announcementBar.classList.remove('is-sticky');
+        }
       }
 
-      lastScrollY = scrollY;
       ticking = false;
     }
 
     window.addEventListener('scroll', function() {
       if (!ticking) {
-        window.requestAnimationFrame(updateHeader);
+        window.requestAnimationFrame(updateStickyState);
         ticking = true;
       }
     }, { passive: true });
 
-    // Check initial state
-    updateHeader();
+    // Update heights on resize
+    window.addEventListener('resize', function() {
+      updateHeaderHeights();
+    }, { passive: true });
+
+    // Initial setup
+    updateHeaderHeights();
+    updateStickyState();
   });
 </script>
 
