@@ -1,0 +1,97 @@
+{% comment %} HUED REDESIGN: Product Information Accordions {% endcomment %}
+{% comment %}
+  Displays collapsible accordion sections for:
+  - Details (from metafield custom.details or product description)
+  - Product Care
+  - Shipping & Returns
+
+  Usage: {% render 'product-info-accordions', product: product %}
+{% endcomment %}
+
+{% capture accordion_plus_icon %}
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="product-accordion__icon product-accordion__icon--plus" aria-hidden="true">
+  <line x1="12" y1="5" x2="12" y2="19"></line>
+  <line x1="5" y1="12" x2="19" y2="12"></line>
+</svg>
+{% endcapture %}
+
+{% capture accordion_minus_icon %}
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="product-accordion__icon product-accordion__icon--minus" aria-hidden="true">
+  <line x1="5" y1="12" x2="19" y2="12"></line>
+</svg>
+{% endcapture %}
+
+<div class="product-info-accordions">
+  {% comment %} HUED REDESIGN: Product Description Box (static, non-collapsible) {% endcomment %}
+  {% if product.description != blank %}
+  <div class="product-info-box">
+    <div class="product-info-box__content rte">
+      {{ product.description }}
+    </div>
+  </div>
+  {% endif %}
+
+  {% comment %} Details Accordion - Only shows if custom.details metafield exists {% endcomment %}
+  {% comment %} (Product description now appears in static box above) {% endcomment %}
+  {% assign details_content = product.metafields.custom.details.value %}
+
+  {% if details_content != blank %}
+  <details class="product-accordion">
+    <summary class="product-accordion__header" role="button" aria-expanded="false" tabindex="0">
+      <span class="product-accordion__title">Details</span>
+      <span class="product-accordion__icons">
+        {{ accordion_plus_icon }}
+        {{ accordion_minus_icon }}
+      </span>
+    </summary>
+    <div class="product-accordion__content rte">
+      {{ details_content }}
+    </div>
+  </details>
+  {% endif %}
+
+  {% comment %} Product Care Accordion {% endcomment %}
+  <details class="product-accordion">
+    <summary class="product-accordion__header" role="button" aria-expanded="false" tabindex="0">
+      <span class="product-accordion__title">Product Care</span>
+      <span class="product-accordion__icons">
+        {{ accordion_plus_icon }}
+        {{ accordion_minus_icon }}
+      </span>
+    </summary>
+    <div class="product-accordion__content rte">
+      <p>To keep your bracelet looking its best:</p>
+      <ul>
+        <li><strong>Avoid water exposure</strong> – Remove before swimming, showering, or exercising</li>
+        <li><strong>Store properly</strong> – Keep in a cool, dry place away from direct sunlight</li>
+        <li><strong>Clean gently</strong> – Use a soft, dry cloth to remove any dirt or oils</li>
+        <li><strong>Handle with care</strong> – Avoid pulling or stretching the bracelet</li>
+      </ul>
+    </div>
+  </details>
+
+  {% comment %} Shipping & Returns Accordion {% endcomment %}
+  <details class="product-accordion">
+    <summary class="product-accordion__header" role="button" aria-expanded="false" tabindex="0">
+      <span class="product-accordion__title">Shipping & Returns</span>
+      <span class="product-accordion__icons">
+        {{ accordion_plus_icon }}
+        {{ accordion_minus_icon }}
+      </span>
+    </summary>
+    <div class="product-accordion__content rte">
+      <p><strong>Shipping</strong></p>
+      <ul>
+        <li>Standard shipping: 3-7 business days</li>
+        <li>Express shipping available at checkout</li>
+        <li>Free shipping on orders over $50</li>
+      </ul>
+      <p><strong>Returns</strong></p>
+      <ul>
+        <li>30-day return policy</li>
+        <li>Items must be unworn and in original packaging</li>
+        <li>Contact us at support@huedbracelets.com to initiate a return</li>
+      </ul>
+    </div>
+  </details>
+</div>

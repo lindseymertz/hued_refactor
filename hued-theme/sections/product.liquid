@@ -120,6 +120,8 @@
                     </div>
                 {% endcomment %}
             {% when 'quantity' %}
+                {% comment %} HUED REDESIGN: Open product-actions-row wrapper {% endcomment %}
+                <div class="product-actions-row">
                 {% if product.available %}
                     <div class="form-field product-quantity" {{ block.shopify_attributes }}>
                     <label class="form-label" for="product-quantity">
@@ -226,9 +228,11 @@
                     {{ product.description }}
                 </div>
             {% when 'complementary-products' %}
-                <div {{ block.shopify_attributes }}>{% render 'complementary-products-block' with block_settings: block.settings %}</div> 
+                <div {{ block.shopify_attributes }}>{% render 'complementary-products-block' with block_settings: block.settings %}</div>
             {% when 'cross-sells' %}
-            {% render 'cross-sells' with block_settings: block.settings, block_attributes: block.shopify_attributes %}
+                {% comment %} HUED REDESIGN: Close product-actions-row wrapper (opened at quantity) {% endcomment %}
+                </div>
+                {% render 'cross-sells' with block_settings: block.settings, block_attributes: block.shopify_attributes %}
             {% when 'social' %}
                 {% render "share", url: product.url, title: product.title, image: product.featured_media.preview_image, collection: collection.title, block_attributes: block.shopify_attributes %}
             {% when 'custom-liquid' %}
@@ -366,6 +370,9 @@
             {% endcase %}
         {% endfor %}
       {% endform %}
+
+        {% comment %} HUED REDESIGN: Product Info Accordions {% endcomment %}
+        {% render 'product-info-accordions', product: product %}
     </div>
 
 </div>

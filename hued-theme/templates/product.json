@@ -96,13 +96,12 @@
         },
         "cross-sells": {
           "type": "cross-sells",
-          "disabled": true,
           "settings": {
-            "title": "COMPLETE THE LOOK",
+            "title": "Pair It With",
             "cross_sell_product_1": "",
             "cross_sell_product_2": "",
             "cross_sell_product_3": "",
-            "cross_sell_bg": "#ffffff"
+            "cross_sell_bg": "#fafafa"
           }
         },
         "description": {
@@ -132,6 +131,56 @@
       ],
       "settings": {}
     },
+    "shop-collection": {
+      "type": "product-shop-collection",
+      "settings": {
+        "show_section": true,
+        "heading": "Shop the Collection",
+        "view_all_text": "VIEW ALL"
+      }
+    },
+    "why-shop-with-us": {
+      "type": "feature-cards",
+      "blocks": {
+        "feature-card-1": {
+          "type": "feature_card",
+          "settings": {
+            "card_color": "#F58D4B",
+            "title": "Feel Good, Look Good",
+            "description": "Our products are designed to make you feel confident and stylish every day.",
+            "text_color": "light"
+          }
+        },
+        "feature-card-2": {
+          "type": "feature_card",
+          "settings": {
+            "card_color": "#4DBDAC",
+            "title": "Sustainable & Ethical",
+            "description": "We care about the planet and work with ethical suppliers worldwide.",
+            "text_color": "light"
+          }
+        },
+        "feature-card-3": {
+          "type": "feature_card",
+          "settings": {
+            "card_color": "#E991B0",
+            "title": "Free Shipping",
+            "description": "Enjoy free shipping on all orders over $50. Fast delivery guaranteed.",
+            "text_color": "light"
+          }
+        }
+      },
+      "block_order": [
+        "feature-card-1",
+        "feature-card-2",
+        "feature-card-3"
+      ],
+      "settings": {
+        "title": "Why Shop With Us?",
+        "show_title": true,
+        "background_color": "#FDF0F5"
+      }
+    },
     "app-product-reviews": {
       "type": "apps",
       "blocks": {
@@ -154,7 +203,7 @@
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
-        "product_recommendations_heading": "Customers Also Viewed"
+        "product_recommendations_heading": "You May Also Like"
       }
     },
     "index-rich-text": {
@@ -320,8 +369,10 @@
   "order": [
     "product-gallery",
     "main",
-    "app-product-reviews",
+    "shop-collection",
+    "why-shop-with-us",
     "product-recommendations",
+    "app-product-reviews",
     "index-rich-text",
     "accordion",
     "product-info-columns",

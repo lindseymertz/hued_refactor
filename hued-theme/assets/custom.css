@@ -2120,35 +2120,13 @@ h2.featured-products-heading {
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Breadcrumbs inside hero */
+/* ===========================================
+   BREADCRUMBS - Hidden Site-Wide
+   Date: 2026-01-31
+   =========================================== */
+.breadcrumbs,
+.breadcrumb-wrapper,
 .collection-hero__breadcrumbs {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.85);
-  margin-top: 8px;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-}
-
-.collection-hero__breadcrumbs a {
-  color: rgba(255, 255, 255, 0.85);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.collection-hero__breadcrumbs a:hover {
-  color: #fff;
-  text-decoration: underline;
-}
-
-.collection-hero__breadcrumb-sep {
-  margin: 0 8px;
-  opacity: 0.7;
-}
-
-/* Hide original breadcrumbs on collection pages */
-.collection-template .breadcrumbs,
-.collection-template .breadcrumb-wrapper,
-.template-collection .breadcrumbs,
-.template-collection .breadcrumb-wrapper {
   display: none !important;
 }
 
@@ -4040,4 +4018,997 @@ h2.featured-products-heading {
 
 /* ===========================================
    END HELP PAGE
+   =========================================== */
+
+/* ===========================================
+   PRODUCT INFO ACCORDIONS - Pura Vida Style
+   Date: 2026-01-31
+
+   Collapsible accordions for Details,
+   Product Care, and Shipping & Returns
+   Styled as individual bordered boxes/cards
+   =========================================== */
+
+.product-info-accordions {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Static info box (non-collapsible) - Summary/Description box */
+/* Warm cream/peach background - Pura Vida style */
+.product-info-box {
+  border: 1.5px solid var(--color-primary, #27bdbe);
+  border-radius: 8px;
+  background: #FDF6F0;
+  overflow: hidden;
+}
+
+.product-info-box__content {
+  padding: 16px 20px;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.product-info-box__content p {
+  margin: 0 0 12px 0;
+}
+
+.product-info-box__content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Each accordion is a bordered box */
+/* Light mint/seafoam background - Pura Vida style */
+.product-accordion {
+  border: 1.5px solid var(--color-primary, #27bdbe);
+  border-radius: 8px;
+  background: #E8F5F3;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover state on closed accordion */
+.product-accordion:not([open]):hover {
+  border-color: #22a8a9;
+  box-shadow: 0 2px 8px rgba(39, 189, 190, 0.15);
+}
+
+/* Open/expanded state */
+.product-accordion[open] {
+  border-color: var(--color-primary, #27bdbe);
+  box-shadow: 0 2px 12px rgba(39, 189, 190, 0.2);
+}
+
+.product-accordion__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 20px;
+  cursor: pointer;
+  list-style: none;
+  background: #fff;
+  border: none;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+/* Subtle background on hover - slightly darker mint */
+.product-accordion:not([open]) .product-accordion__header:hover {
+  background-color: #D8EEEB;
+}
+
+/* Remove default marker in Safari/Chrome */
+.product-accordion__header::-webkit-details-marker {
+  display: none;
+}
+
+.product-accordion__header::marker {
+  display: none;
+  content: '';
+}
+
+.product-accordion__title {
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #303030;
+  transition: color 0.2s ease;
+}
+
+/* Title turns teal when open */
+.product-accordion[open] .product-accordion__title {
+  color: var(--color-primary, #27bdbe);
+}
+
+.product-accordion__icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(39, 189, 190, 0.1);
+  border-radius: 50%;
+  color: var(--color-primary, #27bdbe);
+  transition: background-color 0.2s ease, transform 0.3s ease;
+}
+
+/* Icon background darker when open */
+.product-accordion[open] .product-accordion__icons {
+  background: var(--color-primary, #27bdbe);
+}
+
+.product-accordion__icon {
+  width: 16px;
+  height: 16px;
+  stroke: var(--color-primary, #27bdbe);
+  stroke-width: 2.5;
+}
+
+/* Icon turns white when open */
+.product-accordion[open] .product-accordion__icon {
+  stroke: #fff;
+}
+
+/* Show plus icon by default, hide minus */
+.product-accordion__icon--minus {
+  display: none;
+}
+
+.product-accordion__icon--plus {
+  display: block;
+}
+
+/* When open: hide plus, show minus */
+.product-accordion[open] .product-accordion__icon--plus {
+  display: none;
+}
+
+.product-accordion[open] .product-accordion__icon--minus {
+  display: block;
+}
+
+.product-accordion__content {
+  padding: 0 20px 20px 20px;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+  animation: accordionSlideDown 0.3s ease;
+}
+
+@keyframes accordionSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-accordion__content p {
+  margin: 0 0 12px 0;
+}
+
+.product-accordion__content p:last-child {
+  margin-bottom: 0;
+}
+
+.product-accordion__content ul {
+  margin: 0 0 12px 0;
+  padding-left: 20px;
+}
+
+.product-accordion__content ul:last-child {
+  margin-bottom: 0;
+}
+
+.product-accordion__content li {
+  margin-bottom: 8px;
+}
+
+.product-accordion__content li:last-child {
+  margin-bottom: 0;
+}
+
+.product-accordion__content strong {
+  color: #303030;
+}
+
+/* Hover state */
+.product-accordion__header:hover .product-accordion__title {
+  color: var(--color-primary, #27bdbe);
+}
+
+/* Focus state for accessibility */
+.product-accordion__header:focus {
+  outline: none;
+}
+
+.product-accordion__header:focus-visible {
+  outline: 2px solid var(--color-primary, #27bdbe);
+  outline-offset: -2px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .product-info-accordions {
+    margin-top: 20px;
+    gap: 10px;
+  }
+
+  .product-accordion__header {
+    padding: 14px 16px;
+  }
+
+  .product-accordion__title {
+    font-size: 13px;
+  }
+
+  .product-accordion__content {
+    font-size: 13px;
+    padding: 0 16px 16px 16px;
+  }
+
+  .product-accordion__icons {
+    width: 24px;
+    height: 24px;
+  }
+
+  .product-accordion__icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .product-info-box__content {
+    padding: 14px 16px;
+    font-size: 13px;
+  }
+}
+
+/* ===========================================
+   END PRODUCT INFO ACCORDIONS
+   =========================================== */
+
+/* ===========================================
+   PRODUCT DESCRIPTION BOX
+   Date: 2026-01-31
+
+   Styles the product description to match the
+   accordion boxes visually (teal border, etc.)
+   but without expand/collapse functionality.
+   =========================================== */
+
+.product-description {
+  border: 1.5px solid var(--color-primary, #27bdbe);
+  border-radius: 8px;
+  background: #fff;
+  padding: 16px 20px;
+  margin-top: 24px;
+  margin-bottom: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.product-description p {
+  margin: 0;
+}
+
+.product-description p + p {
+  margin-top: 12px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .product-description {
+    padding: 14px 16px;
+    font-size: 13px;
+    margin-top: 20px;
+  }
+}
+
+/* ===========================================
+   END PRODUCT DESCRIPTION BOX
+   =========================================== */
+
+/* ===========================================
+   SHOP THE COLLECTION - Product Page
+   Date: 2026-01-31
+
+   Shows products from the same collection
+   =========================================== */
+
+.shop-collection-section {
+  padding: 48px 0;
+  background-color: #fafafa;
+}
+
+.shop-collection__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.shop-collection__title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #303030;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.shop-collection__view-all {
+  font-size: 13px;
+  font-weight: 600;
+  color: #303030;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.shop-collection__view-all:hover {
+  color: var(--color-primary, #27bdbe);
+}
+
+.shop-collection__arrow {
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.shop-collection__view-all:hover .shop-collection__arrow {
+  transform: translateX(4px);
+}
+
+.shop-collection__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.shop-collection__item {
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.shop-collection__item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.shop-collection__product-link {
+  text-decoration: none;
+  display: block;
+}
+
+.shop-collection__image-wrapper {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
+
+.shop-collection__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.shop-collection__image--hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.shop-collection__item:hover .shop-collection__image:not(.shop-collection__image--hover) {
+  transform: scale(1.05);
+}
+
+.shop-collection__item:hover .shop-collection__image--hover {
+  opacity: 1;
+}
+
+.shop-collection__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+}
+
+.shop-collection__placeholder svg {
+  width: 60%;
+  height: 60%;
+  fill: #ddd;
+}
+
+.shop-collection__product-info {
+  padding: 16px;
+  text-align: center;
+}
+
+.shop-collection__product-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #303030;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.shop-collection__product-price {
+  font-size: 14px;
+  font-weight: 600;
+  color: #303030;
+}
+
+.shop-collection__price--sale {
+  color: #c41e3a;
+  margin-right: 8px;
+}
+
+.shop-collection__price--compare {
+  color: #999;
+  text-decoration: line-through;
+  font-weight: 400;
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 900px) {
+  .shop-collection__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .shop-collection__title {
+    font-size: 18px;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .shop-collection-section {
+    padding: 36px 0;
+  }
+
+  .shop-collection__header {
+    margin-bottom: 20px;
+  }
+
+  .shop-collection__title {
+    font-size: 16px;
+  }
+
+  .shop-collection__view-all {
+    font-size: 12px;
+  }
+
+  .shop-collection__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .shop-collection__product-info {
+    padding: 12px;
+  }
+
+  .shop-collection__product-title {
+    font-size: 13px;
+  }
+
+  .shop-collection__product-price {
+    font-size: 13px;
+  }
+}
+
+/* ===========================================
+   END SHOP THE COLLECTION
+   =========================================== */
+
+/* ===========================================
+   PRODUCT PAGE REDESIGN - Pura Vida Style
+   Date: 2026-01-31
+
+   - Circular size selectors
+   - Compact quantity selector (no label)
+   - Inline Add to Cart + Wishlist row
+   =========================================== */
+
+/* -----------------------------------------
+   SIZE/VARIANT SELECTORS - Circular Style
+   ----------------------------------------- */
+
+/* Product page swatches container - remove any borders */
+.product-section .product-swatches {
+  margin-bottom: 16px;
+  border: none !important;
+  border-left: none !important;
+}
+
+/* Remove borders from all form-field elements */
+.product-section .form-field {
+  border: none !important;
+  border-left: none !important;
+}
+
+/* Option group (e.g., "Size") */
+.product-section .form-field-swatch {
+  margin-bottom: 16px;
+  border: none !important;
+  border-left: none !important;
+  padding-left: 0 !important;
+}
+
+/* Option label - smaller, subtle */
+.product-section .form-field-swatch .form-field-title {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Swatch options container - horizontal row */
+.product-section .form-field-swatch .form-field__swatch-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Individual swatch item */
+.product-section .form-field-swatch.swatch-other .form-swatch-item {
+  width: auto;
+  position: relative;
+}
+
+/* Hide the radio input */
+.product-section .form-field-swatch.swatch-other .form-swatch-item input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Size selector label - CIRCULAR style */
+.product-section .form-field-swatch.swatch-other .form-swatch-item label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 6px 10px;
+  border: 1.5px solid #ccc;
+  border-radius: 50%;
+  background: #fff;
+  color: #333;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Hover state */
+.product-section .form-field-swatch.swatch-other .form-swatch-item label:hover {
+  border-color: #27bdbe;
+  color: #27bdbe;
+}
+
+/* Selected state */
+.product-section .form-field-swatch.swatch-other .form-swatch-item input[type="radio"]:checked + label {
+  background-color: #27bdbe;
+  border-color: #27bdbe;
+  color: #fff;
+}
+
+/* Unavailable/sold out state */
+/* Note: The .available class in Liquid marks "selected", not "in stock".
+   Using explicit .sold-out class or data attribute for proper sold-out styling.
+   Remove :not(.available) to prevent all non-selected options appearing sold out. */
+.product-section .form-field-swatch.swatch-other .form-swatch-item.sold-out label,
+.product-section .form-field-swatch.swatch-other .form-swatch-item[data-available="false"] label {
+  opacity: 0.4;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+/* -----------------------------------------
+   QUANTITY SELECTOR - Compact, No Label
+   ----------------------------------------- */
+
+/* Hide the "QUANTITY" label */
+.product-section .product-quantity .form-field-title {
+  display: none !important;
+}
+
+/* Remove default styling on form-label */
+.product-section .product-quantity .form-label {
+  display: block;
+}
+
+/* Quantity selector wrapper - compact pill shape */
+.product-section .qty-selector {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid #ddd;
+  border-radius: 50px;
+  overflow: hidden;
+  background: #fff;
+  height: 48px;
+}
+
+/* Minus/Plus buttons */
+.product-section .qty-selector__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 100%;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s ease;
+  padding: 0;
+}
+
+.product-section .qty-selector__btn:hover {
+  background: #f5f5f5;
+}
+
+.product-section .qty-selector__btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Quantity input */
+.product-section .qty-selector__input {
+  width: 40px;
+  height: 100%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  -moz-appearance: textfield;
+  background: #fff;
+  padding: 0;
+}
+
+.product-section .qty-selector__input::-webkit-outer-spin-button,
+.product-section .qty-selector__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* -----------------------------------------
+   ADD TO CART + WISHLIST - Inline Row
+   ----------------------------------------- */
+
+/* Main form actions wrapper - becomes the inline row */
+.product-section .form-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* Add to Cart button - prominent pill shape */
+.product-section .form-actions > button[data-product-add] {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  padding: 0 32px;
+  background-color: #27bdbe;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.product-section .form-actions > button[data-product-add]:hover {
+  background-color: #22a8a9;
+}
+
+.product-section .form-actions > button[data-product-add].button-disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Hide dynamic payment button to keep row clean */
+.product-section .form-actions .shopify-payment-button {
+  display: none;
+}
+
+/* -----------------------------------------
+   QUANTITY + CART + WISHLIST INLINE ROW
+   Restructure: Move quantity into form-actions row
+   ----------------------------------------- */
+
+/* Make quantity and form-actions display inline together */
+.product-section .product-quantity {
+  display: inline-block;
+  margin-bottom: 0 !important;
+}
+
+/* Wrapper to hold both quantity and buttons inline */
+.product-section .product-details {
+  display: block;
+}
+
+/* Create inline layout: quantity sits before add to cart */
+.product-section .product-quantity + .form-actions {
+  margin-top: 0;
+}
+
+/* Product quantity should be part of the button row visually */
+.product-section .product-quantity,
+.product-section .form-actions {
+  display: inline-flex;
+  vertical-align: top;
+}
+
+/* -----------------------------------------
+   GROWAVE WISHLIST BUTTON - Pink Pill Style
+   Matches Add to Cart button styling
+   Inside the product-actions-row
+   ----------------------------------------- */
+
+/* Wishlist container inside the actions row */
+.product-section .product-actions-row > div[data-shopify-editor-block] {
+  flex-shrink: 0;
+}
+
+/* Style the Growave wishlist button - Pink pill to match Add to Cart */
+.product-section .product-actions-row .ssw-favs-btn,
+.product-section .product-actions-row [class*="fave-button"] button,
+.product-section .product-actions-row [data-ssw-product-btn],
+.product-section .product-actions-row .gr-product-fave-button,
+.product-section .product-actions-row [class*="faveButton"] button,
+.product-section .product-actions-row .gr-fave-button {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: auto !important;
+  min-width: 48px !important;
+  height: 48px !important;
+  padding: 0 20px !important;
+  background: #F8A4B8 !important;
+  border: none !important;
+  border-radius: 50px !important;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.product-section .product-actions-row .ssw-favs-btn:hover,
+.product-section .product-actions-row [class*="fave-button"] button:hover,
+.product-section .product-actions-row [data-ssw-product-btn]:hover,
+.product-section .product-actions-row .gr-product-fave-button:hover,
+.product-section .product-actions-row .gr-fave-button:hover {
+  background: #E8899C !important;
+}
+
+/* Hide text in wishlist button, show only icon */
+.product-section .product-actions-row .ssw-favs-btn span:not(.ssw-icon):not([class*="icon"]),
+.product-section .product-actions-row [class*="fave-button"] span:not([class*="icon"]),
+.product-section .product-actions-row .gr-product-fave-button span:not([class*="icon"]),
+.product-section .product-actions-row .gr-fave-button__text {
+  display: none !important;
+}
+
+/* Heart icon styling - white on pink background */
+.product-section .product-actions-row .ssw-favs-btn .ssw-icon,
+.product-section .product-actions-row .ssw-favs-btn svg,
+.product-section .product-actions-row .gr-product-fave-button svg,
+.product-section .product-actions-row [class*="faveButton"] svg,
+.product-section .product-actions-row .gr-fave-button svg {
+  width: 20px !important;
+  height: 20px !important;
+  color: #fff !important;
+  fill: none !important;
+  stroke: #fff !important;
+  stroke-width: 2;
+}
+
+/* Active/wishlisted state - filled white heart */
+.product-section .product-actions-row .ssw-favs-btn.ssw-in-favs svg,
+.product-section .product-actions-row .ssw-favs-btn.active svg,
+.product-section .product-actions-row .gr-product-fave-button.active svg,
+.product-section .product-actions-row .gr-fave-button--active svg {
+  fill: #fff !important;
+  stroke: #fff !important;
+  color: #fff !important;
+}
+
+/* -----------------------------------------
+   PRODUCT ACTIONS ROW WRAPPER
+   Contains quantity + Add to Cart inline
+   ----------------------------------------- */
+
+.product-section .product-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* Quantity selector in the row - proper flex child alignment */
+.product-section .product-actions-row .product-quantity {
+  display: flex !important;
+  align-items: center;
+  margin: 0;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.product-section .product-actions-row .product-quantity .form-label {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+/* Quantity selector should match button height */
+.product-section .product-actions-row .qty-selector {
+  height: 48px;
+}
+
+.product-section .product-actions-row .qty-selector__btn {
+  height: 48px;
+}
+
+.product-section .product-actions-row .qty-selector__input {
+  height: 48px;
+}
+
+/* Add to Cart in the row - grows to fill, vertically centered */
+.product-section .product-actions-row .form-actions {
+  display: flex !important;
+  align-items: center;
+  flex: 1;
+  min-width: 200px;
+  margin: 0;
+  vertical-align: middle;
+}
+
+/* Reset form-actions margin when inside row */
+.product-section .product-actions-row .form-actions {
+  margin-top: 0;
+}
+
+/* -----------------------------------------
+   MOBILE RESPONSIVE
+   ----------------------------------------- */
+
+@media (max-width: 600px) {
+  /* Size selectors - smaller on mobile */
+  .product-section .form-field-swatch.swatch-other .form-swatch-item label {
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+
+  /* Product actions row - allow wrapping on mobile */
+  .product-section .product-actions-row {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* Quantity takes full width on small screens */
+  .product-section .product-actions-row .product-quantity {
+    width: 100%;
+    order: 1;
+  }
+
+  .product-section .product-actions-row .qty-selector {
+    width: 100%;
+    max-width: 150px;
+  }
+
+  /* Add to Cart grows, wishlist stays compact */
+  .product-section .product-actions-row .form-actions {
+    flex: 1;
+    min-width: 0;
+    order: 2;
+  }
+
+  /* Wishlist button inline with Add to Cart */
+  .product-section .product-actions-row > div[data-shopify-editor-block] {
+    order: 3;
+    flex-shrink: 0;
+  }
+}
+
+/* Very small screens - stack everything */
+@media (max-width: 400px) {
+  .product-section .product-actions-row .form-actions {
+    width: 100%;
+    flex: none;
+  }
+
+  .product-section .product-actions-row > div[data-shopify-editor-block] {
+    width: auto;
+  }
+}
+
+/* -----------------------------------------
+   HIDE VARIANT SELECT DROPDOWN
+   (Visual selection via swatches, dropdown hidden)
+   ----------------------------------------- */
+
+.product-section .product-select-simple-wrapper {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
+}
+
+/* ===========================================
+   END PRODUCT PAGE REDESIGN
+   =========================================== */
+
+/* ===========================================
+   PRODUCT PAGE IMAGE BORDER RADIUS
+   Date: 2026-01-31
+   =========================================== */
+
+/* Main product image container */
+.product-media-item {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Main product image */
+.product-media-item img {
+  border-radius: 8px;
+}
+
+/* Thumbnail images */
+.product-thumbnail-wrap {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.product-thumbnail {
+  border-radius: 4px;
+}
+
+/* Lightbox image */
+.product-images-lightbox img {
+  border-radius: 8px;
+}
+
+/* ===========================================
+   END PRODUCT PAGE IMAGE BORDER RADIUS
    =========================================== */
