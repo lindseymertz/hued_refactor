@@ -447,6 +447,12 @@
     "header": {
       "view_all": "View all",
       "empty": "Sorry, your search returned no results."
+    },
+    "results": {
+      "products": "Products",
+      "collections": "Collections",
+      "pages": "Pages",
+      "view_all": "View all results"
     }
   },
   "localization": {

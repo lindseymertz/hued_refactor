@@ -1,0 +1,382 @@
+{% comment %} HUED REDESIGN: Help Page Section - Pura Vida Style {% endcomment %}
+
+<div class="help-page">
+  <!-- Hero Section -->
+  <div class="help-hero" style="background-color: {{ section.settings.hero_background }};">
+    <div class="help-hero__container page-width">
+      <h1 class="help-hero__title">{{ section.settings.hero_title }}</h1>
+      <p class="help-hero__subtitle">{{ section.settings.hero_subtitle }}</p>
+    </div>
+  </div>
+
+  <div class="help-content page-width">
+    <!-- Quick Actions -->
+    {% assign quick_actions = section.blocks | where: 'type', 'quick_action' %}
+    {% if quick_actions.size > 0 %}
+      <div class="help-quick-actions">
+        <h2 class="help-section-title">{{ section.settings.quick_actions_title }}</h2>
+        <div class="help-quick-actions__grid">
+          {% for block in quick_actions %}
+            <a href="{{ block.settings.link_url }}" class="help-quick-action-card" {{ block.shopify_attributes }}>
+              {% if block.settings.image != blank %}
+                <div class="help-quick-action-card__image">
+                  <img
+                    src="{{ block.settings.image | image_url: width: 120 }}"
+                    alt="{{ block.settings.title | escape }}"
+                    width="60"
+                    height="60"
+                    loading="lazy"
+                  >
+                </div>
+              {% endif %}
+              <div class="help-quick-action-card__content">
+                <h3 class="help-quick-action-card__title">{{ block.settings.title }}</h3>
+                <span class="help-quick-action-card__link">{{ block.settings.link_text }} &rarr;</span>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Category Tabs -->
+    {% assign faq_categories = section.blocks | where: 'type', 'faq_category' %}
+    {% if faq_categories.size > 0 %}
+      <div class="help-tabs-wrapper">
+        <div class="help-tabs" role="tablist">
+          {% for block in faq_categories %}
+            <button
+              class="help-tab{% if forloop.first %} active{% endif %}"
+              data-category="{{ block.settings.category_name | handleize }}"
+              role="tab"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+              {{ block.shopify_attributes }}
+            >
+              {{ block.settings.category_name }}
+            </button>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- FAQ Accordions -->
+    {% assign faq_items = section.blocks | where: 'type', 'faq_item' %}
+    {% if faq_items.size > 0 %}
+      <div class="help-faqs">
+        {% for block in faq_items %}
+          <div
+            class="help-faq-item"
+            data-category="{{ block.settings.category | handleize }}"
+            {{ block.shopify_attributes }}
+          >
+            <button class="help-faq-question" aria-expanded="false">
+              <span class="help-faq-question__text">{{ block.settings.question }}</span>
+              <span class="help-faq-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+            <div class="help-faq-answer" aria-hidden="true">
+              <div class="help-faq-answer__content">
+                {{ block.settings.answer }}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <!-- Contact CTA -->
+    {% if section.settings.show_contact_cta %}
+      <div class="help-contact-cta">
+        <p class="help-contact-cta__text">{{ section.settings.contact_text }}</p>
+        <a href="{{ section.settings.contact_link }}" class="help-contact-cta__button button">
+          {{ section.settings.contact_button_text }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  (function() {
+    const section = document.querySelector('.help-page');
+    if (!section) return;
+
+    // Tab switching functionality
+    const tabs = section.querySelectorAll('.help-tab');
+    const faqItems = section.querySelectorAll('.help-faq-item');
+
+    function filterByCategory(category) {
+      faqItems.forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Update active state
+        tabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        // Filter FAQ items
+        const category = tab.dataset.category;
+        filterByCategory(category);
+
+        // Close all open accordions when switching tabs
+        faqItems.forEach(item => {
+          item.classList.remove('open');
+          const question = item.querySelector('.help-faq-question');
+          const answer = item.querySelector('.help-faq-answer');
+          if (question) question.setAttribute('aria-expanded', 'false');
+          if (answer) answer.setAttribute('aria-hidden', 'true');
+        });
+      });
+    });
+
+    // Accordion toggle functionality
+    const accordionButtons = section.querySelectorAll('.help-faq-question');
+
+    accordionButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const answer = item.querySelector('.help-faq-answer');
+        const isOpen = item.classList.contains('open');
+
+        // Toggle current item
+        item.classList.toggle('open');
+        btn.setAttribute('aria-expanded', !isOpen);
+        answer.setAttribute('aria-hidden', isOpen);
+      });
+    });
+
+    // Initialize - show first category on load
+    if (tabs.length > 0) {
+      const firstTab = tabs[0];
+      const firstCategory = firstTab.dataset.category;
+      filterByCategory(firstCategory);
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Help Page",
+  "tag": "section",
+  "class": "help-page-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero Section"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "How can we help you?"
+    },
+    {
+      "type": "text",
+      "id": "hero_subtitle",
+      "label": "Hero Subtitle",
+      "default": "Have a question? Feel free to check out our FAQs below."
+    },
+    {
+      "type": "color",
+      "id": "hero_background",
+      "label": "Hero Background Color",
+      "default": "#27bdbe"
+    },
+    {
+      "type": "header",
+      "content": "Quick Actions"
+    },
+    {
+      "type": "text",
+      "id": "quick_actions_title",
+      "label": "Quick Actions Title",
+      "default": "Quick Actions"
+    },
+    {
+      "type": "header",
+      "content": "Contact CTA"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_contact_cta",
+      "label": "Show Contact CTA",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "contact_text",
+      "label": "Contact Text",
+      "default": "Still have questions? We're here to help!"
+    },
+    {
+      "type": "text",
+      "id": "contact_button_text",
+      "label": "Contact Button Text",
+      "default": "Contact Us"
+    },
+    {
+      "type": "url",
+      "id": "contact_link",
+      "label": "Contact Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quick_action",
+      "name": "Quick Action Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Returns & Exchanges"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "Start your return"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        }
+      ]
+    },
+    {
+      "type": "faq_category",
+      "name": "FAQ Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category_name",
+          "label": "Category Name",
+          "default": "Frequently Asked"
+        }
+      ]
+    },
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Category",
+          "info": "Must match a category name exactly"
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What is your return policy?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>We offer a 30-day return policy on all unworn items. Please contact our support team to initiate a return.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Help Page",
+      "blocks": [
+        {
+          "type": "quick_action",
+          "settings": {
+            "title": "Returns & Exchanges",
+            "link_text": "Start your return"
+          }
+        },
+        {
+          "type": "quick_action",
+          "settings": {
+            "title": "Track Your Order",
+            "link_text": "Check order status"
+          }
+        },
+        {
+          "type": "quick_action",
+          "settings": {
+            "title": "Contact Support",
+            "link_text": "Get in touch"
+          }
+        },
+        {
+          "type": "faq_category",
+          "settings": {
+            "category_name": "Frequently Asked"
+          }
+        },
+        {
+          "type": "faq_category",
+          "settings": {
+            "category_name": "Orders & Shipping"
+          }
+        },
+        {
+          "type": "faq_category",
+          "settings": {
+            "category_name": "Returns & Exchanges"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "category": "Frequently Asked",
+            "question": "What is your return policy?",
+            "answer": "<p>We offer a 30-day return policy on all unworn items. Please contact our support team to initiate a return.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "category": "Frequently Asked",
+            "question": "How long does shipping take?",
+            "answer": "<p>Standard shipping typically takes 5-7 business days. Express shipping options are available at checkout.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "category": "Orders & Shipping",
+            "question": "How can I track my order?",
+            "answer": "<p>Once your order ships, you'll receive an email with tracking information. You can also check your order status in your account.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "category": "Returns & Exchanges",
+            "question": "How do I start a return?",
+            "answer": "<p>To start a return, please contact our customer service team or use the returns portal linked in your order confirmation email.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

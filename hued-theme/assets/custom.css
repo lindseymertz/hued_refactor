@@ -140,12 +140,15 @@ button.product-item-add-to-cart.loading:after {
 }
 
 .product-item-image {
-  aspect-ratio: 1/1;
+  aspect-ratio: 275 / 215; /* Landscape rectangle */
   border-radius: 4px; /* Subtle corners - Pura Vida style */
   overflow: hidden;
+  display: flex;
+  align-items: center; /* Center image vertically */
+  justify-content: center;
 }
 .product-recommendations img {
-  aspect-ratio: 1/1;
+  aspect-ratio: 275 / 215; /* Landscape rectangle */
   border-radius: 4px; /* Subtle corners - Pura Vida style */
 }
 .ssw-fave-btn-content {
@@ -2699,7 +2702,7 @@ h2.featured-products-heading {
 /* --- Placeholder/Onboarding --- */
 .tabbed-collection__carousel .svg-placeholder {
   background: #f5f5f5;
-  padding-bottom: 100%;
+  padding-bottom: 78%; /* 275/215 ratio to match product cards */
   position: relative;
 }
 
@@ -3578,4 +3581,474 @@ h2.featured-products-heading {
 
 /* ===========================================
    END HOMEPAGE SECTION SPACING FIX
+   =========================================== */
+
+/* ===========================================
+   PRODUCT IMAGE FIX - Full Width, Crop Top/Bottom
+   Date: 2026-01-31
+   - Container: 275x215 aspect ratio (landscape)
+   - Image: 100% width, auto height (no left/right crop)
+   - Overflow hidden crops tall images top/bottom
+   - Flexbox centers image vertically (even crop)
+   =========================================== */
+
+/* --- Product Card Image Containers --- */
+.product-item__image-wrapper {
+  aspect-ratio: 275 / 215;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Inner wrapper inherits flex centering */
+.product-item__image-wrapper .height-inherit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* --- Product Card Images --- */
+/* Full width, natural height - overflow crops top/bottom */
+.product-item-image img,
+.product-item__image-wrapper img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: unset !important;
+  flex-shrink: 0;
+}
+
+/* Secondary image (hover) - same styling */
+.product-item-image--secondary {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: unset !important;
+  flex-shrink: 0;
+}
+
+/* --- Collection Page Product Cards --- */
+.product-item--collection .product-item__image-wrapper {
+  aspect-ratio: 275 / 215;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-item--collection .product-item-image img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: unset !important;
+  flex-shrink: 0;
+}
+
+/* --- Featured Products / Recommendations --- */
+.product-recommendations .product-item__image-wrapper {
+  aspect-ratio: 275 / 215;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-recommendations .product-item-image img,
+.product-recommendations img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: unset !important;
+  flex-shrink: 0;
+}
+
+/* --- Tabbed Collection Carousel --- */
+.tabbed-collection__carousel .product-item__image-wrapper {
+  aspect-ratio: 275 / 215;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabbed-collection__carousel .product-item-image img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: unset !important;
+  flex-shrink: 0;
+}
+
+/* --- Search Results Product Images --- */
+.search-drawer__item-image {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-drawer__item-image img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: unset !important;
+  flex-shrink: 0;
+}
+
+/* ===========================================
+   END PRODUCT IMAGE FIX
+   =========================================== */
+
+/* ===========================================
+   HELP PAGE - Pura Vida Style
+   Date: 2026-01-31
+   =========================================== */
+
+/* --- Hero Section --- */
+.help-hero {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.help-hero__container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.help-hero__title {
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.help-hero__subtitle {
+  color: #ffffff;
+  font-size: 18px;
+  margin: 0;
+  opacity: 0.95;
+  line-height: 1.5;
+}
+
+/* --- Help Content Container --- */
+.help-content {
+  padding: 50px 20px;
+}
+
+.help-section-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 24px 0;
+  color: var(--color-text, #303030);
+}
+
+/* --- Quick Actions Section --- */
+.help-quick-actions {
+  margin-bottom: 50px;
+}
+
+.help-quick-actions__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.help-quick-action-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  background: #ffffff;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.help-quick-action-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-primary, #27bdbe);
+}
+
+.help-quick-action-card__image {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.help-quick-action-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.help-quick-action-card__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.help-quick-action-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  color: var(--color-text, #303030);
+}
+
+.help-quick-action-card__link {
+  color: var(--color-primary, #27bdbe);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* --- Category Tabs --- */
+.help-tabs-wrapper {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 20px;
+}
+
+.help-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.help-tab {
+  padding: 10px 20px;
+  border: 1px solid #e5e5e5;
+  border-radius: 25px;
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text, #303030);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.help-tab:hover {
+  border-color: var(--color-primary, #27bdbe);
+  color: var(--color-primary, #27bdbe);
+}
+
+.help-tab.active {
+  background: var(--color-primary, #27bdbe);
+  border-color: var(--color-primary, #27bdbe);
+  color: #ffffff;
+}
+
+/* --- FAQ Accordions --- */
+.help-faqs {
+  margin-bottom: 50px;
+}
+
+.help-faq-item {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.help-faq-item:first-child {
+  border-top: 1px solid #e5e5e5;
+}
+
+.help-faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  color: var(--color-text, #303030);
+  transition: color 0.2s ease;
+}
+
+.help-faq-question:hover {
+  color: var(--color-primary, #27bdbe);
+}
+
+.help-faq-question__text {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.help-faq-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary, #27bdbe);
+  transition: transform 0.3s ease;
+}
+
+.help-faq-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.help-faq-item.open .help-faq-icon {
+  transform: rotate(45deg);
+}
+
+.help-faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.help-faq-item.open .help-faq-answer {
+  grid-template-rows: 1fr;
+}
+
+.help-faq-answer__content {
+  overflow: hidden;
+  padding: 0;
+  color: #666666;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.help-faq-item.open .help-faq-answer__content {
+  padding-bottom: 20px;
+}
+
+.help-faq-answer__content p {
+  margin: 0 0 12px 0;
+}
+
+.help-faq-answer__content p:last-child {
+  margin-bottom: 0;
+}
+
+.help-faq-answer__content a {
+  color: var(--color-primary, #27bdbe);
+  text-decoration: underline;
+}
+
+.help-faq-answer__content ul,
+.help-faq-answer__content ol {
+  margin: 0 0 12px 0;
+  padding-left: 20px;
+}
+
+/* --- Contact CTA --- */
+.help-contact-cta {
+  text-align: center;
+  padding: 40px;
+  background: #f9f9f9;
+  border-radius: 12px;
+}
+
+.help-contact-cta__text {
+  font-size: 18px;
+  margin: 0 0 20px 0;
+  color: var(--color-text, #303030);
+}
+
+.help-contact-cta__button {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--color-primary, #27bdbe);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.help-contact-cta__button:hover {
+  background: #1fa8a9;
+  transform: translateY(-2px);
+}
+
+/* --- Responsive Styles --- */
+@media (max-width: 768px) {
+  .help-hero {
+    padding: 40px 20px;
+  }
+
+  .help-hero__title {
+    font-size: 32px;
+  }
+
+  .help-hero__subtitle {
+    font-size: 16px;
+  }
+
+  .help-content {
+    padding: 30px 20px;
+  }
+
+  .help-quick-actions__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .help-quick-action-card {
+    padding: 16px;
+  }
+
+  .help-tabs {
+    gap: 8px;
+  }
+
+  .help-tab {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .help-faq-question {
+    padding: 16px 0;
+    font-size: 15px;
+  }
+
+  .help-section-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .help-contact-cta {
+    padding: 30px 20px;
+  }
+
+  .help-contact-cta__text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .help-hero__title {
+    font-size: 28px;
+  }
+
+  .help-quick-action-card__image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .help-tabs-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .help-tabs {
+    flex-wrap: nowrap;
+    padding-bottom: 5px;
+  }
+}
+
+/* ===========================================
+   END HELP PAGE
    =========================================== */
