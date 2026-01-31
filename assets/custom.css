@@ -421,7 +421,7 @@ body {
 .header--redesign .header-logo {
   flex-shrink: 0;
   margin: 0;
-  margin-right: 40px; /* Controlled gap between logo and nav */
+  margin-right: 20px; /* Tightened gap between logo and nav (was 40px) */
   order: 1;
 }
 
@@ -455,7 +455,7 @@ body {
 .main-navigation-wrapper--inline .navigation-list {
   display: flex;
   align-items: center;
-  gap: 0; /* No gap - padding handles spacing */
+  gap: 4px; /* Small gap between items */
   margin: 0;
   padding: 0;
   justify-content: flex-start;
@@ -466,8 +466,13 @@ body {
   align-items: center;
 }
 
-.main-navigation-wrapper--inline .navigation-list-item > a {
-  padding: 8px 12px; /* Tighter horizontal padding: 24px between link texts */
+/* Override theme's asymmetric margins */
+.main-navigation-wrapper--inline .navigation-list-item > a,
+.main-navigation-wrapper--inline .navigation-list-item:not(:first-child) > a,
+.main-navigation-wrapper--inline .navigation-list-item:not(:last-child) > a {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 8px 10px; /* Symmetric padding: 20px between link texts */
   font-size: 14px;
   font-weight: 500;
   white-space: nowrap;
@@ -540,7 +545,7 @@ body {
   color: var(--color-primary, #27bdbe);
 }
 
-/* Force all SVGs to same size and alignment - Lucide 22x22 */
+/* Force all SVGs to same size and alignment - matches native SVG 22x22 */
 .header--redesign .header-tools svg {
   display: block;
   width: 22px;
@@ -678,8 +683,8 @@ body {
 /* Globe icon - match other icons (22x22) */
 .header--redesign .disclosure__button--icon-only svg {
   display: block;
-  width: 22px; /* Match other icons */
-  height: 22px; /* Match other icons */
+  width: 22px;
+  height: 22px;
   flex-shrink: 0;
   fill: none;
   stroke: currentColor;
@@ -1996,9 +2001,19 @@ h2.featured-products-heading,
    =========================================== */
 
 /* --- Main Footer Wrapper --- */
+/* CRITICAL: Use 100vw to match header's viewport-based centering.
+   The header uses position:fixed with left:0/right:0, which spans the VIEWPORT width.
+   The footer is in normal flow, so it spans BODY width (viewport - scrollbar).
+   This caused misalignment. Using 100vw makes both reference the same width. */
 .footer-redesign {
   background-color: #27bdbe;
   color: #ffffff;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 /* --- Container aligned with product grid (1280px, 40px + 12px grid-item padding) --- */
@@ -2130,7 +2145,8 @@ h2.featured-products-heading,
 /* --- Newsletter Signup Section --- */
 .footer-redesign__signup {
   flex: 1;
-  max-width: 400px;
+  min-width: 280px; /* Minimum width for usability */
+  /* Note: max-width removed to allow right edge alignment with header cart icon */
 }
 
 /* --- Email Form --- */
@@ -2141,6 +2157,7 @@ h2.featured-products-heading,
 .footer-redesign__input-wrapper {
   display: flex;
   align-items: center;
+  width: 100%; /* Ensure input stretches to fill signup section */
   background: #ffffff;
   border-radius: 4px;
   overflow: hidden;
@@ -2268,10 +2285,10 @@ h2.featured-products-heading,
   border-color: #ffffff;
 }
 
-/* --- Mobile Responsive (matches product grid breakpoints) --- */
-@media (max-width: 720px) {
+/* --- Mobile Responsive (matches header breakpoints) --- */
+@media (max-width: 768px) {
   .footer-redesign__container {
-    padding: 0 36px; /* 24px wrapper + 12px grid-item padding */
+    padding: 0 24px; /* Matches header mobile padding */
   }
 
   .footer-redesign__content {
@@ -2291,7 +2308,7 @@ h2.featured-products-heading,
   }
 
   .footer-redesign__signup {
-    max-width: 100%;
+    min-width: auto; /* Reset min-width for mobile */
   }
 }
 
