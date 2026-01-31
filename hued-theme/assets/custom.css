@@ -5,13 +5,54 @@ Please add any custom CSS code in here, it will be easier to transfer if updatin
 We highly recommend labelling changes, or App installs, so these can also be updated or removed as needed.
 
 */
-/*
 
-Please add any custom CSS code in here, it will be easier to transfer if updating themes.
+/* ===========================================
+   UNIVERSAL PAGE WRAPPER
+   Date: 2026-01-31
 
-We highly recommend labelling changes, or App installs, so these can also be updated or removed as needed.
+   USE THIS EVERYWHERE for consistent alignment:
+   - max-width: 1280px
+   - padding: 0 52px (desktop), 0 20px (mobile)
+   - margin: 0 auto
+   =========================================== */
 
-*/
+.page-wrapper,
+.header.header--redesign,
+.footer-redesign__container,
+.tabbed-collection__container,
+.promo-split__wrapper,
+.help-content,
+.help-hero__container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 52px;
+  padding-right: 52px;
+  box-sizing: border-box;
+}
+
+/* Mega menu inner content - uses !important in its own section to override theme */
+/* See .navigation-super section for mega menu alignment */
+
+/* Mobile: reduce padding */
+@media (max-width: 768px) {
+  .page-wrapper,
+  .header.header--redesign,
+  .footer-redesign__container,
+  .tabbed-collection__container,
+  .promo-split__wrapper,
+  .help-content,
+  .help-hero__container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* ===========================================
+   END UNIVERSAL PAGE WRAPPER
+   =========================================== */
+
 .product-select-variant {
   display: none !important;
 }
@@ -360,16 +401,14 @@ body {
 }
 
 /* --- Header Layout Override --- */
-/* Container matches page content: max-width 1280px, padding 52px (40px + 12px grid offset) */
+/* Uses UNIVERSAL PAGE WRAPPER for horizontal alignment */
+/* Only add vertical padding and flex layout here */
 .header.header--redesign {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 16px 52px;
-  width: 100%;
-  box-sizing: border-box;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 /* Override centered logo layout when redesign is active */
@@ -797,18 +836,13 @@ body {
   }
 }
 
-/* --- Tablet Adjustments (matches footer at 720px) --- */
-@media (max-width: 720px) {
-  .header.header--redesign {
-    padding: 12px 36px; /* 24px wrapper + 12px grid offset, matches footer */
-  }
-}
-
 /* --- Mobile Adjustments --- */
+/* Horizontal padding handled by UNIVERSAL PAGE WRAPPER */
 @media (max-width: 768px) {
   .header.header--redesign {
     flex-wrap: wrap;
-    padding: 12px 24px; /* Matches mobile content padding */
+    padding-top: 12px;
+    padding-bottom: 12px;
     gap: 10px;
   }
 
@@ -2159,14 +2193,8 @@ h2.featured-products-heading {
   margin-right: -50vw;
 }
 
-/* --- Container aligned with product grid (1280px, 40px + 12px grid-item padding) --- */
-.footer-redesign__container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 52px; /* 40px wrapper + 12px grid-item padding */
-  width: 100%;
-  box-sizing: border-box;
-}
+/* --- Container uses UNIVERSAL PAGE WRAPPER for alignment --- */
+/* max-width, margin, and horizontal padding inherited from .page-wrapper */
 
 /* --- Main Content Area --- */
 .footer-redesign__main {
@@ -2443,11 +2471,8 @@ h2.featured-products-heading {
 }
 
 /* --- Mobile Responsive (matches header breakpoints) --- */
+/* Horizontal padding handled by UNIVERSAL PAGE WRAPPER */
 @media (max-width: 768px) {
-  .footer-redesign__container {
-    padding: 0 24px; /* Matches header mobile padding */
-  }
-
   .footer-redesign__content {
     flex-direction: column;
     gap: 40px;
@@ -2520,13 +2545,7 @@ h2.featured-products-heading {
   padding: 40px 0;
 }
 
-.tabbed-collection__container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 52px;
-  width: 100%;
-  box-sizing: border-box;
-}
+/* .tabbed-collection__container uses UNIVERSAL PAGE WRAPPER */
 
 /* --- Header Row: Title + View All --- */
 .tabbed-collection__header {
@@ -2854,14 +2873,7 @@ h2.featured-products-heading {
   /* Background color applied via inline style from section settings */
 }
 
-/* --- Wrapper: Aligns with header/footer (1280px, 52px padding) --- */
-.promo-split__wrapper {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 52px;
-  width: 100%;
-  box-sizing: border-box;
-}
+/* --- Wrapper: Uses UNIVERSAL PAGE WRAPPER --- */
 
 /* --- Container: 50/50 Flexbox Layout --- */
 .promo-split__container {
@@ -3680,12 +3692,7 @@ h2.featured-products-heading {
   text-align: center;
 }
 
-.help-hero__container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding-left: 52px;
-  padding-right: 52px;
-}
+/* .help-hero__container uses UNIVERSAL PAGE WRAPPER */
 
 .help-hero__title {
   color: #ffffff;
@@ -3704,11 +3711,10 @@ h2.featured-products-heading {
 }
 
 /* --- Help Content Container --- */
+/* Uses UNIVERSAL PAGE WRAPPER for horizontal alignment */
 .help-content {
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 50px 52px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .help-section-title {
@@ -3954,10 +3960,7 @@ h2.featured-products-heading {
     padding: 40px 20px;
   }
 
-  .help-hero__container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+/* .help-hero__container mobile padding handled by UNIVERSAL PAGE WRAPPER */
 
   .help-hero__title {
     font-size: 32px;
@@ -3967,8 +3970,10 @@ h2.featured-products-heading {
     font-size: 16px;
   }
 
+  /* .help-content horizontal padding handled by UNIVERSAL PAGE WRAPPER */
   .help-content {
-    padding: 30px 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
   .help-quick-actions__grid {
