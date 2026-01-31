@@ -146,9 +146,72 @@
         "show_view_all": true
       }
     },
+    "promo_split_create_your_own": {
+      "type": "promo-split",
+      "settings": {
+        "image": "shopify://shop_images/FullSizeRender_68f36230-7bd8-4ee1-b591-2bc99464bc7a.heic",
+        "image_position": "right",
+        "title": "Create Your Own",
+        "description": "<p>Design a custom bracelet stack that's uniquely you. Mix colors, styles, and meanings to create something special.</p>",
+        "button_text": "SHOP NOW",
+        "button_link": "shopify://collections/all",
+        "button_style": "dark",
+        "background_color": "#fef6e4",
+        "text_color": "#303030"
+      }
+    },
+    "index_tabbed_collection_FgyUzJ": {
+      "type": "index-tabbed-collection",
+      "blocks": {
+        "collection_tab_pGP7RG": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "football-bracelets",
+            "tab_label": ""
+          }
+        },
+        "collection_tab_HfA4rg": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "christmas",
+            "tab_label": ""
+          }
+        },
+        "collection_tab_6fmwT8": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "hanukkah-jelly-bracelets",
+            "tab_label": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_tab_pGP7RG",
+        "collection_tab_HfA4rg",
+        "collection_tab_6fmwT8"
+      ],
+      "name": "Collection Carousel",
+      "settings": {
+        "heading": "Styles You'll Love",
+        "show_view_all": true
+      }
+    },
+    "promo_split_good_vibes": {
+      "type": "promo-split",
+      "settings": {
+        "image": "shopify://shop_images/IMG-8816.heic",
+        "image_position": "left",
+        "title": "Good Vibes, Delivered Monthly",
+        "description": "<p>Join the HUED Bracelet Club and get exclusive designs delivered to your door every month. Subscribe and save!</p>",
+        "button_text": "LEARN MORE",
+        "button_link": "shopify://collections/all",
+        "button_style": "dark",
+        "background_color": "#e8ede4",
+        "text_color": "#303030"
+      }
+    },
     "index_shop_the_look_ELRqFX": {
       "type": "index-shop-the-look",
-      "disabled": true,
       "blocks": {
         "product_WxNPtE": {
           "type": "product",
@@ -189,6 +252,7 @@
         "product_gTjYiE",
         "product_iWJa4z"
       ],
+      "disabled": true,
       "name": "Shop the look",
       "settings": {
         "stl__subheading": "",
@@ -206,36 +270,48 @@
         "look_1": {
           "type": "look",
           "settings": {
+            "image": "shopify://shop_images/FullSizeRender_b3b78b0d-0138-473b-bd3c-6617b2444f88.heic",
+            "link": "",
             "button_text": "SHOP THE LOOK"
           }
         },
         "look_2": {
           "type": "look",
           "settings": {
+            "image": "shopify://shop_images/FullSizeRender_8df35f76-ba2c-4aa4-b888-d899ae539715.jpg",
+            "link": "",
             "button_text": "SHOP THE LOOK"
           }
         },
         "look_3": {
           "type": "look",
           "settings": {
+            "image": "shopify://shop_images/FullSizeRender_10fd5852-999f-4949-8f6d-4ce9eb609199.jpg",
+            "link": "",
             "button_text": "SHOP THE LOOK"
           }
         },
         "look_4": {
           "type": "look",
           "settings": {
+            "image": "shopify://shop_images/4974C529-BE91-4545-BC86-5D38CE047CB2.jpg",
+            "link": "",
             "button_text": "SHOP THE LOOK"
           }
         },
         "look_5": {
           "type": "look",
           "settings": {
+            "image": "shopify://shop_images/FullSizeRender_3ab9f733-13b1-4e69-aa6c-7cd336d35b5c.heic",
+            "link": "",
             "button_text": "SHOP THE LOOK"
           }
         },
         "look_6": {
           "type": "look",
           "settings": {
+            "image": "shopify://shop_images/IMG-6974.heic",
+            "link": "",
             "button_text": "SHOP THE LOOK"
           }
         }
@@ -259,32 +335,6 @@
         "button_hover_bg_color": "#f5f5f5",
         "button_text_color": "#1a1a1a"
       }
-    },
-    "promo_split_create_your_own": {
-      "type": "promo-split",
-      "settings": {
-        "image_position": "right",
-        "title": "Create Your Own",
-        "description": "<p>Design a custom bracelet stack that's uniquely you. Mix colors, styles, and meanings to create something special.</p>",
-        "button_text": "SHOP NOW",
-        "button_link": "shopify://collections/all",
-        "button_style": "dark",
-        "background_color": "#f8e8dc",
-        "text_color": "#303030"
-      }
-    },
-    "promo_split_good_vibes": {
-      "type": "promo-split",
-      "settings": {
-        "image_position": "left",
-        "title": "Good Vibes, Delivered Monthly",
-        "description": "<p>Join the HUED Bracelet Club and get exclusive designs delivered to your door every month. Subscribe and save!</p>",
-        "button_text": "LEARN MORE",
-        "button_link": "shopify://collections/all",
-        "button_style": "dark",
-        "background_color": "#ffffff",
-        "text_color": "#303030"
-      }
     }
   },
   "order": [
@@ -293,6 +343,7 @@
     "category-cards",
     "index_tabbed_collection_LqUqL3",
     "promo_split_create_your_own",
+    "index_tabbed_collection_FgyUzJ",
     "promo_split_good_vibes",
     "index_shop_the_look_ELRqFX",
     "shop_the_look_grid_main"

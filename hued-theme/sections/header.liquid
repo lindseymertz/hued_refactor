@@ -34,35 +34,21 @@
     </div>
     {% endif %}
 
-    {% comment %} HUED REDESIGN: Text logo with optional image fallback {% endcomment %}
-    <div class="header-logo{% if section.settings.fullBleed and section.settings.fullBleedLogo and template == 'index' %} overlay-logo--enabled{% endif %}">
-      {% if section.settings.use_text_logo %}
-        <h1 class="header-logo-text" data-header-logo>
-          <a href="{{ routes.root_url }}" itemprop="url">HUED</a>
-        </h1>
-      {% elsif section.settings.logo %}
-        <h2 data-header-logo>
-          <a href="{{ routes.root_url }}" itemprop="url">
-            {% assign logoWidth = section.settings.logoWidth | append: 'x' | escape %}
-            <img class="header-logo-original"
-                 src="{{ section.settings.logo | img_url: logoWidth }}"
-                 srcset="{{ section.settings.logo | img_url: logoWidth }} 1x, {{ section.settings.logo | img_url: logoWidth, scale: 2 }} 2x"
-                 alt="{{ shop.name }}"
-                 itemprop="logo">
+    {% comment %} HUED REDESIGN: Logo - uses direct asset file {% endcomment %}
+    {% assign logo_width = section.settings.logoWidth | default: 120 %}
 
-            {% if section.settings.fullBleed %}
-              {% if section.settings.fullBleedLogo and template == 'index' %}
-                <img class="header-logo-fullbleed"
-                     src="{{ section.settings.fullBleedLogo | img_url: logoWidth }}"
-                     srcset="{{ section.settings.fullBleedLogo | img_url: logoWidth }} 1x, {{ section.settings.fullBleedLogo | img_url: logoWidth, scale: 2 }} 2x"
-                     alt="{{ shop.name }}">
-              {% endif %}
-            {% endif %}
-          </a>
-        </h2>
-      {% else %}
-        <h1 class="header-logo-text" data-header-logo><a href="{{ routes.root_url }}" itemprop="url">HUED</a></h1>
-      {% endif %}
+    <div class="header-logo{% if section.settings.fullBleed and section.settings.fullBleedLogo and template == 'index' %} overlay-logo--enabled{% endif %}">
+      <h1 data-header-logo>
+        <a href="{{ routes.root_url }}" itemprop="url" class="header-logo__link">
+          <img class="header-logo__image"
+               src="{{ 'Hued_Logo_FA.png' | asset_url }}"
+               width="{{ logo_width }}"
+               height="auto"
+               alt="{{ shop.name }}"
+               loading="eager"
+               itemprop="logo">
+        </a>
+      </h1>
     </div>
 
     <div class="header--logo-left-search">

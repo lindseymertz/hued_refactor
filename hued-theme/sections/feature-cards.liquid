@@ -1,0 +1,383 @@
+<style>
+  #shopify-section-{{ section.id }} .feature-cards {
+    background-color: {{ section.settings.background_color }};
+    padding: 60px 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    #shopify-section-{{ section.id }} .feature-cards {
+      padding: 80px 0;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .feature-cards__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--page-gutter-mobile);
+  }
+
+  @media screen and (min-width: 1024px) {
+    #shopify-section-{{ section.id }} .feature-cards__container {
+      padding: 0 var(--page-gutter);
+    }
+  }
+
+  #shopify-section-{{ section.id }} .feature-cards__title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: var(--header-font);
+    font-weight: var(--header-font-weight);
+    font-size: calc(var(--heading-size) * 1.2);
+    text-transform: var(--header-text-transform);
+    letter-spacing: var(--header-letter-spacing);
+    color: var(--body-color);
+  }
+
+  #shopify-section-{{ section.id }} .feature-cards__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  @media screen and (min-width: 600px) {
+    #shopify-section-{{ section.id }} .feature-cards__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    #shopify-section-{{ section.id }} .feature-cards__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .feature-card {
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  #shopify-section-{{ section.id }} .feature-card__image {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .feature-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .feature-card__image svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #shopify-section-{{ section.id }} .feature-card__content {
+    padding: 28px 24px 32px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  #shopify-section-{{ section.id }} .feature-card__heading {
+    font-family: var(--header-font);
+    font-weight: var(--secondary-weight-bold);
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 12px;
+  }
+
+  @media screen and (min-width: 768px) {
+    #shopify-section-{{ section.id }} .feature-card__heading {
+      font-size: 22px;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .feature-card__description {
+    font-family: var(--body-font);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  @media screen and (min-width: 768px) {
+    #shopify-section-{{ section.id }} .feature-card__description {
+      font-size: 15px;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .feature-card__content--light {
+    color: #ffffff;
+  }
+
+  #shopify-section-{{ section.id }} .feature-card__content--dark {
+    color: #333333;
+  }
+</style>
+
+<section
+  class="feature-cards"
+  data-section-id="{{ section.id }}"
+  data-section-type="feature-cards">
+
+  <div class="feature-cards__container">
+
+    {% if section.settings.show_title and section.settings.title != blank %}
+      <h2 class="feature-cards__title">{{ section.settings.title | escape }}</h2>
+    {% endif %}
+
+    <div class="feature-cards__grid">
+      {% for block in section.blocks %}
+        <div class="feature-card" {{ block.shopify_attributes }}>
+
+          <div class="feature-card__image">
+            {% if block.settings.image != blank %}
+              <img
+                src="{{ block.settings.image | image_url: width: 800 }}"
+                srcset="{{ block.settings.image | image_url: width: 400 }} 400w,
+                        {{ block.settings.image | image_url: width: 600 }} 600w,
+                        {{ block.settings.image | image_url: width: 800 }} 800w,
+                        {{ block.settings.image | image_url: width: 1000 }} 1000w"
+                sizes="(min-width: 900px) 33vw, (min-width: 600px) 50vw, 100vw"
+                alt="{{ block.settings.title | escape }}"
+                loading="lazy"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}">
+            {% else %}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+          </div>
+
+          <div
+            class="feature-card__content feature-card__content--{{ block.settings.text_color }}"
+            style="background-color: {{ block.settings.card_color }};">
+            {% if block.settings.title != blank %}
+              <h3 class="feature-card__heading">{{ block.settings.title | escape }}</h3>
+            {% endif %}
+            {% if block.settings.description != blank %}
+              <p class="feature-card__description">{{ block.settings.description | escape }}</p>
+            {% endif %}
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": {
+    "en": "Feature Cards",
+    "de": "Feature-Karten",
+    "es": "Tarjetas de características",
+    "fr": "Cartes de fonctionnalités",
+    "pt-PT": "Cartões de funcionalidades"
+  },
+  "class": "section-feature-cards",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "en": "Section title",
+        "de": "Abschnittstitel",
+        "es": "Título de sección",
+        "fr": "Titre de la section",
+        "pt-PT": "Título da secção"
+      },
+      "default": "Why shop with us?"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": {
+        "en": "Show title",
+        "de": "Titel anzeigen",
+        "es": "Mostrar título",
+        "fr": "Afficher le titre",
+        "pt-PT": "Mostrar título"
+      },
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": {
+        "en": "Background color",
+        "de": "Hintergrundfarbe",
+        "es": "Color de fondo",
+        "fr": "Couleur de fond",
+        "pt-PT": "Cor de fundo"
+      },
+      "default": "#FFF0F0"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_card",
+      "name": {
+        "en": "Feature card",
+        "de": "Feature-Karte",
+        "es": "Tarjeta de característica",
+        "fr": "Carte de fonctionnalité",
+        "pt-PT": "Cartão de funcionalidade"
+      },
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": {
+            "en": "Image",
+            "de": "Bild",
+            "es": "Imagen",
+            "fr": "Image",
+            "pt-PT": "Imagem"
+          },
+          "info": {
+            "en": "Recommended: 800 x 600px (4:3 ratio)",
+            "de": "Empfohlen: 800 x 600 Pixel (4:3 Verhältnis)",
+            "es": "Recomendado: 800 x 600 píxeles (relación 4:3)",
+            "fr": "Recommandé: 800 x 600 pixels (ratio 4:3)",
+            "pt-PT": "Recomendado: 800 x 600 px (proporção 4:3)"
+          }
+        },
+        {
+          "type": "color",
+          "id": "card_color",
+          "label": {
+            "en": "Card background color",
+            "de": "Kartenhintergrundfarbe",
+            "es": "Color de fondo de tarjeta",
+            "fr": "Couleur de fond de la carte",
+            "pt-PT": "Cor de fundo do cartão"
+          },
+          "default": "#F58D4B"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "en": "Title",
+            "de": "Titel",
+            "es": "Título",
+            "fr": "Titre",
+            "pt-PT": "Título"
+          },
+          "default": "Feel Good, Look Good"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": {
+            "en": "Description",
+            "de": "Beschreibung",
+            "es": "Descripción",
+            "fr": "Description",
+            "pt-PT": "Descrição"
+          },
+          "default": "Our products are designed to make you feel confident and stylish every day."
+        },
+        {
+          "type": "select",
+          "id": "text_color",
+          "label": {
+            "en": "Text color",
+            "de": "Textfarbe",
+            "es": "Color del texto",
+            "fr": "Couleur du texte",
+            "pt-PT": "Cor do texto"
+          },
+          "options": [
+            {
+              "value": "light",
+              "label": {
+                "en": "Light",
+                "de": "Hell",
+                "es": "Claro",
+                "fr": "Clair",
+                "pt-PT": "Claro"
+              }
+            },
+            {
+              "value": "dark",
+              "label": {
+                "en": "Dark",
+                "de": "Dunkel",
+                "es": "Oscuro",
+                "fr": "Foncé",
+                "pt-PT": "Escuro"
+              }
+            }
+          ],
+          "default": "light"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Feature Cards",
+        "de": "Feature-Karten",
+        "es": "Tarjetas de características",
+        "fr": "Cartes de fonctionnalités",
+        "pt-PT": "Cartões de funcionalidades"
+      },
+      "category": {
+        "en": "Image",
+        "de": "Bild",
+        "es": "Imagen",
+        "fr": "Image",
+        "pt-PT": "Imagem"
+      },
+      "settings": {
+        "title": "Why shop with us?",
+        "show_title": true,
+        "background_color": "#FFF0F0"
+      },
+      "blocks": [
+        {
+          "type": "feature_card",
+          "settings": {
+            "card_color": "#F58D4B",
+            "title": "Feel Good, Look Good",
+            "description": "Our products are designed to make you feel confident and stylish every day.",
+            "text_color": "light"
+          }
+        },
+        {
+          "type": "feature_card",
+          "settings": {
+            "card_color": "#4DBDAC",
+            "title": "Sustainable & Ethical",
+            "description": "We care about the planet and work with ethical suppliers worldwide.",
+            "text_color": "light"
+          }
+        },
+        {
+          "type": "feature_card",
+          "settings": {
+            "card_color": "#E991B0",
+            "title": "Free Shipping",
+            "description": "Enjoy free shipping on all orders over $50. Fast delivery guaranteed.",
+            "text_color": "light"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

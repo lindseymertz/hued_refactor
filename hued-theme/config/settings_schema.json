@@ -9,6 +9,51 @@
   },
   {
     "name": {
+      "en": "Logo",
+      "de": "Logo",
+      "es": "Logotipo",
+      "fr": "Logo",
+      "pt-PT": "Logótipo"
+    },
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": {
+          "en": "Logo image",
+          "de": "Logobild",
+          "es": "Imagen del logotipo",
+          "fr": "Image du logo",
+          "pt-PT": "Imagem do logótipo"
+        },
+        "info": {
+          "en": "Recommended: 400 x 150px transparent PNG",
+          "de": "Empfohlen: 400 x 150 Pixel, transparente PNG",
+          "es": "Recomendado: 400 x 150 píxeles PNG transparente",
+          "fr": "Recommandé: 400 x 150 pixels PNG transparent",
+          "pt-PT": "Recomendado: 400 x 150 px PNG transparente"
+        }
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "min": 50,
+        "max": 250,
+        "step": 10,
+        "default": 120,
+        "unit": "px",
+        "label": {
+          "en": "Logo width",
+          "de": "Logo-Breite",
+          "es": "Ancho del logotipo",
+          "fr": "Largeur du logo",
+          "pt-PT": "Largura do logótipo"
+        }
+      }
+    ]
+  },
+  {
+    "name": {
       "en": "Colors",
       "de": "Farben",
       "es": "Colores",

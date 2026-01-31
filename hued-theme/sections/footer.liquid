@@ -11,9 +11,17 @@
   <div class="footer-redesign__main">
     <div class="footer-redesign__container">
 
-      {% comment %} Logo {% endcomment %}
+      {% comment %} Logo - uses direct asset file {% endcomment %}
       <div class="footer-redesign__logo">
-        <a href="{{ routes.root_url }}">HUED</a>
+        <a href="{{ routes.root_url }}" class="footer-logo__link">
+          <img
+            src="{{ 'Hued_Logo_FA.png' | asset_url }}"
+            width="{{ settings.logo_width | default: 120 }}"
+            height="auto"
+            alt="{{ shop.name }}"
+            loading="lazy"
+            class="footer-logo__image">
+        </a>
       </div>
 
       {% comment %} Content wrapper for columns + divider + signup {% endcomment %}
@@ -128,6 +136,17 @@
   </div>
 
 </footer>
+
+<style>
+  .footer-logo__link {
+    display: inline-block;
+  }
+  .footer-logo__image {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+</style>
 
 {% schema %}
 {
