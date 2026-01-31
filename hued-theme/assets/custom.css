@@ -143,14 +143,8 @@ button.product-item-add-to-cart.loading:after {
   aspect-ratio: 275 / 215; /* Landscape rectangle */
   border-radius: 4px; /* Subtle corners - Pura Vida style */
   overflow: hidden;
-  display: flex;
-  align-items: center; /* Center image vertically */
-  justify-content: center;
 }
-.product-recommendations img {
-  aspect-ratio: 275 / 215; /* Landscape rectangle */
-  border-radius: 4px; /* Subtle corners - Pura Vida style */
-}
+/* Product recommendations images handled in PRODUCT IMAGE FIX section */
 .ssw-fave-btn-content {
   width: 100%;
   display: flex;
@@ -3584,111 +3578,91 @@ h2.featured-products-heading {
    =========================================== */
 
 /* ===========================================
-   PRODUCT IMAGE FIX - Full Width, Crop Top/Bottom
+   PRODUCT IMAGE FIX - Object-Fit Cover
    Date: 2026-01-31
    - Container: 275x215 aspect ratio (landscape)
-   - Image: 100% width, auto height (no left/right crop)
-   - Overflow hidden crops tall images top/bottom
-   - Flexbox centers image vertically (even crop)
+   - Image: object-fit cover (fills container, crops overflow)
+   - Maintains proportions without stretching
    =========================================== */
 
 /* --- Product Card Image Containers --- */
 .product-item__image-wrapper {
   aspect-ratio: 275 / 215;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-/* Inner wrapper inherits flex centering */
-.product-item__image-wrapper .height-inherit {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.product-item-image {
   width: 100%;
+  height: 100%;
 }
 
 /* --- Product Card Images --- */
-/* Full width, natural height - overflow crops top/bottom */
 .product-item-image img,
 .product-item__image-wrapper img {
   width: 100% !important;
-  height: auto !important;
-  object-fit: unset !important;
-  flex-shrink: 0;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
 /* Secondary image (hover) - same styling */
 .product-item-image--secondary {
   width: 100% !important;
-  height: auto !important;
-  object-fit: unset !important;
-  flex-shrink: 0;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
 /* --- Collection Page Product Cards --- */
 .product-item--collection .product-item__image-wrapper {
   aspect-ratio: 275 / 215;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .product-item--collection .product-item-image img {
   width: 100% !important;
-  height: auto !important;
-  object-fit: unset !important;
-  flex-shrink: 0;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
 /* --- Featured Products / Recommendations --- */
 .product-recommendations .product-item__image-wrapper {
   aspect-ratio: 275 / 215;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .product-recommendations .product-item-image img,
 .product-recommendations img {
   width: 100% !important;
-  height: auto !important;
-  object-fit: unset !important;
-  flex-shrink: 0;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
 /* --- Tabbed Collection Carousel --- */
 .tabbed-collection__carousel .product-item__image-wrapper {
   aspect-ratio: 275 / 215;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .tabbed-collection__carousel .product-item-image img {
   width: 100% !important;
-  height: auto !important;
-  object-fit: unset !important;
-  flex-shrink: 0;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
 /* --- Search Results Product Images --- */
 .search-drawer__item-image {
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .search-drawer__item-image img {
   width: 100% !important;
-  height: auto !important;
-  object-fit: unset !important;
-  flex-shrink: 0;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
 /* ===========================================
