@@ -1,0 +1,40 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "settings": {
+        "show_page_heading": true
+      }
+    },
+    "aa96849f-a933-47eb-bc0c-c81b25f0c650": {
+      "type": "index-custom-html",
+      "blocks": {
+        "template--16582776324348__aa96849f-a933-47eb-bc0c-c81b25f0c650-1678293998d2866a3d-0": {
+          "type": "html",
+          "settings": {
+            "code": "<div style=\"max-width:1400px; margin:auto;\"><img src=\"https://cdn.shopify.com/s/files/1/0659/2525/1324/files/Copy_of_how_do_colors_affect_mood_and_emotions_3000_x_3000_px_2048x2048.jpg?v=1677950051\"></div>",
+            "width": "75%"
+          }
+        }
+      },
+      "block_order": [
+        "template--16582776324348__aa96849f-a933-47eb-bc0c-c81b25f0c650-1678293998d2866a3d-0"
+      ],
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "aa96849f-a933-47eb-bc0c-c81b25f0c650"
+  ]
+}

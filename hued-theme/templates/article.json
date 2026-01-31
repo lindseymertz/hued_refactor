@@ -1,0 +1,101 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "template--article",
+      "settings": {}
+    },
+    "index-blog": {
+      "type": "index-blog",
+      "blocks": {
+        "index-blog-0": {
+          "type": "blog",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "index-blog-0"
+      ],
+      "settings": {
+        "indexBlogSubheading": "",
+        "indexBlogHeading": "On the journal",
+        "indexBlogText": "",
+        "post_limit": 3,
+        "showDate": true,
+        "showAuthor": false,
+        "imageSize": "square"
+      }
+    },
+    "index-image-with-text": {
+      "type": "index-image-with-text",
+      "settings": {
+        "subHeading": "",
+        "colorBg": "#F6F6F6",
+        "colorText": "#333333",
+        "textPosition": "middle",
+        "textAlignment": "text-center",
+        "layout": "right",
+        "remove-spacing": true
+      }
+    },
+    "index-collection-list": {
+      "type": "index-collection-list",
+      "blocks": {
+        "index-collection-list-0": {
+          "type": "collection-item",
+          "settings": {
+            "heading": ""
+          }
+        },
+        "index-collection-list-1": {
+          "type": "collection-item",
+          "settings": {
+            "heading": ""
+          }
+        },
+        "index-collection-list-2": {
+          "type": "collection-item",
+          "settings": {
+            "heading": ""
+          }
+        }
+      },
+      "block_order": [
+        "index-collection-list-0",
+        "index-collection-list-1",
+        "index-collection-list-2"
+      ],
+      "settings": {
+        "subheading": "",
+        "heading": "Shop our most-loved collections",
+        "text": "",
+        "indexItemsPerRow": 3
+      }
+    },
+    "index-newsletter": {
+      "type": "index-newsletter",
+      "settings": {
+        "subheading": "",
+        "text": "<p>Join our newsletter.</p>",
+        "customerTag": "",
+        "colorText": "#303030",
+        "colorBackground": "#F3F3F3"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "index-blog",
+    "index-image-with-text",
+    "index-collection-list",
+    "index-newsletter"
+  ]
+}

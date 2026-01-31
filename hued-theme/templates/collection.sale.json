@@ -1,0 +1,166 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "wrapper": "div.collection-wrapper",
+  "sections": {
+    "index-image-with-text-overlay": {
+      "type": "index-image-with-text-overlay",
+      "settings": {
+        "image_height": "40vw",
+        "bg_image_overlay_color": "#F6F6F6",
+        "bg_image_overlay_opacity": 5,
+        "subheading": "",
+        "text": "",
+        "colorText": "#ffffff",
+        "textPosition": "center",
+        "textAlignment": "center",
+        "heading--text-size": 30,
+        "text--text-size": 16,
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "visual-navigation-banner": {
+      "type": "visual-navigation-banner",
+      "blocks": {
+        "visual-navigation-banner-1": {
+          "type": "navigation_link",
+          "settings": {
+            "link_url": "shopify://collections/all",
+            "link_text": "Navigation item"
+          }
+        },
+        "visual-navigation-banner-0": {
+          "type": "navigation_link",
+          "settings": {
+            "link_url": "shopify://collections/all",
+            "link_text": "Navigation item"
+          }
+        }
+      },
+      "block_order": [
+        "visual-navigation-banner-1",
+        "visual-navigation-banner-0"
+      ],
+      "settings": {
+        "title": "",
+        "image_style": "circle"
+      }
+    },
+    "product-filtering": {
+      "type": "main-collection-filtering",
+      "blocks": {
+        "main-collection-filtering": {
+          "type": "title",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "main-collection-filtering"
+      ],
+      "settings": {
+        "desktop_position": "sidebar",
+        "enable_filtering": true,
+        "enable_sorting": true
+      }
+    },
+    "main": {
+      "type": "collection",
+      "blocks": {
+        "image": {
+          "type": "image",
+          "settings": {}
+        },
+        "vendor": {
+          "type": "vendor",
+          "settings": {
+            "productType": false
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "in-your-cart": {
+          "type": "in-your-cart",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "image",
+        "vendor",
+        "title",
+        "price",
+        "in-your-cart"
+      ],
+      "settings": {
+        "collectionProductsPerRow": 3,
+        "collageLayoutEnabled": false
+      }
+    },
+    "index-collection-list": {
+      "type": "index-collection-list",
+      "blocks": {
+        "index-collection-list-0": {
+          "type": "collection-item",
+          "settings": {
+            "heading": ""
+          }
+        },
+        "index-collection-list-1": {
+          "type": "collection-item",
+          "settings": {
+            "heading": ""
+          }
+        },
+        "index-collection-list-2": {
+          "type": "collection-item",
+          "settings": {
+            "heading": ""
+          }
+        }
+      },
+      "block_order": [
+        "index-collection-list-0",
+        "index-collection-list-1",
+        "index-collection-list-2"
+      ],
+      "settings": {
+        "subheading": "",
+        "heading": "Shop our top collections",
+        "text": "",
+        "indexItemsPerRow": 3
+      }
+    },
+    "index-newsletter": {
+      "type": "index-newsletter",
+      "settings": {
+        "subheading": "",
+        "heading": "Stay up to date",
+        "text": "",
+        "customerTag": "",
+        "colorText": "#333333",
+        "colorBackground": "#F6F6F6"
+      }
+    }
+  },
+  "order": [
+    "index-image-with-text-overlay",
+    "visual-navigation-banner",
+    "product-filtering",
+    "main",
+    "index-collection-list",
+    "index-newsletter"
+  ]
+}

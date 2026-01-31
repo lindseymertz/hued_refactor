@@ -1,0 +1,296 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "product-gallery": {
+      "type": "product-gallery",
+      "settings": {
+        "imageSize": "medium",
+        "videoLooping": false,
+        "productImageChangesVariant": true
+      }
+    },
+    "main": {
+      "type": "product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "growave_loyalty_wishlist_block_product_review_avg_profile_YWh6Ni": {
+          "type": "shopify://apps/growave-loyalty-wishlist/blocks/block.product.reviewAvgProfile/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "tax_and_shipping": {
+          "type": "tax_and_shipping",
+          "settings": {
+            "tax_included": true,
+            "shipping_policy": true
+          }
+        },
+        "swatches": {
+          "type": "swatches",
+          "settings": {}
+        },
+        "quantity": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "productsSmartPayment": false
+          }
+        },
+        "growave_loyalty_wishlist_block_product_fave_button_7KzXTp": {
+          "type": "shopify://apps/growave-loyalty-wishlist/blocks/block.product.faveButton/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
+          "settings": {}
+        },
+        "store_availability": {
+          "type": "store_availability",
+          "disabled": true,
+          "settings": {}
+        },
+        "cross-sells": {
+          "type": "cross-sells",
+          "disabled": true,
+          "settings": {
+            "title": "COMPLETE THE LOOK",
+            "cross_sell_product_1": "",
+            "cross_sell_product_2": "",
+            "cross_sell_product_3": "",
+            "cross_sell_bg": "#ffffff"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "social": {
+          "type": "social",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "growave_loyalty_wishlist_block_product_review_avg_profile_YWh6Ni",
+        "price",
+        "tax_and_shipping",
+        "swatches",
+        "quantity",
+        "buy_buttons",
+        "growave_loyalty_wishlist_block_product_fave_button_7KzXTp",
+        "store_availability",
+        "cross-sells",
+        "description",
+        "social"
+      ],
+      "settings": {}
+    },
+    "app-product-reviews": {
+      "type": "apps",
+      "blocks": {
+        "growave_loyalty_wishlist_block_product_review_widget_ChUMi6": {
+          "type": "shopify://apps/growave-loyalty-wishlist/blocks/block.product.reviewWidget/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "growave_loyalty_wishlist_block_product_review_widget_ChUMi6"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "product_recommendations_heading": "Customers Also Viewed"
+      }
+    },
+    "index-rich-text": {
+      "type": "index-rich-text",
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "Welcome to our store",
+        "text": "<p>Use this text block to show store announcements, advertise products and collections, or simply welcome visitors to your store.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "accordion": {
+      "type": "accordion",
+      "blocks": {
+        "accordion-0": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Place your question or heading here",
+            "text": "<p>Here you can place an explanation or answer to the question.</p>"
+          }
+        },
+        "accordion-1": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Place your question or heading here",
+            "text": "<p>Here you can place an explanation or answer to the question.</p>"
+          }
+        },
+        "accordion-2": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Place your question or heading here",
+            "text": "<p>Here you can place an explanation or answer to the question.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "accordion-0",
+        "accordion-1",
+        "accordion-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "background-color": "#f6f6f6",
+        "text-color": "#000000",
+        "title": "Frequently asked questions",
+        "faq_icon": "plus_minus"
+      }
+    },
+    "product-info-columns": {
+      "type": "product-info-columns",
+      "blocks": {
+        "product-info-columns-0": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "title": "Title",
+            "text": "Share store details, promotions, or brand content with your customers.",
+            "link": "shopify://collections/all",
+            "link_text": "Learn more"
+          }
+        },
+        "product-info-columns-1": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "title": "Title",
+            "text": "Share store details, promotions, or brand content with your customers.",
+            "link": "shopify://collections/all",
+            "link_text": "Learn more"
+          }
+        },
+        "product-info-columns-2": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "title": "Title",
+            "text": "Share store details, promotions, or brand content with your customers.",
+            "link": "shopify://collections/all",
+            "link_text": "Learn more"
+          }
+        }
+      },
+      "block_order": [
+        "product-info-columns-0",
+        "product-info-columns-1",
+        "product-info-columns-2"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "index-image-with-text": {
+      "type": "index-image-with-text",
+      "disabled": true,
+      "settings": {
+        "subHeading": "Subheading",
+        "heading": "Share your story",
+        "text": "",
+        "colorBg": "#f6f6f6",
+        "colorText": "#333333",
+        "textPosition": "middle",
+        "textAlignment": "text-center",
+        "layout": "right",
+        "remove-spacing": true
+      }
+    },
+    "index-shop-the-look": {
+      "type": "index-shop-the-look",
+      "blocks": {
+        "index-shop-the-look-0": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "top": 20,
+            "left": 54
+          }
+        },
+        "index-shop-the-look-1": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "top": 50,
+            "left": 50
+          }
+        }
+      },
+      "block_order": [
+        "index-shop-the-look-0",
+        "index-shop-the-look-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "stl__subheading": "",
+        "stl__heading": "Shop the look",
+        "stl__description": "<p>Add a description of your shop the look section to encourage your customers to purchase.</p>",
+        "description_alignment": "left",
+        "image__position": "image--left",
+        "link": "shopify://collections/all",
+        "button__text": "Shop now"
+      }
+    },
+    "product-recent": {
+      "type": "product-recent",
+      "disabled": true,
+      "settings": {
+        "recently_viewed_heading": "Recently viewed"
+      }
+    },
+    "index-newsletter": {
+      "type": "index-newsletter",
+      "settings": {
+        "subheading": "",
+        "heading": "Join our newsletter",
+        "text": "",
+        "customerTag": "",
+        "colorText": "#303030",
+        "colorBackground": "#f3f3f3"
+      }
+    }
+  },
+  "order": [
+    "product-gallery",
+    "main",
+    "app-product-reviews",
+    "product-recommendations",
+    "index-rich-text",
+    "accordion",
+    "product-info-columns",
+    "index-image-with-text",
+    "index-shop-the-look",
+    "product-recent",
+    "index-newsletter"
+  ]
+}

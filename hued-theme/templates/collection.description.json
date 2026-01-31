@@ -1,0 +1,257 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "wrapper": "div.collection-wrapper",
+  "sections": {
+    "video-hero": {
+      "type": "video-hero",
+      "settings": {
+        "desktopHeight": "450",
+        "mobileHeight": "250",
+        "subheading": "",
+        "title": "",
+        "text": "",
+        "textAlignment": "center",
+        "textColor": "#000000",
+        "textShadow": false,
+        "heading--text-size": 50,
+        "text--text-size": 24,
+        "button_link": "",
+        "button_label": "",
+        "textColorButton": "#ffffff",
+        "colorButton": "#333333"
+      }
+    },
+    "index-rich-text": {
+      "type": "index-rich-text",
+      "settings": {
+        "subheading": "",
+        "text": "<p>{{ collection.title }}</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "index-image-with-text-00": {
+      "type": "index-image-with-text",
+      "settings": {
+        "subHeading": "",
+        "colorBg": "#F6F6F6",
+        "colorText": "#333333",
+        "textPosition": "middle",
+        "textAlignment": "text-center",
+        "layout": "right",
+        "remove-spacing": true
+      }
+    },
+    "index-image-with-text-01": {
+      "type": "index-image-with-text",
+      "settings": {
+        "subHeading": "",
+        "heading": "",
+        "colorBg": "#F6F6F6",
+        "colorText": "#333333",
+        "textPosition": "middle",
+        "textAlignment": "text-center",
+        "layout": "left",
+        "remove-spacing": true
+      }
+    },
+    "visual-navigation-banner": {
+      "type": "visual-navigation-banner",
+      "blocks": {
+        "visual-navigation-banner-0": {
+          "type": "navigation_link",
+          "settings": {
+            "link_url": "shopify://collections/all",
+            "link_text": "Navigation item"
+          }
+        },
+        "visual-navigation-banner-1": {
+          "type": "navigation_link",
+          "settings": {
+            "link_url": "shopify://collections/all",
+            "link_text": "Navigation item"
+          }
+        },
+        "visual-navigation-banner-2": {
+          "type": "navigation_link",
+          "settings": {
+            "link_url": "shopify://collections/all",
+            "link_text": "Navigation item"
+          }
+        },
+        "visual-navigation-banner-3": {
+          "type": "navigation_link",
+          "settings": {
+            "link_url": "shopify://collections/all",
+            "link_text": "Navigation item"
+          }
+        },
+        "visual-navigation-banner-4": {
+          "type": "navigation_link",
+          "settings": {
+            "link_url": "shopify://collections/all",
+            "link_text": "Navigation item"
+          }
+        },
+        "visual-navigation-banner-5": {
+          "type": "navigation_link",
+          "settings": {
+            "link_url": "shopify://collections/all",
+            "link_text": "Navigation item"
+          }
+        }
+      },
+      "block_order": [
+        "visual-navigation-banner-0",
+        "visual-navigation-banner-1",
+        "visual-navigation-banner-2",
+        "visual-navigation-banner-3",
+        "visual-navigation-banner-4",
+        "visual-navigation-banner-5"
+      ],
+      "settings": {
+        "title": "",
+        "image_style": "circle"
+      }
+    },
+    "product-filtering": {
+      "type": "main-collection-filtering",
+      "blocks": {
+        "main-collection-filtering": {
+          "type": "title",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "main-collection-filtering"
+      ],
+      "settings": {
+        "desktop_position": "sidebar",
+        "enable_filtering": true,
+        "enable_sorting": true
+      }
+    },
+    "main": {
+      "type": "collection",
+      "blocks": {
+        "image": {
+          "type": "image",
+          "settings": {}
+        },
+        "vendor": {
+          "type": "vendor",
+          "settings": {
+            "productType": false
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "in-your-cart": {
+          "type": "in-your-cart",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "image",
+        "vendor",
+        "title",
+        "price",
+        "in-your-cart"
+      ],
+      "settings": {
+        "collectionProductsPerRow": 3,
+        "collageLayoutEnabled": false
+      }
+    },
+    "index-features": {
+      "type": "index-features",
+      "blocks": {
+        "index-features-1": {
+          "type": "feature-item",
+          "settings": {
+            "title": "Add a feature",
+            "buttonText": "Learn more",
+            "url": "shopify://collections/all",
+            "textAlignment": "bottom left",
+            "colorText": "#333333",
+            "colorOverlay": "#F5F5F5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-2": {
+          "type": "feature-item",
+          "settings": {
+            "title": "",
+            "text": "",
+            "buttonText": "",
+            "url": "",
+            "textAlignment": "top left",
+            "colorText": "#333333",
+            "colorOverlay": "#F5F5F5",
+            "overlayOpacity": 80
+          }
+        },
+        "index-features-3": {
+          "type": "feature-item",
+          "settings": {
+            "title": "Add a feature",
+            "buttonText": "Learn more",
+            "url": "shopify://collections/all",
+            "textAlignment": "bottom left",
+            "colorText": "#333333",
+            "colorOverlay": "#F5F5F5",
+            "overlayOpacity": 80
+          }
+        }
+      },
+      "block_order": [
+        "index-features-1",
+        "index-features-2",
+        "index-features-3"
+      ],
+      "settings": {
+        "subheading": "Subheading",
+        "heading": "Features",
+        "text": "",
+        "indexItemsPerRow": 3,
+        "remove-spacing": true
+      }
+    },
+    "index-newsletter": {
+      "type": "index-newsletter",
+      "settings": {
+        "subheading": "",
+        "heading": "Stay up to date",
+        "text": "",
+        "customerTag": "",
+        "colorText": "#333333",
+        "colorBackground": "#F6F6F6"
+      }
+    }
+  },
+  "order": [
+    "video-hero",
+    "index-rich-text",
+    "index-image-with-text-00",
+    "index-image-with-text-01",
+    "visual-navigation-banner",
+    "product-filtering",
+    "main",
+    "index-features",
+    "index-newsletter"
+  ]
+}

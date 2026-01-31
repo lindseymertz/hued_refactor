@@ -1,0 +1,43 @@
+<div class="quick-add-overlay" data-quick-add-overlay></div>
+<div class="quick-add-modal" data-quick-add-modal aria-hidden="true" role="dialog" aria-modal="true">
+  <button class="quick-add-modal__close" data-quick-add-close aria-label="Close">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 6L6 18M6 6L18 18" stroke="#303030" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <div class="quick-add-modal__content">
+    <div class="quick-add-modal__gallery">
+      <div class="quick-add-modal__main-image">
+        <img src="" alt="" data-quick-add-main-image>
+      </div>
+      <div class="quick-add-modal__nav">
+        <button class="quick-add-modal__nav-btn quick-add-modal__nav-prev" data-quick-add-prev aria-label="Previous image">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 18L9 12L15 6" stroke="#303030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="quick-add-modal__nav-btn quick-add-modal__nav-next" data-quick-add-next aria-label="Next image">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 18L15 12L9 6" stroke="#303030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="quick-add-modal__info">
+      <h2 class="quick-add-modal__title" data-quick-add-title></h2>
+      <p class="quick-add-modal__price" data-quick-add-price></p>
+
+      <div class="quick-add-modal__options" data-quick-add-options>
+        <!-- Size options injected via JS -->
+      </div>
+
+      <button class="quick-add-modal__add-btn" data-quick-add-submit disabled>
+        ADD TO CART
+      </button>
+
+      <a href="" class="quick-add-modal__view-link" data-quick-add-link>View full product details</a>
+    </div>
+  </div>
+</div>

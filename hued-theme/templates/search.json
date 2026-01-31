@@ -1,0 +1,132 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "wrapper": "div.collection-wrapper",
+  "sections": {
+    "index-image-with-text-overlay": {
+      "type": "index-image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "image_height": "30vw",
+        "bg_image_overlay_color": "#000000",
+        "bg_image_overlay_opacity": 0,
+        "subheading": "",
+        "title": "",
+        "text": "",
+        "colorText": "#ffffff",
+        "textPosition": "center",
+        "textAlignment": "center",
+        "heading--text-size": 30,
+        "text--text-size": 16,
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "main": {
+      "type": "template--search",
+      "settings": {
+        "desktop_position": "sidebar",
+        "enable_filtering": true,
+        "enable_sorting": true
+      }
+    },
+    "index-featured-collection": {
+      "type": "index-featured-collection",
+      "disabled": true,
+      "settings": {
+        "style": "slider",
+        "collection": "",
+        "product-info": "below",
+        "productsPerRow": 4,
+        "displayDetails": "customDetails",
+        "featuredSubheading": "",
+        "featuredTitle": "Featured collection",
+        "featuredCustomDescription": "",
+        "showViewAll": false,
+        "displayDetailsInGrid": false,
+        "numberOfRows": 2
+      }
+    },
+    "index-navigation-list": {
+      "type": "index-navigation-list",
+      "disabled": true,
+      "settings": {
+        "navigation--navigation-blocks--subheading": "",
+        "navigation--navigation-blocks--heading": "Highlight bestsellers",
+        "navigation--navigation-blocks--menu": "",
+        "navigation--navigation-blocks--text-size": "medium",
+        "navigation--navigation-blocks--font": "heading-font",
+        "navigation--navigation-blocks--text-color": "#333333",
+        "navigation--navigation-blocks--background-color": "#f5f5f5"
+      }
+    },
+    "index-blog": {
+      "type": "index-blog",
+      "blocks": {
+        "index-blog-0": {
+          "type": "blog",
+          "settings": {
+            "blog": ""
+          }
+        }
+      },
+      "block_order": [
+        "index-blog-0"
+      ],
+      "disabled": true,
+      "settings": {
+        "indexBlogSubheading": "",
+        "indexBlogHeading": "FROM THE BLOG",
+        "indexBlogText": "",
+        "post_limit": 3,
+        "showDate": true,
+        "showAuthor": false,
+        "imageSize": "square"
+      }
+    },
+    "index-sliding-text": {
+      "type": "index-sliding-text",
+      "blocks": {
+        "index-sliding-text-0": {
+          "type": "text",
+          "settings": {
+            "text--scrolling-text_text": "PROMOTE AN OFFER"
+          }
+        },
+        "index-sliding-text-1": {
+          "type": "text",
+          "settings": {
+            "text--scrolling-text_text": "PROMOTE AN OFFER"
+          }
+        }
+      },
+      "block_order": [
+        "index-sliding-text-0",
+        "index-sliding-text-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "text--scrolling-text--text-size": "small",
+        "text--scrolling-text--font": "headingFont",
+        "text--scrolling-text--text-color": "#333333",
+        "text--scrolling--background-color": "#f5f5f5",
+        "text--scrolling--link": ""
+      }
+    }
+  },
+  "order": [
+    "index-image-with-text-overlay",
+    "main",
+    "index-featured-collection",
+    "index-navigation-list",
+    "index-blog",
+    "index-sliding-text"
+  ]
+}

@@ -1,0 +1,494 @@
+{% comment %}
+  Shop the Look Grid - Pura Vida Style
+  A responsive grid of lifestyle images with "SHOP THE LOOK" button overlays
+{% endcomment %}
+
+<section
+  class="shop-the-look-grid"
+  data-section-id="{{ section.id }}"
+  data-section-type="home"
+  data-section-child="shop-the-look-grid"
+>
+  <div class="stl-grid__container">
+    {% if section.settings.show_title and section.settings.title != blank %}
+      <header class="stl-grid__header">
+        <h2 class="stl-grid__title">{{ section.settings.title | escape }}</h2>
+      </header>
+    {% endif %}
+
+    <div class="stl-grid__grid stl-grid__cols-{{ section.settings.columns_desktop }}">
+      {% for block in section.blocks %}
+        <div class="stl-grid__item" {{ block.shopify_attributes }}>
+          <a
+            href="{{ block.settings.link | default: '#' }}"
+            class="stl-grid__link"
+            {% if block.settings.link == blank %}aria-disabled="true"{% endif %}
+          >
+            <div class="stl-grid__image-wrapper">
+              {% if block.settings.image != blank %}
+                {%-
+                  render 'image',
+                  image_object: block.settings.image,
+                  image_widths: '375, 500, 750, 1000, 1200',
+                  image_noscript_width: '750x',
+                  image_link: false,
+                  image_additional_content: false,
+                  image_class: 'stl-grid__image',
+                  image_attributes: false
+                -%}
+              {% else %}
+                <figure class="stl-grid__placeholder">
+                  {% capture index %}{% cycle '1', '2', '3', '4', '5', '6' %}{% endcapture %}
+                  {{ 'lifestyle-' | append: index | placeholder_svg_tag: 'stl-grid__placeholder-svg' }}
+                </figure>
+              {% endif %}
+            </div>
+
+            <span class="stl-grid__button">
+              {{ block.settings.button_text | default: 'SHOP THE LOOK' }}
+            </span>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Shop the Look Grid - Pura Vida Style */
+  .shop-the-look-grid {
+    padding: 40px 0;
+  }
+
+  .stl-grid__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 52px; /* Matches header/footer alignment */
+  }
+
+  /* Header */
+  .stl-grid__header {
+    text-align: left;
+    margin-bottom: 32px;
+  }
+
+  .stl-grid__title {
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  /* Grid Layout */
+  .stl-grid__grid {
+    display: grid;
+    gap: {{ section.settings.grid_gap }}px;
+  }
+
+  .stl-grid__cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stl-grid__cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .stl-grid__cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Grid Item */
+  .stl-grid__item {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stl-grid__link {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Image Wrapper */
+  .stl-grid__image-wrapper {
+    position: relative;
+    aspect-ratio: {{ section.settings.image_ratio }};
+    overflow: hidden;
+    background-color: #f5f5f5;
+  }
+
+  .stl-grid__image-wrapper img,
+  .stl-grid__image-wrapper .stl-grid__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+  }
+
+  .stl-grid__link:hover .stl-grid__image-wrapper img,
+  .stl-grid__link:hover .stl-grid__image-wrapper .stl-grid__image {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+
+  /* Placeholder */
+  .stl-grid__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e8e8e8;
+    margin: 0;
+  }
+
+  .stl-grid__placeholder-svg {
+    width: 60%;
+    height: 60%;
+    fill: #ccc;
+  }
+
+  /* Button Overlay */
+  .stl-grid__button {
+    position: absolute;
+    bottom: {{ section.settings.button_offset }}px;
+    right: {{ section.settings.button_offset }}px;
+    background-color: {{ section.settings.button_bg_color }};
+    color: {{ section.settings.button_text_color }};
+    padding: 10px 16px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .stl-grid__link:hover .stl-grid__button {
+    background-color: {{ section.settings.button_hover_bg_color }};
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Responsive - Tablet */
+  @media screen and (max-width: 900px) {
+    .stl-grid__container {
+      padding: 0 24px;
+    }
+
+    .stl-grid__cols-3,
+    .stl-grid__cols-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stl-grid__title {
+      font-size: 24px;
+    }
+  }
+
+  /* Responsive - Mobile */
+  @media screen and (max-width: 600px) {
+    .shop-the-look-grid {
+      padding: 32px 0;
+    }
+
+    .stl-grid__container {
+      padding: 0 24px; /* Matches header/footer mobile alignment */
+    }
+
+    .stl-grid__cols-2,
+    .stl-grid__cols-3,
+    .stl-grid__cols-4 {
+      grid-template-columns: 1fr;
+    }
+
+    .stl-grid__header {
+      margin-bottom: 24px;
+    }
+
+    .stl-grid__title {
+      font-size: 20px;
+    }
+
+    .stl-grid__button {
+      font-size: 10px;
+      padding: 8px 12px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": {
+    "en": "Shop the Look Grid",
+    "de": "Hol dir den Look Gitter",
+    "es": "Compra el Look Cuadrícula",
+    "fr": "Acheter le look Grille",
+    "pt-PT": "Compre a Aparência Grade"
+  },
+  "class": "section-shop-the-look-grid",
+  "max_blocks": 9,
+  "settings": [
+    {
+      "type": "header",
+      "content": {
+        "en": "Section Header",
+        "de": "Abschnittsüberschrift",
+        "es": "Encabezado de sección",
+        "fr": "En-tête de section",
+        "pt-PT": "Cabeçalho da secção"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": {
+        "en": "Show title",
+        "de": "Titel anzeigen",
+        "es": "Mostrar título",
+        "fr": "Afficher le titre",
+        "pt-PT": "Mostrar título"
+      },
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "en": "Title",
+        "de": "Titel",
+        "es": "Título",
+        "fr": "Titre",
+        "pt-PT": "Título"
+      },
+      "default": {
+        "en": "Shop the Look",
+        "de": "Hol dir den Look",
+        "es": "Compra este Look",
+        "fr": "Acheter le Look",
+        "pt-PT": "Compre a Aparência"
+      }
+    },
+    {
+      "type": "header",
+      "content": {
+        "en": "Grid Layout",
+        "de": "Raster-Layout",
+        "es": "Diseño de cuadrícula",
+        "fr": "Disposition de la grille",
+        "pt-PT": "Layout da grade"
+      }
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop",
+      "label": {
+        "en": "Columns (desktop)",
+        "de": "Spalten (Desktop)",
+        "es": "Columnas (escritorio)",
+        "fr": "Colonnes (bureau)",
+        "pt-PT": "Colunas (desktop)"
+      },
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": {
+        "en": "Gap between images",
+        "de": "Abstand zwischen Bildern",
+        "es": "Espacio entre imágenes",
+        "fr": "Écart entre les images",
+        "pt-PT": "Espaço entre imagens"
+      },
+      "min": 8,
+      "max": 32,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": {
+        "en": "Image aspect ratio",
+        "de": "Bildseitenverhältnis",
+        "es": "Relación de aspecto de imagen",
+        "fr": "Rapport d'aspect de l'image",
+        "pt-PT": "Proporção da imagem"
+      },
+      "options": [
+        { "value": "1 / 1", "label": { "en": "Square (1:1)", "de": "Quadrat (1:1)", "es": "Cuadrado (1:1)", "fr": "Carré (1:1)", "pt-PT": "Quadrado (1:1)" } },
+        { "value": "4 / 3", "label": { "en": "Landscape (4:3)", "de": "Querformat (4:3)", "es": "Paisaje (4:3)", "fr": "Paysage (4:3)", "pt-PT": "Paisagem (4:3)" } },
+        { "value": "3 / 4", "label": { "en": "Portrait (3:4)", "de": "Hochformat (3:4)", "es": "Retrato (3:4)", "fr": "Portrait (3:4)", "pt-PT": "Retrato (3:4)" } },
+        { "value": "16 / 9", "label": { "en": "Wide (16:9)", "de": "Breit (16:9)", "es": "Ancho (16:9)", "fr": "Large (16:9)", "pt-PT": "Largo (16:9)" } }
+      ],
+      "default": "1 / 1"
+    },
+    {
+      "type": "header",
+      "content": {
+        "en": "Button Style",
+        "de": "Button-Stil",
+        "es": "Estilo del botón",
+        "fr": "Style du bouton",
+        "pt-PT": "Estilo do botão"
+      }
+    },
+    {
+      "type": "range",
+      "id": "button_offset",
+      "label": {
+        "en": "Button offset from edge",
+        "de": "Button-Abstand vom Rand",
+        "es": "Desplazamiento del botón desde el borde",
+        "fr": "Décalage du bouton par rapport au bord",
+        "pt-PT": "Deslocamento do botão da borda"
+      },
+      "min": 12,
+      "max": 32,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": {
+        "en": "Button background",
+        "de": "Button-Hintergrund",
+        "es": "Fondo del botón",
+        "fr": "Arrière-plan du bouton",
+        "pt-PT": "Fundo do botão"
+      },
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg_color",
+      "label": {
+        "en": "Button background (hover)",
+        "de": "Button-Hintergrund (Hover)",
+        "es": "Fondo del botón (hover)",
+        "fr": "Arrière-plan du bouton (survol)",
+        "pt-PT": "Fundo do botão (hover)"
+      },
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": {
+        "en": "Button text color",
+        "de": "Button-Textfarbe",
+        "es": "Color del texto del botón",
+        "fr": "Couleur du texte du bouton",
+        "pt-PT": "Cor do texto do botão"
+      },
+      "default": "#1a1a1a"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "look",
+      "name": {
+        "en": "Look",
+        "de": "Look",
+        "es": "Look",
+        "fr": "Look",
+        "pt-PT": "Look"
+      },
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": {
+            "en": "Image",
+            "de": "Bild",
+            "es": "Imagen",
+            "fr": "Image",
+            "pt-PT": "Imagem"
+          },
+          "info": {
+            "en": "Recommended: 800 x 800px or larger for best quality",
+            "de": "Empfohlen: 800 x 800px oder größer für beste Qualität",
+            "es": "Recomendado: 800 x 800px o más para mejor calidad",
+            "fr": "Recommandé: 800 x 800px ou plus pour une meilleure qualité",
+            "pt-PT": "Recomendado: 800 x 800px ou maior para melhor qualidade"
+          }
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": {
+            "en": "Link",
+            "de": "Link",
+            "es": "Enlace",
+            "fr": "Lien",
+            "pt-PT": "Link"
+          },
+          "info": {
+            "en": "Link to collection, product, or page",
+            "de": "Link zu Kollektion, Produkt oder Seite",
+            "es": "Enlace a colección, producto o página",
+            "fr": "Lien vers collection, produit ou page",
+            "pt-PT": "Link para coleção, produto ou página"
+          }
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": {
+            "en": "Button text",
+            "de": "Button-Text",
+            "es": "Texto del botón",
+            "fr": "Texte du bouton",
+            "pt-PT": "Texto do botão"
+          },
+          "default": {
+            "en": "SHOP THE LOOK",
+            "de": "LOOK SHOPPEN",
+            "es": "COMPRA EL LOOK",
+            "fr": "ACHETER LE LOOK",
+            "pt-PT": "COMPRE O LOOK"
+          }
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Shop the Look Grid",
+        "de": "Hol dir den Look Gitter",
+        "es": "Compra el Look Cuadrícula",
+        "fr": "Acheter le look Grille",
+        "pt-PT": "Compre a Aparência Grade"
+      },
+      "category": {
+        "en": "Promotional",
+        "de": "für Werbezwecke",
+        "es": "Promocional",
+        "fr": "Promotionnel",
+        "pt-PT": "Promocional"
+      },
+      "blocks": [
+        { "type": "look" },
+        { "type": "look" },
+        { "type": "look" },
+        { "type": "look" },
+        { "type": "look" },
+        { "type": "look" }
+      ]
+    }
+  ]
+}
+{% endschema %}

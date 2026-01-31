@@ -1,0 +1,179 @@
+{% assign items = "" %}
+{% assign itemsAvailability = "" %}
+{% assign colorsAvailability = false %}
+{% assign hasAdditionalInfo = false %}
+
+{% if settings.show_second_image_on_hover == true %}
+  {%- assign secondary_image_enabled = true -%}
+{% endif %}
+
+{% if productInfoSetting and productInfoSetting == 'show-on-hover' %}
+  {% assign hasAdditionalInfo = true %}
+{% endif %}
+
+{% assign isColor = false %}
+{% assign delayAmount = '' %}
+
+<article
+  class="product-item {{ grid }}"
+  data-product-item="{{ item.options_with_values | json | escape }}"
+  data-product-item-type="{{ item.type | escape }}"
+  data-product-item-brand="{{ item.vendor | escape }}"
+  data-aos-duration="600"
+  data-aos-delay="{{ delayAmount }}"
+  data-aos="fade-up"
+  data-aos-easing="capital-easing"
+>
+  <div class="product-item__wrapper">
+    
+    {% for block in blocks %}
+      {% case block.type %}
+      {% when 'image' %}
+      
+        {% capture banner_compiled %}
+          {% render "product-badges", item: item, collection: collection %}
+        {% endcapture %}
+
+        {% if template.name == 'collection' %}
+          {% assign image_link = item.url | within: collection %}
+        {% else %}
+          {% assign image_link = item.url %}
+        {% endif %}
+
+        {% assign image_default = item.featured_image | img_url: image_default_width %}
+
+        {% assign image_secondary = false %}
+
+        {% if item.media.size > 1 and settings.show_second_image_on_hover == true %}
+          {% assign image_secondary = item.media[1].preview_image  %}
+        {% endif %}
+
+        {% if hasAdditionalInfo %}
+          {% assign image_secondary = false %}
+        {% endif %}
+
+        {% if item.media.size > 0 %}
+          <div class="product-item__image-wrapper" {{ block.shopify_attributes }}>
+            {%
+              render 'image',
+              secondary_image_enabled: secondary_image_enabled,
+              image_object: item.featured_media,
+              image_secondary_object: image_secondary,
+              image_widths: '340, 440, 680, 880, 1020, 1320',
+              image_noscript_width: '220x',
+              image_class: 'product-item-image',
+              image_link: image_link,
+              image_tabindex: '-1',
+              image_additional_content: banner_compiled,
+              image_default: image_default,
+              image_link_class: false,
+              image_attributes: false
+            %}
+
+            <div class="product-item-variant-swatch-wrap">
+              {% assign product = item %}
+              {% unless product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+                <div class="product-swatches" {{ block.shopify_attributes }}>
+                  <input type="hidden" class="" data-selected-variant="{{ product.selected_or_first_available_variant.id }}" value="{{ product.selected_or_first_available_variant.id }}" />
+                  {% for option in product.options_with_values %}
+                    {% assign index = forloop.index0 %}
+                    {% assign isColor = false %}
+                    {% if option.name == settings.productColorSwatches %}
+                    {% assign isColor = true %}
+                    {% endif %}
+
+                    {% assign checked = false %}
+                    {% assign currentOption = "option" | append: forloop.index %}
+                    {% for value in option.values %}
+                    {% if value == current_variant[currentOption] %}
+                        {% assign checked = value %}
+                    {% endif %}
+                    {% endfor %}
+                    <div class="form-field__swatch-options">
+                      {% for value in option.values %}
+                          <div class="form-swatch-item" data-product-swatch-value="{{ value | escape }}">
+                          {% if isColor %}
+                              <div class="tooltip">{{ value }}</div>
+                          {% endif %}
+                          {% capture id %}{{ product.id }}-option-{{ index }}-{{ value | escape }}{% endcapture %}
+
+                          <input class="form-radio" id="{{ id }}" type="radio" name="{{ product.id }}-option-{{ index }}" value="{{ value | escape }}" {% if forloop.first %}checked{% endif %} data-product-swatch-input>
+
+                          <label for="{{ id }}" {% if isColor %}style="background-color: {{ value | split: ' ' | join: '' }}; background-image: url({{ value | handle | append: '.png' | file_url }});background-size:cover;background-repeat:no-repeat;" data-color="{{ value | escape }}"{% endif %}>
+                              {{ value }}
+                          </label>
+                          </div>
+                      {% endfor %}
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endunless %}
+              <select class="product-select-variant">
+                  {% for variant in product.variants %}
+                  {% if variant.available %}
+                      <option {% if variant == current_variant %}selected{% endif %} value="{{ variant.id }}">{{ variant.title }}</option>
+                  {% else %}
+                      <option value="{{ variant.id }}" disabled>{{ variant.title }}</option>
+                  {% endif %}
+                  {% endfor %}
+              </select>
+                  {% assign first_variant = product.variants | first %}
+                <button class="product-item-add-to-cart {% unless first_variant.available %}disabled{% endunless %}" data-item-add-to-cart>
+                  {% if first_variant.available %}
+                    Add to Cart
+                  {% else %}
+                    Sold Out
+                  {% endif %}
+                </button>
+            </div>
+          </div>
+        {% else %}
+          <a href="{{ image_link }}" aria-label="{{ item.title }}">{{ 'image' | placeholder_svg_tag: 'product-grid_placeholder' }}</a>
+        {% endif %}
+
+      {% when 'vendor' %}
+
+        {% render "product-brand-type", showType: block.settings.productType, product: item, block_attributes: block.shopify_attributes %}
+
+      {% when 'title' %}
+
+        <h3 class="product--item-title" {{ block.shopify_attributes }}>
+          <a href="{{ item.url | within: collection }}">{{ item.title }}</a>
+        </h3>
+
+      {% when 'price' %}
+
+        <div class="product-item-price" {{ block.shopify_attributes }}>
+        {% if isSearch != true or settings.predictive_search_show_price %}
+          {% render "product-item-price", item: item %}
+        {% endif %}
+        </div>
+
+        <button
+          class="product-item-quick-add"
+          data-quick-add-trigger
+          data-product-handle="{{ item.handle }}"
+          data-product-url="{{ item.url }}.json"
+          aria-label="Quick add {{ item.title }}"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="10" cy="10" r="10" fill="#27bdbe"/>
+            <path d="M10 5V15M5 10H15" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+      {% when 'in-your-cart' %}
+
+        {% for cartItem in cart.items %}
+          {% if cartItem.product_id == item.id %}
+            <a class="product-item-in-cart" href="{{ routes.cart_url }}" {{ block.shopify_attributes }}>{{ "products.product.in_cart" | t }}</a>
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      
+      {% endcase %}
+    {% endfor %}
+
+  </div>
+
+</article>

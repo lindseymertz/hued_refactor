@@ -1,0 +1,73 @@
+{% if section.settings.logo %}
+  <h1 class="gift-card-logo">
+    <a href="{{ routes.root_url }}" itemprop="url">
+      {% assign logoWidth = section.settings.logoWidth | append: 'x' | escape %}
+      <img class="header-logo-original"
+          src="{{ section.settings.logo | img_url: logoWidth }}"
+          srcset="{{ section.settings.logo | img_url: logoWidth }} 1x, {{ section.settings.logo | img_url: logoWidth, scale: 2 }} 2x"
+          alt="{{ shop.name }}"
+          itemprop="logo">
+    </a>
+  </h1>
+{% else %}
+  <h1 class="page-header"><a href="{{ routes.root_url }}" itemprop="url">{{ shop.name }}</a></h1>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "gift-card-header",
+  "settings": [
+    {
+      "type": "header",
+      "content": {
+          "en": "Logo",
+          "de": "Logo",
+          "es": "Logotipo",
+          "fr": "Logo",
+          "pt-PT": "Logótipo"
+      }
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": {
+          "en": "Image",
+          "de": "Bild",
+          "es": "Imagen",
+          "fr": "Image",
+          "pt-PT": "Imagem"
+      },
+      "info": {
+          "en": "250 x 130px recommended",
+          "de": "Empfohlen: 250 x 130 Pixel",
+          "es": "250 x 130 píxeles recomendados",
+          "fr": "250 x 130 pixels recommandés",
+          "pt-PT": "250 x 130 px, recomendado"
+      }
+    },
+    {
+      "type": "range",
+      "id": "logoWidth",
+      "label": {
+          "en": "Width",
+          "de": "Breite",
+          "es": "Ancho",
+          "fr": "Largeur",
+          "pt-PT": "Largura"
+      },
+      "min": 50,
+      "max": 290,
+      "step": 5,
+      "default": 170,
+      "unit": {
+          "en": "px",
+          "de": "px",
+          "es": "px",
+          "fr": "px",
+          "pt-PT": "px"
+      }
+    }
+  ]
+}
+{% endschema %}

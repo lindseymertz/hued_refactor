@@ -1,0 +1,1112 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% capture plus_icon %}
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x plus-icon" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  {% endcapture %}
+  
+  {% capture minus_icon %}
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x minus-icon" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+  {% endcapture %}
+<div
+  class="page-wrapper"
+  data-product="{{ product.handle }}"
+  data-product-json="{{ product | json | escape }}"
+  data-product-current-variant="{{ current_variant | json | escape }}"
+  data-product-deeplinking="true"
+  data-product-carturl="{{ routes.cart_url }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="product"
+  data-section-product-main
+>
+
+    <div class="product-details form product-form store-pickup-enabled" data-product-options>
+        {% form 'product', product, data-productid: product.id %}
+        {% for block in section.blocks%}
+            {% case block.type %}
+            {% when '@app' %}
+                <div {{ block.shopify_attributes }}>{% render block %}</div>
+            {% when 'title' %}
+                {% if template == 'index' %}
+                <h2 class="page-header product-title" id="product-title" data-product-title {{ block.shopify_attributes }}>{{ product.title }}</h2>
+                {% else %}
+                <h1 class="page-header product-title" id="product-title" data-product-title {{ block.shopify_attributes }}>{{ product.title }}</h1>
+                {% endif %}
+            {% when 'vendor' %}
+                {% render "product-brand-type", showType: block.settings.productType, product: product, block_attributes: block.shopify_attributes %}
+            {% when 'price' %}
+                {% render "product-price", current_variant: current_variant, product: product, block_attributes: block.shopify_attributes %}
+            {% when 'tax_and_shipping' %}
+                {% assign showTax = false %}
+                {% if cart.taxes_included and block.settings.tax_included %}
+                    {% assign showTax = true %}
+                {% endif %}
+
+                {% assign showShipping = false %}
+                {% if shop.shipping_policy.body != blank and block.settings.shipping_policy %}
+                    {% assign showShipping = true %}
+                {% endif %}
+
+                {% if showTax or showShipping %}
+                    <span class="product-page__policies" {{ block.shopify_attributes }}>
+                        {% if showTax %}
+                            {{ 'products.product.include_taxes' | t }}
+                        {% endif %}
+                        {% if showShipping %}
+                            {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                        {% endif %}
+                    </span>
+                {% endif %}
+            {% when 'swatches' %}
+                {% unless product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+                    <div class="product-swatches" {{ block.shopify_attributes }}>
+                    {% for option in product.options_with_values %}
+                        {% assign index = forloop.index0 %}
+                        {% assign isColor = false %}
+                        {% if option.name == settings.productColorSwatches %}
+                        {% assign isColor = true %}
+                        {% endif %}
+
+                        {% assign checked = false %}
+                        {% assign currentOption = "option" | append: forloop.index %}
+                        {% for value in option.values %}
+                        {% if value == current_variant[currentOption] %}
+                            {% assign checked = value %}
+                        {% endif %}
+                        {% endfor %}
+
+                        <div class="form-field form-field-swatch swatch-{% if isColor %}color{% else %}other{% endif %}" data-product-swatch="{{ forloop.index0 }}">
+                        <span class="form-field-title">{{ option.name }}</span>
+                        <div class="form-field__swatch-options">
+                        {% for value in option.values %}
+                            <div class="form-swatch-item {% if option.selected_value == value %}available{% endif %}" data-product-swatch-value="{{ value | escape }}">
+                            {% if isColor %}
+                                <div class="tooltip">{{ value }}</div>
+                            {% endif %}
+                            {% capture id %}{{ product.id }}-option-{{ index }}-{{ value | escape }}{% endcapture %}
+
+                            <input class="form-radio" id="{{ id }}" type="radio" name="{{ product.id }}-option-{{ index }}" value="{{ value | escape }}" {% if value == checked %}checked{% endif %} data-product-swatch-input>
+
+                            <label for="{{ id }}" {% if isColor %}style="background-color: {{ value | split: ' ' | join: '' }}; background-image: url({{ value | handle | append: '.png' | file_url }});background-size:cover;background-repeat:no-repeat;" data-color="{{ value | escape }}"{% endif %}>
+                                {{ value }}
+                            </label>
+                            </div>
+                        {% endfor %}
+                        </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                {% endunless %}
+                <div class="form-field product-select-simple-wrapper">
+                    <label for="product-select-simple" aria-label="{{ 'layout.header.search_placeholder' | t }}">
+                    <select id="product-select-simple" class="product-select-simple no-wrap" name="id" data-productid="{{ product.id }}">
+                        {% for variant in product.variants %}
+                        {% if variant.available %}
+                            <option {% if variant == current_variant %}selected{% endif %} value="{{ variant.id }}">{{ variant.title }}</option>
+                        {% else %}
+                            <option value="{{ variant.id }}" disabled>
+                            {{ variant.title }}
+                            </option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                    </label>
+                </div>
+                {% comment "Example: adding line item properties" %}
+                    {% assign customAttr = "Engraving" %}
+                    <div class="form-field">
+                    <label class="form-label" for="{{ customAttr | escape }}-{{ product.id }}">
+                        <span class="form-field-title">{{ customAttr }}</span>
+                        <input class="form-input" type="text" id="{{ customAttr | escape }}-{{ product.id }}" name="properties[{{ customAttr }}]">
+                    </label>
+                    </div>
+                {% endcomment %}
+            {% when 'quantity' %}
+                {% if product.available %}
+                    <div class="form-field product-quantity" {{ block.shopify_attributes }}>
+                    <label class="form-label" for="product-quantity">
+                        <span class="form-field-title">{{ 'products.product.quantity' | t }}</span>
+                        <div class="qty-selector">
+                        <button class="qty-selector__btn qty-selector__btn--minus" type="button" aria-label="Reduce item quantity by one">{% render 'icon-minus' %}</button>
+                        <input class="form-input qty-selector__input" type="text" name="quantity" value="1" id="product-quantity" data-product-quantity>
+                        <button class="qty-selector__btn qty-selector__btn--add" type="button" aria-label="Increase item quantity by one">{% render 'icon-add' %}</button>
+                        </div>
+                    </label>
+                    </div>
+                {% endif %}
+            {% when 'stock_indicator' %}
+                {% if block.settings.productStockLevel != blank and product.available %}
+                    {% assign threshold = block.settings.productStockLevel | append: '.0' | times: 1 %}
+                    {% assign infinity = false %}
+                    {% assign hasStockCounter = false %}
+                    {% assign inventory = '' %}
+                    {% for variant in product.variants %}
+                    {% if variant.inventory_management == null or variant.inventory_management == "" or variant.inventory_management == "shopify" and variant.inventory_policy == "continue" %}
+                        {% assign infinity = true %}
+                    {% elsif variant.inventory_quantity < threshold %}
+                        {% assign hasStockCounter = true %}
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if hasStockCounter %}
+                    <div class="form-field product-stock" data-product-stock-wrapper {{ block.shopify_attributes }}>
+                        <div class="form-label">
+                        <span class="form-field-title">{{ 'products.product.stock_level' | t }}</span>
+
+                        <span class="product-stock-level" data-product-stock data-stock-total="{{ total }}">
+                            {% assign inventory = '' %}
+                            {% for variant in product.variants %}
+                            {% if variant.inventory_management == null or variant.inventory_management == '' or variant.inventory_management == 'shopify' and variant.inventory_policy == 'continue' %}
+                                {% capture inventory %}{{ inventory }}|100%{% endcapture %}
+                                {% if variant == current_variant %}
+                                {% assign currentInventory = '100%' %}
+                                {% endif %}
+                            {% else %}
+                                {% assign variant_inventory = variant.inventory_quantity | divided_by: threshold | times: 100 %}
+                                {% if variant_inventory > 100 %}
+                                {% assign variant_inventory = 100 %}
+                                {% endif %}
+                                {% capture inventory %}{{ inventory }}|{{ variant_inventory | append: '%' }}{% endcapture %}
+                                {% if variant == current_variant %}
+                                {% assign currentInventory = variant_inventory | append: '%' %}
+                                {% endif %}
+                            {% endif %}
+                            {% endfor %}
+
+                            {% capture inventory %}{{ inventory | remove_first: '|' | split: '|' | escape }}{% endcapture %}
+                            <span data-product-stock-variant-visual="{{ inventory }}" style="width: {{ currentInventory }}"></span>
+                        </span>
+
+                        {% for variant in product.variants %}
+                            {% if variant.inventory_management == null or variant.inventory_management == '' or variant.inventory_management == 'shopify' and variant.inventory_policy == 'continue' %}
+                            <span class="product-stock-count {% if variant == current_variant %}visible{% endif %}" data-product-stock-variant="{{ variant.id }}" data-product-stock-index="{{ forloop.index0 }}"></span>
+                            {% else %}
+                            {% if variant.inventory_quantity > threshold %}
+                                <span class="product-stock-count {% if variant == current_variant %}visible{% endif %}" data-product-stock-variant="{{ variant.id }}" data-product-stock-index="{{ forloop.index0 }}">{{ 'products.product.has_stock' | t }}</span>
+                            {% elsif variant.inventory_quantity > 0 %}
+                                <span class="product-stock-count {% if variant == current_variant %}visible{% endif %}" data-product-stock-variant="{{ variant.id }}" data-product-stock-index="{{ forloop.index0 }}">{{ 'products.product.low_stock' | t: stock: variant.inventory_quantity }}</span>
+                            {% elsif variant.inventory_quantity == 0 %}
+                                <span class="product-stock-count {% if variant == current_variant %}visible{% endif %}" data-product-stock-variant="{{ variant.id }}" data-product-stock-index="{{ forloop.index0 }}">{{ 'products.product.sold_out' | t }}</span>
+                            {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endif %}
+            {% when 'buy_buttons' %}
+                <div class="form-actions" {{ block.shopify_attributes }}>
+                    <button
+                    class="button
+                    {% unless product.available %}button-disabled{% endunless %}
+                    {% if block.settings.productsSmartPayment and product.selling_plan_groups.size == 0 %}button-secondary{% endif %}"
+                    type="submit"
+                    data-product-add
+                    {% unless product.available %}disabled{% endunless %}
+                    >
+                    {% render 'spinner' %}
+                    {% if product.available %}
+                        <span class="button-text">{{ 'products.product.add_to_cart' | t }}</span>
+                    {% else %}
+                        <span class="button-text">{{ 'products.product.sold_out' | t }}</span>
+                    {% endif %}
+                    </button>
+
+                    {% if block.settings.productsSmartPayment and product.available %}
+                    {{ form | payment_button }}
+                    {% endif %}
+                </div>
+            {% when 'pay_installments' %}
+                <div class="shopify-payment-terms__container" {{ block.shopify_attributes }}>
+                    {{ form | payment_terms }}
+                </div>
+            {% when 'store_availability' %}
+                <div class="product__store__availability__container" data-store-availability {{ block.shopify_attributes }}></div>
+                <div class="product__store__availability__modal" data-store-availability-modal-container></div>
+            {% when 'description' %}
+                <div class="product-description rte" id="product-description" {{ block.shopify_attributes }}>
+                    {{ product.description }}
+                </div>
+            {% when 'complementary-products' %}
+                <div {{ block.shopify_attributes }}>{% render 'complementary-products-block' with block_settings: block.settings %}</div> 
+            {% when 'cross-sells' %}
+            {% render 'cross-sells' with block_settings: block.settings, block_attributes: block.shopify_attributes %}
+            {% when 'social' %}
+                {% render "share", url: product.url, title: product.title, image: product.featured_media.preview_image, collection: collection.title, block_attributes: block.shopify_attributes %}
+            {% when 'custom-liquid' %}
+                <div {{ block.shopify_attributes }}>{{ block.settings.custom-liquid }}</div>
+            {% when 'accordion' %}
+                {% unless block.settings.text == blank and block.settings.content == blank %}
+                    <details class="accordion-content rte" {{ block.shopify_attributes }}>
+                      <summary role="button" aria-expanded="false" tabindex="0">
+                        {{ block.settings.content }}<span>{{ plus_icon }}{{ minus_icon }}</span>
+                      </summary>
+                      {{ block.settings.content }}
+                    </details>
+                  {% endunless %}
+
+            {% when 'product-rating' %}
+
+                {% if block.settings.rating != blank %}
+
+                  {% if block.settings.rating-label != blank %}
+                    <p class="rating-label">{{ block.settings.rating-label }}</p>
+                    {% assign rating_aria_label = block.settings.rating-label %}
+                  {% else %}
+                    {% assign rating_aria_label = "Rating" %}
+                  {% endif %}
+
+                  {% if block.settings.rating-icon-full %}
+
+                    {% liquid
+                      assign rating_decimal = 0
+                      assign decimal = block.settings.rating | modulo: 1
+                      if decimal >= 0.3 and decimal <= 0.7
+                        assign rating_decimal = 0.5
+                      elsif decimal > 0.7
+                        assign rating_decimal = 1
+                      endif
+
+                      assign full_icons = block.settings.rating | floor | plus: rating_decimal | floor
+                      assign empty_icons = block.settings.rating-max | round | minus: full_icons
+                      if rating_decimal == 0.5
+                        assign empty_icons = empty_icons | minus: 1
+                      endif
+
+                      assign full_alt = block.settings.rating-icon-full.alt | default: "Full icon"
+                      assign empty_alt = block.setting.rating-icon-empty.alt | default: "Empty icon"
+                    %}
+
+                    <div class="rating-icons" role="img" aria-label="{{ rating_aria_label }} - {{ block.settings.rating }} out of {{ block.settings.rating-max }}" {{ block.shopify_attributes }}>
+                      {% for i in (1..full_icons) %}
+                        <div class="rating-icons__icon" aria-hidden="true">
+                            {% render 'image',
+                                image_object: block.settings.rating-icon-full,
+                                image_widths: '50'
+                            %}
+                        </div>
+                      {% endfor %}
+
+                      {% if block.settings.rating-icon-empty %}
+
+                        {% if rating_decimal == 0.5 %}
+                          <div class="rating-icons__icon rating-icons__icon--half" aria-hidden="true">
+                            <div class="rating-icons__image--full">
+                                {% render 'image',
+                                    image_object: block.settings.rating-icon-full,
+                                    image_widths: '50'
+                                %}
+                            </div>
+                            <div class="rating-icons__image--empty">
+                                {% render 'image',
+                                    image_object: block.settings.rating-icon-empty,
+                                    image_widths: '50'
+                                %}
+                            </div>
+                          </div>
+                        {% endif %}
+
+                        {% for i in (1..empty_icons) %}
+                          <div class="rating-icons__icon" aria-hidden="true">
+                            {% render 'image',
+                                image_object: block.settings.rating-icon-empty,
+                                image_widths: '50'
+                            %}
+                          </div>
+                        {% endfor %}
+
+                      {% endif %}
+                    </div>
+                  {% else %}
+                    <p>{{ block.settings.rating }} / {{ block.settings.rating-max }}</p>
+                  {% endif %}
+                {% endif %}
+
+            {% when 'image-offer' %}
+
+                <div class="image-offer-container" {{ block.shopify_attributes }}>
+
+                {% if block.settings.image != blank %}
+
+                    {% assign image_widths = '335, 460, 680, 920, 1020, 1100' %}
+                    {% assign image_noscript_width = '1100x' %}
+                    {% if block.settings.link == blank %}
+                        {% assign image_link = false %}
+                    {% else %}
+                        {% assign image_link = block.settings.link %}
+                    {% endif %}
+
+                    <figure class="image-offer--image">
+                        {%-
+                        render 'image',
+                        image_object: block.settings.image,
+                        image_widths: image_widths,
+                        image_noscript_width: image_noscript_width,
+                        image_class: 'object-stretch',
+                        image_link: image_link,
+                        image_link_class: 'image-offer--is-link'
+                        -%}
+                    </figure>
+                {% else %}
+                    <figure class="image-offer--image svg-placeholder">
+                        {{ 'lifestyle-1' | placeholder_svg_tag: 'icon--placeholder' }}
+                    </figure>
+                {% endif %}
+
+                </div>
+
+                <style>
+                    .image-offer--image:hover .image-offer--is-link img {
+                        border-color: {{ block.settings.hover_border_color }};
+                    }
+                </style>
+
+            {% when 'text-with-icon' %}
+
+                {% render 'text-with-icon', icon: block.settings.icon, text: block.settings.text, link: block.settings.link, block_attributes: block.shopify_attributes %}
+
+            {% endcase %}
+        {% endfor %}
+      {% endform %}
+    </div>
+
+</div>
+
+{% schema %}
+{
+    "name": {
+        "en": "Product information",
+        "de": "Produkt",
+        "es": "Producto",
+        "fr": "Produit",
+        "pt-PT": "Produto"
+    },
+    "class": "product-section section-half-width",
+    "blocks": [
+        {
+            "type": "@app"
+        },
+        {
+            "type": "title",
+            "name": "Name",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "This is used to set the order and placement of the product name within the product information"
+                }
+            ]
+        },
+        {
+            "type": "vendor",
+            "name": "Vendor",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "productType",
+                    "label": {
+                        "en": "Show product type",
+                        "de": "Produkttyp anzeigen",
+                        "es": "Mostrar tipo de producto",
+                        "fr": "Afficher le type de produit",
+                        "pt-PT": "Mostrar o tipo de produto"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "price",
+            "name": "Price",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "This is used to set the order and placement of the product price within the product information"
+                }
+            ]
+        },
+        {
+            "type": "tax_and_shipping",
+            "name": "Tax and shipping",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "tax_included",
+                    "label": {
+                        "en": "Show 'tax included' message",
+                        "de": "Nachricht \"Steuer enthalten\" anzeigen",
+                        "es": "Mostrar mensaje \"impuesto incluido\"",
+                        "fr": "Afficher le message « taxe incluse »",
+                        "pt-PT": "Mostrar mensagem de 'impostos incluídos'"
+                    },
+                    "default": true
+                },
+                {
+                    "type": "checkbox",
+                    "id": "shipping_policy",
+                    "label": {
+                        "en": "Show shipping policy link",
+                        "de": "Link zur Versandrichtlinie anzeigen",
+                        "es": "Mostrar enlace de política de envío",
+                        "fr": "Afficher le lien de la politique d'expédition",
+                        "pt-PT": "Mostrar hiperligação da política de envios"
+                    },
+                    "default": true
+                }
+            ]
+        },
+        {
+            "type": "swatches",
+            "name": "Variant options",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "This is used to set the order and placement of variant options within the product information"
+                }
+            ]
+        },
+        {
+            "type": "quantity",
+            "name": "Quantity selector",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "This is used to set the order and placement of the quantity selector within the product information"
+                }
+            ]
+        },
+        {
+            "type": "stock_indicator",
+            "name": "Low stock indicator",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "range",
+                    "id": "productStockLevel",
+                    "label": {
+                        "en": "Show variant low stock indicator within product description",
+                        "de": "Abweichende Anzeige für niedrigen Lagerbestand in der Produktbeschreibung anzeigen",
+                        "es": "Mostrar el indicador de existencias bajas de la variante en la descripción del producto",
+                        "fr": "Afficher la variante de l'indicateur de rupture de stock dans la description du produit",
+                        "pt-PT": "Mostrar indicador variável de stock reduzido na descrição do produto"
+                    },
+                    "info": {
+                        "en": "Enter a number representing the stock level below which the indicator will begin to decrease.",
+                        "de": "Geben Sie die Höhe des Lagerbestands an, unterhalb derer die Anzeige fällt.",
+                        "es": "Introduzca un número que represente el nivel de disponibilidad por debajo del cual el indicador empezará a disminuir.",
+                        "fr": "Saisissez un nombre représentant le niveau de stock en dessous duquel l'indicateur commencera à diminuer.",
+                        "pt-PT": "Introduza um número a indicar o nível de stock a partir do qual o indicador começa a descer."
+                    },
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 0
+                }
+            ]
+        },
+        {
+            "type": "buy_buttons",
+            "name": "Buy buttons",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "productsSmartPayment",
+                    "label": {
+                        "en": "Show dynamic checkout button",
+                        "de": "Dynamischen Bezahlbutton anzeigen",
+                        "es": "Mostar el botón de compra dinámica",
+                        "fr": "Afficher le bouton de paiement dynamique",
+                        "pt-PT": "Mostrar botão de checkout dinâmico"
+                    },
+                    "info": {
+                        "en": "Lets customers check out directly using a familiar payment method. [Learn More](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+                        "de": "Erlaubt Kunden, direkt mit einer bekannten Zahlungsart zu bezahlen. [Mehr erfahren](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+                        "es": "Permite a los clientes realizar el pago directamente utilizando una forma de pago conocida. [Saber más](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+                        "fr": "Permet aux clients de payer directement en utilisant un moyen de paiement familier. [En savoir plus](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+                        "pt-PT": "Permite aos clientes verem diretamente através de um método de pagamento familiar. [Saber Mais](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+                    },
+                    "default": true
+                }
+            ]
+        },
+        {
+            "type": "pay_installments",
+            "name": "Shop Pay Installments",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "This is used to set the order and placement of the Shop Pay Installments banner within the product information"
+                }
+            ]
+        },
+        {
+            "type": "store_availability",
+            "name": "Local pickup",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "This is used to set the order and placement of local pickup within the product information. You will need to set your pickup locations to enable. [Learn more](https:\/\/help.shopify.com\/en\/manual\/locations)"
+                }
+            ]
+        },
+        {
+            "type": "description",
+            "name": "Description",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "This is used to set the order and placement of the product description within the product information"
+                }
+            ]
+        },
+        {
+          "name": "Complementary products",
+          "type": "complementary-products",
+          "limit": 1,
+          "settings": [
+            {
+              "type": "paragraph",
+              "content": "To select complementary products, add the Search & Discovery app. [Learn more](https://help.shopify.com/en/manual/online-store/search-and-discovery/product-recommendations)"
+            },
+            {
+              "type": "text",
+              "id": "title",
+              "label": "Heading",
+              "default": "Pairs well with..."
+            },
+            {
+              "type": "range",
+              "id": "products_to_show",
+              "min": 1,
+              "max": 10,
+              "step": 1,
+              "label": "Products to show",
+              "default": 5
+            },
+            {
+              "type": "range",
+              "id": "products_per_page",
+              "min": 1,
+              "max": 4,
+              "step": 1,
+              "default": 1,
+              "label": {
+                "en": "Number of products per page",
+                "de": "Anzahl der Produkte pro Seite",
+                "es": "Cantidad de productos por página",
+                "fr": "Nombre de produits par page",
+                "pt-PT": "Número de produtos por página"
+              }
+            },
+            {
+              "type": "color",
+              "id": "complementary_block_bg",
+              "label": "Background color",
+              "default": "#F8F8F8"
+            }
+          ]
+        },
+        {
+            "name": "Cross sells",
+            "type": "cross-sells",
+            "limit": 1,
+            "settings": [
+              {
+                "type": "text",
+                "id": "title",
+                "label": "Label",
+                "default": "Don't forget these..."
+              },
+              {
+                "type": "product",
+                "id": "cross_sell_product_1",
+                "label": "Cross sell product 1"
+              },
+              {
+                "type": "product",
+                "id": "cross_sell_product_2",
+                "label": "Cross sell product 2"
+              },
+              {
+                "type": "product",
+                "id": "cross_sell_product_3",
+                "label": "Cross sell product 3"
+              },
+              {
+                "type": "color",
+                "id": "cross_sell_bg",
+                "label": "Background color",
+                "default": "#FFFFFF"
+              }
+            ]
+          },
+        {
+            "type": "social",
+            "name": "Social media",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "This is used to set the order and placement of social media icons within the product information"
+                }
+            ]
+        },
+        {
+            "name": "Custom Liquid",
+            "type": "custom-liquid",
+            "settings": [
+              {
+                "type": "liquid",
+                "id": "custom-liquid",
+                "label": "Custom Liquid",
+                "default": "<p>Add app snippets or other Liquid code to create advanced customizations.</p>"
+              }
+            ]
+        },
+        {
+          "name": "Product rating",
+          "type": "product-rating",
+          "settings": [
+            {
+              "type": "text",
+              "id": "rating-label",
+              "label": "Label",
+              "default": "Rating"
+            },
+            {
+              "type": "text",
+              "id": "rating",
+              "label": "Rating",
+              "info": "To display a rating, add a [product rating metafield](/admin/metafields/product)"
+            },
+            {
+              "type": "image_picker",
+              "id": "rating-icon-full",
+              "label": "Full icon"
+            },
+            {
+              "type": "image_picker",
+              "id": "rating-icon-empty",
+              "label": "Empty icon",
+              "info": "Optional"
+            },
+            {
+              "type": "number",
+              "id": "rating-max",
+              "label": "Maximum",
+              "default": 5,
+              "info": "Select a maximum equal to the rating metafield's [scale maximum](/admin/metafields/product)"
+            }
+          ]
+        },
+        {
+            "name": "Image with offers",
+            "type": "image-offer",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": {
+                        "en": "Link",
+                        "de": "Link",
+                        "es": "Enlace",
+                        "fr": "Lien",
+                        "pt-PT": "Ligação"
+                    },
+                    "info": {
+                        "en": "Optional",
+                        "de": "Optional",
+                        "es": "Opcional",
+                        "fr": "Facultatif",
+                        "pt-PT": "Opcional"
+                    }
+                },
+                {
+                    "type": "color",
+                    "id": "hover_border_color",
+                    "label": {
+                        "en": "Link hover border color",
+                        "de": "Link hover border color",
+                        "es": "Link hover border color",
+                        "fr": "Link hover border color",
+                        "pt-PT": "Link hover border color"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Text with icon",
+            "type": "text-with-icon",
+            "settings": [
+                {
+                    "type": "select",
+                    "id": "icon",
+                    "label": {
+                        "en": "Icon",
+                        "de": "Symbol",
+                        "es": "Icono",
+                        "fr": "Icône",
+                        "pt-PT": "Ícone"
+                    },
+                    "default": "takeaway",
+                    "options": [
+                        {
+                            "value": "none",
+                            "label": {
+                                "en": "None",
+                                "de": "Keiner",
+                                "es": "Ninguno",
+                                "fr": "Aucun",
+                                "pt-PT": "Nenhum"
+                            }
+                        },
+                        {
+                            "value": "home-smile",
+                            "label": {
+                                "en": "Home with smile",
+                                "de": "Haus mit Lächeln",
+                                "es": "Hogar con sonrisa",
+                                "fr": "Accueil souriant",
+                                "pt-PT": "Casa com sorriso"
+                            }
+                        },
+                        {
+                            "value": "store",
+                            "label": {
+                                "en": "Store",
+                                "de": "Speichern",
+                                "es": "Tienda",
+                                "fr": "Magasin",
+                                "pt-PT": "Loja"
+                            }
+                        },
+                        {
+                            "value": "flag",
+                            "label": {
+                                "en": "Flag",
+                                "de": "Flagge",
+                                "es": "Bandera",
+                                "fr": "Drapeau",
+                                "pt-PT": "Bandeira"
+                            }
+                        },
+                        {
+                            "value": "service",
+                            "label": {
+                                "en": "Customer service",
+                                "de": "Kundendienst",
+                                "es": "Servicio al cliente",
+                                "fr": "Service clients",
+                                "pt-PT": "Serviço ao cliente"
+                            }
+                        },
+                        {
+                            "value": "chat",
+                            "label": {
+                                "en": "Chat bubble",
+                                "de": "Chat-Blase",
+                                "es": "Burbuja de chat",
+                                "fr": "Bulle de chat",
+                                "pt-PT": "Bolha de conversa"
+                            }
+                        },
+                        {
+                            "value": "chat-smile",
+                            "label": {
+                                "en": "Chat bubble with smile",
+                                "de": "Chat-Blase mit Lächeln",
+                                "es": "Burbuja de chat con sonrisa",
+                                "fr": "Bulle de chat avec sourire",
+                                "pt-PT": "Bolha de conversa com sorriso"
+                            }
+                        },
+                        {
+                            "value": "question-answer",
+                            "label": {
+                                "en": "Question and answer",
+                                "de": "Frage und Antwort",
+                                "es": "Pregunta y respuesta",
+                                "fr": "Question et réponse",
+                                "pt-PT": "Pergunta e resposta"
+                            }
+                        },
+                        {
+                            "value": "wallet",
+                            "label": {
+                                "en": "Wallet",
+                                "de": "Geldbörse",
+                                "es": "Cartera",
+                                "fr": "Portefeuille",
+                                "pt-PT": "Carteira"
+                            }
+                        },
+                        {
+                            "value": "price-tag",
+                            "label": {
+                                "en": "Price tag",
+                                "de": "Preisschild",
+                                "es": "Etiqueta de precio",
+                                "fr": "Étiquette de prix",
+                                "pt-PT": "Etiqueta de preço"
+                            }
+                        },
+                        {
+                            "value": "vip",
+                            "label": {
+                                "en": "VIP",
+                                "de": "VIP",
+                                "es": "VIP",
+                                "fr": "VIP",
+                                "pt-PT": "VIP"
+                            }
+                        },
+                        {
+                            "value": "crown",
+                            "label": {
+                                "en": "Crown",
+                                "de": "Krone",
+                                "es": "Corona",
+                                "fr": "Couronne",
+                                "pt-PT": "Coroa"
+                            }
+                        },
+                        {
+                            "value": "exchange",
+                            "label": {
+                                "en": "Exchange",
+                                "de": "Austausch",
+                                "es": "Intercambio",
+                                "fr": "Échange",
+                                "pt-PT": "Trocar"
+                            }
+                        },
+                        {
+                            "value": "gift",
+                            "label": {
+                                "en": "Gift",
+                                "de": "Geschenk",
+                                "es": "Regalo",
+                                "fr": "Cadeau",
+                                "pt-PT": "Presente"
+                            }
+                        },
+                        {
+                            "value": "24-hours",
+                            "label": {
+                                "en": "24 Hours",
+                                "de": "24 Stunden",
+                                "es": "24 horas",
+                                "fr": "24 heures",
+                                "pt-PT": "24 Horas"
+                            }
+                        },
+                        {
+                            "value": "heart",
+                            "label": {
+                                "en": "Heart",
+                                "de": "Herz",
+                                "es": "Corazón",
+                                "fr": "Cœur",
+                                "pt-PT": "Coração"
+                            }
+                        },
+                        {
+                            "value": "map-pin",
+                            "label": {
+                                "en": "Map pin",
+                                "de": "Karten-Nadel",
+                                "es": "Pin de mapa",
+                                "fr": "Épingle de carte",
+                                "pt-PT": "Alfinete no mapa"
+                            }
+                        },
+                        {
+                            "value": "car",
+                            "label": {
+                                "en": "Car",
+                                "de": "Auto",
+                                "es": "Coche",
+                                "fr": "Voiture",
+                                "pt-PT": "Automóvel"
+                            }
+                        },
+                        {
+                            "value": "takeaway",
+                            "label": {
+                                "en": "Takeaway",
+                                "de": "Imbissbude",
+                                "es": "Para llevar",
+                                "fr": "Emporter",
+                                "pt-PT": "Comida para fora"
+                            }
+                        },
+                        {
+                            "value": "restaurant",
+                            "label": {
+                                "en": "Restaurant",
+                                "de": "Restaurant",
+                                "es": "Restaurante",
+                                "fr": "Restaurant",
+                                "pt-PT": "Restaurante"
+                            }
+                        },
+                        {
+                            "value": "cup",
+                            "label": {
+                                "en": "Cup",
+                                "de": "Körbchen",
+                                "es": "Taza",
+                                "fr": "Tasse",
+                                "pt-PT": "Caneca"
+                            }
+                        },
+                        {
+                            "value": "goblet",
+                            "label": {
+                                "en": "Goblet",
+                                "de": "Kelch",
+                                "es": "Copa",
+                                "fr": "Gobelet",
+                                "pt-PT": "Cálice"
+                            }
+                        },
+                        {
+                            "value": "star",
+                            "label": {
+                                "en": "Star",
+                                "de": "Stern",
+                                "es": "Estrella",
+                                "fr": "Étoile",
+                                "pt-PT": "Estrela"
+                            }
+                        },
+                        {
+                            "value": "sun",
+                            "label": {
+                                "en": "Sun",
+                                "de": "Sonne",
+                                "es": "Sol",
+                                "fr": "Soleil",
+                                "pt-PT": "Sol"
+                            }
+                        },
+                        {
+                            "value": "moon",
+                            "label": {
+                                "en": "Moon",
+                                "de": "Mond",
+                                "es": "Luna",
+                                "fr": "Lune",
+                                "pt-PT": "Lua"
+                            }
+                        },
+                        {
+                            "value": "cake",
+                            "label": {
+                                "en": "Cake",
+                                "de": "Kuchen",
+                                "es": "Pastel",
+                                "fr": "Gâteau",
+                                "pt-PT": "Bolo"
+                            }
+                        },
+                        {
+                            "value": "handbag",
+                            "label": {
+                                "en": "Handbag",
+                                "de": "Handtasche",
+                                "es": "Bolso",
+                                "fr": "Sac à main",
+                                "pt-PT": "Mala de mão"
+                            }
+                        },
+                        {
+                            "value": "umbrella",
+                            "label": {
+                                "en": "Umbrella",
+                                "de": "Regenschirm",
+                                "es": "Paraguas",
+                                "fr": "Parapluie",
+                                "pt-PT": "Guarda-chuva"
+                            }
+                        },
+                        {
+                            "value": "recycle",
+                            "label": {
+                                "en": "Recycle",
+                                "de": "Recyceln",
+                                "es": "Reciclar",
+                                "fr": "Recycler",
+                                "pt-PT": "Reciclar"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "id": "text",
+                    "label": {
+                        "en": "Text",
+                        "de": "Text",
+                        "es": "Texto",
+                        "fr": "Texte",
+                        "pt-PT": "Texto"
+                    },
+                    "default": {
+                        "en": "Free shipping",
+                        "de": "Kostenloser versand",
+                        "es": "Envío gratis",
+                        "fr": "Livraison gratuite",
+                        "pt-PT": "Envio Grátis"
+                    }
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": {
+                        "en": "Link",
+                        "de": "Link",
+                        "es": "Enlace",
+                        "fr": "Lien",
+                        "pt-PT": "Ligação"
+                    },
+                    "info": {
+                        "en": "Optional",
+                        "de": "Optional",
+                        "es": "Opcional",
+                        "fr": "Facultatif",
+                        "pt-PT": "Opcional"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "accordion",
+            "name": "Accordion",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "content",
+                    "label": "Content"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

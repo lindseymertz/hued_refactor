@@ -1,0 +1,300 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "index-sliding-text": {
+      "type": "index-sliding-text",
+      "blocks": {
+        "index-sliding-text-0": {
+          "type": "text",
+          "settings": {
+            "text--scrolling-text_text": "30% OFF BLACK FRIDAY SALE"
+          }
+        },
+        "index-sliding-text-1": {
+          "type": "text",
+          "settings": {
+            "text--scrolling-text_text": "30% OFF BLACK FRIDAY SALE"
+          }
+        },
+        "index-sliding-text-2": {
+          "type": "text",
+          "settings": {
+            "text--scrolling-text_text": "30% OFF BLACK FRIDAY SALE"
+          }
+        }
+      },
+      "block_order": [
+        "index-sliding-text-0",
+        "index-sliding-text-1",
+        "index-sliding-text-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "text--scrolling-text--text-size": "medium",
+        "text--scrolling-text--font": "bodyFont",
+        "text--scrolling-text--text-color": "#ffffff",
+        "text--scrolling--background-color": "#27bdbe",
+        "text--scrolling--link": "shopify://collections/sale"
+      }
+    },
+    "index-image-with-text-overlay": {
+      "type": "index-image-with-text-overlay",
+      "settings": {
+        "image": "shopify://shop_images/thumbnail_HUED_BACKGROUND_RECTNO_SPACE.jpg",
+        "image_height": "30vw",
+        "bg_image_overlay_color": "#000000",
+        "bg_image_overlay_opacity": 0,
+        "subheading": "",
+        "title": "LIVE IN COLOR",
+        "text": "",
+        "colorText": "#fafafa",
+        "textPosition": "center",
+        "textAlignment": "center",
+        "heading--text-size": 36,
+        "text--text-size": 16,
+        "button_label": "Shop now",
+        "button_link": "shopify://collections/all"
+      }
+    },
+    "category-cards": {
+      "type": "index-category-cards",
+      "blocks": {
+        "cat-1": {
+          "type": "category",
+          "settings": {
+            "title": "Jelly Bracelets",
+            "link": "/collections/jelly-bracelets",
+            "placeholder_color": "#27bdbe"
+          }
+        },
+        "cat-2": {
+          "type": "category",
+          "settings": {
+            "title": "Jelly Rings",
+            "link": "/collections/jelly-rings",
+            "placeholder_color": "#ff6b6b"
+          }
+        },
+        "cat-3": {
+          "type": "category",
+          "settings": {
+            "title": "Twist Bracelets",
+            "link": "/collections/twist-bracelets",
+            "placeholder_color": "#9b59b6"
+          }
+        },
+        "cat-4": {
+          "type": "category",
+          "settings": {
+            "title": "Beaded Bracelets",
+            "link": "/collections/beaded-bracelets",
+            "placeholder_color": "#f39c12"
+          }
+        }
+      },
+      "block_order": [
+        "cat-1",
+        "cat-2",
+        "cat-3",
+        "cat-4"
+      ],
+      "settings": {
+        "heading": "Shop by Category"
+      }
+    },
+    "index_tabbed_collection_LqUqL3": {
+      "type": "index-tabbed-collection",
+      "blocks": {
+        "collection_tab_JCnhjG": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "valentines-day-jelly-bracelets",
+            "tab_label": ""
+          }
+        },
+        "collection_tab_DprDwQ": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "easter",
+            "tab_label": ""
+          }
+        },
+        "collection_tab_HVegKN": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "the-hued-shabang",
+            "tab_label": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_tab_JCnhjG",
+        "collection_tab_DprDwQ",
+        "collection_tab_HVegKN"
+      ],
+      "name": "Collection Carousel",
+      "settings": {
+        "heading": "Stacks you'll love",
+        "show_view_all": true
+      }
+    },
+    "index_shop_the_look_ELRqFX": {
+      "type": "index-shop-the-look",
+      "disabled": true,
+      "blocks": {
+        "product_WxNPtE": {
+          "type": "product",
+          "settings": {
+            "product": "a-bag-of-coal-christmas-jelly-bracelets",
+            "top": 0,
+            "left": 0
+          }
+        },
+        "product_4wBRAz": {
+          "type": "product",
+          "settings": {
+            "product": "alien-invasion-jelly-bracelets",
+            "top": 0,
+            "left": 0
+          }
+        },
+        "product_gTjYiE": {
+          "type": "product",
+          "settings": {
+            "product": "americana-jelly-bracelets",
+            "top": 46,
+            "left": 30
+          }
+        },
+        "product_iWJa4z": {
+          "type": "product",
+          "settings": {
+            "product": "americana-silicone-stacking-rings",
+            "top": 63,
+            "left": 51
+          }
+        }
+      },
+      "block_order": [
+        "product_WxNPtE",
+        "product_4wBRAz",
+        "product_gTjYiE",
+        "product_iWJa4z"
+      ],
+      "name": "Shop the look",
+      "settings": {
+        "stl__subheading": "",
+        "stl__heading": "Shop the look",
+        "stl__description": "<p>Add a description of your shop the look section to encourage your customers to purchase.</p>",
+        "description_alignment": "left",
+        "image__position": "image--left",
+        "link": "shopify://collections/all",
+        "button__text": "Shop now"
+      }
+    },
+    "shop_the_look_grid_main": {
+      "type": "shop-the-look-grid",
+      "blocks": {
+        "look_1": {
+          "type": "look",
+          "settings": {
+            "button_text": "SHOP THE LOOK"
+          }
+        },
+        "look_2": {
+          "type": "look",
+          "settings": {
+            "button_text": "SHOP THE LOOK"
+          }
+        },
+        "look_3": {
+          "type": "look",
+          "settings": {
+            "button_text": "SHOP THE LOOK"
+          }
+        },
+        "look_4": {
+          "type": "look",
+          "settings": {
+            "button_text": "SHOP THE LOOK"
+          }
+        },
+        "look_5": {
+          "type": "look",
+          "settings": {
+            "button_text": "SHOP THE LOOK"
+          }
+        },
+        "look_6": {
+          "type": "look",
+          "settings": {
+            "button_text": "SHOP THE LOOK"
+          }
+        }
+      },
+      "block_order": [
+        "look_1",
+        "look_2",
+        "look_3",
+        "look_4",
+        "look_5",
+        "look_6"
+      ],
+      "settings": {
+        "show_title": true,
+        "title": "Shop the Look",
+        "columns_desktop": "3",
+        "grid_gap": 16,
+        "image_ratio": "1 / 1",
+        "button_offset": 16,
+        "button_bg_color": "#ffffff",
+        "button_hover_bg_color": "#f5f5f5",
+        "button_text_color": "#1a1a1a"
+      }
+    },
+    "promo_split_create_your_own": {
+      "type": "promo-split",
+      "settings": {
+        "image_position": "right",
+        "title": "Create Your Own",
+        "description": "<p>Design a custom bracelet stack that's uniquely you. Mix colors, styles, and meanings to create something special.</p>",
+        "button_text": "SHOP NOW",
+        "button_link": "shopify://collections/all",
+        "button_style": "dark",
+        "background_color": "#f8e8dc",
+        "text_color": "#303030"
+      }
+    },
+    "promo_split_good_vibes": {
+      "type": "promo-split",
+      "settings": {
+        "image_position": "left",
+        "title": "Good Vibes, Delivered Monthly",
+        "description": "<p>Join the HUED Bracelet Club and get exclusive designs delivered to your door every month. Subscribe and save!</p>",
+        "button_text": "LEARN MORE",
+        "button_link": "shopify://collections/all",
+        "button_style": "dark",
+        "background_color": "#ffffff",
+        "text_color": "#303030"
+      }
+    }
+  },
+  "order": [
+    "index-sliding-text",
+    "index-image-with-text-overlay",
+    "category-cards",
+    "index_tabbed_collection_LqUqL3",
+    "promo_split_create_your_own",
+    "promo_split_good_vibes",
+    "index_shop_the_look_ELRqFX",
+    "shop_the_look_grid_main"
+  ]
+}

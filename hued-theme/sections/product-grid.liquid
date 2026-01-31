@@ -1,0 +1,12 @@
+{% assign item = product %}
+{%
+  render 'product-item',
+  item: item,
+  grid: 'grid-item-20',
+  additionalInfo: false,
+  collection: collection,
+  image_default_width: '1024x',
+  productInfoSetting: '',
+  isSearch: false,
+  delayAmount: 100
+%}
