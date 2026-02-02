@@ -5012,3 +5012,786 @@ h2.featured-products-heading {
 /* ===========================================
    END PRODUCT PAGE IMAGE BORDER RADIUS
    =========================================== */
+
+/* ===========================================
+   BRACELET CUSTOMIZER - Phase 1
+   Custom bracelet color configurator modal
+   Date: 2026-02-01
+   =========================================== */
+
+/* -----------------------------------------
+   OVERLAY
+   ----------------------------------------- */
+.bracelet-customizer__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 9998;
+}
+
+.bracelet-customizer__overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* -----------------------------------------
+   MODAL CONTAINER
+   ----------------------------------------- */
+.bracelet-customizer__modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  background: #fff;
+  border-radius: 16px;
+  width: 90vw;
+  max-width: 950px;
+  max-height: 90vh;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+}
+
+.bracelet-customizer__modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* -----------------------------------------
+   CLOSE BUTTON
+   ----------------------------------------- */
+.bracelet-customizer__close {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bracelet-customizer__close:hover {
+  background-color: #f5f5f5;
+  transform: scale(1.05);
+}
+
+.bracelet-customizer__close svg {
+  width: 20px;
+  height: 20px;
+  color: #303030;
+}
+
+/* -----------------------------------------
+   CONTENT LAYOUT
+   ----------------------------------------- */
+.bracelet-customizer__content {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  min-height: 500px;
+  max-height: 90vh;
+}
+
+/* -----------------------------------------
+   PREVIEW PANEL (Left)
+   ----------------------------------------- */
+.bracelet-customizer__preview {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bracelet-customizer__preview-inner {
+  width: 100%;
+  max-width: 280px;
+}
+
+.bracelet-customizer__preview-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bracelet-customizer__preview-bar {
+  height: 28px;
+  background-color: #E5E5E5;
+  border-radius: 14px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bracelet-customizer__preview-bar:hover {
+  transform: scale(1.02);
+}
+
+.bracelet-customizer__preview-bar.is-active {
+  box-shadow: 0 0 0 3px #27bdbe, 0 4px 12px rgba(39, 189, 190, 0.3);
+  transform: scale(1.03);
+}
+
+.bracelet-customizer__preview-bar--clear {
+  background: repeating-conic-gradient(#e5e5e5 0% 25%, #fff 0% 50%) 50% / 12px 12px;
+  border: 1px solid #ddd;
+}
+
+.bracelet-customizer__preview-bar-number {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+/* -----------------------------------------
+   PICKER PANEL (Right) - Quantity-Based Selection
+   ----------------------------------------- */
+.bracelet-customizer__picker {
+  padding: 32px 30px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* -----------------------------------------
+   PICKER HEADER WITH PROGRESS
+   ----------------------------------------- */
+.bracelet-customizer__picker-header {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.bracelet-customizer__picker-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #303030;
+  margin: 0 0 12px 0;
+  letter-spacing: 0.05em;
+}
+
+.bracelet-customizer__picker-counter {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.bracelet-customizer__counter-current {
+  font-size: 28px;
+  font-weight: 700;
+  color: #303030;
+  transition: color 0.3s ease;
+}
+
+.bracelet-customizer__counter-current.is-complete {
+  color: #27bdbe;
+}
+
+.bracelet-customizer__counter-sep,
+.bracelet-customizer__counter-label {
+  color: #808080;
+  font-weight: 400;
+}
+
+.bracelet-customizer__counter-total {
+  font-weight: 600;
+  color: #303030;
+}
+
+.bracelet-customizer__progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #e5e5e5;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.bracelet-customizer__progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #27bdbe, #1fa3a4);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.bracelet-customizer__progress-fill.is-complete {
+  background: linear-gradient(90deg, #27bdbe, #20c997);
+}
+
+/* -----------------------------------------
+   INSTRUCTIONS
+   ----------------------------------------- */
+.bracelet-customizer__picker-instructions {
+  margin-bottom: 20px;
+}
+
+.bracelet-customizer__instruction-main {
+  font-size: 15px;
+  font-weight: 500;
+  color: #303030;
+  margin: 0 0 4px 0;
+}
+
+.bracelet-customizer__instruction-hint {
+  font-size: 13px;
+  color: #808080;
+  margin: 0;
+}
+
+/* -----------------------------------------
+   COLOR GRID WITH QUANTITY CONTROLS
+   Reworked: 2026-02-01 - Inline +/− flanking active swatch
+   ----------------------------------------- */
+.bracelet-customizer__color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 20px 8px;
+  margin-bottom: 24px;
+  flex: 1;
+  align-content: start;
+  padding: 0 4px; /* Prevent +/- from clipping at edges */
+}
+
+.bracelet-customizer__swatch-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+  min-height: 48px;
+}
+
+.bracelet-customizer__swatch {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #e5e5e5;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bracelet-customizer__swatch:hover {
+  transform: scale(1.08);
+  border-color: #303030;
+}
+
+.bracelet-customizer__swatch-wrapper:hover .bracelet-customizer__tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.bracelet-customizer__swatch.is-selected {
+  border-color: #27bdbe;
+  box-shadow: 0 0 0 3px rgba(39, 189, 190, 0.3);
+}
+
+/* Active swatch - stronger highlight ring */
+.bracelet-customizer__swatch-wrapper.is-active .bracelet-customizer__swatch {
+  box-shadow: 0 0 0 4px rgba(39, 189, 190, 0.5);
+  transform: scale(1.05);
+}
+
+/* Quantity number centered in swatch */
+.bracelet-customizer__qty-num {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 0 4px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.bracelet-customizer__swatch.is-selected .bracelet-customizer__qty-num {
+  opacity: 1;
+}
+
+/* Light-colored swatches need dark text */
+.bracelet-customizer__swatch--light .bracelet-customizer__qty-num {
+  color: #303030;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+}
+
+/* Tooltip for color name */
+.bracelet-customizer__tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: #303030;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.bracelet-customizer__tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: #303030;
+}
+
+/* +/- Controls - hidden by default, visible on active swatch */
+.bracelet-customizer__qty-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #303030;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease, opacity 0.2s ease, transform 0.2s ease;
+  padding: 0;
+  line-height: 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.8);
+  position: absolute;
+  z-index: 5;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.bracelet-customizer__qty-btn--minus {
+  left: -8px;
+}
+
+.bracelet-customizer__qty-btn--plus {
+  right: -8px;
+}
+
+/* Show +/- only on active swatch */
+.bracelet-customizer__swatch-wrapper.is-active .bracelet-customizer__qty-btn {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.bracelet-customizer__qty-btn:hover:not(:disabled) {
+  border-color: #27bdbe;
+  color: #27bdbe;
+  background: #f0fafa;
+}
+
+.bracelet-customizer__qty-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Clear swatch - checkerboard pattern */
+.bracelet-customizer__swatch--clear {
+  background: repeating-conic-gradient(#e5e5e5 0% 25%, #fff 0% 50%) 50% / 10px 10px !important;
+}
+
+/* White swatch border visibility */
+.bracelet-customizer__swatch-wrapper[data-color-hex="#FFFFFF"] .bracelet-customizer__swatch {
+  border-color: #ddd;
+}
+
+/* -----------------------------------------
+   FINAL CTA BUTTON
+   ----------------------------------------- */
+.bracelet-customizer__cta {
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.bracelet-customizer__cta-btn {
+  width: 100%;
+  padding: 16px 24px;
+  background: #27bdbe;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.bracelet-customizer__cta-btn:hover:not(:disabled) {
+  background: #1fa3a4;
+  transform: translateY(-1px);
+}
+
+.bracelet-customizer__cta-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* -----------------------------------------
+   CUSTOMIZE BUTTON (Injected into product form)
+   ----------------------------------------- */
+.bracelet-customizer__injected-container {
+  margin: 16px 0;
+}
+
+.bracelet-customizer__customize-btn {
+  width: 100%;
+  padding: 16px 24px;
+  background: #27bdbe;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.bracelet-customizer__customize-btn:hover {
+  background: #1fa3a4;
+  transform: translateY(-1px);
+}
+
+.bracelet-customizer__customize-btn--completed {
+  background: #228B22;
+}
+
+.bracelet-customizer__customize-btn--completed:hover {
+  background: #1e7b1e;
+}
+
+.bracelet-customizer__helper-text {
+  font-size: 13px;
+  color: #808080;
+  margin: 8px 0 0 0;
+  text-align: center;
+}
+
+/* -----------------------------------------
+   ADD TO CART DISABLED STATE
+   ----------------------------------------- */
+.bracelet-customizer--disabled {
+  background: #ccc !important;
+  border-color: #ccc !important;
+  cursor: not-allowed !important;
+  opacity: 0.7;
+}
+
+.bracelet-customizer--disabled:hover {
+  background: #ccc !important;
+  transform: none !important;
+}
+
+/* -----------------------------------------
+   MOBILE RESPONSIVE
+   ----------------------------------------- */
+@media (max-width: 768px) {
+  .bracelet-customizer__modal {
+    width: 95vw;
+    max-height: 95vh;
+    border-radius: 12px;
+  }
+
+  .bracelet-customizer__content {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .bracelet-customizer__preview {
+    padding: 20px;
+    order: 1;
+  }
+
+  .bracelet-customizer__preview-inner {
+    max-width: 100%;
+  }
+
+  .bracelet-customizer__picker {
+    padding: 20px;
+    order: 2;
+    max-height: 55vh;
+    overflow-y: auto;
+  }
+
+  .bracelet-customizer__picker-header {
+    position: sticky;
+    top: -20px;
+    background: #fff;
+    margin: -20px -20px 20px -20px;
+    padding: 20px 20px 16px 20px;
+    z-index: 5;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .bracelet-customizer__picker-title {
+    font-size: 16px;
+  }
+
+  .bracelet-customizer__counter-current {
+    font-size: 24px;
+  }
+
+  .bracelet-customizer__color-grid {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 18px 6px;
+    padding: 0 6px;
+  }
+
+  .bracelet-customizer__swatch {
+    width: 38px;
+    height: 38px;
+  }
+
+  .bracelet-customizer__qty-num {
+    font-size: 12px;
+  }
+
+  .bracelet-customizer__qty-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+
+  .bracelet-customizer__qty-btn--minus {
+    left: -6px;
+  }
+
+  .bracelet-customizer__qty-btn--plus {
+    right: -6px;
+  }
+
+  .bracelet-customizer__close {
+    top: 12px;
+    left: 12px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .bracelet-customizer__close svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bracelet-customizer__modal {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    top: 0;
+    left: 0;
+    transform: translateY(100%);
+  }
+
+  .bracelet-customizer__modal.is-open {
+    transform: translateY(0);
+  }
+
+  .bracelet-customizer__preview {
+    padding: 16px;
+    min-height: auto;
+  }
+
+  .bracelet-customizer__picker {
+    padding: 16px;
+    flex: 1;
+    max-height: none;
+  }
+
+  .bracelet-customizer__picker-header {
+    margin: -16px -16px 16px -16px;
+    padding: 16px 16px 12px 16px;
+    top: -16px;
+  }
+
+  .bracelet-customizer__color-grid {
+    grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+    gap: 16px 4px;
+    padding: 0 8px;
+  }
+
+  .bracelet-customizer__swatch {
+    width: 34px;
+    height: 34px;
+  }
+
+  .bracelet-customizer__qty-num {
+    font-size: 11px;
+  }
+
+  .bracelet-customizer__qty-btn {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    min-width: 32px; /* Larger touch target */
+    min-height: 32px;
+    background: transparent;
+  }
+
+  .bracelet-customizer__qty-btn--minus {
+    left: -10px;
+  }
+
+  .bracelet-customizer__qty-btn--plus {
+    right: -10px;
+  }
+
+  .bracelet-customizer__cta {
+    padding-top: 16px;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+
+  /* Show tooltip on touch by keeping it visible for selected items */
+  .bracelet-customizer__swatch-wrapper.is-selected .bracelet-customizer__tooltip {
+    opacity: 0.9;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* -----------------------------------------
+   SVG BRACELET PREVIEW
+   Styles for inline SVG bracelet illustrations
+   ----------------------------------------- */
+
+/* Container for async-loaded SVGs */
+.bracelet-svg-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Base SVG styling */
+.bracelet-svg {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  display: block;
+}
+
+/* Smooth color transitions on all fillable elements */
+.bracelet-fill {
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+/* Individual bracelet layer - default state */
+.bracelet-layer {
+  cursor: pointer;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+/* Hover effect on bracelet layers */
+.bracelet-layer:hover {
+  filter: brightness(1.05);
+}
+
+/* Active bracelet layer - currently being edited */
+.bracelet-layer.is-active {
+  filter: drop-shadow(0 0 4px rgba(39, 189, 190, 0.6));
+}
+
+/* Active layer outline effect using CSS */
+.bracelet-layer.is-active .bracelet-fill {
+  stroke: #27bdbe;
+  stroke-width: 2;
+}
+
+/* For twist type - different stroke handling */
+.bracelet-svg--twist .bracelet-layer.is-active .bracelet-fill {
+  stroke-width: 3;
+}
+
+/* Dim non-active layers when one is selected */
+.bracelet-svg.has-active-layer .bracelet-layer:not(.is-active) {
+  opacity: 0.6;
+}
+
+/* SVG loader placeholder - shows shimmer while loading */
+.svg-loader {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: 200px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: bracelet-shimmer 1.5s infinite;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+/* Hide loader once SVG is loaded */
+.bracelet-svg-container .svg-loader[style*="display: none"] {
+  display: none !important;
+}
+
+/* Preview placeholder while SVG loads */
+.bracelet-svg-container:empty::before {
+  content: '';
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: 200px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: bracelet-shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes bracelet-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Mobile adjustments for SVG preview */
+@media (max-width: 600px) {
+  .bracelet-svg {
+    max-width: 220px;
+  }
+
+  .bracelet-svg-container:empty::before {
+    max-width: 220px;
+    height: 160px;
+  }
+}
+
+/* ===========================================
+   END BRACELET CUSTOMIZER
+   =========================================== */

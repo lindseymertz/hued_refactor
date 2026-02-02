@@ -1,0 +1,1018 @@
+{% comment %}
+  BRACELET CUSTOMIZER - Phase 2
+  Custom bracelet color configurator with SVG previews
+  Supports three bracelet types: silicone, beaded, twist
+
+  This section injects:
+  1. A "CUSTOMIZE YOUR PACK" button into the product form
+  2. A full-screen modal with SVG bracelet stack preview
+  3. Controls the ADD TO CART button state (disabled until customization complete)
+  4. Injects line item properties with color selections
+{% endcomment %}
+
+{% if section.settings.enabled %}
+
+{% comment %} Get product data for JavaScript {% endcomment %}
+{% assign count_option_name = section.settings.count_option_name | default: 'Count' %}
+{% assign count_option_index = nil %}
+{% for option in product.options %}
+  {% if option == count_option_name %}
+    {% assign count_option_index = forloop.index0 %}
+  {% endif %}
+{% endfor %}
+
+{% assign bracelet_type = section.settings.bracelet_type | default: 'silicone' %}
+
+{% comment %} Modal Overlay {% endcomment %}
+<div class="bracelet-customizer__overlay" data-customizer-overlay></div>
+
+{% comment %} Modal Container {% endcomment %}
+<div class="bracelet-customizer__modal" data-customizer-modal data-bracelet-type="{{ bracelet_type }}">
+  {% comment %} Close Button {% endcomment %}
+  <button class="bracelet-customizer__close" data-customizer-close aria-label="Close customizer">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+
+  <div class="bracelet-customizer__content">
+    {% comment %} Left Panel - SVG Preview {% endcomment %}
+    <div class="bracelet-customizer__preview">
+      <div class="bracelet-customizer__preview-inner">
+        <div class="bracelet-customizer__preview-svg" data-preview-svg>
+          {% comment %} SVG containers for each count - only render for the selected bracelet type {% endcomment %}
+
+          {% if bracelet_type == 'silicone' %}
+            {% comment %} Silicone: counts 6-12 {% endcomment %}
+            {% for count in (6..12) %}
+              <div class="bracelet-svg-container" data-svg-type="silicone" data-svg-count="{{ count }}" style="display: none;">
+                {% comment %} Inline the SVG content {% endcomment %}
+                {% case count %}
+                  {% when 6 %}
+                    <svg viewBox="0 0 280 104" xmlns="http://www.w3.org/2000/svg" class="bracelet-svg bracelet-svg--silicone">
+                      <g id="bracelet-1" class="bracelet-layer" data-bracelet="1"><ellipse class="bracelet-fill" cx="140" cy="80" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="82" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 78 Q 140 64 240 78" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 84 Q 140 92 250 84" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-2" class="bracelet-layer" data-bracelet="2"><ellipse class="bracelet-fill" cx="140" cy="66" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="68" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 64 Q 140 50 240 64" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 70 Q 140 78 250 70" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-3" class="bracelet-layer" data-bracelet="3"><ellipse class="bracelet-fill" cx="140" cy="52" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="54" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 50 Q 140 36 240 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 56 Q 140 64 250 56" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-4" class="bracelet-layer" data-bracelet="4"><ellipse class="bracelet-fill" cx="140" cy="38" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="40" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 36 Q 140 22 240 36" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 42 Q 140 50 250 42" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-5" class="bracelet-layer" data-bracelet="5"><ellipse class="bracelet-fill" cx="140" cy="24" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="26" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 22 Q 140 8 240 22" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 28 Q 140 36 250 28" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-6" class="bracelet-layer" data-bracelet="6"><ellipse class="bracelet-fill" cx="140" cy="10" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="12" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 8 Q 140 -6 240 8" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 14 Q 140 22 250 14" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                    </svg>
+                  {% when 7 %}
+                    <svg viewBox="0 0 280 118" xmlns="http://www.w3.org/2000/svg" class="bracelet-svg bracelet-svg--silicone">
+                      <g id="bracelet-1" class="bracelet-layer" data-bracelet="1"><ellipse class="bracelet-fill" cx="140" cy="94" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="96" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 92 Q 140 78 240 92" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 98 Q 140 106 250 98" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-2" class="bracelet-layer" data-bracelet="2"><ellipse class="bracelet-fill" cx="140" cy="80" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="82" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 78 Q 140 64 240 78" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 84 Q 140 92 250 84" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-3" class="bracelet-layer" data-bracelet="3"><ellipse class="bracelet-fill" cx="140" cy="66" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="68" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 64 Q 140 50 240 64" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 70 Q 140 78 250 70" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-4" class="bracelet-layer" data-bracelet="4"><ellipse class="bracelet-fill" cx="140" cy="52" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="54" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 50 Q 140 36 240 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 56 Q 140 64 250 56" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-5" class="bracelet-layer" data-bracelet="5"><ellipse class="bracelet-fill" cx="140" cy="38" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="40" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 36 Q 140 22 240 36" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 42 Q 140 50 250 42" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-6" class="bracelet-layer" data-bracelet="6"><ellipse class="bracelet-fill" cx="140" cy="24" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="26" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 22 Q 140 8 240 22" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 28 Q 140 36 250 28" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-7" class="bracelet-layer" data-bracelet="7"><ellipse class="bracelet-fill" cx="140" cy="10" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="12" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 8 Q 140 -6 240 8" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 14 Q 140 22 250 14" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                    </svg>
+                  {% when 8 %}
+                    <svg viewBox="0 0 280 132" xmlns="http://www.w3.org/2000/svg" class="bracelet-svg bracelet-svg--silicone">
+                      <g id="bracelet-1" class="bracelet-layer" data-bracelet="1"><ellipse class="bracelet-fill" cx="140" cy="108" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="110" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 106 Q 140 92 240 106" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 112 Q 140 120 250 112" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-2" class="bracelet-layer" data-bracelet="2"><ellipse class="bracelet-fill" cx="140" cy="94" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="96" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 92 Q 140 78 240 92" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 98 Q 140 106 250 98" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-3" class="bracelet-layer" data-bracelet="3"><ellipse class="bracelet-fill" cx="140" cy="80" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="82" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 78 Q 140 64 240 78" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 84 Q 140 92 250 84" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-4" class="bracelet-layer" data-bracelet="4"><ellipse class="bracelet-fill" cx="140" cy="66" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="68" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 64 Q 140 50 240 64" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 70 Q 140 78 250 70" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-5" class="bracelet-layer" data-bracelet="5"><ellipse class="bracelet-fill" cx="140" cy="52" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="54" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 50 Q 140 36 240 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 56 Q 140 64 250 56" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-6" class="bracelet-layer" data-bracelet="6"><ellipse class="bracelet-fill" cx="140" cy="38" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="40" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 36 Q 140 22 240 36" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 42 Q 140 50 250 42" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-7" class="bracelet-layer" data-bracelet="7"><ellipse class="bracelet-fill" cx="140" cy="24" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="26" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 22 Q 140 8 240 22" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 28 Q 140 36 250 28" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-8" class="bracelet-layer" data-bracelet="8"><ellipse class="bracelet-fill" cx="140" cy="10" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="12" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 8 Q 140 -6 240 8" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 14 Q 140 22 250 14" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                    </svg>
+                  {% when 9 %}
+                    <svg viewBox="0 0 280 146" xmlns="http://www.w3.org/2000/svg" class="bracelet-svg bracelet-svg--silicone">
+                      <g id="bracelet-1" class="bracelet-layer" data-bracelet="1"><ellipse class="bracelet-fill" cx="140" cy="122" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="124" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 120 Q 140 106 240 120" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 126 Q 140 134 250 126" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-2" class="bracelet-layer" data-bracelet="2"><ellipse class="bracelet-fill" cx="140" cy="108" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="110" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 106 Q 140 92 240 106" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 112 Q 140 120 250 112" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-3" class="bracelet-layer" data-bracelet="3"><ellipse class="bracelet-fill" cx="140" cy="94" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="96" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 92 Q 140 78 240 92" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 98 Q 140 106 250 98" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-4" class="bracelet-layer" data-bracelet="4"><ellipse class="bracelet-fill" cx="140" cy="80" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="82" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 78 Q 140 64 240 78" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 84 Q 140 92 250 84" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-5" class="bracelet-layer" data-bracelet="5"><ellipse class="bracelet-fill" cx="140" cy="66" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="68" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 64 Q 140 50 240 64" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 70 Q 140 78 250 70" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-6" class="bracelet-layer" data-bracelet="6"><ellipse class="bracelet-fill" cx="140" cy="52" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="54" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 50 Q 140 36 240 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 56 Q 140 64 250 56" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-7" class="bracelet-layer" data-bracelet="7"><ellipse class="bracelet-fill" cx="140" cy="38" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="40" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 36 Q 140 22 240 36" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 42 Q 140 50 250 42" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-8" class="bracelet-layer" data-bracelet="8"><ellipse class="bracelet-fill" cx="140" cy="24" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="26" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 22 Q 140 8 240 22" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 28 Q 140 36 250 28" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-9" class="bracelet-layer" data-bracelet="9"><ellipse class="bracelet-fill" cx="140" cy="10" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="12" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 8 Q 140 -6 240 8" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 14 Q 140 22 250 14" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                    </svg>
+                  {% when 10 %}
+                    <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" class="bracelet-svg bracelet-svg--silicone">
+                      <g id="bracelet-1" class="bracelet-layer" data-bracelet="1"><ellipse class="bracelet-fill" cx="140" cy="136" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="138" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 134 Q 140 120 240 134" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 140 Q 140 148 250 140" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-2" class="bracelet-layer" data-bracelet="2"><ellipse class="bracelet-fill" cx="140" cy="122" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="124" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 120 Q 140 106 240 120" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 126 Q 140 134 250 126" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-3" class="bracelet-layer" data-bracelet="3"><ellipse class="bracelet-fill" cx="140" cy="108" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="110" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 106 Q 140 92 240 106" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 112 Q 140 120 250 112" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-4" class="bracelet-layer" data-bracelet="4"><ellipse class="bracelet-fill" cx="140" cy="94" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="96" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 92 Q 140 78 240 92" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 98 Q 140 106 250 98" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-5" class="bracelet-layer" data-bracelet="5"><ellipse class="bracelet-fill" cx="140" cy="80" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="82" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 78 Q 140 64 240 78" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 84 Q 140 92 250 84" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-6" class="bracelet-layer" data-bracelet="6"><ellipse class="bracelet-fill" cx="140" cy="66" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="68" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 64 Q 140 50 240 64" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 70 Q 140 78 250 70" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-7" class="bracelet-layer" data-bracelet="7"><ellipse class="bracelet-fill" cx="140" cy="52" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="54" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 50 Q 140 36 240 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 56 Q 140 64 250 56" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-8" class="bracelet-layer" data-bracelet="8"><ellipse class="bracelet-fill" cx="140" cy="38" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="40" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 36 Q 140 22 240 36" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 42 Q 140 50 250 42" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-9" class="bracelet-layer" data-bracelet="9"><ellipse class="bracelet-fill" cx="140" cy="24" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="26" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 22 Q 140 8 240 22" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 28 Q 140 36 250 28" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-10" class="bracelet-layer" data-bracelet="10"><ellipse class="bracelet-fill" cx="140" cy="10" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="12" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 8 Q 140 -6 240 8" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 14 Q 140 22 250 14" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                    </svg>
+                  {% when 11 %}
+                    <svg viewBox="0 0 280 174" xmlns="http://www.w3.org/2000/svg" class="bracelet-svg bracelet-svg--silicone">
+                      <g id="bracelet-1" class="bracelet-layer" data-bracelet="1"><ellipse class="bracelet-fill" cx="140" cy="150" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="152" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 148 Q 140 134 240 148" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 154 Q 140 162 250 154" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-2" class="bracelet-layer" data-bracelet="2"><ellipse class="bracelet-fill" cx="140" cy="136" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="138" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 134 Q 140 120 240 134" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 140 Q 140 148 250 140" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-3" class="bracelet-layer" data-bracelet="3"><ellipse class="bracelet-fill" cx="140" cy="122" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="124" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 120 Q 140 106 240 120" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 126 Q 140 134 250 126" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-4" class="bracelet-layer" data-bracelet="4"><ellipse class="bracelet-fill" cx="140" cy="108" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="110" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 106 Q 140 92 240 106" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 112 Q 140 120 250 112" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-5" class="bracelet-layer" data-bracelet="5"><ellipse class="bracelet-fill" cx="140" cy="94" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="96" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 92 Q 140 78 240 92" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 98 Q 140 106 250 98" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-6" class="bracelet-layer" data-bracelet="6"><ellipse class="bracelet-fill" cx="140" cy="80" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="82" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 78 Q 140 64 240 78" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 84 Q 140 92 250 84" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-7" class="bracelet-layer" data-bracelet="7"><ellipse class="bracelet-fill" cx="140" cy="66" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="68" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 64 Q 140 50 240 64" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 70 Q 140 78 250 70" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-8" class="bracelet-layer" data-bracelet="8"><ellipse class="bracelet-fill" cx="140" cy="52" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="54" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 50 Q 140 36 240 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 56 Q 140 64 250 56" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-9" class="bracelet-layer" data-bracelet="9"><ellipse class="bracelet-fill" cx="140" cy="38" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="40" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 36 Q 140 22 240 36" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 42 Q 140 50 250 42" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-10" class="bracelet-layer" data-bracelet="10"><ellipse class="bracelet-fill" cx="140" cy="24" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="26" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 22 Q 140 8 240 22" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 28 Q 140 36 250 28" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-11" class="bracelet-layer" data-bracelet="11"><ellipse class="bracelet-fill" cx="140" cy="10" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="12" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 8 Q 140 -6 240 8" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 14 Q 140 22 250 14" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                    </svg>
+                  {% when 12 %}
+                    <svg viewBox="0 0 280 188" xmlns="http://www.w3.org/2000/svg" class="bracelet-svg bracelet-svg--silicone">
+                      <g id="bracelet-1" class="bracelet-layer" data-bracelet="1"><ellipse class="bracelet-fill" cx="140" cy="164" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="166" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 162 Q 140 148 240 162" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 168 Q 140 176 250 168" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-2" class="bracelet-layer" data-bracelet="2"><ellipse class="bracelet-fill" cx="140" cy="150" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="152" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 148 Q 140 134 240 148" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 154 Q 140 162 250 154" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-3" class="bracelet-layer" data-bracelet="3"><ellipse class="bracelet-fill" cx="140" cy="136" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="138" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 134 Q 140 120 240 134" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 140 Q 140 148 250 140" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-4" class="bracelet-layer" data-bracelet="4"><ellipse class="bracelet-fill" cx="140" cy="122" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="124" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 120 Q 140 106 240 120" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 126 Q 140 134 250 126" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-5" class="bracelet-layer" data-bracelet="5"><ellipse class="bracelet-fill" cx="140" cy="108" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="110" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 106 Q 140 92 240 106" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 112 Q 140 120 250 112" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-6" class="bracelet-layer" data-bracelet="6"><ellipse class="bracelet-fill" cx="140" cy="94" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="96" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 92 Q 140 78 240 92" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 98 Q 140 106 250 98" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-7" class="bracelet-layer" data-bracelet="7"><ellipse class="bracelet-fill" cx="140" cy="80" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="82" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 78 Q 140 64 240 78" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 84 Q 140 92 250 84" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-8" class="bracelet-layer" data-bracelet="8"><ellipse class="bracelet-fill" cx="140" cy="66" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="68" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 64 Q 140 50 240 64" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 70 Q 140 78 250 70" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-9" class="bracelet-layer" data-bracelet="9"><ellipse class="bracelet-fill" cx="140" cy="52" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="54" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 50 Q 140 36 240 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 56 Q 140 64 250 56" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-10" class="bracelet-layer" data-bracelet="10"><ellipse class="bracelet-fill" cx="140" cy="38" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="40" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 36 Q 140 22 240 36" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 42 Q 140 50 250 42" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-11" class="bracelet-layer" data-bracelet="11"><ellipse class="bracelet-fill" cx="140" cy="24" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="26" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 22 Q 140 8 240 22" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 28 Q 140 36 250 28" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                      <g id="bracelet-12" class="bracelet-layer" data-bracelet="12"><ellipse class="bracelet-fill" cx="140" cy="10" rx="120" ry="14" fill="#E5E5E5"/><ellipse cx="140" cy="12" rx="112" ry="10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/><path d="M 40 8 Q 140 -6 240 8" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round"/><path d="M 30 14 Q 140 22 250 14" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-linecap="round"/></g>
+                    </svg>
+                {% endcase %}
+              </div>
+            {% endfor %}
+          {% elsif bracelet_type == 'beaded' %}
+            {% comment %} Beaded: counts 3-8 - simplified inline version {% endcomment %}
+            {% for count in (3..8) %}
+              <div class="bracelet-svg-container" data-svg-type="beaded" data-svg-count="{{ count }}" style="display: none;">
+                {% render 'bracelet-svg-beaded', count: count %}
+              </div>
+            {% endfor %}
+          {% elsif bracelet_type == 'twist' %}
+            {% comment %} Twist: counts 3-8 - simplified inline version {% endcomment %}
+            {% for count in (3..8) %}
+              <div class="bracelet-svg-container" data-svg-type="twist" data-svg-count="{{ count }}" style="display: none;">
+                {% render 'bracelet-svg-twist', count: count %}
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {% comment %} Right Panel - Single-Page Color Quantity Picker {% endcomment %}
+    <div class="bracelet-customizer__picker">
+      {% comment %} Header with Progress Counter {% endcomment %}
+      <div class="bracelet-customizer__picker-header">
+        <h3 class="bracelet-customizer__picker-title">YOUR CUSTOM PACK</h3>
+        <div class="bracelet-customizer__picker-counter">
+          <span class="bracelet-customizer__counter-current" data-counter-current>0</span>
+          <span class="bracelet-customizer__counter-sep">of</span>
+          <span class="bracelet-customizer__counter-total" data-counter-total>10</span>
+          <span class="bracelet-customizer__counter-label">selected</span>
+        </div>
+        <div class="bracelet-customizer__progress-bar">
+          <div class="bracelet-customizer__progress-fill" data-progress-fill></div>
+        </div>
+      </div>
+
+      {% comment %} Instructions {% endcomment %}
+      <div class="bracelet-customizer__picker-instructions">
+        <p class="bracelet-customizer__instruction-main">Select your colors below</p>
+        <p class="bracelet-customizer__instruction-hint">You can choose multiples of the same color</p>
+      </div>
+
+      {% comment %} Color Grid with Quantity Controls {% endcomment %}
+      <div class="bracelet-customizer__color-grid" data-color-grid>
+        {% comment %} Swatches will be generated by JavaScript {% endcomment %}
+      </div>
+
+      {% comment %} CTA Button {% endcomment %}
+      <div class="bracelet-customizer__cta">
+        <button class="bracelet-customizer__cta-btn" data-select-colors disabled>
+          SELECT COLORS
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %} Hidden container for the customize button (will be moved by JS) {% endcomment %}
+<div class="bracelet-customizer__button-container" data-customizer-button-container style="display: none;">
+  <button class="bracelet-customizer__customize-btn" data-customize-btn style="background-color: {{ section.settings.button_color }};">
+    {{ section.settings.button_text }}
+  </button>
+  <p class="bracelet-customizer__helper-text" data-helper-text>
+    Customize your colors to add to cart
+  </p>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // ===========================================
+  // COLOR PALETTE
+  // ===========================================
+  const COLOR_PALETTE = [
+    { name: 'White', hex: '#FFFFFF' },
+    { name: 'Cream', hex: '#FFF8DC' },
+    { name: 'Light Pink', hex: '#FFB6C1' },
+    { name: 'Hot Pink', hex: '#FF69B4' },
+    { name: 'Fuchsia', hex: '#FF1493' },
+    { name: 'Red', hex: '#E74C3C' },
+    { name: 'Crimson', hex: '#DC143C' },
+    { name: 'Orange', hex: '#FF8C00' },
+    { name: 'Peach', hex: '#FFDAB9' },
+    { name: 'Yellow', hex: '#FFD700' },
+    { name: 'Lime', hex: '#32CD32' },
+    { name: 'Green', hex: '#228B22' },
+    { name: 'Forest Green', hex: '#006400' },
+    { name: 'Teal', hex: '#27BDBE' },
+    { name: 'Sky Blue', hex: '#87CEEB' },
+    { name: 'Royal Blue', hex: '#4169E1' },
+    { name: 'Navy', hex: '#1B2A4A' },
+    { name: 'Purple', hex: '#8B5CF6' },
+    { name: 'Lavender', hex: '#E6E6FA' },
+    { name: 'Brown', hex: '#8B4513' },
+    { name: 'Tan', hex: '#D2B48C' },
+    { name: 'Gray', hex: '#808080' },
+    { name: 'Black', hex: '#000000' },
+    { name: 'Clear', hex: 'transparent' }
+  ];
+
+  const DEFAULT_FILL = '#E5E5E5';
+
+  // ===========================================
+  // STATE - Reworked for quantity-based selection
+  // ===========================================
+  let state = {
+    isOpen: false,
+    packCount: 0,                    // Total bracelets in pack (e.g., 10)
+    colorQuantities: {},             // { "Red": 3, "Teal": 2, ... }
+    colorOrder: [],                  // Order colors were added: ["Red", "Teal", ...]
+    activeSwatch: null,              // Currently active swatch (showing +/−): "Red" or null
+    isCustomized: false,
+    countOptionIndex: {{ count_option_index | default: 'null' }},
+    braceletType: '{{ bracelet_type }}'
+  };
+
+  // ===========================================
+  // DOM ELEMENTS
+  // ===========================================
+  let elements = {};
+
+  function cacheElements() {
+    elements = {
+      overlay: document.querySelector('[data-customizer-overlay]'),
+      modal: document.querySelector('[data-customizer-modal]'),
+      closeBtn: document.querySelector('[data-customizer-close]'),
+      previewSvg: document.querySelector('[data-preview-svg]'),
+      colorGrid: document.querySelector('[data-color-grid]'),
+      counterCurrent: document.querySelector('[data-counter-current]'),
+      counterTotal: document.querySelector('[data-counter-total]'),
+      progressFill: document.querySelector('[data-progress-fill]'),
+      selectColorsBtn: document.querySelector('[data-select-colors]'),
+      buttonContainer: document.querySelector('[data-customizer-button-container]'),
+      customizeBtn: document.querySelector('[data-customize-btn]'),
+      helperText: document.querySelector('[data-helper-text]'),
+      productForm: null,
+      addToCartBtn: null,
+      variantSwatches: null,
+      activeSvgContainer: null
+    };
+  }
+
+  // ===========================================
+  // UTILITY FUNCTIONS
+  // ===========================================
+  function getTotalSelected() {
+    return Object.values(state.colorQuantities).reduce((sum, qty) => sum + qty, 0);
+  }
+
+  function isComplete() {
+    return getTotalSelected() === state.packCount;
+  }
+
+  // ===========================================
+  // PRODUCT FORM INTEGRATION
+  // ===========================================
+  function findProductFormElements() {
+    elements.productForm = document.querySelector('form[action="/cart/add"]');
+    if (!elements.productForm) {
+      elements.productForm = document.querySelector('[data-product-options]');
+    }
+    elements.addToCartBtn = document.querySelector('[data-product-add]');
+    elements.variantSwatches = document.querySelector('.product-swatches');
+  }
+
+  function getSelectedCount() {
+    const swatches = document.querySelectorAll('[data-product-swatch]');
+    let countValue = null;
+
+    swatches.forEach((swatch, index) => {
+      const label = swatch.querySelector('.form-field-title');
+      if (label && label.textContent.toLowerCase().includes('count')) {
+        const checkedInput = swatch.querySelector('input:checked');
+        if (checkedInput) {
+          countValue = checkedInput.value;
+        }
+      }
+    });
+
+    if (countValue) {
+      const match = countValue.match(/(\d+)/);
+      if (match) {
+        return parseInt(match[1], 10);
+      }
+    }
+
+    return null;
+  }
+
+  function injectCustomizeButton() {
+    if (!elements.buttonContainer) return;
+
+    const quantityBlock = document.querySelector('.product-quantity');
+    const buyButtons = document.querySelector('.form-actions');
+    const productActionsRow = document.querySelector('.product-actions-row');
+
+    const buttonWrapper = document.createElement('div');
+    buttonWrapper.className = 'bracelet-customizer__injected-container';
+    buttonWrapper.innerHTML = elements.buttonContainer.innerHTML;
+
+    if (productActionsRow) {
+      productActionsRow.parentNode.insertBefore(buttonWrapper, productActionsRow);
+    } else if (buyButtons) {
+      buyButtons.parentNode.insertBefore(buttonWrapper, buyButtons);
+    } else if (quantityBlock) {
+      quantityBlock.parentNode.insertBefore(buttonWrapper, quantityBlock.nextSibling);
+    }
+
+    elements.customizeBtn = buttonWrapper.querySelector('[data-customize-btn]');
+    elements.helperText = buttonWrapper.querySelector('[data-helper-text]');
+
+    if (elements.customizeBtn) {
+      elements.customizeBtn.addEventListener('click', handleCustomizeClick);
+    }
+  }
+
+  function disableAddToCart() {
+    if (!elements.addToCartBtn) return;
+    elements.addToCartBtn.disabled = true;
+    elements.addToCartBtn.classList.add('button-disabled', 'bracelet-customizer--disabled');
+    if (elements.helperText) {
+      elements.helperText.style.display = 'block';
+      elements.helperText.textContent = 'Customize your colors to add to cart';
+    }
+  }
+
+  function enableAddToCart() {
+    if (!elements.addToCartBtn) return;
+    elements.addToCartBtn.disabled = false;
+    elements.addToCartBtn.classList.remove('button-disabled', 'bracelet-customizer--disabled');
+    if (elements.helperText) {
+      elements.helperText.textContent = state.packCount + ' colors selected';
+    }
+  }
+
+  function updateCustomizeButtonState() {
+    if (!elements.customizeBtn) return;
+    if (state.isCustomized) {
+      elements.customizeBtn.innerHTML = '&#10003; COLORS SELECTED &mdash; EDIT';
+      elements.customizeBtn.classList.add('bracelet-customizer__customize-btn--completed');
+    } else {
+      elements.customizeBtn.textContent = '{{ section.settings.button_text }}';
+      elements.customizeBtn.classList.remove('bracelet-customizer__customize-btn--completed');
+    }
+  }
+
+  function injectLineItemProperties() {
+    if (!elements.productForm) {
+      elements.productForm = document.querySelector('form[action="/cart/add"]');
+    }
+    if (!elements.productForm) return;
+
+    // Remove any existing properties
+    const existingProps = elements.productForm.querySelectorAll('input[name^="properties["]');
+    existingProps.forEach(input => {
+      if (input.name.includes('Bracelet') || input.name.includes('Color') || input.name.includes('Custom Colors')) {
+        input.remove();
+      }
+    });
+
+    // Build the color summary string
+    // Format: "Red (3), Teal (2), White (1)"
+    const colorParts = state.colorOrder
+      .filter(name => state.colorQuantities[name] > 0)
+      .map(name => `${name} (${state.colorQuantities[name]})`);
+
+    const colorSummary = colorParts.join(', ');
+
+    // Check if we can fit in a single property (255 char limit)
+    if (colorSummary.length <= 255) {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'properties[Custom Colors]';
+      input.value = colorSummary;
+      input.setAttribute('data-customizer-property', 'summary');
+      elements.productForm.appendChild(input);
+    } else {
+      // Fall back to multiple properties if too long
+      let colorIndex = 1;
+      state.colorOrder.forEach(name => {
+        const qty = state.colorQuantities[name];
+        if (qty > 0) {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = `properties[Color ${colorIndex}]`;
+          input.value = `${name} x${qty}`;
+          input.setAttribute('data-customizer-property', colorIndex);
+          elements.productForm.appendChild(input);
+          colorIndex++;
+        }
+      });
+    }
+  }
+
+  function removeLineItemProperties() {
+    if (!elements.productForm) return;
+    const existingProps = elements.productForm.querySelectorAll('input[name^="properties["]');
+    existingProps.forEach(input => {
+      if (input.name.includes('Bracelet') || input.name.includes('Color') || input.name.includes('Custom Colors')) {
+        input.remove();
+      }
+    });
+  }
+
+  function resetCustomization() {
+    state.isCustomized = false;
+    state.colorQuantities = {};
+    state.colorOrder = [];
+    state.activeSwatch = null;
+    removeLineItemProperties();
+    disableAddToCart();
+    updateCustomizeButtonState();
+    resetSvgColors();
+  }
+
+  // ===========================================
+  // SVG PREVIEW FUNCTIONS
+  // ===========================================
+
+  async function loadSvgFromUrl(loaderElement) {
+    const svgUrl = loaderElement.dataset.svgUrl;
+    if (!svgUrl) return;
+
+    const parentContainer = loaderElement.parentElement;
+    if (!parentContainer) return;
+
+    if (parentContainer.querySelector('svg')) return;
+
+    try {
+      const response = await fetch(svgUrl);
+      if (!response.ok) throw new Error('Failed to load SVG');
+
+      const svgText = await response.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(svgText, 'image/svg+xml');
+      const svgElement = doc.querySelector('svg');
+
+      if (svgElement) {
+        svgElement.classList.add('bracelet-svg');
+        svgElement.classList.add(`bracelet-svg--${loaderElement.dataset.braceletType || 'default'}`);
+        parentContainer.insertBefore(svgElement, loaderElement);
+        loaderElement.style.display = 'none';
+      }
+    } catch (error) {
+      console.error('Error loading SVG:', error);
+    }
+  }
+
+  function showSvgForCount(count) {
+    if (!elements.previewSvg) return;
+
+    const allContainers = elements.previewSvg.querySelectorAll('.bracelet-svg-container');
+    allContainers.forEach(c => c.style.display = 'none');
+
+    const targetContainer = elements.previewSvg.querySelector(
+      `[data-svg-type="${state.braceletType}"][data-svg-count="${count}"]`
+    );
+
+    if (targetContainer) {
+      targetContainer.style.display = 'block';
+      elements.activeSvgContainer = targetContainer;
+
+      const svgLoader = targetContainer.querySelector('.svg-loader[data-svg-url]');
+      if (svgLoader && !targetContainer.querySelector('svg')) {
+        loadSvgFromUrl(svgLoader).then(() => {
+          updateSvgPreview();
+        });
+      }
+    }
+  }
+
+  function updateSvgBraceletColor(braceletNum, color) {
+    if (!elements.activeSvgContainer) return;
+
+    const braceletGroup = elements.activeSvgContainer.querySelector(`#bracelet-${braceletNum}`);
+    if (!braceletGroup) return;
+
+    const fillElements = braceletGroup.querySelectorAll('.bracelet-fill');
+    const hexColor = color ? color.hex : DEFAULT_FILL;
+    const isClear = color && color.hex === 'transparent';
+
+    fillElements.forEach(el => {
+      if (el.tagName === 'ellipse' || el.tagName === 'circle') {
+        el.setAttribute('fill', isClear ? 'none' : hexColor);
+        if (isClear) {
+          el.setAttribute('stroke', '#ccc');
+          el.setAttribute('stroke-width', '1');
+          el.setAttribute('stroke-dasharray', '4,2');
+        } else {
+          el.removeAttribute('stroke-dasharray');
+        }
+      } else if (el.tagName === 'path') {
+        el.setAttribute('stroke', isClear ? '#ccc' : hexColor);
+      }
+    });
+  }
+
+  function resetSvgColors() {
+    if (!elements.activeSvgContainer) return;
+
+    const allFills = elements.activeSvgContainer.querySelectorAll('.bracelet-fill');
+    allFills.forEach(el => {
+      if (el.tagName === 'ellipse' || el.tagName === 'circle') {
+        el.setAttribute('fill', DEFAULT_FILL);
+        el.removeAttribute('stroke-dasharray');
+      } else if (el.tagName === 'path') {
+        el.setAttribute('stroke', DEFAULT_FILL);
+      }
+    });
+  }
+
+  // Update SVG preview - fill bracelets bottom-up based on color order and quantities
+  function updateSvgPreview() {
+    if (!elements.activeSvgContainer) return;
+
+    // Reset all to default first
+    resetSvgColors();
+
+    // Build array of colors in order, expanded by quantity
+    // e.g., ["Red", "Red", "Red", "Teal", "Teal", "White"]
+    const expandedColors = [];
+    state.colorOrder.forEach(colorName => {
+      const qty = state.colorQuantities[colorName] || 0;
+      const colorData = COLOR_PALETTE.find(c => c.name === colorName);
+      for (let i = 0; i < qty; i++) {
+        expandedColors.push(colorData);
+      }
+    });
+
+    // Fill bracelets 1 to N (bottom-up in the stack)
+    expandedColors.forEach((color, index) => {
+      const braceletNum = index + 1;
+      if (braceletNum <= state.packCount) {
+        updateSvgBraceletColor(braceletNum, color);
+      }
+    });
+  }
+
+  // ===========================================
+  // UI UPDATE FUNCTIONS
+  // ===========================================
+  function updateCounterDisplay() {
+    const total = getTotalSelected();
+
+    if (elements.counterCurrent) {
+      elements.counterCurrent.textContent = total;
+      // Add complete class when done
+      if (isComplete()) {
+        elements.counterCurrent.classList.add('is-complete');
+      } else {
+        elements.counterCurrent.classList.remove('is-complete');
+      }
+    }
+
+    if (elements.counterTotal) {
+      elements.counterTotal.textContent = state.packCount;
+    }
+
+    if (elements.progressFill) {
+      const percentage = state.packCount > 0 ? (total / state.packCount) * 100 : 0;
+      elements.progressFill.style.width = percentage + '%';
+      if (isComplete()) {
+        elements.progressFill.classList.add('is-complete');
+      } else {
+        elements.progressFill.classList.remove('is-complete');
+      }
+    }
+
+    // Update CTA button state
+    if (elements.selectColorsBtn) {
+      elements.selectColorsBtn.disabled = !isComplete();
+    }
+  }
+
+  function updateSwatchDisplay(colorName) {
+    const wrapper = elements.colorGrid.querySelector(`[data-color-name="${colorName}"]`);
+    if (!wrapper) return;
+
+    const qty = state.colorQuantities[colorName] || 0;
+    const qtyNum = wrapper.querySelector('.bracelet-customizer__qty-num');
+    const swatchBtn = wrapper.querySelector('.bracelet-customizer__swatch');
+    const isActive = state.activeSwatch === colorName;
+
+    if (qty > 0) {
+      wrapper.classList.add('is-selected');
+      swatchBtn.classList.add('is-selected');
+      if (qtyNum) qtyNum.textContent = qty;
+    } else {
+      wrapper.classList.remove('is-selected');
+      wrapper.classList.remove('is-active');
+      swatchBtn.classList.remove('is-selected');
+      if (qtyNum) qtyNum.textContent = '';
+    }
+
+    // Update active state
+    wrapper.classList.toggle('is-active', isActive && qty > 0);
+
+    // Update plus button disabled state based on total
+    const plusBtn = wrapper.querySelector('[data-qty-plus]');
+    if (plusBtn) {
+      plusBtn.disabled = isComplete();
+    }
+  }
+
+  function updateAllSwatchDisplays() {
+    COLOR_PALETTE.forEach(color => {
+      updateSwatchDisplay(color.name);
+    });
+
+    // Update all plus buttons
+    const allPlusBtns = elements.colorGrid.querySelectorAll('[data-qty-plus]');
+    allPlusBtns.forEach(btn => {
+      btn.disabled = isComplete();
+    });
+  }
+
+  // ===========================================
+  // MODAL FUNCTIONS
+  // ===========================================
+  function openModal() {
+    const count = getSelectedCount();
+
+    if (!count) {
+      alert('Please select your pack size first');
+      return;
+    }
+
+    state.packCount = count;
+
+    if (!state.isCustomized) {
+      state.colorQuantities = {};
+      state.colorOrder = [];
+    }
+    state.activeSwatch = null; // Reset active swatch when opening
+
+    showSvgForCount(count);
+    generateColorGrid();
+    updateCounterDisplay();
+    updateSvgPreview();
+
+    state.isOpen = true;
+    elements.overlay.classList.add('is-open');
+    elements.modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    elements.modal.focus();
+  }
+
+  function closeModal(complete = false) {
+    state.isOpen = false;
+    elements.overlay.classList.remove('is-open');
+    elements.modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+
+    if (!complete && !state.isCustomized) {
+      state.colorQuantities = {};
+      state.colorOrder = [];
+      resetSvgColors();
+    }
+  }
+
+  function generateColorGrid() {
+    if (!elements.colorGrid) return;
+
+    let html = '';
+    COLOR_PALETTE.forEach((color, index) => {
+      const qty = state.colorQuantities[color.name] || 0;
+      const isSelected = qty > 0;
+      const isActive = state.activeSwatch === color.name;
+      const isClear = color.hex === 'transparent';
+      // Determine if this is a light color that needs dark text
+      const isLightColor = isLightHex(color.hex);
+
+      html += `
+        <div class="bracelet-customizer__swatch-wrapper ${isSelected ? 'is-selected' : ''} ${isActive ? 'is-active' : ''}"
+             data-color-name="${color.name}"
+             data-color-hex="${color.hex}">
+          <button class="bracelet-customizer__qty-btn bracelet-customizer__qty-btn--minus"
+                  data-qty-minus
+                  aria-label="Remove one ${color.name}">−</button>
+          <button
+            class="bracelet-customizer__swatch ${isSelected ? 'is-selected' : ''} ${isClear ? 'bracelet-customizer__swatch--clear' : ''} ${isLightColor ? 'bracelet-customizer__swatch--light' : ''}"
+            data-swatch-btn
+            style="${!isClear ? 'background-color: ' + color.hex : ''}"
+            aria-label="Select ${color.name}"
+          >
+            <span class="bracelet-customizer__qty-num">${qty > 0 ? qty : ''}</span>
+          </button>
+          <button class="bracelet-customizer__qty-btn bracelet-customizer__qty-btn--plus"
+                  data-qty-plus
+                  aria-label="Add one ${color.name}"
+                  ${isComplete() ? 'disabled' : ''}>+</button>
+          <span class="bracelet-customizer__tooltip">${color.name}</span>
+        </div>
+      `;
+    });
+
+    elements.colorGrid.innerHTML = html;
+
+    // Bind events to swatches
+    elements.colorGrid.querySelectorAll('.bracelet-customizer__swatch-wrapper').forEach(wrapper => {
+      const colorName = wrapper.getAttribute('data-color-name');
+      const colorHex = wrapper.getAttribute('data-color-hex');
+
+      const swatchBtn = wrapper.querySelector('[data-swatch-btn]');
+      const minusBtn = wrapper.querySelector('[data-qty-minus]');
+      const plusBtn = wrapper.querySelector('[data-qty-plus]');
+
+      if (swatchBtn) {
+        swatchBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          handleSwatchClick(colorName, colorHex);
+        });
+      }
+      if (minusBtn) {
+        minusBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          handleQuantityChange(colorName, colorHex, -1);
+        });
+      }
+      if (plusBtn) {
+        plusBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          handleQuantityChange(colorName, colorHex, 1);
+        });
+      }
+    });
+  }
+
+  // Helper to determine if a hex color is light (needs dark text)
+  function isLightHex(hex) {
+    if (!hex || hex === 'transparent') return false;
+    // Remove # if present
+    hex = hex.replace('#', '');
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    // Calculate luminance
+    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+    return luminance > 0.7; // Light if luminance > 0.7
+  }
+
+  // ===========================================
+  // ACTIVE SWATCH MANAGEMENT
+  // ===========================================
+  function setActiveSwatch(colorName) {
+    const previousActive = state.activeSwatch;
+
+    // If clicking the same swatch, deactivate it
+    if (previousActive === colorName) {
+      state.activeSwatch = null;
+    } else {
+      state.activeSwatch = colorName;
+    }
+
+    // Update UI for previous active swatch
+    if (previousActive && previousActive !== colorName) {
+      updateSwatchActiveState(previousActive);
+    }
+
+    // Update UI for new active swatch
+    updateSwatchActiveState(colorName);
+  }
+
+  function deactivateActiveSwatch() {
+    if (state.activeSwatch) {
+      const previousActive = state.activeSwatch;
+      state.activeSwatch = null;
+      updateSwatchActiveState(previousActive);
+    }
+  }
+
+  function updateSwatchActiveState(colorName) {
+    const wrapper = elements.colorGrid.querySelector(`[data-color-name="${colorName}"]`);
+    if (!wrapper) return;
+
+    const isActive = state.activeSwatch === colorName;
+    wrapper.classList.toggle('is-active', isActive);
+  }
+
+  // ===========================================
+  // EVENT HANDLERS
+  // ===========================================
+  function handleCustomizeClick(e) {
+    e.preventDefault();
+    openModal();
+  }
+
+  function handleSwatchClick(colorName, colorHex) {
+    const currentQty = state.colorQuantities[colorName] || 0;
+
+    if (currentQty === 0) {
+      // Unselected swatch: add 1 and make active
+      if (!isComplete()) {
+        handleQuantityChange(colorName, colorHex, 1);
+        setActiveSwatch(colorName);
+      }
+    } else {
+      // Already selected swatch: toggle active state
+      setActiveSwatch(colorName);
+    }
+  }
+
+  function handleQuantityChange(colorName, colorHex, delta) {
+    const currentQty = state.colorQuantities[colorName] || 0;
+    const newQty = currentQty + delta;
+
+    // Prevent going below 0
+    if (newQty < 0) return;
+
+    // Prevent exceeding pack count
+    const totalAfter = getTotalSelected() + delta;
+    if (totalAfter > state.packCount) return;
+
+    // Update quantity
+    if (newQty === 0) {
+      delete state.colorQuantities[colorName];
+      // Remove from order
+      const orderIndex = state.colorOrder.indexOf(colorName);
+      if (orderIndex > -1) {
+        state.colorOrder.splice(orderIndex, 1);
+      }
+      // Deactivate if this was the active swatch
+      if (state.activeSwatch === colorName) {
+        state.activeSwatch = null;
+      }
+    } else {
+      state.colorQuantities[colorName] = newQty;
+      // Add to order if new
+      if (!state.colorOrder.includes(colorName)) {
+        state.colorOrder.push(colorName);
+      }
+    }
+
+    // Update UI
+    updateSwatchDisplay(colorName);
+    updateAllSwatchDisplays(); // Update all plus buttons
+    updateCounterDisplay();
+    updateSvgPreview();
+  }
+
+  function handleModalContentClick(e) {
+    // Check if click was on the color grid area but not on a swatch or control
+    const clickedWrapper = e.target.closest('.bracelet-customizer__swatch-wrapper');
+    const clickedControl = e.target.closest('[data-swatch-btn], [data-qty-minus], [data-qty-plus]');
+
+    // If clicked inside modal content but not on a swatch/control, deactivate
+    if (!clickedWrapper && !clickedControl) {
+      deactivateActiveSwatch();
+    }
+  }
+
+  function handleSelectColors() {
+    if (!isComplete()) return;
+
+    state.isCustomized = true;
+    injectLineItemProperties();
+    enableAddToCart();
+    updateCustomizeButtonState();
+    closeModal(true);
+  }
+
+  function handleVariantChange(e) {
+    if (state.isCustomized) {
+      resetCustomization();
+    }
+  }
+
+  function handleKeydown(e) {
+    if (!state.isOpen) return;
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  }
+
+  // ===========================================
+  // INITIALIZATION
+  // ===========================================
+  function bindEvents() {
+    if (elements.closeBtn) {
+      elements.closeBtn.addEventListener('click', () => closeModal());
+    }
+    if (elements.overlay) {
+      elements.overlay.addEventListener('click', () => closeModal());
+    }
+    if (elements.selectColorsBtn) {
+      elements.selectColorsBtn.addEventListener('click', handleSelectColors);
+    }
+
+    // Click-outside to deactivate active swatch
+    if (elements.modal) {
+      elements.modal.addEventListener('click', handleModalContentClick);
+    }
+
+    document.addEventListener('keydown', handleKeydown);
+
+    const variantInputs = document.querySelectorAll('[data-product-swatch-input]');
+    variantInputs.forEach(input => {
+      input.addEventListener('change', handleVariantChange);
+    });
+  }
+
+  function init() {
+    cacheElements();
+    findProductFormElements();
+    injectCustomizeButton();
+    disableAddToCart();
+    bindEvents();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+</script>
+
+{% endif %}
+
+{% schema %}
+{
+  "name": "Bracelet Customizer",
+  "tag": "section",
+  "class": "bracelet-customizer-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enabled",
+      "label": "Enable customizer",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "bracelet_type",
+      "label": "Bracelet type",
+      "options": [
+        {
+          "value": "silicone",
+          "label": "Silicone / Jelly (6-12 pack)"
+        },
+        {
+          "value": "beaded",
+          "label": "Beaded (3-8 pack)"
+        },
+        {
+          "value": "twist",
+          "label": "Twist (3-8 pack)"
+        }
+      ],
+      "default": "silicone",
+      "info": "Select the bracelet style to show in the customizer preview"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Customize button text",
+      "default": "CUSTOMIZE YOUR PACK"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button color",
+      "default": "#27bdbe"
+    },
+    {
+      "type": "text",
+      "id": "count_option_name",
+      "label": "Count option name",
+      "default": "Count",
+      "info": "The name of the product option that determines pack size (e.g., 'Count', 'Pack Size')"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bracelet Customizer"
+    }
+  ]
+}
+{% endschema %}
