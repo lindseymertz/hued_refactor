@@ -131,6 +131,15 @@
       ],
       "settings": {}
     },
+    "bracelet-customizer": {
+      "type": "bracelet-customizer",
+      "settings": {
+        "enabled": true,
+        "button_text": "CUSTOMIZE YOUR PACK",
+        "button_color": "#27bdbe",
+        "count_option_name": "Count"
+      }
+    },
     "shop-collection": {
       "type": "product-shop-collection",
       "settings": {
@@ -369,6 +378,7 @@
   "order": [
     "product-gallery",
     "main",
+    "bracelet-customizer",
     "shop-collection",
     "why-shop-with-us",
     "product-recommendations",

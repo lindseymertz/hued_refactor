@@ -1,0 +1,37 @@
+{% comment %}
+  BRACELET SVG - TWIST TYPE
+  Renders inline twist bracelet SVGs for counts 3-8
+  Usage: {% render 'bracelet-svg-twist', count: 5 %}
+
+  Each bracelet layer has:
+  - id="bracelet-N" for JavaScript targeting
+  - class="bracelet-layer" for styling
+  - class="bracelet-fill" on colorable elements (ellipse fill and path stroke)
+
+  Note: This snippet is rendered inside a container from the parent section.
+  Uses placeholder spans with data-svg-url for async loading.
+{% endcomment %}
+
+{% case count %}
+{% when 3 %}
+<span class="svg-loader" data-svg-url="{{ 'bracelet-twist-3.svg' | asset_url }}" data-bracelet-type="twist"></span>
+
+{% when 4 %}
+<span class="svg-loader" data-svg-url="{{ 'bracelet-twist-4.svg' | asset_url }}" data-bracelet-type="twist"></span>
+
+{% when 5 %}
+<span class="svg-loader" data-svg-url="{{ 'bracelet-twist-5.svg' | asset_url }}" data-bracelet-type="twist"></span>
+
+{% when 6 %}
+<span class="svg-loader" data-svg-url="{{ 'bracelet-twist-6.svg' | asset_url }}" data-bracelet-type="twist"></span>
+
+{% when 7 %}
+<span class="svg-loader" data-svg-url="{{ 'bracelet-twist-7.svg' | asset_url }}" data-bracelet-type="twist"></span>
+
+{% when 8 %}
+<span class="svg-loader" data-svg-url="{{ 'bracelet-twist-8.svg' | asset_url }}" data-bracelet-type="twist"></span>
+
+{% else %}
+<!-- Default: use count 5 -->
+<span class="svg-loader" data-svg-url="{{ 'bracelet-twist-5.svg' | asset_url }}" data-bracelet-type="twist"></span>
+{% endcase %}

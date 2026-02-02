@@ -1,0 +1,458 @@
+<svg viewBox="0 0 280 169" xmlns="http://www.w3.org/2000/svg" class="bracelet-svg bracelet-svg--twist">
+  <g id="bracelet-1" class="bracelet-layer" data-bracelet="1">
+    <!-- Base shape -->
+    <ellipse class="bracelet-fill bracelet-base" cx="140" cy="144" rx="115" ry="6.5" fill="#E5E5E5"/>
+    <!-- Twist texture overlay -->
+    <g class="twist-texture">
+    <path class="bracelet-fill" d="M 25.0 142.0
+      Q 34.6 147.0 44.2 142.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 25.0 142.0
+      Q 34.6 147.0 44.2 142.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 44.2 146.0
+      Q 53.8 141.0 63.3 146.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 44.2 146.0
+      Q 53.8 141.0 63.3 146.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 63.3 142.0
+      Q 72.9 147.0 82.5 142.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 63.3 142.0
+      Q 72.9 147.0 82.5 142.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 82.5 146.0
+      Q 92.1 141.0 101.7 146.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 82.5 146.0
+      Q 92.1 141.0 101.7 146.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 101.7 142.0
+      Q 111.3 147.0 120.8 142.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 101.7 142.0
+      Q 111.3 147.0 120.8 142.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 120.8 146.0
+      Q 130.4 141.0 140.0 146.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 120.8 146.0
+      Q 130.4 141.0 140.0 146.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 140.0 142.0
+      Q 149.6 147.0 159.2 142.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 140.0 142.0
+      Q 149.6 147.0 159.2 142.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 159.2 146.0
+      Q 168.8 141.0 178.3 146.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 159.2 146.0
+      Q 168.8 141.0 178.3 146.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 178.3 142.0
+      Q 187.9 147.0 197.5 142.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 178.3 142.0
+      Q 187.9 147.0 197.5 142.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 197.5 146.0
+      Q 207.1 141.0 216.7 146.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 197.5 146.0
+      Q 207.1 141.0 216.7 146.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 216.7 142.0
+      Q 226.3 147.0 235.8 142.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 216.7 142.0
+      Q 226.3 147.0 235.8 142.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 235.8 146.0
+      Q 245.4 141.0 255.0 146.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 235.8 146.0
+      Q 245.4 141.0 255.0 146.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <!-- Top highlight -->
+    <ellipse cx="140" cy="142" rx="95" ry="3.25" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+  </g>
+  <g id="bracelet-2" class="bracelet-layer" data-bracelet="2">
+    <!-- Base shape -->
+    <ellipse class="bracelet-fill bracelet-base" cx="140" cy="127" rx="115" ry="6.5" fill="#E5E5E5"/>
+    <!-- Twist texture overlay -->
+    <g class="twist-texture">
+    <path class="bracelet-fill" d="M 25.0 125.0
+      Q 34.6 130.0 44.2 125.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 25.0 125.0
+      Q 34.6 130.0 44.2 125.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 44.2 129.0
+      Q 53.8 124.0 63.3 129.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 44.2 129.0
+      Q 53.8 124.0 63.3 129.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 63.3 125.0
+      Q 72.9 130.0 82.5 125.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 63.3 125.0
+      Q 72.9 130.0 82.5 125.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 82.5 129.0
+      Q 92.1 124.0 101.7 129.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 82.5 129.0
+      Q 92.1 124.0 101.7 129.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 101.7 125.0
+      Q 111.3 130.0 120.8 125.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 101.7 125.0
+      Q 111.3 130.0 120.8 125.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 120.8 129.0
+      Q 130.4 124.0 140.0 129.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 120.8 129.0
+      Q 130.4 124.0 140.0 129.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 140.0 125.0
+      Q 149.6 130.0 159.2 125.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 140.0 125.0
+      Q 149.6 130.0 159.2 125.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 159.2 129.0
+      Q 168.8 124.0 178.3 129.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 159.2 129.0
+      Q 168.8 124.0 178.3 129.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 178.3 125.0
+      Q 187.9 130.0 197.5 125.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 178.3 125.0
+      Q 187.9 130.0 197.5 125.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 197.5 129.0
+      Q 207.1 124.0 216.7 129.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 197.5 129.0
+      Q 207.1 124.0 216.7 129.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 216.7 125.0
+      Q 226.3 130.0 235.8 125.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 216.7 125.0
+      Q 226.3 130.0 235.8 125.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 235.8 129.0
+      Q 245.4 124.0 255.0 129.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 235.8 129.0
+      Q 245.4 124.0 255.0 129.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <!-- Top highlight -->
+    <ellipse cx="140" cy="125" rx="95" ry="3.25" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+  </g>
+  <g id="bracelet-3" class="bracelet-layer" data-bracelet="3">
+    <!-- Base shape -->
+    <ellipse class="bracelet-fill bracelet-base" cx="140" cy="110" rx="115" ry="6.5" fill="#E5E5E5"/>
+    <!-- Twist texture overlay -->
+    <g class="twist-texture">
+    <path class="bracelet-fill" d="M 25.0 108.0
+      Q 34.6 113.0 44.2 108.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 25.0 108.0
+      Q 34.6 113.0 44.2 108.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 44.2 112.0
+      Q 53.8 107.0 63.3 112.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 44.2 112.0
+      Q 53.8 107.0 63.3 112.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 63.3 108.0
+      Q 72.9 113.0 82.5 108.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 63.3 108.0
+      Q 72.9 113.0 82.5 108.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 82.5 112.0
+      Q 92.1 107.0 101.7 112.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 82.5 112.0
+      Q 92.1 107.0 101.7 112.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 101.7 108.0
+      Q 111.3 113.0 120.8 108.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 101.7 108.0
+      Q 111.3 113.0 120.8 108.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 120.8 112.0
+      Q 130.4 107.0 140.0 112.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 120.8 112.0
+      Q 130.4 107.0 140.0 112.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 140.0 108.0
+      Q 149.6 113.0 159.2 108.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 140.0 108.0
+      Q 149.6 113.0 159.2 108.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 159.2 112.0
+      Q 168.8 107.0 178.3 112.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 159.2 112.0
+      Q 168.8 107.0 178.3 112.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 178.3 108.0
+      Q 187.9 113.0 197.5 108.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 178.3 108.0
+      Q 187.9 113.0 197.5 108.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 197.5 112.0
+      Q 207.1 107.0 216.7 112.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 197.5 112.0
+      Q 207.1 107.0 216.7 112.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 216.7 108.0
+      Q 226.3 113.0 235.8 108.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 216.7 108.0
+      Q 226.3 113.0 235.8 108.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 235.8 112.0
+      Q 245.4 107.0 255.0 112.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 235.8 112.0
+      Q 245.4 107.0 255.0 112.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <!-- Top highlight -->
+    <ellipse cx="140" cy="108" rx="95" ry="3.25" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+  </g>
+  <g id="bracelet-4" class="bracelet-layer" data-bracelet="4">
+    <!-- Base shape -->
+    <ellipse class="bracelet-fill bracelet-base" cx="140" cy="93" rx="115" ry="6.5" fill="#E5E5E5"/>
+    <!-- Twist texture overlay -->
+    <g class="twist-texture">
+    <path class="bracelet-fill" d="M 25.0 91.0
+      Q 34.6 96.0 44.2 91.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 25.0 91.0
+      Q 34.6 96.0 44.2 91.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 44.2 95.0
+      Q 53.8 90.0 63.3 95.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 44.2 95.0
+      Q 53.8 90.0 63.3 95.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 63.3 91.0
+      Q 72.9 96.0 82.5 91.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 63.3 91.0
+      Q 72.9 96.0 82.5 91.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 82.5 95.0
+      Q 92.1 90.0 101.7 95.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 82.5 95.0
+      Q 92.1 90.0 101.7 95.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 101.7 91.0
+      Q 111.3 96.0 120.8 91.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 101.7 91.0
+      Q 111.3 96.0 120.8 91.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 120.8 95.0
+      Q 130.4 90.0 140.0 95.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 120.8 95.0
+      Q 130.4 90.0 140.0 95.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 140.0 91.0
+      Q 149.6 96.0 159.2 91.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 140.0 91.0
+      Q 149.6 96.0 159.2 91.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 159.2 95.0
+      Q 168.8 90.0 178.3 95.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 159.2 95.0
+      Q 168.8 90.0 178.3 95.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 178.3 91.0
+      Q 187.9 96.0 197.5 91.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 178.3 91.0
+      Q 187.9 96.0 197.5 91.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 197.5 95.0
+      Q 207.1 90.0 216.7 95.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 197.5 95.0
+      Q 207.1 90.0 216.7 95.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 216.7 91.0
+      Q 226.3 96.0 235.8 91.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 216.7 91.0
+      Q 226.3 96.0 235.8 91.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 235.8 95.0
+      Q 245.4 90.0 255.0 95.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 235.8 95.0
+      Q 245.4 90.0 255.0 95.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <!-- Top highlight -->
+    <ellipse cx="140" cy="91" rx="95" ry="3.25" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+  </g>
+  <g id="bracelet-5" class="bracelet-layer" data-bracelet="5">
+    <!-- Base shape -->
+    <ellipse class="bracelet-fill bracelet-base" cx="140" cy="76" rx="115" ry="6.5" fill="#E5E5E5"/>
+    <!-- Twist texture overlay -->
+    <g class="twist-texture">
+    <path class="bracelet-fill" d="M 25.0 74.0
+      Q 34.6 79.0 44.2 74.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 25.0 74.0
+      Q 34.6 79.0 44.2 74.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 44.2 78.0
+      Q 53.8 73.0 63.3 78.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 44.2 78.0
+      Q 53.8 73.0 63.3 78.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 63.3 74.0
+      Q 72.9 79.0 82.5 74.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 63.3 74.0
+      Q 72.9 79.0 82.5 74.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 82.5 78.0
+      Q 92.1 73.0 101.7 78.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 82.5 78.0
+      Q 92.1 73.0 101.7 78.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 101.7 74.0
+      Q 111.3 79.0 120.8 74.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 101.7 74.0
+      Q 111.3 79.0 120.8 74.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 120.8 78.0
+      Q 130.4 73.0 140.0 78.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 120.8 78.0
+      Q 130.4 73.0 140.0 78.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 140.0 74.0
+      Q 149.6 79.0 159.2 74.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 140.0 74.0
+      Q 149.6 79.0 159.2 74.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 159.2 78.0
+      Q 168.8 73.0 178.3 78.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 159.2 78.0
+      Q 168.8 73.0 178.3 78.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 178.3 74.0
+      Q 187.9 79.0 197.5 74.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 178.3 74.0
+      Q 187.9 79.0 197.5 74.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 197.5 78.0
+      Q 207.1 73.0 216.7 78.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 197.5 78.0
+      Q 207.1 73.0 216.7 78.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 216.7 74.0
+      Q 226.3 79.0 235.8 74.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 216.7 74.0
+      Q 226.3 79.0 235.8 74.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 235.8 78.0
+      Q 245.4 73.0 255.0 78.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 235.8 78.0
+      Q 245.4 73.0 255.0 78.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <!-- Top highlight -->
+    <ellipse cx="140" cy="74" rx="95" ry="3.25" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+  </g>
+  <g id="bracelet-6" class="bracelet-layer" data-bracelet="6">
+    <!-- Base shape -->
+    <ellipse class="bracelet-fill bracelet-base" cx="140" cy="59" rx="115" ry="6.5" fill="#E5E5E5"/>
+    <!-- Twist texture overlay -->
+    <g class="twist-texture">
+    <path class="bracelet-fill" d="M 25.0 57.0
+      Q 34.6 62.0 44.2 57.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 25.0 57.0
+      Q 34.6 62.0 44.2 57.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 44.2 61.0
+      Q 53.8 56.0 63.3 61.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 44.2 61.0
+      Q 53.8 56.0 63.3 61.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 63.3 57.0
+      Q 72.9 62.0 82.5 57.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 63.3 57.0
+      Q 72.9 62.0 82.5 57.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 82.5 61.0
+      Q 92.1 56.0 101.7 61.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 82.5 61.0
+      Q 92.1 56.0 101.7 61.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 101.7 57.0
+      Q 111.3 62.0 120.8 57.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 101.7 57.0
+      Q 111.3 62.0 120.8 57.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 120.8 61.0
+      Q 130.4 56.0 140.0 61.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 120.8 61.0
+      Q 130.4 56.0 140.0 61.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 140.0 57.0
+      Q 149.6 62.0 159.2 57.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 140.0 57.0
+      Q 149.6 62.0 159.2 57.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 159.2 61.0
+      Q 168.8 56.0 178.3 61.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 159.2 61.0
+      Q 168.8 56.0 178.3 61.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 178.3 57.0
+      Q 187.9 62.0 197.5 57.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 178.3 57.0
+      Q 187.9 62.0 197.5 57.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 197.5 61.0
+      Q 207.1 56.0 216.7 61.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 197.5 61.0
+      Q 207.1 56.0 216.7 61.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 216.7 57.0
+      Q 226.3 62.0 235.8 57.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 216.7 57.0
+      Q 226.3 62.0 235.8 57.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 235.8 61.0
+      Q 245.4 56.0 255.0 61.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 235.8 61.0
+      Q 245.4 56.0 255.0 61.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <!-- Top highlight -->
+    <ellipse cx="140" cy="57" rx="95" ry="3.25" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+  </g>
+  <g id="bracelet-7" class="bracelet-layer" data-bracelet="7">
+    <!-- Base shape -->
+    <ellipse class="bracelet-fill bracelet-base" cx="140" cy="42" rx="115" ry="6.5" fill="#E5E5E5"/>
+    <!-- Twist texture overlay -->
+    <g class="twist-texture">
+    <path class="bracelet-fill" d="M 25.0 40.0
+      Q 34.6 45.0 44.2 40.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 25.0 40.0
+      Q 34.6 45.0 44.2 40.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 44.2 44.0
+      Q 53.8 39.0 63.3 44.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 44.2 44.0
+      Q 53.8 39.0 63.3 44.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 63.3 40.0
+      Q 72.9 45.0 82.5 40.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 63.3 40.0
+      Q 72.9 45.0 82.5 40.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 82.5 44.0
+      Q 92.1 39.0 101.7 44.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 82.5 44.0
+      Q 92.1 39.0 101.7 44.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 101.7 40.0
+      Q 111.3 45.0 120.8 40.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 101.7 40.0
+      Q 111.3 45.0 120.8 40.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 120.8 44.0
+      Q 130.4 39.0 140.0 44.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 120.8 44.0
+      Q 130.4 39.0 140.0 44.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 140.0 40.0
+      Q 149.6 45.0 159.2 40.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 140.0 40.0
+      Q 149.6 45.0 159.2 40.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 159.2 44.0
+      Q 168.8 39.0 178.3 44.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 159.2 44.0
+      Q 168.8 39.0 178.3 44.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 178.3 40.0
+      Q 187.9 45.0 197.5 40.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 178.3 40.0
+      Q 187.9 45.0 197.5 40.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 197.5 44.0
+      Q 207.1 39.0 216.7 44.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 197.5 44.0
+      Q 207.1 39.0 216.7 44.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 216.7 40.0
+      Q 226.3 45.0 235.8 40.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 216.7 40.0
+      Q 226.3 45.0 235.8 40.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 235.8 44.0
+      Q 245.4 39.0 255.0 44.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 235.8 44.0
+      Q 245.4 39.0 255.0 44.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <!-- Top highlight -->
+    <ellipse cx="140" cy="40" rx="95" ry="3.25" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+  </g>
+  <g id="bracelet-8" class="bracelet-layer" data-bracelet="8">
+    <!-- Base shape -->
+    <ellipse class="bracelet-fill bracelet-base" cx="140" cy="25" rx="115" ry="6.5" fill="#E5E5E5"/>
+    <!-- Twist texture overlay -->
+    <g class="twist-texture">
+    <path class="bracelet-fill" d="M 25.0 23.0
+      Q 34.6 28.0 44.2 23.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 25.0 23.0
+      Q 34.6 28.0 44.2 23.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 44.2 27.0
+      Q 53.8 22.0 63.3 27.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 44.2 27.0
+      Q 53.8 22.0 63.3 27.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 63.3 23.0
+      Q 72.9 28.0 82.5 23.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 63.3 23.0
+      Q 72.9 28.0 82.5 23.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 82.5 27.0
+      Q 92.1 22.0 101.7 27.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 82.5 27.0
+      Q 92.1 22.0 101.7 27.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 101.7 23.0
+      Q 111.3 28.0 120.8 23.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 101.7 23.0
+      Q 111.3 28.0 120.8 23.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 120.8 27.0
+      Q 130.4 22.0 140.0 27.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 120.8 27.0
+      Q 130.4 22.0 140.0 27.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 140.0 23.0
+      Q 149.6 28.0 159.2 23.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 140.0 23.0
+      Q 149.6 28.0 159.2 23.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 159.2 27.0
+      Q 168.8 22.0 178.3 27.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 159.2 27.0
+      Q 168.8 22.0 178.3 27.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 178.3 23.0
+      Q 187.9 28.0 197.5 23.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 178.3 23.0
+      Q 187.9 28.0 197.5 23.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 197.5 27.0
+      Q 207.1 22.0 216.7 27.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 197.5 27.0
+      Q 207.1 22.0 216.7 27.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 216.7 23.0
+      Q 226.3 28.0 235.8 23.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 216.7 23.0
+      Q 226.3 28.0 235.8 23.0" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <path class="bracelet-fill" d="M 235.8 27.0
+      Q 245.4 22.0 255.0 27.0" fill="none" stroke="#E5E5E5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 235.8 27.0
+      Q 245.4 22.0 255.0 27.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <!-- Top highlight -->
+    <ellipse cx="140" cy="23" rx="95" ry="3.25" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+  </g>
+</svg>
